@@ -1,5 +1,5 @@
 generator client { provider = "prisma-client-js" }
-datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+datasource db { provider = "postgresql" }
 
 enum MemberStatus { ACTIVE INACTIVE ON_LEAVE SUSPENDED BANNED RESIGNED }
 enum SubmissionStatus { PENDING REVIEWING APPROVED REJECTED PUBLISHED ARCHIVED }
