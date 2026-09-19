@@ -8,7 +8,7 @@ NARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Pris
 
 `GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.
 
-GitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi. citeturn0search2turn0search1
+GitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi.
 
 ## Secrets
 
@@ -23,11 +23,11 @@ Jangan commit secret ke repository.
 
 Endpoint: `POST /api/github/webhook`.
 
-Webhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`. citeturn0search1
+Webhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`.
 
 ## Database
 
-Project menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter. citeturn0search0turn1search0turn2search0
+Project menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter.
 
 Data aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.
 
