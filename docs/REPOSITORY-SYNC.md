@@ -1,18 +1,18 @@
 # Repository Data Sync
 
-NARARYA GARAGE sekarang memiliki registry repository terpusat di `data/repositories.ts` dan adapter GitHub di `lib/github.ts`.
+NARARYA GARAGE memiliki registry repository terpusat di `data/repositories.ts` dan adapter GitHub di `lib/github.ts`.
 
 ## Live data
 
-`GET /api/github/repositories` mengambil metadata repository secara langsung dari GitHub API dengan `cache: no-store`. GitHub menyediakan REST API untuk membaca repository contents/metadata dan webhook untuk mengirim event repository ke server. citeturn0search0turn0search1
+`GET /api/github/repositories` mengambil metadata repository langsung dari GitHub API dengan cache disabled. Untuk repository private, runtime website memerlukan `GITHUB_TOKEN` dengan permission minimum yang diperlukan.
 
 ## Secrets
 
 Set environment variables:
 
-- `GITHUB_TOKEN`: GitHub token dengan permission minimum yang diperlukan. Token dibutuhkan untuk repository private.
+- `GITHUB_TOKEN`: token GitHub untuk metadata repository yang memerlukan autentikasi.
 - `GITHUB_WEBHOOK_SECRET`: secret acak untuk memverifikasi webhook.
-- `NEXT_PUBLIC_SITE_URL`: URL deployment website.
+- `NEXT_PUBLIC_SITE_URL`: URL deployment website bila diperlukan oleh integrasi eksternal.
 
 Jangan commit token ke GitHub.
 
@@ -20,12 +20,14 @@ Jangan commit token ke GitHub.
 
 Endpoint: `POST /api/github/webhook`.
 
-Daftarkan webhook pada repository dengan event push/pull request sesuai kebutuhan. GitHub mendukung webhook repository melalui REST API maupun GitHub UI. 
+Konfigurasikan webhook repository untuk event yang diperlukan seperti `push` dan `pull_request`. Server memvalidasi `X-Hub-Signature-256` sebelum menerima payload.
 
 ## Source of truth
 
-- GitHub: source of truth untuk status repository, branch, commit, issue dan workflow.
-- PostgreSQL/Prisma: source of truth untuk member, event, mod, livery, gallery, forum, moderation dan data aplikasi.
-- Website: presentation/API layer yang membaca kedua sumber tersebut.
+- GitHub: source of truth untuk status repository, branch, commit, issue, pull request, dan workflow.
+- PostgreSQL/Prisma: source of truth untuk member, event, mod, livery, gallery, forum, moderation, dan data aplikasi.
+- Website: presentation dan API layer yang menggabungkan kedua sumber.
 
-Untuk data relasional, Prisma/PostgreSQL mendukung foreign-key relations dan model one-to-one, one-to-many, serta many-to-many. citeturn0search2turn0search8
+## Catatan
+
+Metadata GitHub dibuat live, tetapi data aplikasi tidak boleh diisi dengan angka palsu. Jika database belum dikonfigurasi, UI menampilkan status kosong atau `—`, bukan mengarang jumlah member/event.
