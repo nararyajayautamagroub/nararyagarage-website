@@ -9,7 +9,8 @@
     "start": "next start",
     "typecheck": "npm run db:generate && tsc --noEmit",
     "db:generate": "prisma generate",
-    "db:validate": "prisma validate"
+    "db:validate": "prisma validate",
+    "db:seed": "npm run db:generate && tsx prisma/seed.ts"
   },
   "dependencies": {
     "next": "latest",
@@ -19,7 +20,8 @@
     "@prisma/client": "latest",
     "@prisma/adapter-pg": "latest",
     "pg": "latest",
-    "zod": "latest"
+    "zod": "latest",
+    "dotenv": "latest"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "latest",
@@ -31,7 +33,8 @@
     "tailwindcss": "latest",
     "postcss": "latest",
     "autoprefixer": "latest",
-    "prisma": "latest"
+    "prisma": "latest",
+    "tsx": "latest"
   },
   "engines": {
     "node": ">=24"
