@@ -12,7 +12,11 @@ export default async function MemberPage(){
   const member=await prisma.member.findUnique({
     where:{userId:session.user.id},
     include:{
-      events:{include:{event:{select:{id:eventId,name:true,type:true,date:true,status:true}},},orderBy:{registeredAt:"desc"},take:5},
+      events:{
+        include:{event:{select:{id:true,eventId:true,name:true,type:true,date:true,status:true}}},
+        orderBy:{registeredAt:"desc"},
+        take:5
+      },
       achievements:{include:{achievement:true},orderBy:{earnedAt:"desc"},take:6}
     }
   });
