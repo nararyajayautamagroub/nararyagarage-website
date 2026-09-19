@@ -1,6 +1,6 @@
 {
   "name": "nararyagarage-website",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,6 +8,7 @@
     "build": "npm run db:generate && next build",
     "start": "next start",
     "typecheck": "npm run db:generate && tsc --noEmit",
+    "check": "npm run db:validate && npm run typecheck && npm run build",
     "db:generate": "prisma generate",
     "db:validate": "prisma validate",
     "db:seed": "npm run db:generate && tsx prisma/seed.ts"
