@@ -1,0 +1,15 @@
+import {NextResponse} from "next/server";
+import {z} from "zod";
+import {getPrisma} from "@/lib/prisma";
+import {createSession,hashPassword} from "@/lib/auth";
+const schema=z.object({email:z.string().email().max(254),username:z.string().regex(/^[a-zA-Z0-9_]{3,32}$/),displayName:z.string().trim().min(2).max(80),password:z.string().min(8).max(128)});
+export async function POST(req:Request){
+ try{
+  const body=schema.parse(await req.json()); const prisma=getPrisma(); if(!prisma)return NextResponse.json({error:"Database unavailable"},{status:503});
+  const exists=await prisma.user.findFirst({where:{OR:[{email:body.email.toLowerCase()},{username:body.username}]}});
+  if(exists)return NextResponse.json({error:"Email or username already exists"},{status:409});
+  const user=await prisma.user.create({data:{email:body.email.toLowerCase(),username:body.username,displayName:body.displayName,passwordHash:hashPassword(body.password),member:{create:{memberId:`NG-${Date.now().toString().slice(-6)}`,role:"Member"}}},select:{id:true,username:true,displayName:true}});
+  await createSession(user.id);
+  return NextResponse.json({user},{status:201});
+ }catch(error){if(error instanceof z.ZodError)return NextResponse.json({error:"Invalid registration data",issues:error.issues},{status:400});return NextResponse.json({error:"Registration failed"},{status:500})}
+}
