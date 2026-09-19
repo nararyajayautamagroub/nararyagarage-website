@@ -3,7 +3,7 @@ import Link from "next/link";
 import {Menu, X, Gamepad2} from "lucide-react";
 import {useState} from "react";
 
-const links=[["Community","/community"],["Events","/events"],["Modding","/modding"],["Showcase","/showcase"],["Forum","/forum"],["News","/news"]];
+const links=[["Community","/community"],["Events","/events"],["Modding","/modding"],["Showcase","/showcase"],["Forum","/forum"],["News","/news"],["Repositories","/repositories"]];
 
 export function Header(){
  const [open,setOpen]=useState(false);
