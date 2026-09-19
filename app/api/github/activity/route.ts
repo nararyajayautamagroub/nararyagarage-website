@@ -1,3 +1,17 @@
-import {NextResponse} from "next/server"; import {managedRepositories} from "@/data/repositories"; import {github} from "@/lib/github";
+import {NextResponse} from "next/server";
+import {getRepoCommits, listOwnedRepositories} from "@/lib/github";
+
 export const dynamic="force-dynamic";
-export async function GET(){const repositories=await Promise.all(managedRepositories.map(async r=>{try{const commits=await github<any[]>(`/repos/${r.fullName}/commits?per_page=5`);return {fullName:r.fullName,commits:commits.map(c=>({sha:c.sha,message:c.commit?.message?.split("\n")[0]||"",author:c.author?.login||c.commit?.author?.name||"unknown",date:c.commit?.author?.date||null,url:c.html_url}))}}catch(e){return {fullName:r.fullName,commits:[],error:e instanceof Error?e.message:"Live data unavailable"}}}));return NextResponse.json({generatedAt:new Date().toISOString(),repositories})}
+
+export async function GET(){
+  try{
+    const repositories=await listOwnedRepositories();
+    const data=await Promise.all(repositories.map(async repository=>{
+      try{return {fullName:repository.full_name,commits:await getRepoCommits(repository.full_name,5)}}
+      catch(error){return {fullName:repository.full_name,commits:[],error:error instanceof Error?error.message:"Live data unavailable"}}
+    }));
+    return NextResponse.json({generatedAt:new Date().toISOString(),repositories:data},{headers:{"Cache-Control":"no-store"}});
+  }catch(error){
+    return NextResponse.json({generatedAt:new Date().toISOString(),repositories:[],error:error instanceof Error?error.message:"GitHub unavailable"},{status:502,headers:{"Cache-Control":"no-store"}});
+  }
+}
