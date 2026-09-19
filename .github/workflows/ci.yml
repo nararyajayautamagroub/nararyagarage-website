@@ -14,5 +14,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm install
+      - run: npm run db:generate
+      - run: npm run db:validate
       - run: npm run typecheck
       - run: npm run build
