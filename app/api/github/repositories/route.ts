@@ -1,0 +1,3 @@
+import {NextResponse} from "next/server"; import {managedRepositories} from "@/data/repositories"; import {getRepo} from "@/lib/github";
+export const dynamic="force-dynamic";
+export async function GET(){const results=await Promise.all(managedRepositories.map(async r=>{try{return {...r,live:await getRepo(r.fullName),error:null}}catch(e){return {...r,live:null,error:e instanceof Error?e.message:"Unknown error"}}})); return NextResponse.json({generatedAt:new Date().toISOString(),repositories:results},{headers:{"Cache-Control":"no-store"}})}
