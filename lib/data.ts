@@ -1,0 +1,34 @@
+import { prisma } from "@/lib/prisma";
+
+export const fallbackPlatforms = [
+  { id: "BUSSID", name: "Bus Simulator Indonesia", type: "Bus Simulator" },
+  { id: "ETS2", name: "Euro Truck Simulator 2", type: "Truck Simulator" },
+  { id: "ATS", name: "American Truck Simulator", type: "Truck Simulator" },
+  { id: "TOE3", name: "Truckers of Europe 3", type: "Truck Simulator" },
+  { id: "TSI", name: "Truck Simulator Indonesia", type: "Truck Simulator" },
+  { id: "ROBLOX", name: "Roblox", type: "Gaming Platform" },
+];
+
+export async function getPlatforms() {
+  if (!process.env.DATABASE_URL) return fallbackPlatforms;
+  try {
+    const rows = await prisma.platform.findMany({ where: { status: "ACTIVE" }, orderBy: { name: "asc" } });
+    return rows.length ? rows : fallbackPlatforms;
+  } catch {
+    return fallbackPlatforms;
+  }
+}
+
+export async function getUpcomingEvents() {
+  if (!process.env.DATABASE_URL) return [];
+  try {
+    return await prisma.event.findMany({
+      where: { status: { in: ["DRAFT", "OPEN", "FULL"] }, date: { gte: new Date() } },
+      orderBy: { date: "asc" },
+      take: 12,
+      include: { platform: true },
+    });
+  } catch {
+    return [];
+  }
+}
