@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import {FormEvent,useState} from "react";
-import {useRouter,useSearchParams} from "next/navigation";
+import {useRouter} from "next/navigation";
 
 export default function LoginPage(){
   const router=useRouter();
-  const search=useSearchParams();
   const [identifier,setIdentifier]=useState("");
   const [password,setPassword]=useState("");
   const [error,setError]=useState("");
@@ -19,7 +18,9 @@ export default function LoginPage(){
       const res=await fetch("/api/auth/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({identifier,password})});
       const data=await res.json().catch(()=>({}));
       if(!res.ok)throw new Error(data.error||"Login gagal");
-      router.push(search.get("next")||"/member");
+      const next=new URLSearchParams(window.location.search).get("next");
+      const safeNext=next&&next.startsWith("/")&&!next.startsWith("//")?next:"/member";
+      router.push(safeNext);
       router.refresh();
     }catch(error){
       setError(error instanceof Error?error.message:"Login gagal");
