@@ -1,1 +1,7 @@
-import {platforms} from "../../data/site";import {PlatformCard,SectionTitle} from "../../components/cards";export default function Community(){return <main className="mx-auto max-w-7xl px-6 py-20"><SectionTitle eyebrow="Directory" title="Community platforms" desc="Chapter dan platform komunitas yang dikelola NARARYA GARAGE."/><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{platforms.map(p=><PlatformCard key={p.id} p={p}/>)}</div></main>}
+import { getPlatforms } from "@/lib/data";
+import { PlatformCard, SectionTitle } from "@/components/cards";
+
+export default async function Community() {
+  const platforms = await getPlatforms();
+  return <main className="mx-auto max-w-7xl px-6 py-20"><SectionTitle eyebrow="Directory" title="Community platforms" desc="Chapter dan platform komunitas yang dikelola NARARYA GARAGE."/><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{platforms.map(p => <PlatformCard key={p.id} p={p}/>)}</div></main>;
+}
