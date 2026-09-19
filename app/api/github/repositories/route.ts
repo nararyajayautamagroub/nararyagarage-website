@@ -1,3 +1,7 @@
-import {NextResponse} from "next/server"; import {managedRepositories} from "@/data/repositories"; import {getRepo} from "@/lib/github";
+import {NextResponse} from "next/server";
+import {listOwnedRepositories} from "@/lib/github";
 export const dynamic="force-dynamic";
-export async function GET(){const results=await Promise.all(managedRepositories.map(async r=>{try{return {...r,live:await getRepo(r.fullName),error:null}}catch(e){return {...r,live:null,error:e instanceof Error?e.message:"Unknown error"}}})); return NextResponse.json({generatedAt:new Date().toISOString(),repositories:results},{headers:{"Cache-Control":"no-store"}})}
+export async function GET(){
+  try{return NextResponse.json({generatedAt:new Date().toISOString(),repositories:await listOwnedRepositories()},{headers:{"Cache-Control":"no-store"}})}
+  catch(error){return NextResponse.json({generatedAt:new Date().toISOString(),repositories:[],error:error instanceof Error?error.message:"Live data unavailable"},{status:502,headers:{"Cache-Control":"no-store"}})}
+}
