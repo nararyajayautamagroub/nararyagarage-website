@@ -1,0 +1,2 @@
+import {events} from "../../data/site"; import {EventCard,SectionTitle} from "../../components/cards";
+export default function Events(){return <main className="mx-auto max-w-7xl px-6 py-20"><SectionTitle eyebrow="Event system" title="Events & Convoys" desc="Convoy, tour, competition, gathering dan community event dalam satu kalender komunitas."/><div className="grid gap-4 md:grid-cols-2">{events.map(e=><EventCard key={e.id} e={e}/>)}</div></main>}
