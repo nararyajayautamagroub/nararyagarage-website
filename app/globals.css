@@ -10,7 +10,122 @@ button{cursor:pointer}
 button:disabled{cursor:not-allowed;opacity:.6}
 :focus-visible{outline:3px solid #f97316;outline-offset:3px}
 ::selection{background:#f97316;color:#fff}
-.ng-orange-button{background:#f97316;color:#fff;border:1px solid #f97316;border-radius:.75rem;padding:.75rem 1.25rem;font-weight:800;transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
-.ng-orange-button:hover{background:#fb923c;box-shadow:0 8px 24px rgba(249,115,22,.2);transform:translateY(-1px)}
-.ng-orange-outline{background:#fff;color:#ea580c;border:2px solid #f97316;border-radius:.75rem;padding:.65rem 1.1rem;font-weight:800;transition:background .2s ease,color .2s ease}
+
+@keyframes ngButtonShine{
+  0%{background-position:150% 0}
+  100%{background-position:-150% 0}
+}
+
+button:not(:disabled),
+.ng-button-link,
+.ng-orange-button,
+.ng-orange-outline{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  transition:
+    transform .2s cubic-bezier(.2,.8,.2,1),
+    box-shadow .2s ease,
+    background-color .2s ease,
+    border-color .2s ease,
+    color .2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+
+button:not(:disabled)::after,
+.ng-button-link::after,
+.ng-orange-button::after,
+.ng-orange-outline::after{
+  content:"";
+  position:absolute;
+  inset:-40% auto -40% -30%;
+  width:24%;
+  transform:skewX(-20deg);
+  pointer-events:none;
+  opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);
+}
+
+button:not(:disabled):hover,
+.ng-button-link:hover,
+.ng-orange-button:hover,
+.ng-orange-outline:hover{
+  transform:translateY(-2px) scale(1.015);
+  box-shadow:0 10px 26px rgba(249,115,22,.16);
+}
+
+button:not(:disabled):hover::after,
+.ng-button-link:hover::after,
+.ng-orange-button:hover::after,
+.ng-orange-outline:hover::after{
+  opacity:1;
+  animation:ngButtonShine .75s ease;
+}
+
+button:not(:disabled):active,
+.ng-button-link:active,
+.ng-orange-button:active,
+.ng-orange-outline:active{
+  transform:translateY(0) scale(.97);
+  box-shadow:0 3px 10px rgba(249,115,22,.12);
+}
+
+button:not(:disabled):focus-visible,
+.ng-button-link:focus-visible,
+.ng-orange-button:focus-visible,
+.ng-orange-outline:focus-visible{
+  transform:translateY(-1px);
+}
+
+button:disabled::after,
+.ng-orange-button:disabled::after,
+.ng-orange-outline:disabled::after{
+  display:none;
+}
+
+.ng-button-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ng-orange-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.35rem;
+  background:#f97316;
+  color:#fff;
+  border:1px solid #f97316;
+  border-radius:.75rem;
+  padding:.75rem 1.25rem;
+  font-weight:800;
+}
+
+.ng-orange-button:hover{background:#fb923c}
+
+.ng-orange-outline{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.35rem;
+  background:#fff;
+  color:#ea580c;
+  border:2px solid #f97316;
+  border-radius:.75rem;
+  padding:.65rem 1.1rem;
+  font-weight:800;
+}
+
 .ng-orange-outline:hover{background:#fff7ed;color:#c2410c}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
