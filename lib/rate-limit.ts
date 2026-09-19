@@ -1,10 +1,19 @@
 type Bucket={count:number;resetAt:number};
 
 const buckets=new Map<string,Bucket>();
+const MAX_BUCKETS=10_000;
 
 export function rateLimit(key:string,limit=10,windowMs=60_000){
   const now=Date.now();
   const current=buckets.get(key);
+
+  if(buckets.size>MAX_BUCKETS){
+    for(const [bucketKey,bucket] of buckets){
+      if(bucket.resetAt<=now)buckets.delete(bucketKey);
+      if(buckets.size<=MAX_BUCKETS)break;
+    }
+  }
+
   if(!current||current.resetAt<=now){
     buckets.set(key,{count:1,resetAt:now+windowMs});
     return {ok:true,retryAfter:0};
