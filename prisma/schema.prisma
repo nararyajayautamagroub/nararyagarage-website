@@ -264,6 +264,15 @@ model ActivityLog {
  createdAt DateTime @default(now())
  member Member? @relation(fields:[memberId], references:[id], onDelete:SetNull)
 }
+model GithubWebhookEvent {
+  id String @id @default(cuid())
+  delivery String @unique
+  event String
+  repository String?
+  payload Json
+  receivedAt DateTime @default(now())
+}
+
 model Setting {
  key String @id
  value Json
