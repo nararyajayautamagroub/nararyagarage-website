@@ -1,0 +1,266 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+enum MemberStatus { ACTIVE INACTIVE ON_LEAVE SUSPENDED BANNED RESIGNED }
+enum SubmissionStatus { PENDING REVIEWING APPROVED REJECTED PUBLISHED ARCHIVED }
+enum EventStatus { DRAFT OPEN FULL CLOSED CANCELLED COMPLETED }
+enum RegistrationStatus { REGISTERED CONFIRMED ATTENDED ABSENT CANCELLED }
+enum ReportStatus { REPORT REVIEW INVESTIGATION ACTION CLOSED }
+
+model User {
+ id String @id @default(cuid())
+ email String @unique
+ passwordHash String
+ username String @unique
+ displayName String
+ avatarUrl String?
+ role String @default("MEMBER")
+ emailVerifiedAt DateTime?
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ member Member?
+}
+model Member {
+ id String @id @default(cuid())
+ memberId String @unique
+ userId String @unique
+ platformId String?
+ game String?
+ role String @default("Member")
+ status MemberStatus @default(ACTIVE)
+ joinedAt DateTime @default(now())
+ privacy Json?
+ user User @relation(fields:[userId], references:[id], onDelete:Cascade)
+ events EventParticipant[]
+ achievements MemberAchievement[]
+ activities ActivityLog[]
+}
+model Platform {
+ id String @id
+ name String
+ type String
+ status String @default("ACTIVE")
+ communities Community[]
+ events Event[]
+}
+model Community {
+ id String @id @default(cuid())
+ name String
+ description String?
+ platformId String?
+ leaderMemberId String?
+ platform Platform? @relation(fields:[platformId], references:[id])
+ members CommunityMember[]
+ events Event[]
+}
+model CommunityMember {
+ communityId String
+ memberId String
+ joinedAt DateTime @default(now())
+ community Community @relation(fields:[communityId], references:[id], onDelete:Cascade)
+ @@id([communityId, memberId])
+}
+model Event {
+ id String @id @default(cuid())
+ eventId String @unique
+ name String
+ type String
+ platformId String?
+ game String?
+ date DateTime
+ host String?
+ organizer String?
+ route String?
+ meetingPoint String?
+ quota Int?
+ status EventStatus @default(DRAFT)
+ platform Platform? @relation(fields:[platformId], references:[id])
+ participants EventParticipant[]
+}
+model EventParticipant {
+ eventId String
+ memberId String
+ status RegistrationStatus @default(REGISTERED)
+ role String?
+ registeredAt DateTime @default(now())
+ event Event @relation(fields:[eventId], references:[id], onDelete:Cascade)
+ member Member @relation(fields:[memberId], references:[id], onDelete:Cascade)
+ @@id([eventId, memberId])
+}
+model Mod {
+ id String @id @default(cuid())
+ name String
+ author String
+ platform String?
+ game String?
+ version String?
+ description String?
+ screenshotUrl String?
+ credits String?
+ license String?
+ downloadUrl String?
+ status SubmissionStatus @default(PENDING)
+ createdAt DateTime @default(now())
+}
+model Livery {
+ id String @id @default(cuid())
+ name String
+ author String
+ vehicle String
+ platform String?
+ game String?
+ screenshotUrl String?
+ credits String?
+ createdAt DateTime @default(now())
+}
+model Showcase {
+ id String @id @default(cuid())
+ type String
+ title String
+ author String
+ description String?
+ previewUrl String?
+ credits String?
+ license String?
+ createdAt DateTime @default(now())
+}
+model GalleryAlbum {
+ id String @id @default(cuid())
+ name String
+ type String
+ createdAt DateTime @default(now())
+}
+model GalleryItem {
+ id String @id @default(cuid())
+ albumId String?
+ url String
+ type String
+ author String?
+ credits String?
+ album GalleryAlbum? @relation(fields:[albumId], references:[id], onDelete:SetNull)
+}
+model Video {
+ id String @id @default(cuid())
+ title String
+ embedUrl String
+ type String
+ author String?
+ createdAt DateTime @default(now())
+}
+model ForumCategory {
+ id String @id @default(cuid())
+ name String @unique
+ threads ForumThread[]
+}
+model ForumThread {
+ id String @id @default(cuid())
+ categoryId String
+ authorId String
+ title String
+ body String
+ pinned Boolean @default(false)
+ locked Boolean @default(false)
+ createdAt DateTime @default(now())
+ category ForumCategory @relation(fields:[categoryId], references:[id], onDelete:Cascade)
+ posts ForumPost[]
+}
+model ForumPost {
+ id String @id @default(cuid())
+ threadId String
+ authorId String
+ body String
+ createdAt DateTime @default(now())
+ thread ForumThread @relation(fields:[threadId], references:[id], onDelete:Cascade)
+}
+model Tutorial {
+ id String @id @default(cuid())
+ title String
+ category String
+ body String
+ author String
+ createdAt DateTime @default(now())
+}
+model Download {
+ id String @id @default(cuid())
+ name String
+ version String?
+ changelog String?
+ author String?
+ license String?
+ fileSize Int?
+ checksum String?
+ url String
+ downloads Int @default(0)
+ createdAt DateTime @default(now())
+}
+model Report {
+ id String @id @default(cuid())
+ reporterId String?
+ targetType String
+ targetId String
+ reason String
+ status ReportStatus @default(REPORT)
+ createdAt DateTime @default(now())
+}
+model ModerationAction {
+ id String @id @default(cuid())
+ moderatorId String
+ targetType String
+ targetId String
+ action String
+ reason String?
+ createdAt DateTime @default(now())
+}
+model News {
+ id String @id @default(cuid())
+ title String
+ type String
+ body String
+ publishedAt DateTime?
+ createdAt DateTime @default(now())
+}
+model Notification {
+ id String @id @default(cuid())
+ memberId String
+ title String
+ body String
+ channel String
+ readAt DateTime?
+ createdAt DateTime @default(now())
+}
+model Partner {
+ id String @id @default(cuid())
+ name String
+ logoUrl String?
+ description String?
+ link String?
+ collaborationType String
+}
+model Achievement {
+ id String @id @default(cuid())
+ code String @unique
+ name String
+ description String
+}
+model MemberAchievement {
+ memberId String
+ achievementId String
+ earnedAt DateTime @default(now())
+ member Member @relation(fields:[memberId], references:[id], onDelete:Cascade)
+ achievement Achievement @relation(fields:[achievementId], references:[id], onDelete:Cascade)
+ @@id([memberId, achievementId])
+}
+model ActivityLog {
+ id String @id @default(cuid())
+ memberId String?
+ action String
+ entityType String?
+ entityId String?
+ metadata Json?
+ createdAt DateTime @default(now())
+ member Member? @relation(fields:[memberId], references:[id], onDelete:SetNull)
+}
+model Setting {
+ key String @id
+ value Json
+}
