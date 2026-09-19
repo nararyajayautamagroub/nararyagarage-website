@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { getPrisma } from "@/lib/prisma";
 
 export const fallbackPlatforms = [
   { id: "BUSSID", name: "Bus Simulator Indonesia", type: "Bus Simulator" },
@@ -10,7 +10,8 @@ export const fallbackPlatforms = [
 ];
 
 export async function getPlatforms() {
-  if (!process.env.DATABASE_URL) return fallbackPlatforms;
+  const prisma = getPrisma();
+  if (!prisma) return fallbackPlatforms;
   try {
     const rows = await prisma.platform.findMany({ where: { status: "ACTIVE" }, orderBy: { name: "asc" } });
     return rows.length ? rows : fallbackPlatforms;
@@ -41,7 +42,8 @@ export async function getPlatform(id: string) {
 }
 
 export async function getUpcomingEvents() {
-  if (!process.env.DATABASE_URL) return [];
+  const prisma = getPrisma();
+  if (!prisma) return [];
   try {
     return await prisma.event.findMany({
       where: { status: { in: ["DRAFT", "OPEN", "FULL"] }, date: { gte: new Date() } },
