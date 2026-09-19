@@ -2,6 +2,7 @@ import Link from "next/link";
 import {redirect} from "next/navigation";
 import {getSession} from "@/lib/auth";
 import {getPrisma} from "@/lib/prisma";
+import {LogoutButton} from "@/components/logout-button";
 
 export default async function MemberPage(){
   const session=await getSession();
@@ -27,7 +28,7 @@ export default async function MemberPage(){
     <div className="rounded-3xl border border-white/10 bg-zinc-950 p-8">
       <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div><p className="text-xs font-black tracking-[.25em] text-orange-400">MEMBER CENTER</p><h1 className="mt-2 text-4xl font-black">{session.user.displayName}</h1><p className="mt-2 text-zinc-400">@{session.user.username} · {member.memberId} · {member.role}</p></div>
-        <Link href="/events" className="ng-orange-button inline-flex w-fit">LIHAT EVENT</Link>
+        <div className="flex flex-wrap gap-2"><Link href="/events" className="ng-orange-button inline-flex w-fit">LIHAT EVENT</Link><LogoutButton/></div>
       </div>
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         <section className="rounded-2xl border border-white/10 bg-white/[.03] p-5"><h2 className="font-black">Registrasi event</h2><p className="mt-2 text-sm text-zinc-400">{member.events.length} aktivitas terakhir</p></section>
