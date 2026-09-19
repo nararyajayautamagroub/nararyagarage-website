@@ -32,5 +32,9 @@
     "postcss": "latest",
     "autoprefixer": "latest",
     "prisma": "latest"
-  }
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "npm@11.6.2"
 }
