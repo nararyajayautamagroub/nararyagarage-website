@@ -1,0 +1,3 @@
+import {NextResponse} from "next/server"; import {managedRepositories} from "@/data/repositories"; import {github} from "@/lib/github";
+export const dynamic="force-dynamic";
+export async function GET(){const repositories=await Promise.all(managedRepositories.map(async r=>{try{const commits=await github<any[]>(`/repos/${r.fullName}/commits?per_page=5`);return {fullName:r.fullName,commits:commits.map(c=>({sha:c.sha,message:c.commit?.message?.split("\n")[0]||"",author:c.author?.login||c.commit?.author?.name||"unknown",date:c.commit?.author?.date||null,url:c.html_url}))}}catch(e){return {fullName:r.fullName,commits:[],error:e instanceof Error?e.message:"Live data unavailable"}}}));return NextResponse.json({generatedAt:new Date().toISOString(),repositories})}
