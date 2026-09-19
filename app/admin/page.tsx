@@ -8,7 +8,7 @@ const modules=[
   ["Platforms","/platforms"],["Events","/admin/events"],["Convoys","#convoys"],["Fleet","#fleet"],
   ["Mods","/modding"],["Liveries","/liveries"],["3D Showcase","/showcase"],["Gallery","/gallery"],
   ["Videos","#videos"],["Forum","/forum"],["Tutorials","/tutorials"],["Downloads","#downloads"],
-  ["Reports","/api/reports"],["Moderation","#moderation"],["News","/news"],["Notifications","#notifications"],
+  ["Reports","/admin/reports"],["Moderation","#moderation"],["News","/news"],["Notifications","#notifications"],
   ["Partners","#partners"],["Achievements","#achievements"],["Analytics","#analytics"],["Logs","#logs"],["Settings","#settings"]
 ];
 
