@@ -1,0 +1,4 @@
+const API="https://api.github.com";
+export type RepoSnapshot={full_name:string,name:string,private:boolean,html_url:string,default_branch:string,description:string|null,updated_at:string,pushed_at:string,stargazers_count:number,forks_count:number,open_issues_count:number,language:string|null};
+export async function github<T>(path:string):Promise<T>{const token=process.env.GITHUB_TOKEN; const res=await fetch(API+path,{headers:{"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2026-03-10",...(token?{Authorization:`Bearer ${token}`}:{})},cache:"no-store"}); if(!res.ok) throw new Error(`GitHub API ${res.status}`); return res.json() as Promise<T>}
+export async function getRepo(fullName:string){return github<RepoSnapshot>(`/repos/${fullName}`)}
