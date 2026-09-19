@@ -1,33 +1,42 @@
 # Repository Data Sync
 
-NARARYA GARAGE memiliki registry repository terpusat di `data/repositories.ts` dan adapter GitHub di `lib/github.ts`.
+NARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Prisma sebagai sumber data aplikasi.
 
-## Live data
+## Live repository discovery
 
-`GET /api/github/repositories` mengambil metadata repository langsung dari GitHub API dengan cache disabled. Untuk repository private, runtime website memerlukan `GITHUB_TOKEN` dengan permission minimum yang diperlukan.
+`/repositories` dan `GET /api/github/repositories` menemukan repository milik akun GitHub yang terhubung secara dinamis. Registry `data/repositories.ts` hanya menyimpan label/purpose, bukan daftar repository yang harus ada.
+
+`GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.
+
+GitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi. citeturn0search2turn0search1
 
 ## Secrets
 
-Set environment variables:
+- `GITHUB_TOKEN`: token GitHub dengan akses minimum yang dibutuhkan. Wajib untuk data private.
+- `GITHUB_WEBHOOK_SECRET`: secret untuk verifikasi `X-Hub-Signature-256`.
+- `DATABASE_URL`: PostgreSQL production database.
+- `NEXT_PUBLIC_SITE_URL`: URL deployment.
 
-- `GITHUB_TOKEN`: token GitHub untuk metadata repository yang memerlukan autentikasi.
-- `GITHUB_WEBHOOK_SECRET`: secret acak untuk memverifikasi webhook.
-- `NEXT_PUBLIC_SITE_URL`: URL deployment website bila diperlukan oleh integrasi eksternal.
-
-Jangan commit token ke GitHub.
+Jangan commit secret ke repository.
 
 ## Webhook
 
 Endpoint: `POST /api/github/webhook`.
 
-Konfigurasikan webhook repository untuk event yang diperlukan seperti `push` dan `pull_request`. Server memvalidasi `X-Hub-Signature-256` sebelum menerima payload.
+Webhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`. citeturn0search1
+
+## Database
+
+Project menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter. citeturn0search0turn1search0turn2search0
+
+Data aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.
 
 ## Source of truth
 
-- GitHub: source of truth untuk status repository, branch, commit, issue, pull request, dan workflow.
-- PostgreSQL/Prisma: source of truth untuk member, event, mod, livery, gallery, forum, moderation, dan data aplikasi.
-- Website: presentation dan API layer yang menggabungkan kedua sumber.
+- GitHub: repository, branch, commit, issue, pull request, workflow dan source repository.
+- PostgreSQL/Prisma: member, event, convoy, mod, livery, showcase, gallery, forum, tutorial, download, moderation, notification dan pengaturan.
+- Website: layer UI/API yang membaca kedua sumber secara live.
 
-## Catatan
+## Private repository
 
-Metadata GitHub dibuat live, tetapi data aplikasi tidak boleh diisi dengan angka palsu. Jika database belum dikonfigurasi, UI menampilkan status kosong atau `—`, bukan mengarang jumlah member/event.
+Repository private hanya dapat dibaca saat deployment memiliki token dengan permission yang sesuai. Tanpa token tersebut, kegagalan akses ditampilkan sebagai data unavailable, bukan diganti angka fiktif.
