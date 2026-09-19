@@ -5,10 +5,10 @@ import {hasRole,ADMIN_ROLES} from "@/lib/authorization";
 
 const modules=[
   ["Overview","/admin"],["Members","#members"],["Recruitment","#recruitment"],["Communities","/community"],
-  ["Platforms","/platforms"],["Events","/events"],["Convoys","#convoys"],["Fleet","#fleet"],
+  ["Platforms","/platforms"],["Events","/admin/events"],["Convoys","#convoys"],["Fleet","#fleet"],
   ["Mods","/modding"],["Liveries","/liveries"],["3D Showcase","/showcase"],["Gallery","/gallery"],
   ["Videos","#videos"],["Forum","/forum"],["Tutorials","/tutorials"],["Downloads","#downloads"],
-  ["Reports","#reports"],["Moderation","#moderation"],["News","/news"],["Notifications","#notifications"],
+  ["Reports","/api/reports"],["Moderation","#moderation"],["News","/news"],["Notifications","#notifications"],
   ["Partners","#partners"],["Achievements","#achievements"],["Analytics","#analytics"],["Logs","#logs"],["Settings","#settings"]
 ];
 
