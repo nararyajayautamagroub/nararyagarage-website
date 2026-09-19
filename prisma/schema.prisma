@@ -38,6 +38,7 @@ model Member {
  events EventParticipant[]
  achievements MemberAchievement[]
  activities ActivityLog[]
+ communityMemberships CommunityMember[]
 }
 model Platform {
  id String @id
@@ -71,6 +72,7 @@ model Event {
  type String
  platformId String?
  game String?
+ communityId String?
  date DateTime
  host String?
  organizer String?
@@ -79,6 +81,7 @@ model Event {
  quota Int?
  status EventStatus @default(DRAFT)
  platform Platform? @relation(fields:[platformId], references:[id])
+ community Community? @relation(fields:[communityId], references:[id], onDelete:SetNull)
  participants EventParticipant[]
 }
 model EventParticipant {
