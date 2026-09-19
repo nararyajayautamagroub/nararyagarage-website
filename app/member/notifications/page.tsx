@@ -1,0 +1,1 @@
+export default function Notifications(){return <main className="mx-auto max-w-4xl px-6 py-16"><h1 className="text-4xl font-black">NOTIFICATIONS</h1><div className="mt-8 rounded-2xl border border-white/10 p-8 text-zinc-500">Tidak ada notifikasi baru.</div></main>}
