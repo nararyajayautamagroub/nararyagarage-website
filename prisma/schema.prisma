@@ -25,6 +25,7 @@ model User {
  updatedAt DateTime @updatedAt
  member Member?
 }
+
 model Session {
  id String @id @default(cuid())
  userId String
@@ -50,6 +51,7 @@ model Member {
  activities ActivityLog[]
  communityMemberships CommunityMember[]
 }
+
 model Platform {
  id String @id
  name String
@@ -58,6 +60,7 @@ model Platform {
  communities Community[]
  events Event[]
 }
+
 model Community {
  id String @id @default(cuid())
  name String
@@ -68,13 +71,16 @@ model Community {
  members CommunityMember[]
  events Event[]
 }
+
 model CommunityMember {
  communityId String
  memberId String
  joinedAt DateTime @default(now())
  community Community @relation(fields:[communityId], references:[id], onDelete:Cascade)
+ member Member @relation(fields:[memberId], references:[id], onDelete:Cascade)
  @@id([communityId, memberId])
 }
+
 model Event {
  id String @id @default(cuid())
  eventId String @unique
@@ -94,6 +100,7 @@ model Event {
  community Community? @relation(fields:[communityId], references:[id], onDelete:SetNull)
  participants EventParticipant[]
 }
+
 model EventParticipant {
  eventId String
  memberId String
@@ -104,6 +111,7 @@ model EventParticipant {
  member Member @relation(fields:[memberId], references:[id], onDelete:Cascade)
  @@id([eventId, memberId])
 }
+
 model Mod {
  id String @id @default(cuid())
  name String
@@ -119,6 +127,7 @@ model Mod {
  status SubmissionStatus @default(PENDING)
  createdAt DateTime @default(now())
 }
+
 model Livery {
  id String @id @default(cuid())
  name String
@@ -130,6 +139,7 @@ model Livery {
  credits String?
  createdAt DateTime @default(now())
 }
+
 model Showcase {
  id String @id @default(cuid())
  type String
@@ -141,12 +151,14 @@ model Showcase {
  license String?
  createdAt DateTime @default(now())
 }
+
 model GalleryAlbum {
  id String @id @default(cuid())
  name String
  type String
  createdAt DateTime @default(now())
 }
+
 model GalleryItem {
  id String @id @default(cuid())
  albumId String?
@@ -156,6 +168,7 @@ model GalleryItem {
  credits String?
  album GalleryAlbum? @relation(fields:[albumId], references:[id], onDelete:SetNull)
 }
+
 model Video {
  id String @id @default(cuid())
  title String
@@ -164,11 +177,13 @@ model Video {
  author String?
  createdAt DateTime @default(now())
 }
+
 model ForumCategory {
  id String @id @default(cuid())
  name String @unique
  threads ForumThread[]
 }
+
 model ForumThread {
  id String @id @default(cuid())
  categoryId String
@@ -181,6 +196,7 @@ model ForumThread {
  category ForumCategory @relation(fields:[categoryId], references:[id], onDelete:Cascade)
  posts ForumPost[]
 }
+
 model ForumPost {
  id String @id @default(cuid())
  threadId String
@@ -189,6 +205,7 @@ model ForumPost {
  createdAt DateTime @default(now())
  thread ForumThread @relation(fields:[threadId], references:[id], onDelete:Cascade)
 }
+
 model Tutorial {
  id String @id @default(cuid())
  title String
@@ -197,6 +214,7 @@ model Tutorial {
  author String
  createdAt DateTime @default(now())
 }
+
 model Download {
  id String @id @default(cuid())
  name String
@@ -210,6 +228,7 @@ model Download {
  downloads Int @default(0)
  createdAt DateTime @default(now())
 }
+
 model Report {
  id String @id @default(cuid())
  reporterId String?
@@ -219,6 +238,7 @@ model Report {
  status ReportStatus @default(REPORT)
  createdAt DateTime @default(now())
 }
+
 model ModerationAction {
  id String @id @default(cuid())
  moderatorId String
@@ -228,6 +248,7 @@ model ModerationAction {
  reason String?
  createdAt DateTime @default(now())
 }
+
 model News {
  id String @id @default(cuid())
  title String
@@ -236,6 +257,7 @@ model News {
  publishedAt DateTime?
  createdAt DateTime @default(now())
 }
+
 model Notification {
  id String @id @default(cuid())
  memberId String
@@ -245,6 +267,7 @@ model Notification {
  readAt DateTime?
  createdAt DateTime @default(now())
 }
+
 model Partner {
  id String @id @default(cuid())
  name String
@@ -253,12 +276,14 @@ model Partner {
  link String?
  collaborationType String
 }
+
 model Achievement {
  id String @id @default(cuid())
  code String @unique
  name String
  description String
 }
+
 model MemberAchievement {
  memberId String
  achievementId String
@@ -267,6 +292,7 @@ model MemberAchievement {
  achievement Achievement @relation(fields:[achievementId], references:[id], onDelete:Cascade)
  @@id([memberId, achievementId])
 }
+
 model ActivityLog {
  id String @id @default(cuid())
  memberId String?
@@ -277,13 +303,14 @@ model ActivityLog {
  createdAt DateTime @default(now())
  member Member? @relation(fields:[memberId], references:[id], onDelete:SetNull)
 }
+
 model GithubWebhookEvent {
-  id String @id @default(cuid())
-  delivery String @unique
-  event String
-  repository String?
-  payload Json
-  receivedAt DateTime @default(now())
+ id String @id @default(cuid())
+ delivery String @unique
+ event String
+ repository String?
+ payload Json
+ receivedAt DateTime @default(now())
 }
 
 model Setting {
