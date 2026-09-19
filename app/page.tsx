@@ -20,7 +20,10 @@ export default async function Home() {
           <p className="mb-5 text-sm font-bold tracking-[.3em] text-orange-400">VIRTUAL SIMULATOR & GAMING COMMUNITY</p>
           <h1 className="text-5xl font-black tracking-tight md:text-7xl">GARAGE FOR<br /><span className="text-orange-400">EVERY DRIVER.</span></h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-400">Pusat komunitas untuk BUSSID, ETS2, ATS, TOE3, TSI, Roblox dan platform simulator yang terus berkembang.</p>
-          <div className="mt-8 flex flex-wrap gap-3"><Link href="/community" className="rounded-xl bg-orange-500 px-5 py-3 font-bold text-black">JOIN COMMUNITY <ArrowRight className="ml-2 inline" size={18} /></Link><Link href="/events" className="rounded-xl border border-white/15 px-5 py-3 font-bold">EXPLORE EVENTS</Link></div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/community" className="ng-orange-button">JOIN COMMUNITY <ArrowRight className="ml-2 inline" size={18} /></Link>
+            <Link href="/events" className="rounded-xl border border-white/15 px-5 py-3 font-bold transition hover:bg-white/5">EXPLORE EVENTS</Link>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-3 self-end">{stats.map(([name, Icon]) => <div key={name} className="rounded-2xl border border-white/10 bg-white/[.04] p-5"><Icon className="text-orange-400" /><p className="mt-10 text-sm font-bold">{name}</p></div>)}</div>
       </div>
