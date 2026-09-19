@@ -1,0 +1,1 @@
+export default function MemberConvoys(){return <main className="mx-auto max-w-5xl px-6 py-16"><h1 className="text-4xl font-black">MY CONVOYS</h1><p className="mt-3 text-zinc-400">Riwayat convoy, role, route, dan attendance.</p><div className="mt-8 rounded-2xl border border-white/10 p-8 text-zinc-500">Belum ada convoy.</div></main>}
