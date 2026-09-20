@@ -36,11 +36,6 @@ for(const [name,entry] of Object.entries(vulnerabilities)){
   }
 }
 
-if(informational.length){
-  console.log("Development-only audit findings:");
-  for(const item of informational)console.log(` - ${item.name}: ${item.severity} (${item.reason})`);
-}
-
 if(blocking.length){
   console.error("Blocking production dependency vulnerabilities:");
   for(const item of blocking)console.error(` - ${item.name}: ${item.severity} (${item.reason})`);
