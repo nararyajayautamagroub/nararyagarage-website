@@ -210,3 +210,28 @@ export async function getConvoyEvents(){
     });
   }catch{return [];}
 }
+
+
+export async function getContactLinks(){
+  const defaults=[
+    ["Discord","DISCORD_URL"],
+    ["WhatsApp","WHATSAPP_URL"],
+    ["Instagram","INSTAGRAM_URL"],
+    ["TikTok","TIKTOK_URL"],
+    ["YouTube","YOUTUBE_URL"],
+    ["X / Twitter","X_URL"]
+  ] as const;
+  const prisma=getPrisma();
+  if(!prisma)return defaults.map(([label,key])=>({label,key,url:null as string|null}));
+  try{
+    const rows=await prisma.setting.findMany({where:{key:{in:defaults.map(([,key])=>key)}},select:{key:true,value:true}});
+    const values=new Map(rows.map(row=>[row.key,row.value]));
+    return defaults.map(([label,key])=>{
+      const value=values.get(key);
+      const url=typeof value==="string"&&/^https?:\/\//i.test(value)?value:null;
+      return {label,key,url};
+    });
+  }catch{
+    return defaults.map(([label,key])=>({label,key,url:null as string|null}));
+  }
+}
