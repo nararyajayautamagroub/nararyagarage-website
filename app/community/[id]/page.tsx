@@ -1,3 +1,5 @@
+export const dynamic="force-dynamic";
+
 import { getPlatform } from "@/lib/data";
 import Link from "next/link";
 
