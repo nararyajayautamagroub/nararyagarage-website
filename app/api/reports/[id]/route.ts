@@ -1,3 +1,4 @@
+import {rejectCrossOrigin} from "@/lib/request-security";
 import {NextResponse} from "next/server";
 import {z} from "zod";
 import {getPrisma} from "@/lib/prisma";
@@ -6,6 +7,7 @@ import {requireRole} from "@/lib/authorization";
 const schema=z.object({status:z.enum(["REPORT","REVIEW","INVESTIGATION","ACTION","CLOSED"])});
 
 export async function PATCH(req:Request,{params}:{params:Promise<{id:string}>}){
+  const originError=rejectCrossOrigin(req); if(originError)return originError;
   const auth=await requireRole(["OWNER","ADMIN","STAFF","MODERATOR"]);
   if(!auth.ok)return auth.response;
   const prisma=getPrisma();
