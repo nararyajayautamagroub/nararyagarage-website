@@ -56,9 +56,33 @@ model User {
  role String @default("MEMBER")
  emailVerifiedAt DateTime?
  sessions Session[]
+ identities AuthIdentity[]
  createdAt DateTime @default(now())
  updatedAt DateTime @updatedAt
  member Member?
+}
+
+model AuthIdentity {
+ id String @id @default(cuid())
+ userId String
+ provider String
+ providerAccountId String
+ createdAt DateTime @default(now())
+ user User @relation(fields:[userId], references:[id], onDelete:Cascade)
+ @@unique([provider, providerAccountId])
+ @@index([userId])
+}
+
+model AuthToken {
+ id String @id @default(cuid())
+ userId String
+ tokenHash String @unique
+ kind String
+ expiresAt DateTime
+ consumedAt DateTime?
+ createdAt DateTime @default(now())
+ user User @relation(fields:[userId], references:[id], onDelete:Cascade)
+ @@index([userId, kind])
 }
 
 model Session {
