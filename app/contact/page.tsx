@@ -1,1 +1,15 @@
-export default function ContactPage(){return <main className="mx-auto max-w-4xl px-6 py-16"><h1 className="text-4xl font-black">CONTACT</h1><p className="mt-3 text-zinc-400">Kontak resmi dan jalur komunikasi komunitas.</p><div className="mt-10 grid gap-4 md:grid-cols-2">{["Discord","WhatsApp","Instagram","TikTok","YouTube","X / Twitter"].map(x=><div key={x} className="rounded-2xl border border-white/10 p-6"><h2 className="font-bold">{x}</h2><p className="mt-2 text-sm text-zinc-500">Tambahkan URL resmi di pengaturan situs.</p></div>)}</div></main>}
+import {getContactLinks} from "@/lib/data";
+
+export const dynamic="force-dynamic";
+
+export default async function ContactPage(){
+  const links=await getContactLinks();
+  return <main className="mx-auto max-w-5xl px-6 py-16">
+    <h1 className="text-4xl font-black">CONTACT</h1>
+    <p className="mt-3 text-zinc-400">Kontak resmi dan jalur komunikasi komunitas dari konfigurasi situs.</p>
+    <div className="mt-10 grid gap-4 md:grid-cols-2">{links.map(item=><article key={item.key} className="rounded-2xl border border-white/10 bg-zinc-950 p-6">
+      <h2 className="font-bold">{item.label}</h2>
+      {item.url?<a href={item.url} target="_blank" rel="noreferrer" className="ng-orange-outline mt-4 inline-flex">BUKA {item.label.toUpperCase()}</a>:<p className="mt-2 text-sm text-zinc-600">Link resmi belum dikonfigurasi di Settings.</p>}
+    </article>)}</div>
+  </main>;
+}
