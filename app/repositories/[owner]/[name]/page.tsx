@@ -72,5 +72,10 @@ export default async function RepositoryDetail({params}:{params:Promise<{owner:s
       <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between"><div><h2 className="text-2xl font-black">Repository tree</h2><p className="mt-2 text-sm text-zinc-500">Metadata file/folder dibaca dari branch {data.repository.default_branch}.</p></div><span className="text-xs text-zinc-600">{data.tree.length} item ditampilkan{data.treeTruncated?" · tree dipotong pada 5.000 item":""}</span></div>
       <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{data.tree.slice(0,300).map(item=><div key={item.path} className="rounded-xl border border-white/10 px-3 py-2 text-xs text-zinc-400">{item.path}</div>)}</div>
     </section>
+
+    <section className="mt-8 rounded-3xl border border-white/10 bg-zinc-950 p-7">
+      <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between"><div><h2 className="text-2xl font-black">Scraped source files</h2><p className="mt-2 text-sm text-zinc-500">README, config, data, docs, JSON/YAML/CSV/TXT yang relevan dibaca terbatas untuk kontrol dan sinkronisasi.</p></div><span className="text-xs text-zinc-600">{data.sourceFiles.length} file dipindai</span></div>
+      <div className="mt-5 space-y-3">{data.sourceFiles.map(file=><article key={file.path} className="rounded-2xl border border-white/10 bg-black p-4"><div className="flex items-center justify-between gap-4"><p className="break-all text-sm font-bold text-zinc-300">{file.path}</p><span className="shrink-0 text-xs text-zinc-600">{file.size.toLocaleString("id-ID")} B</span></div>{file.content&&<pre className="mt-3 max-h-48 overflow-auto whitespace-pre-wrap text-xs leading-5 text-zinc-500">{file.content}</pre>}</article>)}</div>
+    </section>
   </main>;
 }
