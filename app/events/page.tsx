@@ -1,3 +1,5 @@
+export const dynamic="force-dynamic";
+
 import { getUpcomingEvents } from "@/lib/data";
 import { SectionTitle } from "@/components/cards";
 import { EventRegisterButton } from "@/components/event-register-button";
