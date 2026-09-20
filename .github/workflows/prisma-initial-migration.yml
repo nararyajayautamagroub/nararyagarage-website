@@ -1,0 +1,43 @@
+name: NARARYA GARAGE Initial Prisma Migration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "prisma/schema.prisma"
+      - "prisma.config.ts"
+      - "package.json"
+      - ".github/workflows/prisma-initial-migration.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migration:
+    if: ${{ !hashFiles('prisma/migrations/*/migration.sql') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Install dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Generate initial migration
+        run: |
+          mkdir -p prisma/migrations/0001_initial
+          npx prisma migrate diff --from-empty --to-schema prisma/schema.prisma --script > prisma/migrations/0001_initial/migration.sql
+      - name: Commit migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prisma/migrations/0001_initial/migration.sql
+          git commit -m "chore: add initial Prisma migration"
+          git push
