@@ -1,10 +1,13 @@
 import {NextResponse} from "next/server";
-import {getRepositoryDeepSnapshot} from "@/lib/github";
+import {getRepositoryDeepSnapshot,GITHUB_OWNER} from "@/lib/github";
 
 export const dynamic="force-dynamic";
 
 export async function GET(_req:Request,{params}:{params:Promise<{owner:string;name:string}>}){
   const {owner,name}=await params;
+  if(owner.toLowerCase()!==GITHUB_OWNER.toLowerCase()){
+    return NextResponse.json({error:"Repository owner is not connected"},{status:404});
+  }
   const fullName=`${owner}/${name}`;
   try{
     const data=await getRepositoryDeepSnapshot(fullName);
