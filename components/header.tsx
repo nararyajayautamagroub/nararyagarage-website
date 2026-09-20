@@ -26,8 +26,15 @@ function readLocale():Locale{
 export function Header(){
   const [open,setOpen]=useState(false);
   const [locale,setLocale]=useState<Locale>(DEFAULT_LOCALE);
+  const [user,setUser]=useState<{username:string;displayName:string;role:string}|null>(null);
 
-  useEffect(()=>setLocale(readLocale()),[]);
+  useEffect(()=>{
+    setLocale(readLocale());
+    fetch("/api/auth/me",{cache:"no-store"})
+      .then(async response=>response.ok?response.json():null)
+      .then(data=>setUser(data?.user??null))
+      .catch(()=>{});
+  },[]);
 
   return <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 text-zinc-950 shadow-sm backdrop-blur-xl">
     <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
@@ -39,8 +46,13 @@ export function Header(){
       <div className="hidden items-center gap-2 xl:flex">
         <nav aria-label="Navigasi utama" className="flex items-center gap-1 text-sm font-bold">
           {links.map(([key,href])=><Link key={href} href={href} className="rounded-lg px-3 py-2 text-zinc-700 transition hover:bg-orange-50 hover:text-orange-600">{t(locale,key)}</Link>)}
-          <Link href="/login" className="ng-orange-outline py-2">LOGIN</Link>
-          <Link href="/register" className="ng-orange-button py-2">JOIN</Link>
+          {user ? <>
+            <Link href="/member" className="ng-orange-outline py-2">{t(locale,"member")}</Link>
+            <button type="button" className="ng-orange-button py-2" onClick={async()=>{await fetch("/api/auth/logout",{method:"POST"});setUser(null);window.location.href="/";}}>LOGOUT</button>
+          </> : <>
+            <Link href="/login" className="ng-orange-outline py-2">{t(locale,"login")}</Link>
+            <Link href="/register" className="ng-orange-button py-2">{t(locale,"join")}</Link>
+          </>}
         </nav>
         <LanguageSwitcher/>
       </div>
@@ -65,8 +77,13 @@ export function Header(){
         {links.map(([key,href])=><Link onClick={()=>setOpen(false)} key={href} href={href} className="rounded-xl px-4 py-3 font-semibold text-zinc-700 transition hover:bg-orange-50 hover:text-orange-600">{t(locale,key)}</Link>)}
       </div>
       <div className="mt-3 grid grid-cols-2 gap-2">
-        <Link onClick={()=>setOpen(false)} href="/login" className="ng-orange-outline py-3">LOGIN</Link>
-        <Link onClick={()=>setOpen(false)} href="/register" className="ng-orange-button py-3">JOIN</Link>
+        {user ? <>
+          <Link onClick={()=>setOpen(false)} href="/member" className="ng-orange-outline py-3">{t(locale,"member")}</Link>
+          <button type="button" className="ng-orange-button py-3" onClick={async()=>{setOpen(false);await fetch("/api/auth/logout",{method:"POST"});setUser(null);window.location.href="/";}}>LOGOUT</button>
+        </> : <>
+          <Link onClick={()=>setOpen(false)} href="/login" className="ng-orange-outline py-3">{t(locale,"login")}</Link>
+          <Link onClick={()=>setOpen(false)} href="/register" className="ng-orange-button py-3">{t(locale,"join")}</Link>
+        </>}
       </div>
     </nav>}
   </header>;
