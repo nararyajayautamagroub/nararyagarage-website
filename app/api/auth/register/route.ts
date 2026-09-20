@@ -1,3 +1,4 @@
+import {rejectCrossOrigin} from "@/lib/request-security";
 import {NextResponse} from "next/server";
 import {randomBytes} from "node:crypto";
 import {z} from "zod";
@@ -13,6 +14,7 @@ const schema=z.object({
 });
 
 export async function POST(req:Request){
+  const originError=rejectCrossOrigin(req); if(originError)return originError;
   const limited=rateLimit(`register:${getRequestIp(req)}`,4,60*60_000);
   if(!limited.ok)return NextResponse.json({error:"Terlalu banyak pendaftaran dari jaringan ini",retryAfter:limited.retryAfter},{status:429,headers:{"Retry-After":String(limited.retryAfter)}});
 
