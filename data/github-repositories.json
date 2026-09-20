@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-20T11:11:43.635Z",
+  "fetchedAt": "2026-09-20T11:26:27.927Z",
   "repositoryCount": 6,
   "repositories": [
     {
@@ -15,13 +15,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-09-20T11:00:22Z",
-        "pushed_at": "2026-09-20T11:00:19Z",
+        "updated_at": "2026-09-20T11:20:20Z",
+        "pushed_at": "2026-09-20T11:20:17Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "JavaScript",
-        "size": 185,
+        "size": 194,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -56,6 +56,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "a9990df60bfc085b063e917122e0c068f48845e2",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T11:20:16Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/a9990df60bfc085b063e917122e0c068f48845e2"
+        },
+        {
           "sha": "989c9c071df5623c5cd9648a58f843ba57f4f14d",
           "message": "chore: refresh GitHub corporate data",
           "author": "github-actions[bot]",
@@ -82,13 +89,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-20T10:06:23Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/43d781635effeecf9a8813c16493adb6f2951eb1"
-        },
-        {
-          "sha": "32441f4373ee23d074def3d34dffb6586ef9956c",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T09:50:30Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/32441f4373ee23d074def3d34dffb6586ef9956c"
         }
       ],
       "tree": [
@@ -195,7 +195,7 @@
           "path": "external-live.js",
           "type": "blob",
           "size": 4176,
-          "sha": "27007a7e2f2052af33fdf2992a6395581d2ac125"
+          "sha": "8a6969ee8b17f759bf737e1553b6c76eb63ce243"
         },
         {
           "path": "gateway",
@@ -218,7 +218,7 @@
           "path": "github-live.js",
           "type": "blob",
           "size": 8967,
-          "sha": "b9b7e933ecce499232e25ed87707870bf4aa3e2a"
+          "sha": "f56a7cf96e84eb6b4fd635150549e4c96adfa8f1"
         },
         {
           "path": "i18n.js",
@@ -351,7 +351,7 @@
           "content": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\n- `scripts/validate.mjs` — automated structural/data validation\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\n- `gateway/test.mjs` — gateway integration smoke test\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\\n- `icons/` — installable PWA icon assets\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n\n\n## NPM and Gateway Runtime\n\nThe repository now has an npm contract for local/server execution:\n\n```bash\nnpm install\nnpm test\nnpm start\n```\n\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\n\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\n\n## Copyright Footer\n\nWebsite and bot surfaces use the required footer:\n\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\n"
         }
       ],
-      "scrapedAt": "2026-09-20T11:11:43.531Z"
+      "scrapedAt": "2026-09-20T11:26:27.673Z"
     },
     {
       "repository": {
@@ -364,13 +364,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-20T10:52:40Z",
-        "pushed_at": "2026-09-20T10:52:36Z",
+        "updated_at": "2026-09-20T11:11:48Z",
+        "pushed_at": "2026-09-20T11:11:44Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "TypeScript",
-        "size": 595,
+        "size": 678,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -439,6 +439,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "4c2305c0723fd53ce6bffbad4efd0710c004e50f",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T11:11:43Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/4c2305c0723fd53ce6bffbad4efd0710c004e50f"
+        },
+        {
           "sha": "f89a745a0ab180cb1da81270a7b7cbe8c790d759",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -465,13 +472,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-20T10:11:54Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/fb63d7588ce19000da68bc66236c75b0df9b870e"
-        },
-        {
-          "sha": "d4c99ee9ab718bd31f3fedcd63d5122c2116e6d5",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T09:53:45Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/d4c99ee9ab718bd31f3fedcd63d5122c2116e6d5"
         }
       ],
       "tree": [
@@ -1828,13 +1828,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "0c64cc1d0d76ea3e3c11cd15e5d49a5ed9c77dfd"
+          "sha": "97acfefb67a8eb555200c2f8e89ddbb7a3aa94a5"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 237490,
-          "sha": "6eeb6874168cb551682fd2c21917781f95dff9f0"
+          "size": 188247,
+          "sha": "1e7bd21a4d8e1cf7cc44b08914aff10102f76e04"
         },
         {
           "path": "data/repositories.ts",
@@ -2118,17 +2118,17 @@
         {
           "path": "docs/API.md",
           "size": 574,
-          "content": "# API Contract\n\nRencana endpoint REST:\n\n- GET /api/platforms\n- GET /api/communities\n- GET /api/communities/:id\n- GET /api/events\n- POST /api/events/:id/register\n- GET /api/convoys/:id\n- GET /api/mods\n- POST /api/mods/submissions\n- GET /api/liveries\n- GET /api/showcase\n- GET /api/gallery\n- GET /api/forum/threads\n- POST /api/forum/threads\n- GET /api/tutorials\n- GET /api/downloads\n- POST /api/reports\n- GET /api/member/dashboard\n- GET /api/admin/overview\n\nSemua endpoint privat wajib menerapkan autentikasi, authorization/RBAC, validasi input, rate limit, dan audit logging."
+          "content": null
         },
         {
           "path": "docs/SECURITY.md",
           "size": 681,
-          "content": "# Security Baseline\n\n- Password wajib di-hash dengan algoritma modern.\n- Secret hanya melalui environment variables atau secret manager.\n- Validasi input dan output untuk mencegah injection/XSS.\n- CSRF protection untuk cookie-based mutation endpoints.\n- Secure, HttpOnly, SameSite cookies.\n- Rate limiting pada login, register, upload, report, dan API sensitif.\n- Validasi MIME type, extension, ukuran, dan nama file upload.\n- Jangan memperbolehkan executable upload.\n- RBAC diterapkan server-side, bukan hanya menyembunyikan tombol di UI.\n- Audit log untuk perubahan role, suspend, ban, moderation, dan pengaturan penting.\n- Jangan mengumpulkan data pribadi yang tidak diperlukan."
+          "content": null
         },
         {
           "path": "README.md",
           "size": 1020,
-          "content": "# NARARYA GARAGE\n\nVirtual Simulator & Gaming Community for BUSSID, ETS2, ATS, TOE3, TSI, Roblox and future platforms.\n\n## Stack\nNext.js, TypeScript, Tailwind CSS, Lucide React. The architecture is prepared for a PostgreSQL-backed REST API.\n\n## Implemented foundation\n- Responsive dark/orange public UI\n- Homepage and navigation\n- Platform/community directory\n- Dynamic platform community profile\n- Event & convoy information\n- Modding hub\n- Fleet/mod/livery/3D showcase\n- Forum category landing\n- News and rules pages\n- Environment secret template\n- Architecture documentation\n\n## Planned backend modules\nAuthentication, RBAC, member management, recruitment workflow, event registration/attendance, convoy roles, submissions/moderation, gallery/video management, forum threads/replies, tutorials, downloads, reports, notifications, achievements, analytics, audit logs and Admin Dashboard.\n\n## Run locally\n```bash\nnpm install\nnpm run dev\n```\n\nCopy `.env.example` to `.env.local`. Never commit real tokens or credentials.\n"
+          "content": null
         },
         {
           "path": "docs/SECURITY-AUDIT.md",
@@ -2142,11 +2142,11 @@
         },
         {
           "path": "data/github-repositories.json",
-          "size": 237490,
+          "size": 188247,
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-20T11:11:43.635Z"
+      "scrapedAt": "2026-09-20T11:26:27.762Z"
     },
     {
       "repository": {
@@ -3019,22 +3019,22 @@
         {
           "path": "platforms/bussid/lights/README.md",
           "size": 130,
-          "content": null
+          "content": "# BUSSID Lights\n\nPreset: Strobo, Rotator, LED Bar.\n\nExport menghasilkan interchange package, bukan format internal BUSSID native.\n"
         },
         {
           "path": "platforms/bussid/sprite_sheet/templates/README.md",
           "size": 130,
-          "content": null
+          "content": "# BUSSID Sprite Sheet Templates\n\nKategori metadata: AO, Texture, dan Kaca/XOR.\n\nKlasifikasi tidak mengubah pixel secara otomatis.\n"
         },
         {
           "path": "artifacts/downloads/README.md",
           "size": 133,
-          "content": null
+          "content": "# Downloads\n\nArea dokumentasi artifact download.\n\nRuntime download tidak harus dikomit kecuali dimaksudkan sebagai release artifact.\n"
         },
         {
           "path": "platforms/bussid/sprite_sheet/README.md",
           "size": 135,
-          "content": null
+          "content": "# BUSSID Sprite Sheet\n\nAdapter gambar sprite sheet.\n\nPillow dipakai oleh `core/image_tools.py` untuk inspect dan frame ZIP extraction.\n"
         },
         {
           "path": "platforms/ets2_ats/map/README.md",
@@ -3117,7 +3117,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-20T11:11:43.624Z"
+      "scrapedAt": "2026-09-20T11:26:27.837Z"
     },
     {
       "repository": {
@@ -4762,10 +4762,10 @@
         {
           "path": "README.md",
           "size": 4983,
-          "content": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API with persisted payment method, payment instructions endpoint and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, FAQ, request tracking, finance reports, CMS and staff operations\n- SEO sitemap + robots, mobile web manifest and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nThe scraper uses same-origin crawling by default:\n\n    npm run scrape -- https://example.com --max-pages 25\n\nExplicit same-origin mode:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nUse `--all-origins` only when cross-domain crawling is actually required.\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL, the Google OAuth variables when Google Login is enabled, and Midtrans keys when PAYMENT_GATEWAY=MIDTRANS.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract. Manual payment instructions can be supplied with PAYMENT_QRIS_INSTRUCTIONS, PAYMENT_VA_INSTRUCTIONS, PAYMENT_BANK_INSTRUCTIONS and PAYMENT_WALLET_INSTRUCTIONS.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n\n## Payment Gateway\n\nSet `PAYMENT_GATEWAY=MIDTRANS` to create real Snap transactions from the server. Configure `MIDTRANS_SERVER_KEY`, `MIDTRANS_CLIENT_KEY`, and `MIDTRANS_IS_PRODUCTION`. Midtrans uses the Server Key for server-side Basic authentication and the Client Key for browser Snap.js. Notifications are verified with Midtrans's `signature_key` formula and processed idempotently. Production must use an HTTPS notification URL configured in the Midtrans dashboard.\n\nFor local or manual flows, keep `PAYMENT_GATEWAY=MANUAL`; payment instructions can be supplied with the `PAYMENT_*_INSTRUCTIONS` variables.\n\n## JavaScript frontend\n\nInteractive checkout and login now use `.jsx`, while shared vanilla browser modules live under `public/js/`. TypeScript remains for database, authentication, RBAC and payment verification so runtime-sensitive code keeps compile-time checks. `npm run verify` runs the schema, generation, typecheck, tests and production build chain.\n"
+          "content": null
         }
       ],
-      "scrapedAt": "2026-09-20T11:11:43.602Z"
+      "scrapedAt": "2026-09-20T11:26:27.714Z"
     },
     {
       "repository": {
@@ -4789,15 +4789,1966 @@
         "disabled": false,
         "topics": []
       },
-      "languages": {},
+      "languages": {
+        "JavaScript": 471200,
+        "CSS": 22040,
+        "HTML": 18805,
+        "TypeScript": 3255,
+        "Python": 1794
+      },
       "readme": null,
-      "packageJson": null,
+      "packageJson": {
+        "name": "nararya-bot-discord",
+        "version": "3.2.2",
+        "private": true,
+        "type": "module",
+        "scripts": {
+          "start": "node src/index.js",
+          "dev": "node --watch src/index.js",
+          "deploy": "node src/deploy-commands.js",
+          "test": "node --test",
+          "start:ticket": "node src/ticket-bot/index.js",
+          "check:runtime": "npm run validate && find src test website -type f -name '*.js' -print0 | xargs -0 -n1 node --check",
+          "validate": "node tools/validate-repo.mjs",
+          "test:all": "npm run validate && npm test",
+          "start:web": "node src/index.js",
+          "check:install": "npm install --no-audit --no-fund",
+          "check:website": "npm test -- test/jkt48-website.test.js test/web-auth.test.js test/web-server.test.js"
+        },
+        "dependencies": {
+          "better-sqlite3": "^13.0.3",
+          "cheerio": "^1.2.0",
+          "discord.js": "^14.27.0",
+          "dotenv": "^17.2.1"
+        },
+        "devDependencies": {
+          "typescript": "^5.9.2"
+        },
+        "overrides": {
+          "encoding-sniffer": "1.0.2"
+        },
+        "engines": {
+          "node": ">=22.12.0",
+          "npm": ">=10.0.0"
+        }
+      },
       "latestRelease": null,
-      "commits": [],
-      "tree": [],
+      "commits": [
+        {
+          "sha": "dac2203bd5983040ca7fcb727fb32a05357d827e",
+          "message": "release: finalize v3.2.2",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T07:55:57Z",
+          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/dac2203bd5983040ca7fcb727fb32a05357d827e"
+        },
+        {
+          "sha": "b0ac000716c28ffb17aa6a550aa8ded20cd4554b",
+          "message": "fix: align stale release regression test with 3.2.2",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T07:55:22Z",
+          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/b0ac000716c28ffb17aa6a550aa8ded20cd4554b"
+        },
+        {
+          "sha": "bc5d01a31f7fafc33dfc823532aaf320c783dc4f",
+          "message": "test: align release regression test with 3.2.2",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T07:54:29Z",
+          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/bc5d01a31f7fafc33dfc823532aaf320c783dc4f"
+        },
+        {
+          "sha": "c80cc73d0f865bdb4647efaff7e91182e9532da9",
+          "message": "test: align runtime contract with 3.2.2",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T07:54:11Z",
+          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/c80cc73d0f865bdb4647efaff7e91182e9532da9"
+        },
+        {
+          "sha": "c1e983e4de5eafa724592be93c3e0f944eefdc20",
+          "message": "test: align release checks with 3.2.2",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T07:54:08Z",
+          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/c1e983e4de5eafa724592be93c3e0f944eefdc20"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 2466,
+          "sha": "7e47b62c7dc0ec18f4c18996aaeb65b7e97b12cf"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "6e49da2a332c0a252dac8e61200c794152c11a14"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "838fa271f0abd3e155362c5a18ea633436afc023"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 854,
+          "sha": "1367f559ab56f1e8b0f81f55cfeae512afc852f4"
+        },
+        {
+          "path": ".github/workflows/jkt48-pages.yml",
+          "type": "blob",
+          "size": 2197,
+          "sha": "6116fa9163ec6a5fbe3086b637a3ad88994b95f4"
+        },
+        {
+          "path": ".gitignore",
+          "type": "blob",
+          "size": 113,
+          "sha": "f58ddbd0b410dd7b740616266f9cf12f62974e96"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "type": "blob",
+          "size": 3781,
+          "sha": "a660879ee01eda7abff801a36858fa5eaeba6901"
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "type": "blob",
+          "size": 915,
+          "sha": "cc6f04a9bbd870bd80b6e40d31176f1c90d0bbda"
+        },
+        {
+          "path": "COPYRIGHT.md",
+          "type": "blob",
+          "size": 700,
+          "sha": "fef79667b7d70d41feb96e024ec59d3e8daa7977"
+        },
+        {
+          "path": "LICENSE",
+          "type": "blob",
+          "size": 1081,
+          "sha": "b53e0c4ab0b065757a0006429bea804bf451b791"
+        },
+        {
+          "path": "LICENSE-NOTICE.md",
+          "type": "blob",
+          "size": 1408,
+          "sha": "5832d961ba505356262084959fbe6b6e7a9729b1"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 6839,
+          "sha": "1a911415e74f457a3dea2d7c7cbd6a9c2a7be18c"
+        },
+        {
+          "path": "SECURITY.md",
+          "type": "blob",
+          "size": 3035,
+          "sha": "408eaef33a1b5252529ab8bcdf89dacec9d37594"
+        },
+        {
+          "path": "TRADEMARK.md",
+          "type": "blob",
+          "size": 839,
+          "sha": "460eae455c579157a88f0c4f5c98aa5ab2577dd5"
+        },
+        {
+          "path": "VERSION.md",
+          "type": "blob",
+          "size": 1454,
+          "sha": "d533cce0825906db1a7e90cbd35cb7f0d86fc664"
+        },
+        {
+          "path": "docs",
+          "type": "tree",
+          "sha": "81b17d2041a8d8901fd8f0a3fa7f8f73aa7456f2"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "type": "blob",
+          "size": 2648,
+          "sha": "210b3219515ecfab29b7c448ea7f2a375de238bb"
+        },
+        {
+          "path": "docs/COMMANDS.md",
+          "type": "blob",
+          "size": 2173,
+          "sha": "29e0ccb937db893786aae4e5ce5d799a3d4891c5"
+        },
+        {
+          "path": "docs/FEATURE-REGISTRY.md",
+          "type": "blob",
+          "size": 15335,
+          "sha": "71e960fc37d80d39173350e008b633109be53d42"
+        },
+        {
+          "path": "docs/FEATURES-100.md",
+          "type": "blob",
+          "size": 482,
+          "sha": "d243c6b3231240cea24cb307f649f327092f2df5"
+        },
+        {
+          "path": "docs/INDONESIA-DATA.md",
+          "type": "blob",
+          "size": 1295,
+          "sha": "8f566c06415a59c031b9a27e2d6f6d5173ab7b2e"
+        },
+        {
+          "path": "docs/JKT48-CONNECT.md",
+          "type": "blob",
+          "size": 754,
+          "sha": "1e043165f84bed67b21c47752b6ca0998efc472d"
+        },
+        {
+          "path": "docs/JKT48-INTEGRATION-NOTES.md",
+          "type": "blob",
+          "size": 4237,
+          "sha": "fc0531c1b84aa9cd9facd101b82f2349c7794c83"
+        },
+        {
+          "path": "docs/JKT48-SOURCES.md",
+          "type": "blob",
+          "size": 782,
+          "sha": "72c5c6f1cf6fe0ecf10c4148f9dba3fea716997a"
+        },
+        {
+          "path": "docs/MEDIA.md",
+          "type": "blob",
+          "size": 1609,
+          "sha": "bb0a89ec38b9b455741672e7d1f02d8edc29cacf"
+        },
+        {
+          "path": "docs/NOTIFICATION-SOURCES.md",
+          "type": "blob",
+          "size": 1023,
+          "sha": "9e3d216afd003da89bfc9e51dd4f986124aa73ba"
+        },
+        {
+          "path": "docs/SCRAPER-MATRIX.md",
+          "type": "blob",
+          "size": 1583,
+          "sha": "f2a07f0430876c0378472608fc027cdc3428cae1"
+        },
+        {
+          "path": "docs/STRUCTURE.md",
+          "type": "blob",
+          "size": 1136,
+          "sha": "0b4f3985a3291aa58c9dbafb2e05d0d22593e647"
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "type": "blob",
+          "size": 1609,
+          "sha": "69ab98af323248d0e7f279b5bd4277b938e58f58"
+        },
+        {
+          "path": "package.json",
+          "type": "blob",
+          "size": 1050,
+          "sha": "aa694b103c8c8bf3c5a6e9ed83cc9a714ed9fa95"
+        },
+        {
+          "path": "src",
+          "type": "tree",
+          "sha": "dbcae751b07590e1569b7bcf400b2fd1bf7415ef"
+        },
+        {
+          "path": "src/commands",
+          "type": "tree",
+          "sha": "008d97077b85d3ed678f95e8080864214549e2a2"
+        },
+        {
+          "path": "src/commands/admin",
+          "type": "tree",
+          "sha": "92e801641a4b4a340da95c10a389991af66c2cd2"
+        },
+        {
+          "path": "src/commands/admin/announce.js",
+          "type": "blob",
+          "size": 265,
+          "sha": "a6b6133956ca405ac51214966016c524ce5f27f1"
+        },
+        {
+          "path": "src/commands/admin/automod.js",
+          "type": "blob",
+          "size": 259,
+          "sha": "c6f0431f28f5638b944025831e4ea491271e3d91"
+        },
+        {
+          "path": "src/commands/admin/clear.js",
+          "type": "blob",
+          "size": 290,
+          "sha": "824b258e15b9e528ac63da546ea8b20fcea6135e"
+        },
+        {
+          "path": "src/commands/admin/config.js",
+          "type": "blob",
+          "size": 185,
+          "sha": "f7fc94977eb50f13cc04924dd081ff97f777cd4f"
+        },
+        {
+          "path": "src/commands/admin/features.js",
+          "type": "blob",
+          "size": 148,
+          "sha": "6fd183996ecdf0ba4c225333983e0cc66fb41996"
+        },
+        {
+          "path": "src/commands/admin/logs.js",
+          "type": "blob",
+          "size": 176,
+          "sha": "a96122273f3769a1875935efceeb957889f0ecfa"
+        },
+        {
+          "path": "src/commands/admin/maintenance.js",
+          "type": "blob",
+          "size": 249,
+          "sha": "ad317e8e4b5a1af3378d36790fb164c212a6d289"
+        },
+        {
+          "path": "src/commands/admin/rolepanel.js",
+          "type": "blob",
+          "size": 187,
+          "sha": "41fa8f7272d4a0ec43fcc678716f13f688b75c80"
+        },
+        {
+          "path": "src/commands/admin/setup.js",
+          "type": "blob",
+          "size": 176,
+          "sha": "dab7fe00e14b761128f11c05adf577d77172e792"
+        },
+        {
+          "path": "src/commands/community",
+          "type": "tree",
+          "sha": "d56b5c501122de40f84e0e68b40a378f7bb2a5cc"
+        },
+        {
+          "path": "src/commands/community/balance.js",
+          "type": "blob",
+          "size": 140,
+          "sha": "3777ba7bb570438cc1da3b4e5c1f8b7d551eceef"
+        },
+        {
+          "path": "src/commands/community/coinflip.js",
+          "type": "blob",
+          "size": 141,
+          "sha": "9f4d53088d9b40086350b7d47e5f0e02c7bca06d"
+        },
+        {
+          "path": "src/commands/community/daily.js",
+          "type": "blob",
+          "size": 146,
+          "sha": "0503b946477687fe38e8016c2d5e77370bfaea0b"
+        },
+        {
+          "path": "src/commands/community/dice.js",
+          "type": "blob",
+          "size": 137,
+          "sha": "c2942f4955db1e6253971df16ce50e521e11697c"
+        },
+        {
+          "path": "src/commands/community/inventory.js",
+          "type": "blob",
+          "size": 146,
+          "sha": "6c2f33e5d6a9364c1f8c094ee619dc1060697719"
+        },
+        {
+          "path": "src/commands/community/leaderboard.js",
+          "type": "blob",
+          "size": 153,
+          "sha": "3ceb12964d113be425c196e783f51124a74fbc3b"
+        },
+        {
+          "path": "src/commands/community/level.js",
+          "type": "blob",
+          "size": 138,
+          "sha": "bc6715990c777be5191c4a89729b71cbbd374825"
+        },
+        {
+          "path": "src/commands/community/pay.js",
+          "type": "blob",
+          "size": 316,
+          "sha": "02ee0bc23dbd9aa619046ed30b9dcd5030ddab50"
+        },
+        {
+          "path": "src/commands/community/rank.js",
+          "type": "blob",
+          "size": 136,
+          "sha": "31d537ce3421bc29dfcb0e1a2f4a32d8feff11d8"
+        },
+        {
+          "path": "src/commands/community/rps.js",
+          "type": "blob",
+          "size": 331,
+          "sha": "61c736fa5c512386156ef8bdb45e6d3dee601691"
+        },
+        {
+          "path": "src/commands/community/shop.js",
+          "type": "blob",
+          "size": 144,
+          "sha": "91b70de641c9b00963787b4aedb6f3b2d83c0fe1"
+        },
+        {
+          "path": "src/commands/community/trivia.js",
+          "type": "blob",
+          "size": 139,
+          "sha": "5eb6c8e60b218ddac502fb9fa83258c1163881e1"
+        },
+        {
+          "path": "src/commands/community/work.js",
+          "type": "blob",
+          "size": 147,
+          "sha": "2c467fc2ffb02a5a1211444abb1eb2667764b4e9"
+        },
+        {
+          "path": "src/commands/info",
+          "type": "tree",
+          "sha": "ea2dfc47f71b7eb902111c001cc9d116f5d84299"
+        },
+        {
+          "path": "src/commands/info/botinfo.js",
+          "type": "blob",
+          "size": 137,
+          "sha": "c86daf2a19fcfc69d4b5b2ed8a13071470c28e61"
+        },
+        {
+          "path": "src/commands/info/health.js",
+          "type": "blob",
+          "size": 145,
+          "sha": "6aab51fbcd4f49f681c01cb474484f2f3f8c08e0"
+        },
+        {
+          "path": "src/commands/moderation",
+          "type": "tree",
+          "sha": "57ab82316461c9341c5dd634b8b81ada48aeb786"
+        },
+        {
+          "path": "src/commands/moderation/ban.js",
+          "type": "blob",
+          "size": 312,
+          "sha": "600c1273fff5987166e92c6f4a4dbe8ad54368c1"
+        },
+        {
+          "path": "src/commands/moderation/kick.js",
+          "type": "blob",
+          "size": 314,
+          "sha": "e9c814052a16c5a9fc0ddc675dfeb23d7641e2b2"
+        },
+        {
+          "path": "src/commands/moderation/lock.js",
+          "type": "blob",
+          "size": 239,
+          "sha": "8f6e5e3a6ae0347d1e667f8b9584a39d2c3476e7"
+        },
+        {
+          "path": "src/commands/moderation/slowmode.js",
+          "type": "blob",
+          "size": 297,
+          "sha": "28f641904957b628dcd4024dcaa7ed963fd9b07c"
+        },
+        {
+          "path": "src/commands/moderation/timeout.js",
+          "type": "blob",
+          "size": 392,
+          "sha": "3f81b9cfa3a03d7192eebfaf98c5f1fae7f8fca4"
+        },
+        {
+          "path": "src/commands/moderation/warn.js",
+          "type": "blob",
+          "size": 285,
+          "sha": "0c52122cfb5215014651599eda2fa023322f8f06"
+        },
+        {
+          "path": "src/commands/music",
+          "type": "tree",
+          "sha": "9e962341c750c30feca1162982af3b989bde185e"
+        },
+        {
+          "path": "src/commands/music/play.js",
+          "type": "blob",
+          "size": 231,
+          "sha": "b32b39fa0ef96a83fb36ca6e6e57210a1cf5f40b"
+        },
+        {
+          "path": "src/commands/music/queue.js",
+          "type": "blob",
+          "size": 146,
+          "sha": "35e67678009ff5775eaf4e8ae664dfdbc731c1ec"
+        },
+        {
+          "path": "src/commands/music/skip.js",
+          "type": "blob",
+          "size": 137,
+          "sha": "8d058319fd7721d656cfd671d33d2331c49b4381"
+        },
+        {
+          "path": "src/commands/music/stop.js",
+          "type": "blob",
+          "size": 140,
+          "sha": "cbc8728b92bfcc5ef577995d3113e75f9599417d"
+        },
+        {
+          "path": "src/commands/roles",
+          "type": "tree",
+          "sha": "ad46a60f8aaaeaa7f78233a7ea0c98c40eb475de"
+        },
+        {
+          "path": "src/commands/roles/autorole.js",
+          "type": "blob",
+          "size": 302,
+          "sha": "30a8abe108807169cc70e8d2c09c2a9feabb67ef"
+        },
+        {
+          "path": "src/commands/roles/role.js",
+          "type": "blob",
+          "size": 618,
+          "sha": "faf13f7d097807323cc16a747d7f34f5c17e3a3e"
+        },
+        {
+          "path": "src/commands/security",
+          "type": "tree",
+          "sha": "f65011a01d44cd6717090dac3981bb42bba52bb2"
+        },
+        {
+          "path": "src/commands/security/lockdown.js",
+          "type": "blob",
+          "size": 260,
+          "sha": "98744235979d60ab14ae16385fd46838297181f3"
+        },
+        {
+          "path": "src/commands/security/raid.js",
+          "type": "blob",
+          "size": 258,
+          "sha": "55e5618471f529dbef3ab055fc7f6f6f9a2e6170"
+        },
+        {
+          "path": "src/commands/security/whitelist.js",
+          "type": "blob",
+          "size": 258,
+          "sha": "e4164ff69a2cf91f3617ae1e0fcfa1b8ded44c02"
+        },
+        {
+          "path": "src/commands/ticket",
+          "type": "tree",
+          "sha": "efc5c4aee8b263f4c14280c70cf73a9716537ce6"
+        },
+        {
+          "path": "src/commands/ticket/add.js",
+          "type": "blob",
+          "size": 230,
+          "sha": "63715ec175c942adb1c317fb9dee142c99fe0a02"
+        },
+        {
+          "path": "src/commands/ticket/claim.js",
+          "type": "blob",
+          "size": 146,
+          "sha": "f1f28e2775b04c47f15ebfee451c185b25c84f1a"
+        },
+        {
+          "path": "src/commands/ticket/close.js",
+          "type": "blob",
+          "size": 146,
+          "sha": "6113f6114dd8398e0b7352398889e4a4bd860371"
+        },
+        {
+          "path": "src/commands/ticket/remove.js",
+          "type": "blob",
+          "size": 234,
+          "sha": "e05a9b694f9504a6d892e33d8db8fe4bca65487e"
+        },
+        {
+          "path": "src/commands/ticket/reopen.js",
+          "type": "blob",
+          "size": 154,
+          "sha": "40fb6538e4cbc8126dcde1d5e7c4263b429f27bf"
+        },
+        {
+          "path": "src/commands/ticket/ticket.js",
+          "type": "blob",
+          "size": 145,
+          "sha": "36c7788118689e65db2a9c6a6f7e6ac40dc94f62"
+        },
+        {
+          "path": "src/commands/ticket/transcript.js",
+          "type": "blob",
+          "size": 161,
+          "sha": "16546285e6305fe83dec04fa35d0710086ef037a"
+        },
+        {
+          "path": "src/commands/utility",
+          "type": "tree",
+          "sha": "37612c36540168ba412102571aa73b0d73c5af01"
+        },
+        {
+          "path": "src/commands/utility/afk.js",
+          "type": "blob",
+          "size": 205,
+          "sha": "084d6de3dfc07f4cb0bb774cbcdd75ed174a1592"
+        },
+        {
+          "path": "src/commands/utility/avatar.js",
+          "type": "blob",
+          "size": 199,
+          "sha": "6cdab8d041317434036a85c3633e50f91bf6710b"
+        },
+        {
+          "path": "src/commands/utility/ping.js",
+          "type": "blob",
+          "size": 137,
+          "sha": "bde2588bfca66f259608fc82eb855b4a9165f99b"
+        },
+        {
+          "path": "src/commands/utility/poll.js",
+          "type": "blob",
+          "size": 227,
+          "sha": "b179fd90755d9e264691b746db092e6a3af9a2d0"
+        },
+        {
+          "path": "src/commands/utility/remind.js",
+          "type": "blob",
+          "size": 324,
+          "sha": "86b64ce1b8019b8f90d2333420a7b35e4d3d728a"
+        },
+        {
+          "path": "src/commands/utility/serverinfo.js",
+          "type": "blob",
+          "size": 143,
+          "sha": "2c2831e91e6662c536fe63a2402633d00c678304"
+        },
+        {
+          "path": "src/commands/utility/userinfo.js",
+          "type": "blob",
+          "size": 198,
+          "sha": "5fefe047d2446889d7c2d4cc9918c2588dd16378"
+        },
+        {
+          "path": "src/config",
+          "type": "tree",
+          "sha": "e7e49758fe120ca98db0dddd981a4231c5b319d3"
+        },
+        {
+          "path": "src/config/categories.js",
+          "type": "blob",
+          "size": 263,
+          "sha": "6d5f8389a398428b329f5fa3b85ad141bba7abef"
+        },
+        {
+          "path": "src/config/constants.js",
+          "type": "blob",
+          "size": 182,
+          "sha": "296bc868c0f692fd15df1e14950948ecd030c918"
+        },
+        {
+          "path": "src/config/extended-features.js",
+          "type": "blob",
+          "size": 12360,
+          "sha": "5a04c264499748a0b61d08d072f28321899aeeff"
+        },
+        {
+          "path": "src/config/features.js",
+          "type": "blob",
+          "size": 10986,
+          "sha": "038e2e925d20c3d756fc26a4adcaa4e875a09c54"
+        },
+        {
+          "path": "src/config/permissions.js",
+          "type": "blob",
+          "size": 250,
+          "sha": "aed80ca075c3a4a115f2a87e63be8f7484c9c3f5"
+        },
+        {
+          "path": "src/config/sources.js",
+          "type": "blob",
+          "size": 1177,
+          "sha": "5c97e5cd46b3eeb392b50d35516088455112ff71"
+        },
+        {
+          "path": "src/database",
+          "type": "tree",
+          "sha": "5fcd650bc6e4d91376f7d07d98bac2c2b6fcdf54"
+        },
+        {
+          "path": "src/database/init.js",
+          "type": "blob",
+          "size": 233,
+          "sha": "9a7e543b51fc4a17aae606d18cd27d0dc2b50921"
+        },
+        {
+          "path": "src/database/repositories",
+          "type": "tree",
+          "sha": "314f834794b9d582092593afd93665486026e499"
+        },
+        {
+          "path": "src/database/repositories/afk.js",
+          "type": "blob",
+          "size": 492,
+          "sha": "30f63a5aaf060751a5722987670d7fb9a99b709e"
+        },
+        {
+          "path": "src/database/repositories/notifications.js",
+          "type": "blob",
+          "size": 383,
+          "sha": "ea64a3e5bb6538df9cb9a9ee011edd9a8af2f52e"
+        },
+        {
+          "path": "src/database/repositories/reminders.js",
+          "type": "blob",
+          "size": 428,
+          "sha": "34a71055edac7d4c925986d222398aa306ef3666"
+        },
+        {
+          "path": "src/database/repositories/settings.js",
+          "type": "blob",
+          "size": 427,
+          "sha": "677db426f39fd8792e50a378b04ce112ba9857c8"
+        },
+        {
+          "path": "src/database/schema.js",
+          "type": "blob",
+          "size": 976,
+          "sha": "c392d64cf3896b674737c1560c6e37e2cef40a1f"
+        },
+        {
+          "path": "src/deploy-commands.js",
+          "type": "blob",
+          "size": 36736,
+          "sha": "fded5cf213d20681cf040e67c01fed49cf1ca919"
+        },
+        {
+          "path": "src/events",
+          "type": "tree",
+          "sha": "e16b0932374f8cb55501e4c813a03bf30a2265a3"
+        },
+        {
+          "path": "src/events/error.js",
+          "type": "blob",
+          "size": 164,
+          "sha": "c1f7595cd6e9f079f8c4aed0fc614c53e35a0c90"
+        },
+        {
+          "path": "src/events/interactionError.js",
+          "type": "blob",
+          "size": 273,
+          "sha": "f6f01fc9ae71f9679fccc427956a857bb9e03d30"
+        },
+        {
+          "path": "src/index.js",
+          "type": "blob",
+          "size": 61256,
+          "sha": "ac9abf84451681fde499779ecead15704026cbc3"
+        },
+        {
+          "path": "src/jkt48",
+          "type": "tree",
+          "sha": "d9952eb0b32de768019668604202935126322352"
+        },
+        {
+          "path": "src/jkt48/adapters.js",
+          "type": "blob",
+          "size": 9870,
+          "sha": "9a2403155f6b965d50ae0357bf92a9df5fccd601"
+        },
+        {
+          "path": "src/jkt48/command-service.js",
+          "type": "blob",
+          "size": 3711,
+          "sha": "38acd7f1ff660953aec457bde5a8a4e700fb627e"
+        },
+        {
+          "path": "src/jkt48/connect.js",
+          "type": "blob",
+          "size": 1936,
+          "sha": "104f257cd7a6119f41ebc59cfa5bc0cf1aabf148"
+        },
+        {
+          "path": "src/jkt48/feed-service.js",
+          "type": "blob",
+          "size": 2745,
+          "sha": "b3931a73b2c5026bd320c6fd305df67f3807d6d6"
+        },
+        {
+          "path": "src/jkt48/gen14-members.js",
+          "type": "blob",
+          "size": 1972,
+          "sha": "93d7c73b131abe03b7ffd385553a762bbe288836"
+        },
+        {
+          "path": "src/jkt48/jkt48v-members.js",
+          "type": "blob",
+          "size": 1370,
+          "sha": "b0bc222c9c1016b6c8c13aabc7c125d09c99133e"
+        },
+        {
+          "path": "src/jkt48/live-monitor.js",
+          "type": "blob",
+          "size": 4341,
+          "sha": "27e49082620f67bfed413023f6779e72a5839423"
+        },
+        {
+          "path": "src/jkt48/member-database.js",
+          "type": "blob",
+          "size": 7843,
+          "sha": "27691d666c4a6ceda6bad8f6ca1861c6b60a1e12"
+        },
+        {
+          "path": "src/jkt48/member-seed-1.js",
+          "type": "blob",
+          "size": 516,
+          "sha": "e4aaa1cc9f731b976315b5441dbdb2c1167d0162"
+        },
+        {
+          "path": "src/jkt48/member-seed-2.js",
+          "type": "blob",
+          "size": 459,
+          "sha": "4e1880166bbb85f486a9d622d9d7dae3d939a4c6"
+        },
+        {
+          "path": "src/jkt48/sources.js",
+          "type": "blob",
+          "size": 4213,
+          "sha": "1d89a2755894be4f680ba0702f60dfb35d940c94"
+        },
+        {
+          "path": "src/media",
+          "type": "tree",
+          "sha": "2a729ced0f6ce22cbb3482e6985d04ce40fd7071"
+        },
+        {
+          "path": "src/media/command.js",
+          "type": "blob",
+          "size": 4778,
+          "sha": "a3311fc5e09684bae9ef45237fb09987893e215a"
+        },
+        {
+          "path": "src/media/database.js",
+          "type": "blob",
+          "size": 2060,
+          "sha": "f1b0569a1c407fe3bfd6f5de30370a9712faa73e"
+        },
+        {
+          "path": "src/media/download.js",
+          "type": "blob",
+          "size": 4549,
+          "sha": "4e28b8a0a69832b84140662c78cebb4517c45de0"
+        },
+        {
+          "path": "src/media/runner.js",
+          "type": "blob",
+          "size": 591,
+          "sha": "7d53e5f766ffbcc7d157a16c8026121743e3afe6"
+        },
+        {
+          "path": "src/media/service.js",
+          "type": "blob",
+          "size": 5264,
+          "sha": "ef5bee69682f51822e6a4617871ca644b2b7f28d"
+        },
+        {
+          "path": "src/media/transforms.js",
+          "type": "blob",
+          "size": 4123,
+          "sha": "0e5b43e4e328439d3020d8f45123ac36351e4c8c"
+        },
+        {
+          "path": "src/media/utils.js",
+          "type": "blob",
+          "size": 1509,
+          "sha": "4638dd4cb8b22aa98dfa792347444084bde81c60"
+        },
+        {
+          "path": "src/music",
+          "type": "tree",
+          "sha": "9f8e93b81ea91db9d7eeeaaca7b9444bd4ce8665"
+        },
+        {
+          "path": "src/music/attachments.ts",
+          "type": "blob",
+          "size": 340,
+          "sha": "4aaee43a23448a0e50ff9c3551fb2c7472b16833"
+        },
+        {
+          "path": "src/music/config.ts",
+          "type": "blob",
+          "size": 240,
+          "sha": "a57ab1d3a09142878f1fd6c32f1d5af48e85ac5c"
+        },
+        {
+          "path": "src/music/downloader.ts",
+          "type": "blob",
+          "size": 802,
+          "sha": "ec5544348da4dbc600171b42a635c1fd1ea66ee6"
+        },
+        {
+          "path": "src/music/errors.ts",
+          "type": "blob",
+          "size": 210,
+          "sha": "3aa970f900f20a78cb7deb9c539c2d8331d08cb5"
+        },
+        {
+          "path": "src/music/ffmpeg.ts",
+          "type": "blob",
+          "size": 138,
+          "sha": "2c76111f529595cedacd406804c457ec46102dcc"
+        },
+        {
+          "path": "src/music/logger.ts",
+          "type": "blob",
+          "size": 216,
+          "sha": "45e3c2eed7ac64fd9f3215b30dd1bb84c6a65c80"
+        },
+        {
+          "path": "src/music/queue.ts",
+          "type": "blob",
+          "size": 403,
+          "sha": "5bd56729d6a7cf01f03381e8c145b9ac4166b799"
+        },
+        {
+          "path": "src/music/transcoder.ts",
+          "type": "blob",
+          "size": 332,
+          "sha": "e7d6f36f2c3acb31b65fb6c569102946a46f66e5"
+        },
+        {
+          "path": "src/music/types.ts",
+          "type": "blob",
+          "size": 357,
+          "sha": "d63014741f8dab6edc8be2bb1aa6c9808894ec75"
+        },
+        {
+          "path": "src/music/url.ts",
+          "type": "blob",
+          "size": 217,
+          "sha": "fa3f97de678b4bc2902c803c993704adabb256bc"
+        },
+        {
+          "path": "src/security",
+          "type": "tree",
+          "sha": "b54b53f577f562391484bcef45160a2175bdbfc6"
+        },
+        {
+          "path": "src/security/bot-control.js",
+          "type": "blob",
+          "size": 4164,
+          "sha": "16617d81532702d85ca1a53c396d6caaebe0dba7"
+        },
+        {
+          "path": "src/security/index.js",
+          "type": "blob",
+          "size": 61,
+          "sha": "888e709fc7030e9e872a7d60877d6236fa931c6c"
+        },
+        {
+          "path": "src/security/verification.js",
+          "type": "blob",
+          "size": 6146,
+          "sha": "d5f54bebffb960733ceb9b46383385b0fbad5822"
+        },
+        {
+          "path": "src/services",
+          "type": "tree",
+          "sha": "1902ef425459717fd92f5a550aa6e8b27da4150f"
+        },
+        {
+          "path": "src/services/additional-commands.js",
+          "type": "blob",
+          "size": 18227,
+          "sha": "dcf8b836fb4ba0a2d143e6bd1372fdfec1315b62"
+        },
+        {
+          "path": "src/services/afk",
+          "type": "tree",
+          "sha": "b35e6975388eb24b3eaa5c8e5d2b926f4fa0c99e"
+        },
+        {
+          "path": "src/services/afk/store.js",
+          "type": "blob",
+          "size": 161,
+          "sha": "3ed6756f3f3381ab81c27523a74bffd9d2a783d2"
+        },
+        {
+          "path": "src/services/audit",
+          "type": "tree",
+          "sha": "b6dad6098df3270844d42f432389b53cbd39c807"
+        },
+        {
+          "path": "src/services/audit/data-audit.js",
+          "type": "blob",
+          "size": 9487,
+          "sha": "c63edc1ed941c8ffc721d618433408439a527871"
+        },
+        {
+          "path": "src/services/community",
+          "type": "tree",
+          "sha": "7bb4370ace691dadde55cef1dba93388b331e320"
+        },
+        {
+          "path": "src/services/community/cooldown.js",
+          "type": "blob",
+          "size": 483,
+          "sha": "d2f01ddc5ea56958e8671b6479053bde7388decb"
+        },
+        {
+          "path": "src/services/community/leaderboard.js",
+          "type": "blob",
+          "size": 167,
+          "sha": "bdd2ac24a0dbd10a846e8bdd4bfc5133e2cfdb1a"
+        },
+        {
+          "path": "src/services/community/levels.js",
+          "type": "blob",
+          "size": 215,
+          "sha": "ca697afd1c3f7e964141256852f42c5550746c0f"
+        },
+        {
+          "path": "src/services/community/rewards.js",
+          "type": "blob",
+          "size": 65,
+          "sha": "8600d6a4e20aa9995eaba9dc30f9dd6dfbd73178"
+        },
+        {
+          "path": "src/services/disasters",
+          "type": "tree",
+          "sha": "ba5917a5c45459f16251ef96bb9f3e3e8cc7f80c"
+        },
+        {
+          "path": "src/services/disasters/index.js",
+          "type": "blob",
+          "size": 8605,
+          "sha": "06bcc9bb12df74ca2f78463c92e0e8933d9a4532"
+        },
+        {
+          "path": "src/services/economy",
+          "type": "tree",
+          "sha": "f53fc54a3122f8a3a1872d944cfd6ab86381279e"
+        },
+        {
+          "path": "src/services/economy/daily.js",
+          "type": "blob",
+          "size": 153,
+          "sha": "aee46831ad5f9eeeb69a47f95f93450db90ab787"
+        },
+        {
+          "path": "src/services/economy/system.js",
+          "type": "blob",
+          "size": 176,
+          "sha": "76dbe6723530af19e97d9e0c51395650be0b0f43"
+        },
+        {
+          "path": "src/services/economy/transfer.js",
+          "type": "blob",
+          "size": 298,
+          "sha": "004b4d1e89a73f2610c0eea06672b582ed687c14"
+        },
+        {
+          "path": "src/services/economy/wallet.js",
+          "type": "blob",
+          "size": 481,
+          "sha": "a12dfe1a87ff09935723641c5f3140bd8363088f"
+        },
+        {
+          "path": "src/services/extended-features.js",
+          "type": "blob",
+          "size": 28070,
+          "sha": "bc64f7556da8707109788de463e15bfcf78aff9a"
+        },
+        {
+          "path": "src/services/games",
+          "type": "tree",
+          "sha": "d61414bba722451183ff20c5f34e599b9372d17c"
+        },
+        {
+          "path": "src/services/games/index.js",
+          "type": "blob",
+          "size": 218,
+          "sha": "da8fab8ee5620c0904f888e79cf4841f47cb4736"
+        },
+        {
+          "path": "src/services/games/jkt48",
+          "type": "tree",
+          "sha": "8c3e326168819ddd34ec04f2728e1b3a28b25870"
+        },
+        {
+          "path": "src/services/games/jkt48/README.md",
+          "type": "blob",
+          "size": 1000,
+          "sha": "cf8922d9d0a43ca10ce8967f2b946a3a2f550822"
+        },
+        {
+          "path": "src/services/games/jkt48/assets.js",
+          "type": "blob",
+          "size": 341,
+          "sha": "176aa4f6db92c79c0cfb7ef56d873bfa4b7c0ab4"
+        },
+        {
+          "path": "src/services/games/jkt48/card-system.js",
+          "type": "blob",
+          "size": 2126,
+          "sha": "9191f16f613420c181e541450d3f4b013ac7177e"
+        },
+        {
+          "path": "src/services/games/jkt48/databases.js",
+          "type": "blob",
+          "size": 3810,
+          "sha": "1f585355de44b7926a470c45239195286442a5e4"
+        },
+        {
+          "path": "src/services/games/jkt48/gacha.js",
+          "type": "blob",
+          "size": 1235,
+          "sha": "6207e581eeac2b2b3908bebea94c98478f251cf8"
+        },
+        {
+          "path": "src/services/games/jkt48/index.js",
+          "type": "blob",
+          "size": 2428,
+          "sha": "882b1786e92356bc023d080012a5c667248489e6"
+        },
+        {
+          "path": "src/services/games/jkt48/leaderboard.js",
+          "type": "blob",
+          "size": 192,
+          "sha": "298744d97eb525f4f5d4c3b4382cc7e8b11aa8ab"
+        },
+        {
+          "path": "src/services/games/jkt48/quiz-system.js",
+          "type": "blob",
+          "size": 4378,
+          "sha": "007be398b6345f5d0a70105bea98c5bb74ecc935"
+        },
+        {
+          "path": "src/services/games/jkt48/reveal-animation.js",
+          "type": "blob",
+          "size": 4862,
+          "sha": "d3599bb11fa5f027b258a790b542b0bf726f5531"
+        },
+        {
+          "path": "src/services/games/jkt48/rng.js",
+          "type": "blob",
+          "size": 166,
+          "sha": "931d908df042239d80f7c8663bc0b7ba529974eb"
+        },
+        {
+          "path": "src/services/games/jkt48/scoring.js",
+          "type": "blob",
+          "size": 834,
+          "sha": "66ae4dcbfd38015137c203dbe17d8e6d99f4e2ce"
+        },
+        {
+          "path": "src/services/games/rarity.js",
+          "type": "blob",
+          "size": 938,
+          "sha": "6c65baae23260a55235b4ff256f5485b6f938589"
+        },
+        {
+          "path": "src/services/games/streetview.js",
+          "type": "blob",
+          "size": 3711,
+          "sha": "c8c6fac2751713bbf3445a561ec9d5ddae6d241d"
+        },
+        {
+          "path": "src/services/games/trivia.js",
+          "type": "blob",
+          "size": 130,
+          "sha": "a252754f05e49f5306bdf447d4713960ee237b07"
+        },
+        {
+          "path": "src/services/indonesia",
+          "type": "tree",
+          "sha": "f3d9d52d5b192a51d1b8572389f70019de03e6eb"
+        },
+        {
+          "path": "src/services/indonesia/data.js",
+          "type": "blob",
+          "size": 8846,
+          "sha": "1d09b61f5a1039502bcc54d0fa2fabd22a62fe75"
+        },
+        {
+          "path": "src/services/indonesia/electronics.js",
+          "type": "blob",
+          "size": 4439,
+          "sha": "637ed5b637b095e9708b2414d772ef2d10e15224"
+        },
+        {
+          "path": "src/services/indonesia/index.js",
+          "type": "blob",
+          "size": 224,
+          "sha": "673c6ecbb897e293dd9e2cb20292658222f67360"
+        },
+        {
+          "path": "src/services/leveling",
+          "type": "tree",
+          "sha": "61c4fe5e9c53522d099cd06067b4f7c2dfe781e4"
+        },
+        {
+          "path": "src/services/leveling/xp-card.js",
+          "type": "blob",
+          "size": 1855,
+          "sha": "42e0b6869f115b66233b1a555b08c54b60184005"
+        },
+        {
+          "path": "src/services/maintenance",
+          "type": "tree",
+          "sha": "476be08627e7a1f18b303d591a4e152730f72761"
+        },
+        {
+          "path": "src/services/maintenance/state.js",
+          "type": "blob",
+          "size": 107,
+          "sha": "8b7b548526328a5bd93fcb21f13a18f692579a7c"
+        },
+        {
+          "path": "src/services/moderation",
+          "type": "tree",
+          "sha": "ee30c057d1549cb4bcc11e9d2979f70704b2954f"
+        },
+        {
+          "path": "src/services/moderation/antiSpam.js",
+          "type": "blob",
+          "size": 214,
+          "sha": "ed9765874faae9029197041f6dff51b77b37fddb"
+        },
+        {
+          "path": "src/services/moderation/links.js",
+          "type": "blob",
+          "size": 219,
+          "sha": "5b89efc3eccccbd902fa54f3890c81159b85d0d4"
+        },
+        {
+          "path": "src/services/moderation/mentions.js",
+          "type": "blob",
+          "size": 116,
+          "sha": "871f0ab6c8a23dc061a38ee8f0b22aadfb1b76e8"
+        },
+        {
+          "path": "src/services/moderation/timeout.js",
+          "type": "blob",
+          "size": 160,
+          "sha": "208941b353b5ccc9c77f2de67b362a1bdc9be79b"
+        },
+        {
+          "path": "src/services/moderation/warnings.js",
+          "type": "blob",
+          "size": 348,
+          "sha": "73893ee1a50e6d6bc4db33139517d585229b9602"
+        },
+        {
+          "path": "src/services/music",
+          "type": "tree",
+          "sha": "60223bf4fc820b996121941b83205a49d6176d9e"
+        },
+        {
+          "path": "src/services/music/state.js",
+          "type": "blob",
+          "size": 227,
+          "sha": "f4d7b0979a2641c3f29fcb6cec5e58b1abd2f96c"
+        },
+        {
+          "path": "src/services/notifications",
+          "type": "tree",
+          "sha": "beb059dd0557b1df8f735c6b0ea0aa588a013e5b"
+        },
+        {
+          "path": "src/services/notifications/dispatcher.js",
+          "type": "blob",
+          "size": 782,
+          "sha": "feaa68b52e056b92e33cd35e6eecb731b1b8fd2b"
+        },
+        {
+          "path": "src/services/notifications/filters.js",
+          "type": "blob",
+          "size": 265,
+          "sha": "39bbcfcea8869e7c6b66e3b62e39764767263a07"
+        },
+        {
+          "path": "src/services/notifications/htmlScraper.js",
+          "type": "blob",
+          "size": 552,
+          "sha": "0b50f6789f2abd4c9c64950012571d8839dfe9a1"
+        },
+        {
+          "path": "src/services/notifications/http.js",
+          "type": "blob",
+          "size": 356,
+          "sha": "8d7e7d78f84f89412d3c78a1ed91136363323348"
+        },
+        {
+          "path": "src/services/notifications/jkt48.js",
+          "type": "blob",
+          "size": 671,
+          "sha": "00a2034fd4e0ca0786ff87b4402794475920ff0b"
+        },
+        {
+          "path": "src/services/notifications/keywords.js",
+          "type": "blob",
+          "size": 176,
+          "sha": "d73a52ed199f04c500a76e62f0251700ddd9a742"
+        },
+        {
+          "path": "src/services/notifications/normalizer.js",
+          "type": "blob",
+          "size": 363,
+          "sha": "4f5808dc040fda883824231e113be12ec8c94212"
+        },
+        {
+          "path": "src/services/notifications/rss.js",
+          "type": "blob",
+          "size": 471,
+          "sha": "b815df717525fc3ded5a1a2e737c68d7439bf79e"
+        },
+        {
+          "path": "src/services/notifications/scheduler.js",
+          "type": "blob",
+          "size": 235,
+          "sha": "6d7a7ed628e6b41ff14155422eb658fdc9b164cf"
+        },
+        {
+          "path": "src/services/polls",
+          "type": "tree",
+          "sha": "d293064d623ea9ccdaaae87a1e2428ad8fb80901"
+        },
+        {
+          "path": "src/services/polls/index.js",
+          "type": "blob",
+          "size": 108,
+          "sha": "915a26555b382efef696ec8f4a8baba664635ed8"
+        },
+        {
+          "path": "src/services/presence-rotation.js",
+          "type": "blob",
+          "size": 971,
+          "sha": "d525ae9d9b3e98be70569d6ff33d97e6f5ffa3d3"
+        },
+        {
+          "path": "src/services/reminders",
+          "type": "tree",
+          "sha": "897cd98f692de0cca3381727ee4ae6684aafd5f2"
+        },
+        {
+          "path": "src/services/reminders/store.js",
+          "type": "blob",
+          "size": 80,
+          "sha": "396436d3806431ffa0e768b47e191641acfd61c7"
+        },
+        {
+          "path": "src/services/restaurant",
+          "type": "tree",
+          "sha": "196810daa539ce432681f0142fffb57822d50d9b"
+        },
+        {
+          "path": "src/services/restaurant/command.js",
+          "type": "blob",
+          "size": 10345,
+          "sha": "72a14eb86c280ae1b75e23caa4af75e3600c2c3d"
+        },
+        {
+          "path": "src/services/restaurant/prices.js",
+          "type": "blob",
+          "size": 81414,
+          "sha": "5eb5f51dd539ba37157cc1ba6b877d319b4d09ec"
+        },
+        {
+          "path": "src/services/roles",
+          "type": "tree",
+          "sha": "867a9751737dcb6823e118fee5ae04a36df372b6"
+        },
+        {
+          "path": "src/services/roles/autoRole.js",
+          "type": "blob",
+          "size": 176,
+          "sha": "506722d6fb974afa6f31bee71a21d66175f2aa4e"
+        },
+        {
+          "path": "src/services/scrapers",
+          "type": "tree",
+          "sha": "d00e3f14bbf5c1e71a1fb25d12d4fa6074b5fadf"
+        },
+        {
+          "path": "src/services/scrapers/http.js",
+          "type": "blob",
+          "size": 1437,
+          "sha": "52c76093a0b2f8e6888a0d57c7de11fb43a89ff0"
+        },
+        {
+          "path": "src/services/scrapers/orchestrator.js",
+          "type": "blob",
+          "size": 3562,
+          "sha": "39ecdf2344b134d481aa9bdc50f1777699913d20"
+        },
+        {
+          "path": "src/services/scrapers/registry.js",
+          "type": "blob",
+          "size": 2668,
+          "sha": "175255d3373205d29d9ed0bbb4b23e398bafe815"
+        },
+        {
+          "path": "src/services/security",
+          "type": "tree",
+          "sha": "a08fde29415d9aa824e18eb886ab5ccbae558733"
+        },
+        {
+          "path": "src/services/security/antiRaid.js",
+          "type": "blob",
+          "size": 208,
+          "sha": "2bed838e950f3c2e91cc55d3ccba4b8ae6b9dc1a"
+        },
+        {
+          "path": "src/services/security/health.js",
+          "type": "blob",
+          "size": 169,
+          "sha": "769446c9da4b9d02830b1268bb3362f3a350f2bc"
+        },
+        {
+          "path": "src/services/security/lockdown.js",
+          "type": "blob",
+          "size": 228,
+          "sha": "418b0dbe89bc412d6f0086d13d0ca22cf216dbd6"
+        },
+        {
+          "path": "src/services/security/raidMode.js",
+          "type": "blob",
+          "size": 162,
+          "sha": "27337517d7f0a8065eb875bb1693b69a0290451b"
+        },
+        {
+          "path": "src/services/tickets",
+          "type": "tree",
+          "sha": "73ece26a0377efd4be875836ddca3b82d75f97d9"
+        },
+        {
+          "path": "src/services/tickets/limits.js",
+          "type": "blob",
+          "size": 140,
+          "sha": "1d4c72070f60a25c29d347dab8d6472640b355c7"
+        },
+        {
+          "path": "src/services/tickets/manager.js",
+          "type": "blob",
+          "size": 172,
+          "sha": "352d43321e728b824631d7970efef9f02e219cd5"
+        },
+        {
+          "path": "src/services/tickets/transcript.js",
+          "type": "blob",
+          "size": 182,
+          "sha": "053204da9833a208f1470a9b9e8ee0a8136a2e5d"
+        },
+        {
+          "path": "src/services/utility",
+          "type": "tree",
+          "sha": "6081ea2be52db37bb017519ff9d048ba633190d0"
+        },
+        {
+          "path": "src/services/utility/calculator.js",
+          "type": "blob",
+          "size": 207,
+          "sha": "241c9cf2a33997326f5afdea647b9fb2cc5b39f5"
+        },
+        {
+          "path": "src/services/welcome",
+          "type": "tree",
+          "sha": "687063bc160a51cbbed618a06ca50ffe917909bf"
+        },
+        {
+          "path": "src/services/welcome/index.js",
+          "type": "blob",
+          "size": 144,
+          "sha": "ab4873c1459788ac450699ba902c9c9b753ab8af"
+        },
+        {
+          "path": "src/ticket-bot",
+          "type": "tree",
+          "sha": "0bfb7c6b4a952202333dc1b47abf8694e29faa08"
+        },
+        {
+          "path": "src/ticket-bot/index.js",
+          "type": "blob",
+          "size": 9041,
+          "sha": "9d1590b12008e5984889c82679945567f75717e4"
+        },
+        {
+          "path": "src/tools",
+          "type": "tree",
+          "sha": "4d7613d034dd55510176c8bdeb40348734b1b26b"
+        },
+        {
+          "path": "src/tools/cache.js",
+          "type": "blob",
+          "size": 3185,
+          "sha": "1bdf3e437e4d981680cfeb1c7b069283c4574221"
+        },
+        {
+          "path": "src/tools/http-client.js",
+          "type": "blob",
+          "size": 42685,
+          "sha": "d9e27307887c0b4201ed4b54306a872bc50e2725"
+        },
+        {
+          "path": "src/tools/index.js",
+          "type": "blob",
+          "size": 158,
+          "sha": "89ea3908b92e538ec5027ac2bcdd39aa65ead0ad"
+        },
+        {
+          "path": "src/tools/pagination.js",
+          "type": "blob",
+          "size": 8143,
+          "sha": "5f37f3f97a6e14230d3b0e2e2ffe6ce24cf4ab66"
+        },
+        {
+          "path": "src/tools/scraper-toolbox.js",
+          "type": "blob",
+          "size": 2044,
+          "sha": "ff837d4c2e4ba0e9ff0ac2b3e8fb15842e0f52b0"
+        },
+        {
+          "path": "src/tools/toolbox.js",
+          "type": "blob",
+          "size": 22094,
+          "sha": "2f4cdba6bbb55b4fa507e7389b0fb8b60dc664f0"
+        },
+        {
+          "path": "src/tools/validation.js",
+          "type": "blob",
+          "size": 9109,
+          "sha": "9158820a6d119ed8b9db055de3aad0e4cc8ba116"
+        },
+        {
+          "path": "src/utils",
+          "type": "tree",
+          "sha": "49e840fbdd2438da2a29f6d1a852e14c012cf466"
+        },
+        {
+          "path": "src/utils/command.js",
+          "type": "blob",
+          "size": 184,
+          "sha": "de037484a570da58f636f427a9153d7a989bdcc4"
+        },
+        {
+          "path": "src/utils/embeds.js",
+          "type": "blob",
+          "size": 688,
+          "sha": "77ea4a12dc1988acb322715a0c87cbbd54218a05"
+        },
+        {
+          "path": "src/utils/errors.js",
+          "type": "blob",
+          "size": 210,
+          "sha": "608749a7787b39fa61c9c195422431284d6b622c"
+        },
+        {
+          "path": "src/utils/featureCatalog.js",
+          "type": "blob",
+          "size": 7987,
+          "sha": "6ab4704038bf09b6347ee57ca9cf824a5e2e1152"
+        },
+        {
+          "path": "src/utils/featureGuard.js",
+          "type": "blob",
+          "size": 203,
+          "sha": "dc59072f7486263127f99e229949069f462a97bf"
+        },
+        {
+          "path": "src/utils/format.js",
+          "type": "blob",
+          "size": 166,
+          "sha": "16407e84a90b7f84967b39e8f65a20d03ed39b07"
+        },
+        {
+          "path": "src/utils/logger.js",
+          "type": "blob",
+          "size": 147,
+          "sha": "99765b12d192ba6b8756d9c341767dd77a6514cf"
+        },
+        {
+          "path": "src/utils/pagination.js",
+          "type": "blob",
+          "size": 193,
+          "sha": "26c055e9d8257db4dc4f4b271722bca3b91a3e92"
+        },
+        {
+          "path": "src/utils/time.js",
+          "type": "blob",
+          "size": 166,
+          "sha": "64a3fed3812773e55c28933b775b1ea5ed0db5f3"
+        },
+        {
+          "path": "src/utils/validation.js",
+          "type": "blob",
+          "size": 184,
+          "sha": "10709e395fe9de5c95feb108e79323071817a64f"
+        },
+        {
+          "path": "src/web",
+          "type": "tree",
+          "sha": "0e676411245d7e08f010a496485e4361cb37ac26"
+        },
+        {
+          "path": "src/web/auth",
+          "type": "tree",
+          "sha": "bfd51aef51f30c418ce169f109391470adc94c99"
+        },
+        {
+          "path": "src/web/auth/service.js",
+          "type": "blob",
+          "size": 11125,
+          "sha": "ebc726f598d8bae95fdd979983afc46d5e9d8020"
+        },
+        {
+          "path": "src/web/gateway",
+          "type": "tree",
+          "sha": "333d777e1ca028a4a3f8012d5808c52769cb4ad8"
+        },
+        {
+          "path": "src/web/gateway/index.js",
+          "type": "blob",
+          "size": 2221,
+          "sha": "585222d1afa88178048b546955e6518ea8647bc2"
+        },
+        {
+          "path": "src/web/verification",
+          "type": "tree",
+          "sha": "61a252fe74d56129939db0b197f88d925889be7c"
+        },
+        {
+          "path": "src/web/verification/public",
+          "type": "tree",
+          "sha": "91d51ce6094775427896ca12bba6ceba847798c9"
+        },
+        {
+          "path": "src/web/verification/public/app.js",
+          "type": "blob",
+          "size": 1745,
+          "sha": "ead4f3bd0cda4a3cfc613b6792d86c8ed148c5ba"
+        },
+        {
+          "path": "src/web/verification/public/index.html",
+          "type": "blob",
+          "size": 1395,
+          "sha": "9e1f154060e84cfbb3a12db88569d5538154017b"
+        },
+        {
+          "path": "src/web/verification/public/style.css",
+          "type": "blob",
+          "size": 1438,
+          "sha": "75400a81bcbf5b6717aed3d8e687142b2c8ba49a"
+        },
+        {
+          "path": "src/web/verification/server.js",
+          "type": "blob",
+          "size": 4346,
+          "sha": "868d6b08ed9efd98e0b95e2720d3ad459d5a81ae"
+        },
+        {
+          "path": "src/web/website",
+          "type": "tree",
+          "sha": "02066bd393659a08e2bd4f61bcefed073abf5d00"
+        },
+        {
+          "path": "src/web/website/server.js",
+          "type": "blob",
+          "size": 14662,
+          "sha": "2f2ea438811dfa9f8736bda3f6defd76ad4421d1"
+        },
+        {
+          "path": "test",
+          "type": "tree",
+          "sha": "c3fe12b15e9d422b85403dc0db778c3a2475916c"
+        },
+        {
+          "path": "test/bot-control.test.js",
+          "type": "blob",
+          "size": 1735,
+          "sha": "d4243eab8c9a26baf568a4dcb3c9f721573ffb21"
+        },
+        {
+          "path": "test/extended-features.test.js",
+          "type": "blob",
+          "size": 2590,
+          "sha": "e93bb6a043cb487d47f23e1256eeb17e96f9206b"
+        },
+        {
+          "path": "test/final-runtime-contract.test.js",
+          "type": "blob",
+          "size": 862,
+          "sha": "20fc8a2700b5c371f93440bd6d1c10fe6784cad6"
+        },
+        {
+          "path": "test/gateway.test.js",
+          "type": "blob",
+          "size": 1058,
+          "sha": "ef558243ca50c6659d97ed9d2d5d02a6ba33a6b8"
+        },
+        {
+          "path": "test/http-client.test.js",
+          "type": "blob",
+          "size": 1800,
+          "sha": "1b888a9609e5ec28c63742defae10670504e2900"
+        },
+        {
+          "path": "test/indonesia-game-features.test.js",
+          "type": "blob",
+          "size": 1565,
+          "sha": "99f567be5c5c2e2c47d067b9a83a34489de39f5d"
+        },
+        {
+          "path": "test/jkt48-game-limits.test.js",
+          "type": "blob",
+          "size": 1316,
+          "sha": "0bbdd0df9f3b92e04e4c0b3527191e5512025e1a"
+        },
+        {
+          "path": "test/jkt48-website.test.js",
+          "type": "blob",
+          "size": 3331,
+          "sha": "e292660ff7ee5a39e82a741c5b08e4bebf033dd9"
+        },
+        {
+          "path": "test/media-utils.test.js",
+          "type": "blob",
+          "size": 1017,
+          "sha": "d3a78b3e7848c2eb778e896abc8b63ecff5062e8"
+        },
+        {
+          "path": "test/release-3.2.1.test.js",
+          "type": "blob",
+          "size": 533,
+          "sha": "2162c7237ba75cf9b00201193754bbe7b1d860bf"
+        },
+        {
+          "path": "test/release-3.2.2-final.test.js",
+          "type": "blob",
+          "size": 547,
+          "sha": "dcb84a4bf2b1c2f19d7c015354122956755fdfea"
+        },
+        {
+          "path": "test/release-3.2.test.js",
+          "type": "blob",
+          "size": 472,
+          "sha": "7c8b3d149d24a8a47cf138f5bf6ec622bb3d48f4"
+        },
+        {
+          "path": "test/repository-integrity.test.js",
+          "type": "blob",
+          "size": 1718,
+          "sha": "142f51d2c5db410fad98033a0ed038ec31065b1e"
+        },
+        {
+          "path": "test/restaurant-prices.test.js",
+          "type": "blob",
+          "size": 3565,
+          "sha": "04db1f5d09f2983ba8cd055757f1682aab2f9dc4"
+        },
+        {
+          "path": "test/scraper-integrity.test.js",
+          "type": "blob",
+          "size": 1066,
+          "sha": "6a630890b920845ab167fe6e37af5f967a71dedc"
+        },
+        {
+          "path": "test/verification.test.js",
+          "type": "blob",
+          "size": 1769,
+          "sha": "99aff1d28671d047b1ff4e0e085e889231dbf8b9"
+        },
+        {
+          "path": "test/web-auth.test.js",
+          "type": "blob",
+          "size": 2670,
+          "sha": "f7d084f9e1590f3ef179aafa7440670d5acafb99"
+        },
+        {
+          "path": "test/web-server.test.js",
+          "type": "blob",
+          "size": 3194,
+          "sha": "35d0c157e444245296717ceeede5b64b5142019a"
+        },
+        {
+          "path": "tests",
+          "type": "tree",
+          "sha": "4721dd5f77d8553c9cf401a04e8f1e685edd05bc"
+        },
+        {
+          "path": "tests/services.test.js",
+          "type": "blob",
+          "size": 584,
+          "sha": "375b49a89679f92591c4d75068104d31b16e77d8"
+        },
+        {
+          "path": "tools",
+          "type": "tree",
+          "sha": "59e87cf58833feebdd624885bd57928418786f04"
+        },
+        {
+          "path": "tools/media",
+          "type": "tree",
+          "sha": "8d39b2d7925a3e7ac01e1e7c2f05d54792c90765"
+        },
+        {
+          "path": "tools/media/remove_background.py",
+          "type": "blob",
+          "size": 391,
+          "sha": "dc7bf61444150b93869fe0bad3c8d93bbee0d152"
+        },
+        {
+          "path": "tools/media/remove_background_video.py",
+          "type": "blob",
+          "size": 580,
+          "sha": "2330e083faeb6b8460e8587709cb83acd0db8029"
+        },
+        {
+          "path": "tools/media/remove_watermark.py",
+          "type": "blob",
+          "size": 823,
+          "sha": "769ccd122af4ea30d930a403ee26dead1616a7ed"
+        },
+        {
+          "path": "tools/media/requirements.txt",
+          "type": "blob",
+          "size": 32,
+          "sha": "9d8cffbe5fe360e2ff14fb92d9e181793e985a21"
+        },
+        {
+          "path": "tools/validate-repo.mjs",
+          "type": "blob",
+          "size": 3095,
+          "sha": "ece50279adac999e4750fe987bf7cabdae04c751"
+        },
+        {
+          "path": "website",
+          "type": "tree",
+          "sha": "fe5ec6660efaac194fb0b0d9fcd707459cef6f99"
+        },
+        {
+          "path": "website/jkt48",
+          "type": "tree",
+          "sha": "25031685b592aabb24e415969c3dfa24aacafcdb"
+        },
+        {
+          "path": "website/jkt48/README.md",
+          "type": "blob",
+          "size": 774,
+          "sha": "3b3d10ab031f8f9c5ae5eb1c7d576b8f556c5c6b"
+        },
+        {
+          "path": "website/jkt48/app.js",
+          "type": "blob",
+          "size": 31843,
+          "sha": "6d617be2bcb552b2c8e3aea1d3cfda13516664f6"
+        },
+        {
+          "path": "website/jkt48/index.html",
+          "type": "blob",
+          "size": 17410,
+          "sha": "d0831ca0821caa12d2c76e62664fe878f78dec92"
+        },
+        {
+          "path": "website/jkt48/runtime",
+          "type": "tree",
+          "sha": "81d750ac3a68c4f23b0869e711fd197dfaa8f3a0"
+        },
+        {
+          "path": "website/jkt48/runtime/api.js",
+          "type": "blob",
+          "size": 1977,
+          "sha": "de03de03e1c90e559d50adec15b5d6e38ef1a597"
+        },
+        {
+          "path": "website/jkt48/runtime/device.js",
+          "type": "blob",
+          "size": 1219,
+          "sha": "87b144577d728f2c9054e9e5293f56c3783f564e"
+        },
+        {
+          "path": "website/jkt48/style.css",
+          "type": "blob",
+          "size": 22040,
+          "sha": "6d97bd388b2e66717bf69fb2017e0a8fd43e2434"
+        }
+      ],
       "treeTruncated": false,
-      "sourceFiles": [],
-      "scrapedAt": "2026-09-20T11:11:43.553Z"
+      "sourceFiles": [
+        {
+          "path": "docs/FEATURES-100.md",
+          "size": 482,
+          "content": null
+        },
+        {
+          "path": "docs/JKT48-CONNECT.md",
+          "size": 754,
+          "content": null
+        },
+        {
+          "path": "website/jkt48/README.md",
+          "size": 774,
+          "content": null
+        },
+        {
+          "path": "docs/JKT48-SOURCES.md",
+          "size": 782,
+          "content": null
+        },
+        {
+          "path": "src/services/games/jkt48/README.md",
+          "size": 1000,
+          "content": null
+        },
+        {
+          "path": "docs/NOTIFICATION-SOURCES.md",
+          "size": 1023,
+          "content": null
+        },
+        {
+          "path": "docs/STRUCTURE.md",
+          "size": 1136,
+          "content": null
+        },
+        {
+          "path": "docs/INDONESIA-DATA.md",
+          "size": 1295,
+          "content": null
+        },
+        {
+          "path": "docs/SCRAPER-MATRIX.md",
+          "size": 1583,
+          "content": null
+        },
+        {
+          "path": "docs/MEDIA.md",
+          "size": 1609,
+          "content": null
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "size": 1609,
+          "content": null
+        },
+        {
+          "path": "docs/COMMANDS.md",
+          "size": 2173,
+          "content": null
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "size": 2648,
+          "content": null
+        },
+        {
+          "path": "docs/JKT48-INTEGRATION-NOTES.md",
+          "size": 4237,
+          "content": null
+        },
+        {
+          "path": "README.md",
+          "size": 6839,
+          "content": null
+        },
+        {
+          "path": "docs/FEATURE-REGISTRY.md",
+          "size": 15335,
+          "content": null
+        }
+      ],
+      "scrapedAt": "2026-09-20T11:26:27.927Z"
     },
     {
       "repository": {
@@ -4829,7 +6780,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-09-20T11:11:43.582Z"
+      "scrapedAt": "2026-09-20T11:26:27.750Z"
     }
   ]
 }
