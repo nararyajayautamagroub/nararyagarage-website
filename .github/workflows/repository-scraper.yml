@@ -28,7 +28,7 @@ jobs:
           package-manager-cache: false
       - name: Scrape GitHub repositories
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.NARARYA_GITHUB_TOKEN }}
           GITHUB_OWNER: nararyajayautamagroub
         run: npm run scrape:github
       - name: Commit snapshot when changed
