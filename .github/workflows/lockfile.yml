@@ -1,0 +1,52 @@
+name: NARARYA GARAGE Lockfile
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "package.json"
+      - ".github/workflows/lockfile.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Generate lockfile
+        shell: bash
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json already exists."
+            exit 0
+          fi
+          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+
+      - name: Commit lockfile
+        shell: bash
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "No lockfile generated."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          if git diff --cached --quiet; then
+            echo "Lockfile unchanged."
+            exit 0
+          fi
+          git commit -m "chore: add npm lockfile"
+          git push
