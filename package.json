@@ -8,12 +8,13 @@
     "build": "npm run db:generate && next build",
     "start": "next start",
     "typecheck": "npm run db:generate && tsc --noEmit",
-    "check": "npm run db:validate && npm run typecheck && npm run build",
+    "check": "npm run audit:source && npm run check:scraper && npm run db:validate && npm run typecheck && npm run build",
     "db:generate": "prisma generate",
     "db:validate": "prisma validate",
     "db:seed": "npm run db:generate && tsx prisma/seed.ts",
     "scrape:github": "node scripts/scrape-github.mjs",
-    "check:scraper": "node --check scripts/scrape-github.mjs"
+    "check:scraper": "node --check scripts/scrape-github.mjs",
+    "audit:source": "node scripts/audit-source.mjs"
   },
   "dependencies": {
     "next": "16.3.5",
