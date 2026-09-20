@@ -1,6 +1,7 @@
 import {createHmac,timingSafeEqual} from "node:crypto";
 import {NextResponse} from "next/server";
 import {revalidatePath} from "next/cache";
+import type {Prisma} from "@/generated/prisma/client";
 import {getPrisma} from "@/lib/prisma";
 
 export const dynamic="force-dynamic";
@@ -35,10 +36,11 @@ export async function POST(req:Request){
 
   if(prisma){
     try{
+      const jsonPayload=JSON.parse(JSON.stringify(payload)) as Prisma.InputJsonValue;
       await prisma.githubWebhookEvent.upsert({
         where:{delivery},
-        update:{event,repository,payload,receivedAt:new Date()},
-        create:{delivery,event,repository,payload}
+        update:{event,repository,payload:jsonPayload,receivedAt:new Date()},
+        create:{delivery,event,repository,payload:jsonPayload}
       });
     }catch{
       return NextResponse.json({error:"Webhook accepted but persistence failed"},{status:503});
