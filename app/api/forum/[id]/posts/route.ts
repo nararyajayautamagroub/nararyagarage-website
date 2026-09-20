@@ -1,3 +1,4 @@
+import {rejectCrossOrigin} from "@/lib/request-security";
 import {NextResponse} from "next/server";
 import {z} from "zod";
 import {getPrisma} from "@/lib/prisma";
@@ -6,6 +7,7 @@ import {getSession} from "@/lib/auth";
 const schema=z.object({body:z.string().trim().min(2).max(10000)});
 
 export async function GET(_req:Request,{params}:{params:Promise<{id:string}>}){
+  const originError=rejectCrossOrigin(req); if(originError)return originError;
   const prisma=getPrisma();
   if(!prisma)return NextResponse.json({data:[],configured:false});
   const {id}=await params;
