@@ -18,7 +18,14 @@ export default async function Dashboard(){
     current.prisma.mod.count({where:{author:current.session.user.username}})
   ]);
 
-  const cards=[["Events",events,"/member/events"],["Convoys",convoys,"/member/convoys"],["Showcase",showcase,"/member/showcase"],["Achievements",achievements,"/member/achievements"],["Unread",notifications,"/member/notifications"],["Mod submissions",submissions,"/member/submissions"]];
+  const cards:Array<[string,number,string]>=[
+    ["Events",events,"/member/events"],
+    ["Convoys",convoys,"/member/convoys"],
+    ["Showcase",showcase,"/member/showcase"],
+    ["Achievements",achievements,"/member/achievements"],
+    ["Unread",notifications,"/member/notifications"],
+    ["Mod submissions",submissions,"/member/submissions"]
+  ];
 
   return <main className="mx-auto max-w-6xl px-6 py-14">
     <p className="text-xs font-black tracking-[.25em] text-orange-400">MEMBER CENTER</p>
