@@ -17,7 +17,7 @@ type Repo={
   language:string|null;
 };
 
-type Label={name:string;purpose:string;type:string};
+type Label={name:string;purpose:string};
 
 export function RepositoryGrid({initialRows,labels}:{initialRows:Repo[];labels:Record<string,Label>}){
   const [rows,setRows]=useState(initialRows);
@@ -33,8 +33,8 @@ export function RepositoryGrid({initialRows,labels}:{initialRows:Repo[];labels:R
         const response=await fetch("/api/github/repositories",{cache:"no-store"});
         const payload=await response.json();
         if(active&&response.ok){
-          setRows(payload.repositories??[]);
-          setLastRefresh(payload.generatedAt??new Date().toISOString());
+          setRows(Array.isArray(payload.repositories)?payload.repositories:[]);
+          setLastRefresh(payload.generatedAt||new Date().toISOString());
         }
       }catch{}finally{
         if(active)setRefreshing(false);
@@ -50,7 +50,7 @@ export function RepositoryGrid({initialRows,labels}:{initialRows:Repo[];labels:R
   return <section className="mt-8">
     <div className="mb-4 flex items-center justify-between text-xs text-zinc-500">
       <span>{rows.length} repository terdeteksi</span>
-      <span>{refreshing?"Memperbarui...":`Terakhir: ${new Date(lastRefresh).toLocaleTimeString("id-ID")}`}</span>
+      <span>{refreshing?"Memperbarui...":"Terakhir: "+new Date(lastRefresh).toLocaleTimeString("id-ID")}</span>
     </div>
     <div className="grid gap-4 md:grid-cols-2">
       {rows.length?rows.map(repo=>{
@@ -70,7 +70,7 @@ export function RepositoryGrid({initialRows,labels}:{initialRows:Repo[];labels:R
           </div>
           <p className="mt-4 text-xs text-zinc-600">Branch: {repo.default_branch} · Language: {repo.language??"—"}</p>
           <div className="mt-6 flex flex-wrap gap-2">
-            <Link href={`/repositories/${encodeURIComponent(owner)}/${encodeURIComponent(name)}`} className="ng-orange-button">DETAIL LIVE</Link>
+            <Link href={"/repositories/"+encodeURIComponent(owner)+"/"+encodeURIComponent(name)} className="ng-orange-button">DETAIL LIVE</Link>
             <a href={repo.html_url} target="_blank" rel="noreferrer" className="ng-orange-outline">GITHUB</a>
           </div>
         </article>;
