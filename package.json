@@ -17,7 +17,7 @@
     "scrape:github": "node scripts/scrape-github.mjs",
     "check:scraper": "node --check scripts/scrape-github.mjs",
     "audit:source": "node scripts/audit-source.mjs",
-    "security:audit": "npm audit --audit-level=high"
+    "security:audit": "npm audit --omit=dev --audit-level=high"
   },
   "dependencies": {
     "next": "16.3.5",
@@ -46,5 +46,10 @@
   "engines": {
     "node": ">=22.16 <25"
   },
-  "packageManager": "npm@11.6.2"
+  "packageManager": "npm@11.6.2",
+  "allowScripts": {
+    "@prisma/engines@7.10.0": true,
+    "esbuild@0.28.2": true,
+    "prisma@7.10.0": true
+  }
 }
