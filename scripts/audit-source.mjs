@@ -18,6 +18,7 @@ async function walk(directory){
     if(entry.isDirectory()){
       if(!["node_modules",".next","generated"].includes(entry.name))files.push(...await walk(full));
     }else{
+      if(full.endsWith("scripts/audit-source.mjs"))continue;
       const ext=entry.name.slice(entry.name.lastIndexOf("."));
       if(extensions.has(ext))files.push(full);
     }
