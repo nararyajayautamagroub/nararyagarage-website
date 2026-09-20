@@ -1,3 +1,5 @@
+export const dynamic="force-dynamic";
+
 import Link from "next/link";
 import { ArrowRight, ChevronRight, Users, Route, Camera, Boxes } from "lucide-react";
 import { getPlatforms, getUpcomingEvents } from "@/lib/data";
