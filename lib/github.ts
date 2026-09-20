@@ -1,5 +1,6 @@
 const API="https://api.github.com";
 const OWNER=process.env.GITHUB_OWNER ?? "nararyajayautamagroub";
+export const GITHUB_OWNER=OWNER;
 const API_VERSION="2022-11-28";
 
 export type RepoSnapshot={
