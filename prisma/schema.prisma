@@ -3,7 +3,9 @@ generator client {
   output = "../generated/prisma"
   moduleFormat = "esm"
 }
-datasource db { provider = "postgresql" }
+datasource db {
+  provider = "postgresql"
+}
 
 enum MemberStatus { ACTIVE INACTIVE ON_LEAVE SUSPENDED BANNED RESIGNED }
 enum SubmissionStatus { PENDING REVIEWING APPROVED REJECTED PUBLISHED ARCHIVED }
