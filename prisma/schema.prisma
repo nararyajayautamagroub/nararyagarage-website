@@ -65,6 +65,7 @@ model User {
  emailVerifiedAt DateTime?
  sessions Session[]
  identities AuthIdentity[]
+ authTokens AuthToken[]
  createdAt DateTime @default(now())
  updatedAt DateTime @updatedAt
  member Member?
