@@ -1,3 +1,5 @@
+export const dynamic="force-dynamic";
+
 import { getPlatforms } from "@/lib/data";
 import { PlatformCard, SectionTitle } from "@/components/cards";
 
