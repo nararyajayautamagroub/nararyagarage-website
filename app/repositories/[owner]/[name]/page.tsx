@@ -1,11 +1,12 @@
 import Link from "next/link";
 import {notFound} from "next/navigation";
-import {getRepositoryDeepSnapshot} from "@/lib/github";
+import {getRepositoryDeepSnapshot,GITHUB_OWNER} from "@/lib/github";
 
 export const dynamic="force-dynamic";
 
 export default async function RepositoryDetail({params}:{params:Promise<{owner:string;name:string}>}){
   const {owner,name}=await params;
+  if(owner.toLowerCase()!==GITHUB_OWNER.toLowerCase())notFound();
   let data;
   try{
     data=await getRepositoryDeepSnapshot(`${owner}/${name}`);
