@@ -1,13 +1,13 @@
 "use client";
 
 import {useEffect,useState} from "react";
-import {DEFAULT_LOCALE,LOCALE_COOKIE,locales,type Locale} from "@/lib/i18n";
+import {DEFAULT_LOCALE,LOCALE_COOKIE,locales,isLocale,type Locale} from "@/lib/i18n";
 
 function readLocale():Locale{
   if(typeof document==="undefined")return DEFAULT_LOCALE;
   const match=document.cookie.match(new RegExp("(?:^|; )"+LOCALE_COOKIE+"=([^;]*)"));
   const value=match?decodeURIComponent(match[1]):DEFAULT_LOCALE;
-  return locales.some(item=>item.code===value)?value:DEFAULT_LOCALE;
+  return isLocale(value)?value:DEFAULT_LOCALE;
 }
 
 export function LanguageSwitcher(){
