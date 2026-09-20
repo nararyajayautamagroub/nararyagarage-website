@@ -1,3 +1,4 @@
+import {rejectCrossOrigin} from "@/lib/request-security";
 import {NextResponse} from "next/server";
 import {z} from "zod";
 import {getPrisma} from "@/lib/prisma";
@@ -12,6 +13,7 @@ const schema=z.object({
 export const dynamic="force-dynamic";
 
 export async function GET(){
+  const originError=rejectCrossOrigin(req); if(originError)return originError;
   const prisma=getPrisma();
   if(!prisma)return NextResponse.json({data:[],configured:false});
   try{
