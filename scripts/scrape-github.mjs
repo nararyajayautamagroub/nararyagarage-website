@@ -54,6 +54,26 @@ async function scrapeRepository(repo){
     github(`/repos/${repo.full_name}/git/trees/${encodeURIComponent(repo.default_branch)}?recursive=1`).catch(()=>({tree:[],truncated:false}))
   ]);
 
+  const treeItems=Array.isArray(tree.tree)?tree.tree.slice(0,5000).map(item=>({path:item.path,type:item.type,size:item.size,sha:item.sha})): [];
+  const candidates=treeItems
+    .filter(item=>item.type==="blob"&&/\.(json|md|mdx|ya?ml|toml|csv|txt)$/i.test(item.path))
+    .filter(item=>/(^|\/)(data|config|configs|content|docs|public|src|app|README|readme)(\/|\.|$)/i.test(item.path))
+    .sort((a,b)=>(a.size??0)-(b.size??0))
+    .slice(0,24);
+
+  const sourceFiles=[];
+  for(let index=0;index<candidates.length;index+=4){
+    const batch=candidates.slice(index,index+4);
+    const results=await Promise.all(batch.map(async item=>{
+      try{
+        const file=await github(`/repos/${repo.full_name}/contents/${item.path.split("/").map(encodeURIComponent).join("/")}?ref=${encodeURIComponent(repo.default_branch)}`);
+        const content=file?.content?decodeBase64(file.content).slice(0,12000):null;
+        return {path:item.path,size:item.size??content?.length??0,content};
+      }catch{return {path:item.path,size:item.size??0,content:null};}
+    }));
+    sourceFiles.push(...results);
+  }
+
   let packageJson=null;
   if(packageData?.content){
     try{
@@ -100,13 +120,9 @@ async function scrapeRepository(repo){
       date:commit.commit?.author?.date||null,
       url:commit.html_url
     })):[],
-    tree:Array.isArray(tree.tree)?tree.tree.slice(0,5000).map(item=>({
-      path:item.path,
-      type:item.type,
-      size:item.size,
-      sha:item.sha
-    })):[],
+    tree:treeItems,
     treeTruncated:Boolean(tree.truncated)||(Array.isArray(tree.tree)&&tree.tree.length>5000),
+    sourceFiles,
     scrapedAt:new Date().toISOString()
   };
 }
