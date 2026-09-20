@@ -1,9 +1,268 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-20T05:42:30.214Z",
+  "fetchedAt": "2026-09-20T05:53:36.581Z",
   "repositoryCount": 6,
   "repositories": [
+    {
+      "repository": {
+        "id": 1377275714,
+        "full_name": "nararyajayautamagroub/nexovonarsacorporation-website",
+        "name": "nexovonarsacorporation-website",
+        "private": false,
+        "visibility": "public",
+        "html_url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website",
+        "default_branch": "main",
+        "description": null,
+        "created_at": "2026-09-19T14:49:26Z",
+        "updated_at": "2026-09-20T05:50:38Z",
+        "pushed_at": "2026-09-20T05:50:35Z",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "open_issues_count": 0,
+        "language": "JavaScript",
+        "size": 212,
+        "archived": false,
+        "disabled": false,
+        "topics": []
+      },
+      "languages": {
+        "JavaScript": 46532,
+        "CSS": 21193,
+        "HTML": 1860
+      },
+      "readme": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper\n- `scripts/validate.mjs` — automated structural/data validation\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md).\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n",
+      "packageJson": null,
+      "latestRelease": null,
+      "commits": [
+        {
+          "sha": "74c11d69cf894b7e4933402be5dea1cd564f69c3",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T05:50:34Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/74c11d69cf894b7e4933402be5dea1cd564f69c3"
+        },
+        {
+          "sha": "f3612aa63f067f35e8eeb90342fcf5ec647837b8",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T05:41:35Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/f3612aa63f067f35e8eeb90342fcf5ec647837b8"
+        },
+        {
+          "sha": "0c6f0d1b71293a7c743e2be24b8f17bd1ec1582f",
+          "message": "chore: refresh scraper revision after validation fixes",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:41:20Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/0c6f0d1b71293a7c743e2be24b8f17bd1ec1582f"
+        },
+        {
+          "sha": "78656b39eb5137d99b237e39bbda94678ec262cc",
+          "message": "feat: localize page titles across all 10 languages",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:41:01Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/78656b39eb5137d99b237e39bbda94678ec262cc"
+        },
+        {
+          "sha": "f8436ec9b9855fa9059b9be31f9d227bf78b7db0",
+          "message": "fix: harden language persistence",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:40:41Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/f8436ec9b9855fa9059b9be31f9d227bf78b7db0"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "8ba718908dd21201efaf513a328d4078db6cc07d"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "68b3769d65bfae639ba92e86e6703bd9f593319c"
+        },
+        {
+          "path": ".github/workflows/deploy.yml",
+          "type": "blob",
+          "size": 1584,
+          "sha": "18d9dd561c19177c02a797c490f5aa15927cce7c"
+        },
+        {
+          "path": ".github/workflows/quality.yml",
+          "type": "blob",
+          "size": 1033,
+          "sha": "88a308b0fb1d3de4999cfbc2f41aa733dd098398"
+        },
+        {
+          "path": ".github/workflows/sync-corporate-data.yml",
+          "type": "blob",
+          "size": 1874,
+          "sha": "8dd4ff6dcb88ce0256597bd2f5f33ad7baf831f0"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 5794,
+          "sha": "9c977c568f59d14a8b2968b94ed5564dabd27778"
+        },
+        {
+          "path": "app.js",
+          "type": "blob",
+          "size": 26257,
+          "sha": "bf3e0bcd2c08988d9c461215893d0739294cd92a"
+        },
+        {
+          "path": "auth.js",
+          "type": "blob",
+          "size": 13959,
+          "sha": "6152f579c29be62ee7f759ed39d6662bde4bcc99"
+        },
+        {
+          "path": "config.example.js",
+          "type": "blob",
+          "size": 326,
+          "sha": "7946d9a0eb270eb8fcdcd9da9ebebad9160c640b"
+        },
+        {
+          "path": "config.js",
+          "type": "blob",
+          "size": 352,
+          "sha": "c56e6d9b564df8b30ea651c34347b42fa9e9e6b2"
+        },
+        {
+          "path": "data.js",
+          "type": "blob",
+          "size": 2062,
+          "sha": "0e5742a52e822dd06e060a29d28f77065d01bffa"
+        },
+        {
+          "path": "docs",
+          "type": "tree",
+          "sha": "503e3bc2202059cc8c9e9291107b65d033477e63"
+        },
+        {
+          "path": "docs/AUTH_SETUP.md",
+          "type": "blob",
+          "size": 2061,
+          "sha": "9eea4d446a3daf9dfee83c4d362ef351e91fd35f"
+        },
+        {
+          "path": "experience.js",
+          "type": "blob",
+          "size": 6804,
+          "sha": "844d163d770f32278dccc4e48cde3482953b275c"
+        },
+        {
+          "path": "external-live.js",
+          "type": "blob",
+          "size": 4176,
+          "sha": "4c2dffd7df7be0a48ed849ad2dabb917b68fee6f"
+        },
+        {
+          "path": "github-live.js",
+          "type": "blob",
+          "size": 8572,
+          "sha": "819ebfde3858f07fbca8bcfff9ed18bf2497afd6"
+        },
+        {
+          "path": "i18n.js",
+          "type": "blob",
+          "size": 16062,
+          "sha": "7c1aaf01446ca850d8b9c7b4d99c3431d4a8f921"
+        },
+        {
+          "path": "icons",
+          "type": "tree",
+          "sha": "02725f2bb07fc79a99b07c7caa278abbf9a0c14a"
+        },
+        {
+          "path": "icons/icon-192.svg",
+          "type": "blob",
+          "size": 281,
+          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
+        },
+        {
+          "path": "icons/icon-512.svg",
+          "type": "blob",
+          "size": 281,
+          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
+        },
+        {
+          "path": "icons/icon.svg",
+          "type": "blob",
+          "size": 281,
+          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
+        },
+        {
+          "path": "index.html",
+          "type": "blob",
+          "size": 1860,
+          "sha": "bf6f03c0450351ff64c8a72d6c330eb8737fe715"
+        },
+        {
+          "path": "portfolio.js",
+          "type": "blob",
+          "size": 3709,
+          "sha": "a52c790db19d93ca9c1481a9d430b463b5e770bf"
+        },
+        {
+          "path": "pwa-manifest.webmanifest",
+          "type": "blob",
+          "size": 703,
+          "sha": "1d03a91f7dd64f7171b90d9b02b9e81916a474ba"
+        },
+        {
+          "path": "scrape-config.json",
+          "type": "blob",
+          "size": 1325,
+          "sha": "bee75cc1b401bb57bd6be91fffb6f8d56d37dcb5"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "0afcb8fd4e91cb869704004550e85832575d678a"
+        },
+        {
+          "path": "scripts/scrape-public.mjs",
+          "type": "blob",
+          "size": 8969,
+          "sha": "c9dbfa9c2f010ecb48e2cea5eb07d951df928efa"
+        },
+        {
+          "path": "scripts/sync-github.mjs",
+          "type": "blob",
+          "size": 5531,
+          "sha": "97b0c6662efaf683572e60564fd8d43a981fd19a"
+        },
+        {
+          "path": "scripts/validate.mjs",
+          "type": "blob",
+          "size": 9427,
+          "sha": "fa3b1802c6c34687ba3e6dd3d15107ae5721c687"
+        },
+        {
+          "path": "styles.css",
+          "type": "blob",
+          "size": 21193,
+          "sha": "2204d8434a98df4c48659470d72b6b832a75799c"
+        },
+        {
+          "path": "sw.js",
+          "type": "blob",
+          "size": 1164,
+          "sha": "09c380de276bb253b94e64fbcb89f6ffac7802bb"
+        },
+        {
+          "path": "sync-config.json",
+          "type": "blob",
+          "size": 1365,
+          "sha": "d2dd5fca904cae4c6f81f08de1c9eef50ab6ea3d"
+        }
+      ],
+      "treeTruncated": false,
+      "scrapedAt": "2026-09-20T05:53:36.396Z"
+    },
     {
       "repository": {
         "id": 1377274533,
@@ -15,8 +274,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:48:35Z",
-        "updated_at": "2026-09-20T05:42:24Z",
-        "pushed_at": "2026-09-20T05:42:26Z",
+        "updated_at": "2026-09-20T05:45:06Z",
+        "pushed_at": "2026-09-20T05:45:02Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -27,13 +286,13 @@
         "topics": []
       },
       "languages": {
-        "TypeScript": 156009,
+        "TypeScript": 160580,
         "JavaScript": 7907
       },
-      "readme": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, finance reports, CMS and staff operations\n- SEO sitemap + robots and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nFor a same-origin crawl:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL and the Google OAuth variables when Google Login is enabled.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n",
+      "readme": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, FAQ, request tracking, finance reports, CMS and staff operations\n- SEO sitemap + robots, mobile web manifest and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nThe scraper uses same-origin crawling by default:\n\n    npm run scrape -- https://example.com --max-pages 25\n\nExplicit same-origin mode:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nUse `--all-origins` only when cross-domain crawling is actually required.\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL and the Google OAuth variables when Google Login is enabled.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n",
       "packageJson": {
         "name": "nararya-studio",
-        "version": "1.4.2",
+        "version": "1.5.0",
         "private": true,
         "scripts": {
           "dev": "next dev",
@@ -79,39 +338,39 @@
       "latestRelease": null,
       "commits": [
         {
-          "sha": "9b0a3693b9dc57319ba6d695629ca46580174f2d",
-          "message": "feat: add mobile web manifest",
+          "sha": "0e82cf07c2f348d2e9c6bce67055c2717813bc5d",
+          "message": "fix: harden mobile overflow and disabled controls",
           "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:42:26Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/9b0a3693b9dc57319ba6d695629ca46580174f2d"
+          "date": "2026-09-20T05:45:02Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/0e82cf07c2f348d2e9c6bce67055c2717813bc5d"
         },
         {
-          "sha": "b016647a4117686436953e306f7abfbb0c6b0cfc",
-          "message": "fix: remove nonexistent routes from sitemap",
+          "sha": "7f36f27f48eaac7f483641b8f0d3939b67460c13",
+          "message": "docs: document 1.5.0 support and scraper updates",
           "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:42:20Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/b016647a4117686436953e306f7abfbb0c6b0cfc"
+          "date": "2026-09-20T05:44:51Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/7f36f27f48eaac7f483641b8f0d3939b67460c13"
         },
         {
-          "sha": "37355ea115dda1fec8f99472498c9d5ffd6d09d6",
-          "message": "fix: harden robots directives for private routes",
+          "sha": "bce5781f126d7be5f0e12407415743caf1b4e8d0",
+          "message": "chore: bump Nararya Studio release to 1.5.0",
           "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:42:13Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/37355ea115dda1fec8f99472498c9d5ffd6d09d6"
+          "date": "2026-09-20T05:44:45Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/bce5781f126d7be5f0e12407415743caf1b4e8d0"
         },
         {
-          "sha": "ef7b3bd0f625c4b8d73e5e24ba8d442c83f7cd71",
-          "message": "fix: bound in-memory rate-limit bucket growth",
+          "sha": "6b6be686c58a70dd2304d6592659943ff06d1818",
+          "message": "fix: link customer dashboard to request tracker",
           "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:41:39Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/ef7b3bd0f625c4b8d73e5e24ba8d442c83f7cd71"
+          "date": "2026-09-20T05:44:16Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/6b6be686c58a70dd2304d6592659943ff06d1818"
         },
         {
-          "sha": "f3bf042b683a42cf58a7919a8c6e9ac2d9f8aab1",
-          "message": "docs: document scraper origin safety mode",
+          "sha": "2182e25ab77c8f3368cd01f5d87c1c72ff2c310f",
+          "message": "feat: add customer request tracking API",
           "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:41:33Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/f3bf042b683a42cf58a7919a8c6e9ac2d9f8aab1"
+          "date": "2026-09-20T05:43:54Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/2182e25ab77c8f3368cd01f5d87c1c72ff2c310f"
         }
       ],
       "tree": [
@@ -146,18 +405,18 @@
         {
           "path": "README.md",
           "type": "blob",
-          "size": 3515,
-          "sha": "9b58f5a0d35f6e196fa4aab4e35d89d3258878c8"
+          "size": 3745,
+          "sha": "3d4508d249d4f4f4845e43733f9586dbd88d1bf1"
         },
         {
           "path": "app",
           "type": "tree",
-          "sha": "abd98149ca5b904638cd11aec6414c75a6fca1c5"
+          "sha": "274fd4647efae1e9efb0ee3142764e031ed010bb"
         },
         {
           "path": "app/admin",
           "type": "tree",
-          "sha": "2bebcba5274a225773492bc3fc06618511c5ae46"
+          "sha": "f2a4a01c2cfd81feb1cec31614cfd8d39a4b1baf"
         },
         {
           "path": "app/admin/content",
@@ -195,8 +454,8 @@
         {
           "path": "app/admin/page.tsx",
           "type": "blob",
-          "size": 1112,
-          "sha": "09bdc2c8af9a43ec4c7bee781bd979f2ea5eee61"
+          "size": 1118,
+          "sha": "d74fe9c299137ac68cfec42f59f3e4b86308a8aa"
         },
         {
           "path": "app/admin/reviews",
@@ -210,14 +469,25 @@
           "sha": "a5ce295f9efbbdd71f9efd4278adbb3b459010b1"
         },
         {
+          "path": "app/admin/tickets",
+          "type": "tree",
+          "sha": "f1b8267c7134c96b4a9816019668ffe7513393cd"
+        },
+        {
+          "path": "app/admin/tickets/page.tsx",
+          "type": "blob",
+          "size": 1999,
+          "sha": "44bc1a9ad12a4d9eb93cc9a6799221138e067433"
+        },
+        {
           "path": "app/api",
           "type": "tree",
-          "sha": "99387af1fb862579650b2997f7006462c15ac8c1"
+          "sha": "26ee97aee6a0016be97bd6d4b50d25403e5e7892"
         },
         {
           "path": "app/api/admin",
           "type": "tree",
-          "sha": "1b99e0f155223cf57a4ef5dc85737621f3111f9b"
+          "sha": "77c3896e3baf7bdfc0d9b81f0ea2338dd8a72440"
         },
         {
           "path": "app/api/admin/content",
@@ -349,6 +619,28 @@
           "type": "blob",
           "size": 498,
           "sha": "47a41dcd91bb22141f31870bfa53d5b66a8483cd"
+        },
+        {
+          "path": "app/api/admin/tickets",
+          "type": "tree",
+          "sha": "95dc2268a604e5101f5b27c0368f685076b83202"
+        },
+        {
+          "path": "app/api/admin/tickets/[id]",
+          "type": "tree",
+          "sha": "3f6f281109454dba1124095533d9e87613301879"
+        },
+        {
+          "path": "app/api/admin/tickets/[id]/route.ts",
+          "type": "blob",
+          "size": 1255,
+          "sha": "4638d312af7e12f75aa084d2e42515d792cbc8d8"
+        },
+        {
+          "path": "app/api/admin/tickets/route.ts",
+          "type": "blob",
+          "size": 532,
+          "sha": "aa24b13805368d85ef1907b06a19acbd16effa2c"
         },
         {
           "path": "app/api/auth",
@@ -690,13 +982,13 @@
         {
           "path": "app/api/requests",
           "type": "tree",
-          "sha": "d29f8a9f9f3aacae49760e5f28dcce11ea9bd0f3"
+          "sha": "75ef0a25233dd743baf08f0c1e5f7580f39b8a6b"
         },
         {
           "path": "app/api/requests/route.ts",
           "type": "blob",
-          "size": 2111,
-          "sha": "484f0c9ff5669d6fcf5a4d90b788e4fdc67d4a18"
+          "size": 2869,
+          "sha": "f4e2ddd690905431b568dcf6d31db88b2b8cc60b"
         },
         {
           "path": "app/api/settings",
@@ -789,13 +1081,13 @@
         {
           "path": "app/dashboard",
           "type": "tree",
-          "sha": "22e65ce824144e33387c117961b2c680518d95cd"
+          "sha": "51dda340c6a180c2786d1c88de43b34c28e93355"
         },
         {
           "path": "app/dashboard/page.tsx",
           "type": "blob",
-          "size": 969,
-          "sha": "538ebc4a5b226663321ed6da98385c5229e6d5bb"
+          "size": 970,
+          "sha": "bd1830303d087070e39588b4984d5b8151966d8e"
         },
         {
           "path": "app/design",
@@ -828,8 +1120,8 @@
         {
           "path": "app/globals.css",
           "type": "blob",
-          "size": 3662,
-          "sha": "caccaa420f90ba8e213954512116e3d0c5a46bed"
+          "size": 3898,
+          "sha": "07d2ec04c0e0eefe4ff85efe14b077c4fe23936a"
         },
         {
           "path": "app/invoices",
@@ -974,8 +1266,8 @@
         {
           "path": "app/sitemap.ts",
           "type": "blob",
-          "size": 472,
-          "sha": "6426acc9c3b367262c457b3e7c7052332eb9e8bb"
+          "size": 492,
+          "sha": "652542680a5b4b46296774fcdf7692c7202250fd"
         },
         {
           "path": "app/store",
@@ -1172,7 +1464,7 @@
           "path": "package.json",
           "type": "blob",
           "size": 1023,
-          "sha": "59998179f35853a4e189709070e8c389804ad962"
+          "sha": "cdbfe99eec973036878eef1fca7dcff1044e0cd3"
         },
         {
           "path": "postcss.config.mjs",
@@ -1305,895 +1597,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:42:30.126Z"
-    },
-    {
-      "repository": {
-        "id": 1377275714,
-        "full_name": "nararyajayautamagroub/nexovonarsacorporation-website",
-        "name": "nexovonarsacorporation-website",
-        "private": false,
-        "visibility": "public",
-        "html_url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website",
-        "default_branch": "main",
-        "description": null,
-        "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-09-20T05:41:40Z",
-        "pushed_at": "2026-09-20T05:41:36Z",
-        "stargazers_count": 0,
-        "forks_count": 0,
-        "open_issues_count": 0,
-        "language": "JavaScript",
-        "size": 212,
-        "archived": false,
-        "disabled": false,
-        "topics": []
-      },
-      "languages": {
-        "JavaScript": 46532,
-        "CSS": 21193,
-        "HTML": 1860
-      },
-      "readme": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper\n- `scripts/validate.mjs` — automated structural/data validation\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md).\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n",
-      "packageJson": null,
-      "latestRelease": null,
-      "commits": [
-        {
-          "sha": "f3612aa63f067f35e8eeb90342fcf5ec647837b8",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T05:41:35Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/f3612aa63f067f35e8eeb90342fcf5ec647837b8"
-        },
-        {
-          "sha": "0c6f0d1b71293a7c743e2be24b8f17bd1ec1582f",
-          "message": "chore: refresh scraper revision after validation fixes",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:41:20Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/0c6f0d1b71293a7c743e2be24b8f17bd1ec1582f"
-        },
-        {
-          "sha": "78656b39eb5137d99b237e39bbda94678ec262cc",
-          "message": "feat: localize page titles across all 10 languages",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:41:01Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/78656b39eb5137d99b237e39bbda94678ec262cc"
-        },
-        {
-          "sha": "f8436ec9b9855fa9059b9be31f9d227bf78b7db0",
-          "message": "fix: harden language persistence",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:40:41Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/f8436ec9b9855fa9059b9be31f9d227bf78b7db0"
-        },
-        {
-          "sha": "7c9aba42ecfcb79482ef31059974007598c0e4ae",
-          "message": "fix: make settings storage resilient",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:40:38Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/7c9aba42ecfcb79482ef31059974007598c0e4ae"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "8ba718908dd21201efaf513a328d4078db6cc07d"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "68b3769d65bfae639ba92e86e6703bd9f593319c"
-        },
-        {
-          "path": ".github/workflows/deploy.yml",
-          "type": "blob",
-          "size": 1584,
-          "sha": "18d9dd561c19177c02a797c490f5aa15927cce7c"
-        },
-        {
-          "path": ".github/workflows/quality.yml",
-          "type": "blob",
-          "size": 1033,
-          "sha": "88a308b0fb1d3de4999cfbc2f41aa733dd098398"
-        },
-        {
-          "path": ".github/workflows/sync-corporate-data.yml",
-          "type": "blob",
-          "size": 1874,
-          "sha": "8dd4ff6dcb88ce0256597bd2f5f33ad7baf831f0"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 5794,
-          "sha": "9c977c568f59d14a8b2968b94ed5564dabd27778"
-        },
-        {
-          "path": "app.js",
-          "type": "blob",
-          "size": 26257,
-          "sha": "bf3e0bcd2c08988d9c461215893d0739294cd92a"
-        },
-        {
-          "path": "auth.js",
-          "type": "blob",
-          "size": 13959,
-          "sha": "6152f579c29be62ee7f759ed39d6662bde4bcc99"
-        },
-        {
-          "path": "config.example.js",
-          "type": "blob",
-          "size": 326,
-          "sha": "7946d9a0eb270eb8fcdcd9da9ebebad9160c640b"
-        },
-        {
-          "path": "config.js",
-          "type": "blob",
-          "size": 352,
-          "sha": "c56e6d9b564df8b30ea651c34347b42fa9e9e6b2"
-        },
-        {
-          "path": "data.js",
-          "type": "blob",
-          "size": 2062,
-          "sha": "0e5742a52e822dd06e060a29d28f77065d01bffa"
-        },
-        {
-          "path": "docs",
-          "type": "tree",
-          "sha": "503e3bc2202059cc8c9e9291107b65d033477e63"
-        },
-        {
-          "path": "docs/AUTH_SETUP.md",
-          "type": "blob",
-          "size": 2061,
-          "sha": "9eea4d446a3daf9dfee83c4d362ef351e91fd35f"
-        },
-        {
-          "path": "experience.js",
-          "type": "blob",
-          "size": 6804,
-          "sha": "844d163d770f32278dccc4e48cde3482953b275c"
-        },
-        {
-          "path": "external-live.js",
-          "type": "blob",
-          "size": 4176,
-          "sha": "7a591ba876717d491a34260d3b40c0a9d8c9cdbb"
-        },
-        {
-          "path": "github-live.js",
-          "type": "blob",
-          "size": 8590,
-          "sha": "88b17441728e60fb9b65d81dff4b0ffedb9c1292"
-        },
-        {
-          "path": "i18n.js",
-          "type": "blob",
-          "size": 16062,
-          "sha": "7c1aaf01446ca850d8b9c7b4d99c3431d4a8f921"
-        },
-        {
-          "path": "icons",
-          "type": "tree",
-          "sha": "02725f2bb07fc79a99b07c7caa278abbf9a0c14a"
-        },
-        {
-          "path": "icons/icon-192.svg",
-          "type": "blob",
-          "size": 281,
-          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
-        },
-        {
-          "path": "icons/icon-512.svg",
-          "type": "blob",
-          "size": 281,
-          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
-        },
-        {
-          "path": "icons/icon.svg",
-          "type": "blob",
-          "size": 281,
-          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
-        },
-        {
-          "path": "index.html",
-          "type": "blob",
-          "size": 1860,
-          "sha": "bf6f03c0450351ff64c8a72d6c330eb8737fe715"
-        },
-        {
-          "path": "portfolio.js",
-          "type": "blob",
-          "size": 3709,
-          "sha": "a52c790db19d93ca9c1481a9d430b463b5e770bf"
-        },
-        {
-          "path": "pwa-manifest.webmanifest",
-          "type": "blob",
-          "size": 703,
-          "sha": "1d03a91f7dd64f7171b90d9b02b9e81916a474ba"
-        },
-        {
-          "path": "scrape-config.json",
-          "type": "blob",
-          "size": 1325,
-          "sha": "bee75cc1b401bb57bd6be91fffb6f8d56d37dcb5"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "0afcb8fd4e91cb869704004550e85832575d678a"
-        },
-        {
-          "path": "scripts/scrape-public.mjs",
-          "type": "blob",
-          "size": 8969,
-          "sha": "c9dbfa9c2f010ecb48e2cea5eb07d951df928efa"
-        },
-        {
-          "path": "scripts/sync-github.mjs",
-          "type": "blob",
-          "size": 5531,
-          "sha": "97b0c6662efaf683572e60564fd8d43a981fd19a"
-        },
-        {
-          "path": "scripts/validate.mjs",
-          "type": "blob",
-          "size": 9427,
-          "sha": "fa3b1802c6c34687ba3e6dd3d15107ae5721c687"
-        },
-        {
-          "path": "styles.css",
-          "type": "blob",
-          "size": 21193,
-          "sha": "2204d8434a98df4c48659470d72b6b832a75799c"
-        },
-        {
-          "path": "sw.js",
-          "type": "blob",
-          "size": 1164,
-          "sha": "09c380de276bb253b94e64fbcb89f6ffac7802bb"
-        },
-        {
-          "path": "sync-config.json",
-          "type": "blob",
-          "size": 1365,
-          "sha": "d2dd5fca904cae4c6f81f08de1c9eef50ab6ea3d"
-        }
-      ],
-      "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:42:30.098Z"
-    },
-    {
-      "repository": {
-        "id": 1377081187,
-        "full_name": "nararyajayautamagroub/modbussid-converter",
-        "name": "modbussid-converter",
-        "private": false,
-        "visibility": "public",
-        "html_url": "https://github.com/nararyajayautamagroub/modbussid-converter",
-        "default_branch": "main",
-        "description": null,
-        "created_at": "2026-09-19T11:38:21Z",
-        "updated_at": "2026-09-20T05:36:35Z",
-        "pushed_at": "2026-09-20T05:36:32Z",
-        "stargazers_count": 0,
-        "forks_count": 0,
-        "open_issues_count": 0,
-        "language": "Python",
-        "size": 146,
-        "archived": false,
-        "disabled": false,
-        "topics": []
-      },
-      "languages": {
-        "Python": 123237,
-        "HTML": 33689,
-        "JavaScript": 1159
-      },
-      "readme": "# Game Mod Asset Lab v4.1.0\n\nWeb-based inspector, classifier, exporter, scraper, account system, dan download utility untuk **file/mod yang memang Anda miliki atau berwenang memprosesnya**.\n\n## Alur utama\n\n**Upload / pilih asset → Inspect → temukan entry → klasifikasi template → Export → Download**\n\n## Platform dan kategori\n\n- BUSSID: Vehicle, Map, Kodename, Sprite Sheet, Lights\n- ETS2/ATS: Vehicle, Map\n- Roblox: Vehicle, Lights, Export\n\n## Template\n\n- **AO**: Ambient Occlusion\n- **Texture**: texture umum\n- **Kaca/XOR**: template kaca / glass\n\nClassifier memakai nama file berbasis token agar radio.png tidak salah dibaca sebagai AO hanya karena mengandung huruf ao.\n\n## Fitur yang sudah aktif\n\n- Deteksi file dan SHA-256\n- Deteksi container ZIP/TAR\n- Daftar isi archive\n- Export seluruh file atau entry terpilih ke ZIP\n- Manifest JSON pada hasil export\n- Upload file ke workspace repository dengan batas 100 MB\n- Inspeksi hanya pada path yang berada di dalam repository\n- Repository catalog lokal\n- Sinkronisasi catalog ke GitHub repository publik secara berkala\n- Endpoint health dan capabilities\n- Animasi data untuk Strobo, Rotator, LED Bar\n- Paket Roblox lampu berisi JSON + script Lua untuk Roblox Studio\n- Inspect ukuran/format image dan ekstraksi Sprite Sheet menjadi frame ZIP\n- Near-real-time repository tree dengan default branch, commit SHA, tanggal commit, dan filter prefix\n- Download asset Roblox publik melalui endpoint resmi Asset Delivery\n- Validasi URL Roblox sebelum download\n- Web scraper publik dengan parser HTML, metadata Open Graph, JSON-LD, heading, link, image, robots.txt, batas ukuran, timeout, anti-SSRF, dan same-host crawl\n- GitHub Actions untuk dependency check, static check, compile, dan test Python 3.10-3.13\n\n## Endpoint utama\n\n- GET /api/health\n- GET /api/auth/status\n- GET /api/auth/me\n- POST /api/auth/register\n- POST /api/auth/login\n- POST /api/auth/logout\n- POST /api/auth/logout-all\n- PUT /api/auth/settings\n- PUT /api/auth/profile\n- PUT /api/auth/password\n- GET /api/auth/google/start\n- GET /api/auth/google/callback\n- GET /api/i18n\n- GET /api/i18n/{language}\n- GET /manifest.webmanifest\n- GET /sw.js\n- GET /icon.svg\n- GET /api/capabilities\n- GET /api/categories\n- GET /api/repository\n- POST /api/assets/upload\n- GET /api/assets/inspect?path=...\n- GET /api/assets/export?path=...\n- GET /api/templates/types\n- GET /api/templates/classify?path=...\n- GET /api/assets/roblox/validate?url=...\n- GET /api/assets/roblox/url?url=...\n- GET /api/sprite-sheet/inspect?path=...\n- GET /api/sprite-sheet/extract?path=...&columns=4&rows=4\n- GET /api/repository/tree?prefix=...\n- GET /api/scraper/fetch?url=...\n- GET /api/scraper/crawl?url=...&max_pages=...\n- GET /api/lights/{strobo|rotator|ledbar}\n- GET /api/lights/{strobo|rotator|ledbar}/download?platform=...\n\n## Akurasi data repository\n\nWebsite membaca struktur repository lokal saat runtime. Endpoint /api/repository juga mencoba membaca tree branch main dari GitHub dan mengembalikan commit SHA, jumlah file, daftar path, serta status sinkronisasi.\n\nJika GitHub tidak bisa diakses, data lokal tetap dipakai sehingga website tidak mati hanya karena internet sedang bermain petak umpet.\n\n## Batas penting\n\nProject ini **tidak** membypass password, enkripsi, DRM, signature, private asset, atau access control.\n\nUntuk format game proprietary seperti beberapa format internal ETS2/BUSSID/Roblox, project hanya melaporkan metadata, mendeteksi container yang dikenali, atau memproses format yang didukung. Parser native penuh harus ditambahkan berdasarkan format, dokumentasi, atau sample yang sah.\n\nExporter Roblox lampu menghasilkan **JSON + script Lua Roblox Studio**. Output tersebut bukan file native .rbxm/.rbxmx.\n\n## Jalankan\n\n    python -m pip install -r requirements.txt\n    uvicorn web.app:app --reload\n\nBuka http://127.0.0.1:8000.\n\n## Validasi\n\n    python -m compileall -q bussid ets2 roblox shared web tests\n    python -m pytest -q -W error\n\n## Scraper\n\nScraper berjalan pada host publik HTTP/HTTPS, memvalidasi DNS/IP publik, memeriksa robots.txt bila tersedia, membatasi response sampai 20 MB per request, timeout 60 detik maksimum, dan crawl hanya pada host yang sama. Ini ditujukan untuk data publik, bukan untuk melewati login, paywall, private resource, atau access control.\n\n### Contoh\n\n    /api/scraper/fetch?url=https%3A%2F%2Fexample.com\n    /api/scraper/crawl?url=https%3A%2F%2Fexample.com&max_pages=5\n\n\n## CLI scraper v4.1\n\n    python scripts/scraper.py https://example.com\n    python scripts/scraper.py https://example.com --crawl --max-pages 5\n    python scripts/scraper.py https://example.com --output reports/example.json\n\n## Validasi lokal v4.1\n\n    python scripts/check.py\n\nPerintah ini menjalankan pip check, compileall, Ruff (E9/F), dan pytest dengan warning diperlakukan sebagai error.\n\n## Authentication & Account\n\nFitur v4.1:\n- Register dengan email/password dan migrasi SQLite otomatis untuk schema lama\n- Login/logout dengan rate limit percobaan password\n- Logout semua session\n- Ganti password\n- Session database SQLite\n- Google Login via OpenID Connect\n- Pengaturan profil, bahasa, tema, dan notifikasi\n- 10 bahasa: Indonesia, English, Melayu, Arabic, Japanese, Korean, Chinese, Spanish, Portuguese, French\n\nGoogle Login tidak mengaktifkan credential secara otomatis. Simpan credential di environment, jangan di source code:\n\n    GOOGLE_CLIENT_ID=...\n    GOOGLE_CLIENT_SECRET=...\n    GOOGLE_REDIRECT_URI=https://domain-anda.example/api/auth/google/callback\n\nDi Google Cloud Console, gunakan OAuth Client tipe **Web application** dan daftarkan redirect URI yang sama persis dengan `GOOGLE_REDIRECT_URI`.\n\nUntuk deployment HTTPS:\n\n    COOKIE_SECURE=1\n    SESSION_SECRET=<random-secret-panjang>\n\nTanpa Google credential, tombol Google Login tampil tetapi disabled. Register/login lokal tetap bekerja.\n\n## PWA & All Device Support\n\nWebsite menggunakan layout responsive untuk mobile, tablet, desktop, viewport safe-area, hamburger menu, dan installable PWA. Service worker tidak menyimpan response `/api/*` agar data akun, scraper, dan asset tidak masuk cache publik.\n",
-      "packageJson": null,
-      "latestRelease": null,
-      "commits": [
-        {
-          "sha": "d32b5905a09c03d01c6c860f554d1879c44cba08",
-          "message": "test: cover account profile update",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:36:31Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/d32b5905a09c03d01c6c860f554d1879c44cba08"
-        },
-        {
-          "sha": "ad73b5e14e432d4a21f34fae2e65b9e8be62361d",
-          "message": "docs: document profile settings endpoint",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:36:27Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/ad73b5e14e432d4a21f34fae2e65b9e8be62361d"
-        },
-        {
-          "sha": "568980fa382821a0d0ae17c8903ae8abe95d49d5",
-          "message": "feat: expose profile capability in API metadata",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:36:24Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/568980fa382821a0d0ae17c8903ae8abe95d49d5"
-        },
-        {
-          "sha": "ddd35252a7802dbc8e81bc6ecd39c73b9c384fb2",
-          "message": "feat: add profile name editing in settings",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:36:16Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/ddd35252a7802dbc8e81bc6ecd39c73b9c384fb2"
-        },
-        {
-          "sha": "2085ce30bb9644baa157105625d175accef850d4",
-          "message": "feat: add account profile update endpoint",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T05:36:04Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/2085ce30bb9644baa157105625d175accef850d4"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".env.example",
-          "type": "blob",
-          "size": 349,
-          "sha": "396376102957d9be1fadd9a2ca7ddfcb7602cafe"
-        },
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "9d9880215d77099fa3b980c0c82192c1c0bd7fcc"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "5786c8883a63a438d5dc3b54698088e0725678e6"
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "type": "blob",
-          "size": 876,
-          "sha": "d32cd07b7b3235f3cbcf65d0f59efbef33992b2e"
-        },
-        {
-          "path": ".gitignore",
-          "type": "blob",
-          "size": 154,
-          "sha": "1078e3a02dccec1a11447c60f2f50198f3a1d998"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 6098,
-          "sha": "181cef27d1c999b8bb375776237255fd68624311"
-        },
-        {
-          "path": "bussid",
-          "type": "tree",
-          "sha": "b5631f2e7244f2a7bb5990943eaaa4aca87d48e7"
-        },
-        {
-          "path": "bussid/kodename",
-          "type": "tree",
-          "sha": "d1b3521df2de2b0160b777bc2c1bc1882eff61a0"
-        },
-        {
-          "path": "bussid/kodename/README.md",
-          "type": "blob",
-          "size": 195,
-          "sha": "8cc0da916ae28dc073165cd69fcb693847c30f6c"
-        },
-        {
-          "path": "bussid/kodename/converter.py",
-          "type": "blob",
-          "size": 524,
-          "sha": "ba8d64b5f36af548f82cc6537f89b4472fd37b90"
-        },
-        {
-          "path": "bussid/kodename/templates",
-          "type": "tree",
-          "sha": "e4709865c94ec0230b24c6ce002ffe8d1300286d"
-        },
-        {
-          "path": "bussid/kodename/templates/README.md",
-          "type": "blob",
-          "size": 178,
-          "sha": "41e004735965a2a06e11bf611ac01331c396ffae"
-        },
-        {
-          "path": "bussid/lights",
-          "type": "tree",
-          "sha": "7bbd30028834e52948cc26f912895877bc80f658"
-        },
-        {
-          "path": "bussid/lights/README.md",
-          "type": "blob",
-          "size": 342,
-          "sha": "9820c4c01b2ec91555e0ebff6bf14cdedf9b83d8"
-        },
-        {
-          "path": "bussid/lights/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "bussid/lights/export.py",
-          "type": "blob",
-          "size": 328,
-          "sha": "eabe523bddc260db0f992867ade53d46b96bd63d"
-        },
-        {
-          "path": "bussid/map",
-          "type": "tree",
-          "sha": "684b23a30e3263515055d14f83305c62105f9a4c"
-        },
-        {
-          "path": "bussid/map/README.md",
-          "type": "blob",
-          "size": 351,
-          "sha": "615b9033a3a8adeb969b8251de2eccd2546acbf0"
-        },
-        {
-          "path": "bussid/map/converter.py",
-          "type": "blob",
-          "size": 519,
-          "sha": "78e03174bf6777c805f80658c3b4d166cc9265c1"
-        },
-        {
-          "path": "bussid/map/templates",
-          "type": "tree",
-          "sha": "aeea6b8ebf06fbebbddc0610ce4220f9c69de3af"
-        },
-        {
-          "path": "bussid/map/templates/README.md",
-          "type": "blob",
-          "size": 187,
-          "sha": "5f9ccc81e15c5e3dcafda7a88db57183a2d58953"
-        },
-        {
-          "path": "bussid/sprite-sheet",
-          "type": "tree",
-          "sha": "42649df665115134baed84d378489a1b7ac2a859"
-        },
-        {
-          "path": "bussid/sprite-sheet/README.md",
-          "type": "blob",
-          "size": 331,
-          "sha": "ce9f5af2e43a67d74d825d1b2c60656a14d4ec44"
-        },
-        {
-          "path": "bussid/sprite-sheet/converter.py",
-          "type": "blob",
-          "size": 528,
-          "sha": "a31fbdf8a2bc18377832863a2233366f23d0739b"
-        },
-        {
-          "path": "bussid/sprite-sheet/templates",
-          "type": "tree",
-          "sha": "a1bb72ce153e140668c5d87a11945176b1ac79d2"
-        },
-        {
-          "path": "bussid/sprite-sheet/templates/README.md",
-          "type": "blob",
-          "size": 198,
-          "sha": "d3facccd8e7b81b53186ddd47e3083b0672bc8a3"
-        },
-        {
-          "path": "bussid/vehicle",
-          "type": "tree",
-          "sha": "e4aea2e43f2e51c5648d5505a2ed204e276f71ff"
-        },
-        {
-          "path": "bussid/vehicle/README.md",
-          "type": "blob",
-          "size": 538,
-          "sha": "49b72876dfb70dd16cd3131bd6b19dba820594a3"
-        },
-        {
-          "path": "bussid/vehicle/converter.py",
-          "type": "blob",
-          "size": 523,
-          "sha": "8ef3e6ef899711fca2ec046af0e0f5cf78ed9a0d"
-        },
-        {
-          "path": "bussid/vehicle/templates",
-          "type": "tree",
-          "sha": "c2be60c58b31a2a8e80ecc094b0fa16991db07b5"
-        },
-        {
-          "path": "bussid/vehicle/templates/README.md",
-          "type": "blob",
-          "size": 430,
-          "sha": "707c407fd2ceefcef01a86b08e514271490ba7f4"
-        },
-        {
-          "path": "download",
-          "type": "tree",
-          "sha": "8b7f89ab48a8672a406f1bb8d565219001af3f37"
-        },
-        {
-          "path": "download/README.md",
-          "type": "blob",
-          "size": 355,
-          "sha": "694072dd31c45f7eb9c9f75f59792c8122829a09"
-        },
-        {
-          "path": "ets2",
-          "type": "tree",
-          "sha": "e462ee678d388c50ce974daee23ad194ad685aea"
-        },
-        {
-          "path": "ets2/map",
-          "type": "tree",
-          "sha": "f6fb24e2c703c397860f7a60a7ec305b474637a4"
-        },
-        {
-          "path": "ets2/map/README.md",
-          "type": "blob",
-          "size": 229,
-          "sha": "d451cf42dc98d900acb99d8ee27b0c8d7c3d206e"
-        },
-        {
-          "path": "ets2/map/converter.py",
-          "type": "blob",
-          "size": 517,
-          "sha": "a0eabba8f7ec649fe0b72d354cbd4decde4dd53c"
-        },
-        {
-          "path": "ets2/vehicle",
-          "type": "tree",
-          "sha": "0c60bc0ff4dcde3c5d1402f247ceca324fa09f0a"
-        },
-        {
-          "path": "ets2/vehicle/README.md",
-          "type": "blob",
-          "size": 434,
-          "sha": "cf227056c07df7553ada20eb0dbe539a58139376"
-        },
-        {
-          "path": "ets2/vehicle/converter.py",
-          "type": "blob",
-          "size": 521,
-          "sha": "76a8a156899dd40799c20d1265b1ab2d63f65de3"
-        },
-        {
-          "path": "requirements.txt",
-          "type": "blob",
-          "size": 215,
-          "sha": "c327961428a58c78ad2711db8cb71a250a7b9ab6"
-        },
-        {
-          "path": "roblox",
-          "type": "tree",
-          "sha": "e3c19f9222212dbdc6c2895f34e1e642d6f14d7a"
-        },
-        {
-          "path": "roblox/export",
-          "type": "tree",
-          "sha": "8247fffe9e2241956559865aeafab966dcfe8ec7"
-        },
-        {
-          "path": "roblox/export/README.md",
-          "type": "blob",
-          "size": 383,
-          "sha": "7aa03a08fb24e077775c8f6f62713a29a6cd7fb4"
-        },
-        {
-          "path": "roblox/export/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "roblox/export/url_asset.py",
-          "type": "blob",
-          "size": 449,
-          "sha": "6dac01184d451aac31dc763d6f9e10d158c8d4b3"
-        },
-        {
-          "path": "roblox/lights",
-          "type": "tree",
-          "sha": "0e416adb75decafb889bc98b4a40e12747a5432d"
-        },
-        {
-          "path": "roblox/lights/README.md",
-          "type": "blob",
-          "size": 534,
-          "sha": "c81e12ba08fd1bf0d2750829bc7870f7f2da69cd"
-        },
-        {
-          "path": "roblox/lights/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "roblox/lights/export.py",
-          "type": "blob",
-          "size": 328,
-          "sha": "d7c1e4adcb83eaf38283d9084f0d1bcf21aafa76"
-        },
-        {
-          "path": "roblox/vehicle",
-          "type": "tree",
-          "sha": "fc52b343eba274b6db8b5bf420be520c9b3a0b26"
-        },
-        {
-          "path": "roblox/vehicle/README.md",
-          "type": "blob",
-          "size": 265,
-          "sha": "e3d65f0a78943540a405aeedfc85dcb987cade1b"
-        },
-        {
-          "path": "roblox/vehicle/converter.py",
-          "type": "blob",
-          "size": 523,
-          "sha": "40ab863b5ba8dbb24b6059b74442f0d72108faaf"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "178d812c779ea6570cd69be3765cec933c1e702b"
-        },
-        {
-          "path": "scripts/README.md",
-          "type": "blob",
-          "size": 453,
-          "sha": "c5afb69bde19e0b38f6192c78902b00823b5128b"
-        },
-        {
-          "path": "scripts/check.py",
-          "type": "blob",
-          "size": 719,
-          "sha": "6fd13152f97cc0d6a1e54d6b33c7e373fcbb82c9"
-        },
-        {
-          "path": "scripts/scraper.py",
-          "type": "blob",
-          "size": 1737,
-          "sha": "c1bae96e0c28e4c76dd12adc8f54e613e2fa915d"
-        },
-        {
-          "path": "shared",
-          "type": "tree",
-          "sha": "9cf4a27a34c55702a95b3176ab7bf33ee5674b7a"
-        },
-        {
-          "path": "shared/asset_export.py",
-          "type": "blob",
-          "size": 3965,
-          "sha": "d12f8b93abd9a168b0d8117044beddb0b1a9c7c0"
-        },
-        {
-          "path": "shared/asset_inspector.py",
-          "type": "blob",
-          "size": 4219,
-          "sha": "bfcdfa23db570d8292a80fc6017b4533cd514d68"
-        },
-        {
-          "path": "shared/auth_db.py",
-          "type": "blob",
-          "size": 11927,
-          "sha": "0635ce1d43facb6c268246cbbea794c65a404502"
-        },
-        {
-          "path": "shared/i18n.py",
-          "type": "blob",
-          "size": 28129,
-          "sha": "413b55ad0bc237dae73b27e4a05478ba8d8f05a7"
-        },
-        {
-          "path": "shared/image_tools.py",
-          "type": "blob",
-          "size": 2512,
-          "sha": "468c871ae9e0246760283a2d374842523cce5ecb"
-        },
-        {
-          "path": "shared/light_animation.py",
-          "type": "blob",
-          "size": 1797,
-          "sha": "b98b616becf47257e37df2426cdf1159ff8b7987"
-        },
-        {
-          "path": "shared/package_export.py",
-          "type": "blob",
-          "size": 2810,
-          "sha": "5d70d2ea8a4b9d57bb159f4cb5c1d01cd2f4e935"
-        },
-        {
-          "path": "shared/path_security.py",
-          "type": "blob",
-          "size": 724,
-          "sha": "ed2d982cc1d6c3eb866a0e45f42bf1fa1d0444e3"
-        },
-        {
-          "path": "shared/roblox_url.py",
-          "type": "blob",
-          "size": 2816,
-          "sha": "41f579a45eb2cfb5ab753cbc30969010bacce4ff"
-        },
-        {
-          "path": "shared/scraper.py",
-          "type": "blob",
-          "size": 13868,
-          "sha": "88e46610bdff56e44d6c0354d1a56576cbb3e2b9"
-        },
-        {
-          "path": "shared/template_classifier.py",
-          "type": "blob",
-          "size": 1055,
-          "sha": "17d20f514b6a101a177697e11a96d8269a3639f4"
-        },
-        {
-          "path": "shared/version.py",
-          "type": "blob",
-          "size": 58,
-          "sha": "deaa28109e1e72107dc2166508cf3359a7203192"
-        },
-        {
-          "path": "templates",
-          "type": "tree",
-          "sha": "50757749d787b1fb5764c3e9fc13b11921dd014d"
-        },
-        {
-          "path": "templates/README.md",
-          "type": "blob",
-          "size": 298,
-          "sha": "b7c804cc5bda7280c222e38aef10d4b135c9848b"
-        },
-        {
-          "path": "tests",
-          "type": "tree",
-          "sha": "ed00c992dbf6b1c9862cd48f3e9044f1d0abaccf"
-        },
-        {
-          "path": "tests/test_api.py",
-          "type": "blob",
-          "size": 2076,
-          "sha": "ddac09bac2c9c52876a3278175590ff7f0df2538"
-        },
-        {
-          "path": "tests/test_asset_export.py",
-          "type": "blob",
-          "size": 588,
-          "sha": "63f42d52856a93c196fee77521a025bf1779694f"
-        },
-        {
-          "path": "tests/test_auth.py",
-          "type": "blob",
-          "size": 4559,
-          "sha": "e44422671e384bfe6c1598af8eff8bfd1fff696e"
-        },
-        {
-          "path": "tests/test_image_tools.py",
-          "type": "blob",
-          "size": 646,
-          "sha": "c75ac4aa0b712980e29e0ee758fef9e8b8a8796b"
-        },
-        {
-          "path": "tests/test_inspector.py",
-          "type": "blob",
-          "size": 372,
-          "sha": "080d0aa118f87f336d1c7269d891b5076caa430d"
-        },
-        {
-          "path": "tests/test_lights.py",
-          "type": "blob",
-          "size": 480,
-          "sha": "3ef3dd9c349409605cb1343cd07770d4e14bdb33"
-        },
-        {
-          "path": "tests/test_package_export.py",
-          "type": "blob",
-          "size": 729,
-          "sha": "6514a3e6b5ab7b486b70976ee7565a19b44b2303"
-        },
-        {
-          "path": "tests/test_roblox_url.py",
-          "type": "blob",
-          "size": 748,
-          "sha": "c96fb36991fd0874f12614e050d3a7fabaa6cdac"
-        },
-        {
-          "path": "tests/test_scraper.py",
-          "type": "blob",
-          "size": 1694,
-          "sha": "9f610381684e3bd90a9eafd79a0545e59bacefa6"
-        },
-        {
-          "path": "tests/test_templates.py",
-          "type": "blob",
-          "size": 591,
-          "sha": "042083898ce676ead752ae3db6fb4292328260b4"
-        },
-        {
-          "path": "tests/test_web_ui.py",
-          "type": "blob",
-          "size": 578,
-          "sha": "35560132508c61ad87e99975879a0ab6f5f04418"
-        },
-        {
-          "path": "web",
-          "type": "tree",
-          "sha": "2661ee58129c75e87072fda23913a994c62387b9"
-        },
-        {
-          "path": "web/app.py",
-          "type": "blob",
-          "size": 5038,
-          "sha": "56ce08e08b27c0a2b4b3e9d3ac6fe8e1cfcca778"
-        },
-        {
-          "path": "web/asset_api.py",
-          "type": "blob",
-          "size": 3488,
-          "sha": "6340fde5a5d7976abfd0ae16f146a2b0572cf5fc"
-        },
-        {
-          "path": "web/auth_api.py",
-          "type": "blob",
-          "size": 12159,
-          "sha": "b8fc68c3e2352854a78ad97a6a4f4b171b54a442"
-        },
-        {
-          "path": "web/catalog.py",
-          "type": "blob",
-          "size": 4946,
-          "sha": "b33eae2b70116a9983275e3aad982b24c1979e1a"
-        },
-        {
-          "path": "web/i18n_api.py",
-          "type": "blob",
-          "size": 541,
-          "sha": "065bcd97ef09100bef356b1b3d2adb09c4004b8d"
-        },
-        {
-          "path": "web/icon.svg",
-          "type": "blob",
-          "size": 343,
-          "sha": "827b384ba03f7ef3cd6b8b7636d35e36cff662b6"
-        },
-        {
-          "path": "web/index.html",
-          "type": "blob",
-          "size": 33689,
-          "sha": "9069bd9bcec10fc2c54eb43514ca490041445a21"
-        },
-        {
-          "path": "web/manifest.webmanifest",
-          "type": "blob",
-          "size": 391,
-          "sha": "3b3a8ec971a83c55f0a3afba2c8302777f96c836"
-        },
-        {
-          "path": "web/scraper_api.py",
-          "type": "blob",
-          "size": 1216,
-          "sha": "0118924be2e232efe90d45f16fe8009543e04776"
-        },
-        {
-          "path": "web/sprite_api.py",
-          "type": "blob",
-          "size": 1294,
-          "sha": "9dfd9411db2612fd42d8a939270903ecb15816a0"
-        },
-        {
-          "path": "web/sw.js",
-          "type": "blob",
-          "size": 1159,
-          "sha": "42f266d5a0d1e96575dddb7dc9957f4dc22abf35"
-        },
-        {
-          "path": "web/template_api.py",
-          "type": "blob",
-          "size": 398,
-          "sha": "8b028a5de7ea982d93500b75e6c7f837c3f5f769"
-        }
-      ],
-      "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:42:30.103Z"
+      "scrapedAt": "2026-09-20T05:53:36.392Z"
     },
     {
       "repository": {
@@ -2206,8 +1610,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-20T05:28:10Z",
-        "pushed_at": "2026-09-20T05:28:06Z",
+        "updated_at": "2026-09-20T05:42:34Z",
+        "pushed_at": "2026-09-20T05:42:31Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -2281,6 +1685,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "2c33f831f0a798a21419dcbf62f572c6fa51604c",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T05:42:30Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/2c33f831f0a798a21419dcbf62f572c6fa51604c"
+        },
+        {
           "sha": "99088b55e9c8464d4fe32228783b48ed043ae29d",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -2307,13 +1718,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-20T04:44:10Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/a667b667c5711c30cc13171152de10cd4921d0fe"
-        },
-        {
-          "sha": "800fe01a8bb81a5355c7702a55836a0872947f03",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T04:29:39Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/800fe01a8bb81a5355c7702a55836a0872947f03"
         }
       ],
       "tree": [
@@ -3421,13 +2825,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "bf43b4978327a1a7f6bd38732d24446bc35eee5b"
+          "sha": "eba8816512d0840982544e02332199eaf395e7ab"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 210239,
-          "sha": "82c48f49e3c7605e167f22f71e381f9bb3dffc6a"
+          "size": 211073,
+          "sha": "901d299779eb9ed2354bee9cddb40f751871148a"
         },
         {
           "path": "data/repositories.ts",
@@ -3647,7 +3051,636 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:42:30.149Z"
+      "scrapedAt": "2026-09-20T05:53:36.484Z"
+    },
+    {
+      "repository": {
+        "id": 1377081187,
+        "full_name": "nararyajayautamagroub/modbussid-converter",
+        "name": "modbussid-converter",
+        "private": false,
+        "visibility": "public",
+        "html_url": "https://github.com/nararyajayautamagroub/modbussid-converter",
+        "default_branch": "main",
+        "description": null,
+        "created_at": "2026-09-19T11:38:21Z",
+        "updated_at": "2026-09-20T05:36:35Z",
+        "pushed_at": "2026-09-20T05:36:32Z",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "open_issues_count": 0,
+        "language": "Python",
+        "size": 146,
+        "archived": false,
+        "disabled": false,
+        "topics": []
+      },
+      "languages": {
+        "Python": 123237,
+        "HTML": 33689,
+        "JavaScript": 1159
+      },
+      "readme": "# Game Mod Asset Lab v4.1.0\n\nWeb-based inspector, classifier, exporter, scraper, account system, dan download utility untuk **file/mod yang memang Anda miliki atau berwenang memprosesnya**.\n\n## Alur utama\n\n**Upload / pilih asset → Inspect → temukan entry → klasifikasi template → Export → Download**\n\n## Platform dan kategori\n\n- BUSSID: Vehicle, Map, Kodename, Sprite Sheet, Lights\n- ETS2/ATS: Vehicle, Map\n- Roblox: Vehicle, Lights, Export\n\n## Template\n\n- **AO**: Ambient Occlusion\n- **Texture**: texture umum\n- **Kaca/XOR**: template kaca / glass\n\nClassifier memakai nama file berbasis token agar radio.png tidak salah dibaca sebagai AO hanya karena mengandung huruf ao.\n\n## Fitur yang sudah aktif\n\n- Deteksi file dan SHA-256\n- Deteksi container ZIP/TAR\n- Daftar isi archive\n- Export seluruh file atau entry terpilih ke ZIP\n- Manifest JSON pada hasil export\n- Upload file ke workspace repository dengan batas 100 MB\n- Inspeksi hanya pada path yang berada di dalam repository\n- Repository catalog lokal\n- Sinkronisasi catalog ke GitHub repository publik secara berkala\n- Endpoint health dan capabilities\n- Animasi data untuk Strobo, Rotator, LED Bar\n- Paket Roblox lampu berisi JSON + script Lua untuk Roblox Studio\n- Inspect ukuran/format image dan ekstraksi Sprite Sheet menjadi frame ZIP\n- Near-real-time repository tree dengan default branch, commit SHA, tanggal commit, dan filter prefix\n- Download asset Roblox publik melalui endpoint resmi Asset Delivery\n- Validasi URL Roblox sebelum download\n- Web scraper publik dengan parser HTML, metadata Open Graph, JSON-LD, heading, link, image, robots.txt, batas ukuran, timeout, anti-SSRF, dan same-host crawl\n- GitHub Actions untuk dependency check, static check, compile, dan test Python 3.10-3.13\n\n## Endpoint utama\n\n- GET /api/health\n- GET /api/auth/status\n- GET /api/auth/me\n- POST /api/auth/register\n- POST /api/auth/login\n- POST /api/auth/logout\n- POST /api/auth/logout-all\n- PUT /api/auth/settings\n- PUT /api/auth/profile\n- PUT /api/auth/password\n- GET /api/auth/google/start\n- GET /api/auth/google/callback\n- GET /api/i18n\n- GET /api/i18n/{language}\n- GET /manifest.webmanifest\n- GET /sw.js\n- GET /icon.svg\n- GET /api/capabilities\n- GET /api/categories\n- GET /api/repository\n- POST /api/assets/upload\n- GET /api/assets/inspect?path=...\n- GET /api/assets/export?path=...\n- GET /api/templates/types\n- GET /api/templates/classify?path=...\n- GET /api/assets/roblox/validate?url=...\n- GET /api/assets/roblox/url?url=...\n- GET /api/sprite-sheet/inspect?path=...\n- GET /api/sprite-sheet/extract?path=...&columns=4&rows=4\n- GET /api/repository/tree?prefix=...\n- GET /api/scraper/fetch?url=...\n- GET /api/scraper/crawl?url=...&max_pages=...\n- GET /api/lights/{strobo|rotator|ledbar}\n- GET /api/lights/{strobo|rotator|ledbar}/download?platform=...\n\n## Akurasi data repository\n\nWebsite membaca struktur repository lokal saat runtime. Endpoint /api/repository juga mencoba membaca tree branch main dari GitHub dan mengembalikan commit SHA, jumlah file, daftar path, serta status sinkronisasi.\n\nJika GitHub tidak bisa diakses, data lokal tetap dipakai sehingga website tidak mati hanya karena internet sedang bermain petak umpet.\n\n## Batas penting\n\nProject ini **tidak** membypass password, enkripsi, DRM, signature, private asset, atau access control.\n\nUntuk format game proprietary seperti beberapa format internal ETS2/BUSSID/Roblox, project hanya melaporkan metadata, mendeteksi container yang dikenali, atau memproses format yang didukung. Parser native penuh harus ditambahkan berdasarkan format, dokumentasi, atau sample yang sah.\n\nExporter Roblox lampu menghasilkan **JSON + script Lua Roblox Studio**. Output tersebut bukan file native .rbxm/.rbxmx.\n\n## Jalankan\n\n    python -m pip install -r requirements.txt\n    uvicorn web.app:app --reload\n\nBuka http://127.0.0.1:8000.\n\n## Validasi\n\n    python -m compileall -q bussid ets2 roblox shared web tests\n    python -m pytest -q -W error\n\n## Scraper\n\nScraper berjalan pada host publik HTTP/HTTPS, memvalidasi DNS/IP publik, memeriksa robots.txt bila tersedia, membatasi response sampai 20 MB per request, timeout 60 detik maksimum, dan crawl hanya pada host yang sama. Ini ditujukan untuk data publik, bukan untuk melewati login, paywall, private resource, atau access control.\n\n### Contoh\n\n    /api/scraper/fetch?url=https%3A%2F%2Fexample.com\n    /api/scraper/crawl?url=https%3A%2F%2Fexample.com&max_pages=5\n\n\n## CLI scraper v4.1\n\n    python scripts/scraper.py https://example.com\n    python scripts/scraper.py https://example.com --crawl --max-pages 5\n    python scripts/scraper.py https://example.com --output reports/example.json\n\n## Validasi lokal v4.1\n\n    python scripts/check.py\n\nPerintah ini menjalankan pip check, compileall, Ruff (E9/F), dan pytest dengan warning diperlakukan sebagai error.\n\n## Authentication & Account\n\nFitur v4.1:\n- Register dengan email/password dan migrasi SQLite otomatis untuk schema lama\n- Login/logout dengan rate limit percobaan password\n- Logout semua session\n- Ganti password\n- Session database SQLite\n- Google Login via OpenID Connect\n- Pengaturan profil, bahasa, tema, dan notifikasi\n- 10 bahasa: Indonesia, English, Melayu, Arabic, Japanese, Korean, Chinese, Spanish, Portuguese, French\n\nGoogle Login tidak mengaktifkan credential secara otomatis. Simpan credential di environment, jangan di source code:\n\n    GOOGLE_CLIENT_ID=...\n    GOOGLE_CLIENT_SECRET=...\n    GOOGLE_REDIRECT_URI=https://domain-anda.example/api/auth/google/callback\n\nDi Google Cloud Console, gunakan OAuth Client tipe **Web application** dan daftarkan redirect URI yang sama persis dengan `GOOGLE_REDIRECT_URI`.\n\nUntuk deployment HTTPS:\n\n    COOKIE_SECURE=1\n    SESSION_SECRET=<random-secret-panjang>\n\nTanpa Google credential, tombol Google Login tampil tetapi disabled. Register/login lokal tetap bekerja.\n\n## PWA & All Device Support\n\nWebsite menggunakan layout responsive untuk mobile, tablet, desktop, viewport safe-area, hamburger menu, dan installable PWA. Service worker tidak menyimpan response `/api/*` agar data akun, scraper, dan asset tidak masuk cache publik.\n",
+      "packageJson": null,
+      "latestRelease": null,
+      "commits": [
+        {
+          "sha": "d32b5905a09c03d01c6c860f554d1879c44cba08",
+          "message": "test: cover account profile update",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:31Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/d32b5905a09c03d01c6c860f554d1879c44cba08"
+        },
+        {
+          "sha": "ad73b5e14e432d4a21f34fae2e65b9e8be62361d",
+          "message": "docs: document profile settings endpoint",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:27Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/ad73b5e14e432d4a21f34fae2e65b9e8be62361d"
+        },
+        {
+          "sha": "568980fa382821a0d0ae17c8903ae8abe95d49d5",
+          "message": "feat: expose profile capability in API metadata",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:24Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/568980fa382821a0d0ae17c8903ae8abe95d49d5"
+        },
+        {
+          "sha": "ddd35252a7802dbc8e81bc6ecd39c73b9c384fb2",
+          "message": "feat: add profile name editing in settings",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:16Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/ddd35252a7802dbc8e81bc6ecd39c73b9c384fb2"
+        },
+        {
+          "sha": "2085ce30bb9644baa157105625d175accef850d4",
+          "message": "feat: add account profile update endpoint",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:04Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/2085ce30bb9644baa157105625d175accef850d4"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 349,
+          "sha": "396376102957d9be1fadd9a2ca7ddfcb7602cafe"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "9d9880215d77099fa3b980c0c82192c1c0bd7fcc"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "5786c8883a63a438d5dc3b54698088e0725678e6"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 876,
+          "sha": "d32cd07b7b3235f3cbcf65d0f59efbef33992b2e"
+        },
+        {
+          "path": ".gitignore",
+          "type": "blob",
+          "size": 154,
+          "sha": "1078e3a02dccec1a11447c60f2f50198f3a1d998"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 6098,
+          "sha": "181cef27d1c999b8bb375776237255fd68624311"
+        },
+        {
+          "path": "bussid",
+          "type": "tree",
+          "sha": "b5631f2e7244f2a7bb5990943eaaa4aca87d48e7"
+        },
+        {
+          "path": "bussid/kodename",
+          "type": "tree",
+          "sha": "d1b3521df2de2b0160b777bc2c1bc1882eff61a0"
+        },
+        {
+          "path": "bussid/kodename/README.md",
+          "type": "blob",
+          "size": 195,
+          "sha": "8cc0da916ae28dc073165cd69fcb693847c30f6c"
+        },
+        {
+          "path": "bussid/kodename/converter.py",
+          "type": "blob",
+          "size": 524,
+          "sha": "ba8d64b5f36af548f82cc6537f89b4472fd37b90"
+        },
+        {
+          "path": "bussid/kodename/templates",
+          "type": "tree",
+          "sha": "e4709865c94ec0230b24c6ce002ffe8d1300286d"
+        },
+        {
+          "path": "bussid/kodename/templates/README.md",
+          "type": "blob",
+          "size": 178,
+          "sha": "41e004735965a2a06e11bf611ac01331c396ffae"
+        },
+        {
+          "path": "bussid/lights",
+          "type": "tree",
+          "sha": "7bbd30028834e52948cc26f912895877bc80f658"
+        },
+        {
+          "path": "bussid/lights/README.md",
+          "type": "blob",
+          "size": 342,
+          "sha": "9820c4c01b2ec91555e0ebff6bf14cdedf9b83d8"
+        },
+        {
+          "path": "bussid/lights/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "bussid/lights/export.py",
+          "type": "blob",
+          "size": 328,
+          "sha": "eabe523bddc260db0f992867ade53d46b96bd63d"
+        },
+        {
+          "path": "bussid/map",
+          "type": "tree",
+          "sha": "684b23a30e3263515055d14f83305c62105f9a4c"
+        },
+        {
+          "path": "bussid/map/README.md",
+          "type": "blob",
+          "size": 351,
+          "sha": "615b9033a3a8adeb969b8251de2eccd2546acbf0"
+        },
+        {
+          "path": "bussid/map/converter.py",
+          "type": "blob",
+          "size": 519,
+          "sha": "78e03174bf6777c805f80658c3b4d166cc9265c1"
+        },
+        {
+          "path": "bussid/map/templates",
+          "type": "tree",
+          "sha": "aeea6b8ebf06fbebbddc0610ce4220f9c69de3af"
+        },
+        {
+          "path": "bussid/map/templates/README.md",
+          "type": "blob",
+          "size": 187,
+          "sha": "5f9ccc81e15c5e3dcafda7a88db57183a2d58953"
+        },
+        {
+          "path": "bussid/sprite-sheet",
+          "type": "tree",
+          "sha": "42649df665115134baed84d378489a1b7ac2a859"
+        },
+        {
+          "path": "bussid/sprite-sheet/README.md",
+          "type": "blob",
+          "size": 331,
+          "sha": "ce9f5af2e43a67d74d825d1b2c60656a14d4ec44"
+        },
+        {
+          "path": "bussid/sprite-sheet/converter.py",
+          "type": "blob",
+          "size": 528,
+          "sha": "a31fbdf8a2bc18377832863a2233366f23d0739b"
+        },
+        {
+          "path": "bussid/sprite-sheet/templates",
+          "type": "tree",
+          "sha": "a1bb72ce153e140668c5d87a11945176b1ac79d2"
+        },
+        {
+          "path": "bussid/sprite-sheet/templates/README.md",
+          "type": "blob",
+          "size": 198,
+          "sha": "d3facccd8e7b81b53186ddd47e3083b0672bc8a3"
+        },
+        {
+          "path": "bussid/vehicle",
+          "type": "tree",
+          "sha": "e4aea2e43f2e51c5648d5505a2ed204e276f71ff"
+        },
+        {
+          "path": "bussid/vehicle/README.md",
+          "type": "blob",
+          "size": 538,
+          "sha": "49b72876dfb70dd16cd3131bd6b19dba820594a3"
+        },
+        {
+          "path": "bussid/vehicle/converter.py",
+          "type": "blob",
+          "size": 523,
+          "sha": "8ef3e6ef899711fca2ec046af0e0f5cf78ed9a0d"
+        },
+        {
+          "path": "bussid/vehicle/templates",
+          "type": "tree",
+          "sha": "c2be60c58b31a2a8e80ecc094b0fa16991db07b5"
+        },
+        {
+          "path": "bussid/vehicle/templates/README.md",
+          "type": "blob",
+          "size": 430,
+          "sha": "707c407fd2ceefcef01a86b08e514271490ba7f4"
+        },
+        {
+          "path": "download",
+          "type": "tree",
+          "sha": "8b7f89ab48a8672a406f1bb8d565219001af3f37"
+        },
+        {
+          "path": "download/README.md",
+          "type": "blob",
+          "size": 355,
+          "sha": "694072dd31c45f7eb9c9f75f59792c8122829a09"
+        },
+        {
+          "path": "ets2",
+          "type": "tree",
+          "sha": "e462ee678d388c50ce974daee23ad194ad685aea"
+        },
+        {
+          "path": "ets2/map",
+          "type": "tree",
+          "sha": "f6fb24e2c703c397860f7a60a7ec305b474637a4"
+        },
+        {
+          "path": "ets2/map/README.md",
+          "type": "blob",
+          "size": 229,
+          "sha": "d451cf42dc98d900acb99d8ee27b0c8d7c3d206e"
+        },
+        {
+          "path": "ets2/map/converter.py",
+          "type": "blob",
+          "size": 517,
+          "sha": "a0eabba8f7ec649fe0b72d354cbd4decde4dd53c"
+        },
+        {
+          "path": "ets2/vehicle",
+          "type": "tree",
+          "sha": "0c60bc0ff4dcde3c5d1402f247ceca324fa09f0a"
+        },
+        {
+          "path": "ets2/vehicle/README.md",
+          "type": "blob",
+          "size": 434,
+          "sha": "cf227056c07df7553ada20eb0dbe539a58139376"
+        },
+        {
+          "path": "ets2/vehicle/converter.py",
+          "type": "blob",
+          "size": 521,
+          "sha": "76a8a156899dd40799c20d1265b1ab2d63f65de3"
+        },
+        {
+          "path": "requirements.txt",
+          "type": "blob",
+          "size": 215,
+          "sha": "c327961428a58c78ad2711db8cb71a250a7b9ab6"
+        },
+        {
+          "path": "roblox",
+          "type": "tree",
+          "sha": "e3c19f9222212dbdc6c2895f34e1e642d6f14d7a"
+        },
+        {
+          "path": "roblox/export",
+          "type": "tree",
+          "sha": "8247fffe9e2241956559865aeafab966dcfe8ec7"
+        },
+        {
+          "path": "roblox/export/README.md",
+          "type": "blob",
+          "size": 383,
+          "sha": "7aa03a08fb24e077775c8f6f62713a29a6cd7fb4"
+        },
+        {
+          "path": "roblox/export/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "roblox/export/url_asset.py",
+          "type": "blob",
+          "size": 449,
+          "sha": "6dac01184d451aac31dc763d6f9e10d158c8d4b3"
+        },
+        {
+          "path": "roblox/lights",
+          "type": "tree",
+          "sha": "0e416adb75decafb889bc98b4a40e12747a5432d"
+        },
+        {
+          "path": "roblox/lights/README.md",
+          "type": "blob",
+          "size": 534,
+          "sha": "c81e12ba08fd1bf0d2750829bc7870f7f2da69cd"
+        },
+        {
+          "path": "roblox/lights/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "roblox/lights/export.py",
+          "type": "blob",
+          "size": 328,
+          "sha": "d7c1e4adcb83eaf38283d9084f0d1bcf21aafa76"
+        },
+        {
+          "path": "roblox/vehicle",
+          "type": "tree",
+          "sha": "fc52b343eba274b6db8b5bf420be520c9b3a0b26"
+        },
+        {
+          "path": "roblox/vehicle/README.md",
+          "type": "blob",
+          "size": 265,
+          "sha": "e3d65f0a78943540a405aeedfc85dcb987cade1b"
+        },
+        {
+          "path": "roblox/vehicle/converter.py",
+          "type": "blob",
+          "size": 523,
+          "sha": "40ab863b5ba8dbb24b6059b74442f0d72108faaf"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "178d812c779ea6570cd69be3765cec933c1e702b"
+        },
+        {
+          "path": "scripts/README.md",
+          "type": "blob",
+          "size": 453,
+          "sha": "c5afb69bde19e0b38f6192c78902b00823b5128b"
+        },
+        {
+          "path": "scripts/check.py",
+          "type": "blob",
+          "size": 719,
+          "sha": "6fd13152f97cc0d6a1e54d6b33c7e373fcbb82c9"
+        },
+        {
+          "path": "scripts/scraper.py",
+          "type": "blob",
+          "size": 1737,
+          "sha": "c1bae96e0c28e4c76dd12adc8f54e613e2fa915d"
+        },
+        {
+          "path": "shared",
+          "type": "tree",
+          "sha": "9cf4a27a34c55702a95b3176ab7bf33ee5674b7a"
+        },
+        {
+          "path": "shared/asset_export.py",
+          "type": "blob",
+          "size": 3965,
+          "sha": "d12f8b93abd9a168b0d8117044beddb0b1a9c7c0"
+        },
+        {
+          "path": "shared/asset_inspector.py",
+          "type": "blob",
+          "size": 4219,
+          "sha": "bfcdfa23db570d8292a80fc6017b4533cd514d68"
+        },
+        {
+          "path": "shared/auth_db.py",
+          "type": "blob",
+          "size": 11927,
+          "sha": "0635ce1d43facb6c268246cbbea794c65a404502"
+        },
+        {
+          "path": "shared/i18n.py",
+          "type": "blob",
+          "size": 28129,
+          "sha": "413b55ad0bc237dae73b27e4a05478ba8d8f05a7"
+        },
+        {
+          "path": "shared/image_tools.py",
+          "type": "blob",
+          "size": 2512,
+          "sha": "468c871ae9e0246760283a2d374842523cce5ecb"
+        },
+        {
+          "path": "shared/light_animation.py",
+          "type": "blob",
+          "size": 1797,
+          "sha": "b98b616becf47257e37df2426cdf1159ff8b7987"
+        },
+        {
+          "path": "shared/package_export.py",
+          "type": "blob",
+          "size": 2810,
+          "sha": "5d70d2ea8a4b9d57bb159f4cb5c1d01cd2f4e935"
+        },
+        {
+          "path": "shared/path_security.py",
+          "type": "blob",
+          "size": 724,
+          "sha": "ed2d982cc1d6c3eb866a0e45f42bf1fa1d0444e3"
+        },
+        {
+          "path": "shared/roblox_url.py",
+          "type": "blob",
+          "size": 2816,
+          "sha": "41f579a45eb2cfb5ab753cbc30969010bacce4ff"
+        },
+        {
+          "path": "shared/scraper.py",
+          "type": "blob",
+          "size": 13868,
+          "sha": "88e46610bdff56e44d6c0354d1a56576cbb3e2b9"
+        },
+        {
+          "path": "shared/template_classifier.py",
+          "type": "blob",
+          "size": 1055,
+          "sha": "17d20f514b6a101a177697e11a96d8269a3639f4"
+        },
+        {
+          "path": "shared/version.py",
+          "type": "blob",
+          "size": 58,
+          "sha": "deaa28109e1e72107dc2166508cf3359a7203192"
+        },
+        {
+          "path": "templates",
+          "type": "tree",
+          "sha": "50757749d787b1fb5764c3e9fc13b11921dd014d"
+        },
+        {
+          "path": "templates/README.md",
+          "type": "blob",
+          "size": 298,
+          "sha": "b7c804cc5bda7280c222e38aef10d4b135c9848b"
+        },
+        {
+          "path": "tests",
+          "type": "tree",
+          "sha": "ed00c992dbf6b1c9862cd48f3e9044f1d0abaccf"
+        },
+        {
+          "path": "tests/test_api.py",
+          "type": "blob",
+          "size": 2076,
+          "sha": "ddac09bac2c9c52876a3278175590ff7f0df2538"
+        },
+        {
+          "path": "tests/test_asset_export.py",
+          "type": "blob",
+          "size": 588,
+          "sha": "63f42d52856a93c196fee77521a025bf1779694f"
+        },
+        {
+          "path": "tests/test_auth.py",
+          "type": "blob",
+          "size": 4559,
+          "sha": "e44422671e384bfe6c1598af8eff8bfd1fff696e"
+        },
+        {
+          "path": "tests/test_image_tools.py",
+          "type": "blob",
+          "size": 646,
+          "sha": "c75ac4aa0b712980e29e0ee758fef9e8b8a8796b"
+        },
+        {
+          "path": "tests/test_inspector.py",
+          "type": "blob",
+          "size": 372,
+          "sha": "080d0aa118f87f336d1c7269d891b5076caa430d"
+        },
+        {
+          "path": "tests/test_lights.py",
+          "type": "blob",
+          "size": 480,
+          "sha": "3ef3dd9c349409605cb1343cd07770d4e14bdb33"
+        },
+        {
+          "path": "tests/test_package_export.py",
+          "type": "blob",
+          "size": 729,
+          "sha": "6514a3e6b5ab7b486b70976ee7565a19b44b2303"
+        },
+        {
+          "path": "tests/test_roblox_url.py",
+          "type": "blob",
+          "size": 748,
+          "sha": "c96fb36991fd0874f12614e050d3a7fabaa6cdac"
+        },
+        {
+          "path": "tests/test_scraper.py",
+          "type": "blob",
+          "size": 1694,
+          "sha": "9f610381684e3bd90a9eafd79a0545e59bacefa6"
+        },
+        {
+          "path": "tests/test_templates.py",
+          "type": "blob",
+          "size": 591,
+          "sha": "042083898ce676ead752ae3db6fb4292328260b4"
+        },
+        {
+          "path": "tests/test_web_ui.py",
+          "type": "blob",
+          "size": 578,
+          "sha": "35560132508c61ad87e99975879a0ab6f5f04418"
+        },
+        {
+          "path": "web",
+          "type": "tree",
+          "sha": "2661ee58129c75e87072fda23913a994c62387b9"
+        },
+        {
+          "path": "web/app.py",
+          "type": "blob",
+          "size": 5038,
+          "sha": "56ce08e08b27c0a2b4b3e9d3ac6fe8e1cfcca778"
+        },
+        {
+          "path": "web/asset_api.py",
+          "type": "blob",
+          "size": 3488,
+          "sha": "6340fde5a5d7976abfd0ae16f146a2b0572cf5fc"
+        },
+        {
+          "path": "web/auth_api.py",
+          "type": "blob",
+          "size": 12159,
+          "sha": "b8fc68c3e2352854a78ad97a6a4f4b171b54a442"
+        },
+        {
+          "path": "web/catalog.py",
+          "type": "blob",
+          "size": 4946,
+          "sha": "b33eae2b70116a9983275e3aad982b24c1979e1a"
+        },
+        {
+          "path": "web/i18n_api.py",
+          "type": "blob",
+          "size": 541,
+          "sha": "065bcd97ef09100bef356b1b3d2adb09c4004b8d"
+        },
+        {
+          "path": "web/icon.svg",
+          "type": "blob",
+          "size": 343,
+          "sha": "827b384ba03f7ef3cd6b8b7636d35e36cff662b6"
+        },
+        {
+          "path": "web/index.html",
+          "type": "blob",
+          "size": 33689,
+          "sha": "9069bd9bcec10fc2c54eb43514ca490041445a21"
+        },
+        {
+          "path": "web/manifest.webmanifest",
+          "type": "blob",
+          "size": 391,
+          "sha": "3b3a8ec971a83c55f0a3afba2c8302777f96c836"
+        },
+        {
+          "path": "web/scraper_api.py",
+          "type": "blob",
+          "size": 1216,
+          "sha": "0118924be2e232efe90d45f16fe8009543e04776"
+        },
+        {
+          "path": "web/sprite_api.py",
+          "type": "blob",
+          "size": 1294,
+          "sha": "9dfd9411db2612fd42d8a939270903ecb15816a0"
+        },
+        {
+          "path": "web/sw.js",
+          "type": "blob",
+          "size": 1159,
+          "sha": "42f266d5a0d1e96575dddb7dc9957f4dc22abf35"
+        },
+        {
+          "path": "web/template_api.py",
+          "type": "blob",
+          "size": 398,
+          "sha": "8b028a5de7ea982d93500b75e6c7f837c3f5f769"
+        }
+      ],
+      "treeTruncated": false,
+      "scrapedAt": "2026-09-20T05:53:36.476Z"
     },
     {
       "repository": {
@@ -5472,7 +5505,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:42:30.199Z"
+      "scrapedAt": "2026-09-20T05:53:36.581Z"
     },
     {
       "repository": {
@@ -6112,7 +6145,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:42:30.214Z"
+      "scrapedAt": "2026-09-20T05:53:36.567Z"
     }
   ]
 }
