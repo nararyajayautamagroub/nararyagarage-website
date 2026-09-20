@@ -1,9 +1,1312 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-20T05:28:05.515Z",
+  "fetchedAt": "2026-09-20T05:42:30.214Z",
   "repositoryCount": 6,
   "repositories": [
+    {
+      "repository": {
+        "id": 1377274533,
+        "full_name": "nararyajayautamagroub/nararyastudio-website",
+        "name": "nararyastudio-website",
+        "private": false,
+        "visibility": "public",
+        "html_url": "https://github.com/nararyajayautamagroub/nararyastudio-website",
+        "default_branch": "main",
+        "description": null,
+        "created_at": "2026-09-19T14:48:35Z",
+        "updated_at": "2026-09-20T05:42:24Z",
+        "pushed_at": "2026-09-20T05:42:26Z",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "open_issues_count": 0,
+        "language": "TypeScript",
+        "size": 253,
+        "archived": false,
+        "disabled": false,
+        "topics": []
+      },
+      "languages": {
+        "TypeScript": 156009,
+        "JavaScript": 7907
+      },
+      "readme": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, finance reports, CMS and staff operations\n- SEO sitemap + robots and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nFor a same-origin crawl:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL and the Google OAuth variables when Google Login is enabled.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n",
+      "packageJson": {
+        "name": "nararya-studio",
+        "version": "1.4.2",
+        "private": true,
+        "scripts": {
+          "dev": "next dev",
+          "build": "next build",
+          "start": "next start",
+          "lint": "tsc --noEmit",
+          "typecheck": "tsc --noEmit",
+          "test": "vitest run",
+          "db:generate": "prisma generate",
+          "db:validate": "prisma validate",
+          "db:migrate": "prisma migrate dev",
+          "db:seed": "tsx prisma/seed.ts",
+          "scrape": "node scripts/scraper.mjs"
+        },
+        "dependencies": {
+          "@prisma/client": "6.19.3",
+          "lucide-react": "1.47.0",
+          "next": "16.3.5",
+          "react": "19.3.0",
+          "react-dom": "19.3.0"
+        },
+        "devDependencies": {
+          "@tailwindcss/postcss": "4.3.3",
+          "@types/node": "22.20.3",
+          "@types/react": "19.3.0",
+          "@types/react-dom": "19.3.0",
+          "prisma": "6.19.3",
+          "tailwindcss": "4.3.3",
+          "tsx": "4.23.13",
+          "typescript": "7.0.2",
+          "vitest": "5.0.1"
+        },
+        "overrides": {
+          "deepmerge-ts": "8.0.1"
+        },
+        "allowScripts": {
+          "@prisma/client": true,
+          "prisma": true,
+          "@prisma/engines": true,
+          "esbuild": true
+        }
+      },
+      "latestRelease": null,
+      "commits": [
+        {
+          "sha": "9b0a3693b9dc57319ba6d695629ca46580174f2d",
+          "message": "feat: add mobile web manifest",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:42:26Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/9b0a3693b9dc57319ba6d695629ca46580174f2d"
+        },
+        {
+          "sha": "b016647a4117686436953e306f7abfbb0c6b0cfc",
+          "message": "fix: remove nonexistent routes from sitemap",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:42:20Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/b016647a4117686436953e306f7abfbb0c6b0cfc"
+        },
+        {
+          "sha": "37355ea115dda1fec8f99472498c9d5ffd6d09d6",
+          "message": "fix: harden robots directives for private routes",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:42:13Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/37355ea115dda1fec8f99472498c9d5ffd6d09d6"
+        },
+        {
+          "sha": "ef7b3bd0f625c4b8d73e5e24ba8d442c83f7cd71",
+          "message": "fix: bound in-memory rate-limit bucket growth",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:41:39Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/ef7b3bd0f625c4b8d73e5e24ba8d442c83f7cd71"
+        },
+        {
+          "sha": "f3bf042b683a42cf58a7919a8c6e9ac2d9f8aab1",
+          "message": "docs: document scraper origin safety mode",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:41:33Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/f3bf042b683a42cf58a7919a8c6e9ac2d9f8aab1"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 206,
+          "sha": "81362b996a133c4ed26585ce4431c527a67af9e2"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "5703c8bd1fddc99c21a0af20b80969dfcffc8f37"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "3d06611303fc837e27ac16412ffcf87a1c26ee81"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 1017,
+          "sha": "3177c161fcb4fd032f3c5c8e4dd44ffe6fd44b30"
+        },
+        {
+          "path": ".gitignore",
+          "type": "blob",
+          "size": 86,
+          "sha": "fd552472a8c5f66ace3e5caa2a4cd108ebaf588b"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 3515,
+          "sha": "9b58f5a0d35f6e196fa4aab4e35d89d3258878c8"
+        },
+        {
+          "path": "app",
+          "type": "tree",
+          "sha": "abd98149ca5b904638cd11aec6414c75a6fca1c5"
+        },
+        {
+          "path": "app/admin",
+          "type": "tree",
+          "sha": "2bebcba5274a225773492bc3fc06618511c5ae46"
+        },
+        {
+          "path": "app/admin/content",
+          "type": "tree",
+          "sha": "c2ba715efeed412df3b136d44dc7a46d02826c5a"
+        },
+        {
+          "path": "app/admin/content/page.tsx",
+          "type": "blob",
+          "size": 3455,
+          "sha": "c08b41c311bc43c016ce3e9a9a0d754659ef81a2"
+        },
+        {
+          "path": "app/admin/coupons",
+          "type": "tree",
+          "sha": "1df58f3f5a9ea8e53d4ec1ba6d10b7659e177a52"
+        },
+        {
+          "path": "app/admin/coupons/page.tsx",
+          "type": "blob",
+          "size": 2412,
+          "sha": "d36cf5a72a43c4e0ad53cc36fff86658ee38c78a"
+        },
+        {
+          "path": "app/admin/finance",
+          "type": "tree",
+          "sha": "4371e31d12756fe9191117090e71a806513b4213"
+        },
+        {
+          "path": "app/admin/finance/page.tsx",
+          "type": "blob",
+          "size": 2288,
+          "sha": "2979c1255ef4c1ea61355f8bf010cd76a3404495"
+        },
+        {
+          "path": "app/admin/page.tsx",
+          "type": "blob",
+          "size": 1112,
+          "sha": "09bdc2c8af9a43ec4c7bee781bd979f2ea5eee61"
+        },
+        {
+          "path": "app/admin/reviews",
+          "type": "tree",
+          "sha": "042443d71054d58b862e5396ba2bf0ac53db6365"
+        },
+        {
+          "path": "app/admin/reviews/page.tsx",
+          "type": "blob",
+          "size": 2098,
+          "sha": "a5ce295f9efbbdd71f9efd4278adbb3b459010b1"
+        },
+        {
+          "path": "app/api",
+          "type": "tree",
+          "sha": "99387af1fb862579650b2997f7006462c15ac8c1"
+        },
+        {
+          "path": "app/api/admin",
+          "type": "tree",
+          "sha": "1b99e0f155223cf57a4ef5dc85737621f3111f9b"
+        },
+        {
+          "path": "app/api/admin/content",
+          "type": "tree",
+          "sha": "efc19f4279e07232caf3b920c559bde89f5df5af"
+        },
+        {
+          "path": "app/api/admin/content/[type]",
+          "type": "tree",
+          "sha": "26a43806d97eb5767b17962e43924e67626e7a39"
+        },
+        {
+          "path": "app/api/admin/content/[type]/[id]",
+          "type": "tree",
+          "sha": "3fdc478486468c3b0567763cd9f7f8f419b4beca"
+        },
+        {
+          "path": "app/api/admin/content/[type]/[id]/route.ts",
+          "type": "blob",
+          "size": 3158,
+          "sha": "8125fcbc420937c926c2afaf8e48822cdcd79769"
+        },
+        {
+          "path": "app/api/admin/content/[type]/route.ts",
+          "type": "blob",
+          "size": 3220,
+          "sha": "42f41f5af65a5a0835d070f6fb541a8ec86b8b82"
+        },
+        {
+          "path": "app/api/admin/coupons",
+          "type": "tree",
+          "sha": "eccf1439f290736503705354e766dea4240ecccb"
+        },
+        {
+          "path": "app/api/admin/coupons/route.ts",
+          "type": "blob",
+          "size": 1689,
+          "sha": "c969cdaaf1d68985044b60e756973bc9e48c2e39"
+        },
+        {
+          "path": "app/api/admin/finance",
+          "type": "tree",
+          "sha": "dab0364e9f19df1eb152191ce4ed92eb32bf8955"
+        },
+        {
+          "path": "app/api/admin/finance/report",
+          "type": "tree",
+          "sha": "3238ba7110aea0ef34ae14ecfc40d276675262cb"
+        },
+        {
+          "path": "app/api/admin/finance/report/route.ts",
+          "type": "blob",
+          "size": 1631,
+          "sha": "bed7292883eb96521aa1c61a7bb8f1f4c42584f6"
+        },
+        {
+          "path": "app/api/admin/products",
+          "type": "tree",
+          "sha": "eb27083e9e2b7a4c0ec450f8b4a21615d29fa843"
+        },
+        {
+          "path": "app/api/admin/products/[id]",
+          "type": "tree",
+          "sha": "6f1d35ae528c39b1bd479c54c936883684a14a16"
+        },
+        {
+          "path": "app/api/admin/products/[id]/route.ts",
+          "type": "blob",
+          "size": 2274,
+          "sha": "bc6e81dcc4b3f75c695a85edc7683d2076237be6"
+        },
+        {
+          "path": "app/api/admin/products/route.ts",
+          "type": "blob",
+          "size": 1889,
+          "sha": "e8f14ac714abe14b5ec5820204673862458dd2dc"
+        },
+        {
+          "path": "app/api/admin/quotations",
+          "type": "tree",
+          "sha": "b5da12ae36a9868523882dc6dac94a8a8d5127b6"
+        },
+        {
+          "path": "app/api/admin/quotations/route.ts",
+          "type": "blob",
+          "size": 1719,
+          "sha": "b969ad8514be4f3f7ef134d86b95184cbecbf0d4"
+        },
+        {
+          "path": "app/api/admin/requests",
+          "type": "tree",
+          "sha": "8138d879e04a7369e5fae5f4bb737c99cc2a1fa1"
+        },
+        {
+          "path": "app/api/admin/requests/[id]",
+          "type": "tree",
+          "sha": "eecf589fe55a644c32b3fa2f41e3adf92d5948bf"
+        },
+        {
+          "path": "app/api/admin/requests/[id]/route.ts",
+          "type": "blob",
+          "size": 1151,
+          "sha": "057a51a1218f35357e79d32d81028f1c3fb39a4c"
+        },
+        {
+          "path": "app/api/admin/requests/route.ts",
+          "type": "blob",
+          "size": 451,
+          "sha": "7ecacec6aff554065ad14e5ad2b851085104eecb"
+        },
+        {
+          "path": "app/api/admin/reviews",
+          "type": "tree",
+          "sha": "a4e18bece0ff47c6e65532c13bd91f749c55a939"
+        },
+        {
+          "path": "app/api/admin/reviews/[id]",
+          "type": "tree",
+          "sha": "930cc2972f34516837ecbd5279f12a46e74397d3"
+        },
+        {
+          "path": "app/api/admin/reviews/[id]/route.ts",
+          "type": "blob",
+          "size": 977,
+          "sha": "6e85a52f996e74fdded689466db004cc57bc8307"
+        },
+        {
+          "path": "app/api/admin/reviews/route.ts",
+          "type": "blob",
+          "size": 498,
+          "sha": "47a41dcd91bb22141f31870bfa53d5b66a8483cd"
+        },
+        {
+          "path": "app/api/auth",
+          "type": "tree",
+          "sha": "68a44da904dcbc8509c6b5baf6755584cb9d815c"
+        },
+        {
+          "path": "app/api/auth/google",
+          "type": "tree",
+          "sha": "0dffd8c238e036cc095f93d92705c16dadc175d2"
+        },
+        {
+          "path": "app/api/auth/google/callback",
+          "type": "tree",
+          "sha": "0db7f50d12ae792663a5c2c651304ae1a63a60ab"
+        },
+        {
+          "path": "app/api/auth/google/callback/route.ts",
+          "type": "blob",
+          "size": 3832,
+          "sha": "c6f71f5c645c19c478507998455d9541739aebe5"
+        },
+        {
+          "path": "app/api/auth/google/route.ts",
+          "type": "blob",
+          "size": 1189,
+          "sha": "d6ee3f385e64243e39edcf8000ba9f1429e411ae"
+        },
+        {
+          "path": "app/api/auth/login",
+          "type": "tree",
+          "sha": "b7774cfb6180f435dcd24fdc98911450aa873086"
+        },
+        {
+          "path": "app/api/auth/login/route.ts",
+          "type": "blob",
+          "size": 1080,
+          "sha": "93668f676fd82a536b11325a9c458f9e91e6bb26"
+        },
+        {
+          "path": "app/api/auth/logout",
+          "type": "tree",
+          "sha": "09ea9ce1771b12183264eaa337f5a24314a95d38"
+        },
+        {
+          "path": "app/api/auth/logout/route.ts",
+          "type": "blob",
+          "size": 202,
+          "sha": "6f75feba69064f7c3fc427ed021829a9a490405f"
+        },
+        {
+          "path": "app/api/auth/me",
+          "type": "tree",
+          "sha": "0710973911ae864becb5a591af8641b85440d29d"
+        },
+        {
+          "path": "app/api/auth/me/route.ts",
+          "type": "blob",
+          "size": 315,
+          "sha": "9f7a9fbe571dda2b4aa199e03096825b64097b6f"
+        },
+        {
+          "path": "app/api/auth/password",
+          "type": "tree",
+          "sha": "b9aa3974973a80c879c6d18b74881bca5b15a6c7"
+        },
+        {
+          "path": "app/api/auth/password/route.ts",
+          "type": "blob",
+          "size": 1102,
+          "sha": "5ff05a665738f551b4f8b23167fca1ceae0fa317"
+        },
+        {
+          "path": "app/api/auth/register",
+          "type": "tree",
+          "sha": "2a7047c24b15a49eb119c1b109b61b9e9943f88a"
+        },
+        {
+          "path": "app/api/auth/register/route.ts",
+          "type": "blob",
+          "size": 1630,
+          "sha": "eaa9c985fd0db141157b7ecf5525ac6ac1c1c2d1"
+        },
+        {
+          "path": "app/api/auth/sessions",
+          "type": "tree",
+          "sha": "464e7a107853f6ee4b845b56f62eb3dcbf2766e4"
+        },
+        {
+          "path": "app/api/auth/sessions/revoke-all",
+          "type": "tree",
+          "sha": "35ef423b388fc1a7c35efd830cc26f0f757cb520"
+        },
+        {
+          "path": "app/api/auth/sessions/revoke-all/route.ts",
+          "type": "blob",
+          "size": 331,
+          "sha": "58e6eb07e8bdc7371147d21ea3f01dd2b1f346e5"
+        },
+        {
+          "path": "app/api/blog",
+          "type": "tree",
+          "sha": "7f2e2a2d8e2e3c125793ac4eec0a1e4a82fdbf74"
+        },
+        {
+          "path": "app/api/blog/[slug]",
+          "type": "tree",
+          "sha": "d83206bc1dfa6a54032b3690b2f55f6ce417f7ac"
+        },
+        {
+          "path": "app/api/blog/[slug]/route.ts",
+          "type": "blob",
+          "size": 570,
+          "sha": "379e7270ca6b2c55a281862f72b668f8ea182476"
+        },
+        {
+          "path": "app/api/blog/route.ts",
+          "type": "blob",
+          "size": 455,
+          "sha": "05d92a16a9e2c687a68b049bbd7222eb4c72acc4"
+        },
+        {
+          "path": "app/api/bundles",
+          "type": "tree",
+          "sha": "576e98b6b7371ecde92aa2c825219120619c1cb1"
+        },
+        {
+          "path": "app/api/bundles/route.ts",
+          "type": "blob",
+          "size": 869,
+          "sha": "165e1aab799566448d3cf83df3b49ff7e5284e5b"
+        },
+        {
+          "path": "app/api/checkout",
+          "type": "tree",
+          "sha": "9db37ae719b62be49b1b607ad7fd794e3a6f75b1"
+        },
+        {
+          "path": "app/api/checkout/route.ts",
+          "type": "blob",
+          "size": 5756,
+          "sha": "4c801d8a3e92213faf30364d4da814fd5e04c9a8"
+        },
+        {
+          "path": "app/api/coupons",
+          "type": "tree",
+          "sha": "b660ba068392a9bf92f3b583664ce2badcbec48b"
+        },
+        {
+          "path": "app/api/coupons/validate",
+          "type": "tree",
+          "sha": "c60740624b9a3b6ef5949bdee04a29f896f48ae6"
+        },
+        {
+          "path": "app/api/coupons/validate/route.ts",
+          "type": "blob",
+          "size": 1621,
+          "sha": "4ae89f7815789e90fee398cbac375b8509eeda74"
+        },
+        {
+          "path": "app/api/downloads",
+          "type": "tree",
+          "sha": "af014de95a38bd13dd988007c97876d7d5bba69e"
+        },
+        {
+          "path": "app/api/downloads/[token]",
+          "type": "tree",
+          "sha": "fb2d9f467c712d96967f16b0c024f3c90c2bc04a"
+        },
+        {
+          "path": "app/api/downloads/[token]/route.ts",
+          "type": "blob",
+          "size": 1512,
+          "sha": "6920cbf751be3679b6c340239e0803724d958a19"
+        },
+        {
+          "path": "app/api/health",
+          "type": "tree",
+          "sha": "a160cca55c062b9a2112fcbb408a9ef3b22d9545"
+        },
+        {
+          "path": "app/api/health/route.ts",
+          "type": "blob",
+          "size": 584,
+          "sha": "1fd4e02300e90274c1b891143e60520d3eab9587"
+        },
+        {
+          "path": "app/api/invoices",
+          "type": "tree",
+          "sha": "f4dcfa903289ac43d86de2d026d540f50f8984a5"
+        },
+        {
+          "path": "app/api/invoices/[id]",
+          "type": "tree",
+          "sha": "8d6695289fb97cf43c37fdda31490187879f8ce9"
+        },
+        {
+          "path": "app/api/invoices/[id]/route.ts",
+          "type": "blob",
+          "size": 1010,
+          "sha": "c1b32a2430421e47e4e252cc743b11b0ec52521f"
+        },
+        {
+          "path": "app/api/notifications",
+          "type": "tree",
+          "sha": "d6af3db7c1e764eaf2bf343b7cce6d1a97090407"
+        },
+        {
+          "path": "app/api/notifications/route.ts",
+          "type": "blob",
+          "size": 1204,
+          "sha": "0eaf3afdfc1e94d68191569332cae5a4d18e7222"
+        },
+        {
+          "path": "app/api/orders",
+          "type": "tree",
+          "sha": "ae5a02c0d2bc713cc9081f01eb6e23c9b8a1d722"
+        },
+        {
+          "path": "app/api/orders/[id]",
+          "type": "tree",
+          "sha": "080fbeb8acb13b015f44be60d6a5034403d7085e"
+        },
+        {
+          "path": "app/api/orders/[id]/downloads",
+          "type": "tree",
+          "sha": "6ed6c7f75e863a463c862748a96ff8f0ee604202"
+        },
+        {
+          "path": "app/api/orders/[id]/downloads/route.ts",
+          "type": "blob",
+          "size": 1174,
+          "sha": "b1884ff480933f7d9a0e14ebc1ac0a6506ea951f"
+        },
+        {
+          "path": "app/api/orders/route.ts",
+          "type": "blob",
+          "size": 532,
+          "sha": "73af9c3839a77f1064928dec588f1f4dbc090f77"
+        },
+        {
+          "path": "app/api/payments",
+          "type": "tree",
+          "sha": "695650cf37670ffb60eebfc1c9164d361b3625af"
+        },
+        {
+          "path": "app/api/payments/webhook",
+          "type": "tree",
+          "sha": "b2471f0805d963d856f78085fcef4ec49c223f42"
+        },
+        {
+          "path": "app/api/payments/webhook/route.ts",
+          "type": "blob",
+          "size": 2650,
+          "sha": "38c8c3d56e13f253ff72418ad8df817bef88ae92"
+        },
+        {
+          "path": "app/api/portfolio",
+          "type": "tree",
+          "sha": "a97bcda341f9e25ff616625d03f907d44004a295"
+        },
+        {
+          "path": "app/api/portfolio/route.ts",
+          "type": "blob",
+          "size": 754,
+          "sha": "404449d8497db62718e07e9641513568490b6c55"
+        },
+        {
+          "path": "app/api/products",
+          "type": "tree",
+          "sha": "5fdeae38924d65edf2bab7a181c0adeb08420a45"
+        },
+        {
+          "path": "app/api/products/[id]",
+          "type": "tree",
+          "sha": "db946f30ce56a4c634eaf71a750815ed979304f5"
+        },
+        {
+          "path": "app/api/products/[id]/reviews",
+          "type": "tree",
+          "sha": "1bd1f4e544fc397d6c67418f6c3648e6401e6486"
+        },
+        {
+          "path": "app/api/products/[id]/reviews/route.ts",
+          "type": "blob",
+          "size": 2110,
+          "sha": "d9535e66572ab0e5ae10cbd86dc66cca66b2dea7"
+        },
+        {
+          "path": "app/api/products/[id]/route.ts",
+          "type": "blob",
+          "size": 745,
+          "sha": "c3774e7638aaf6ad49d6903206a3330cbee8580f"
+        },
+        {
+          "path": "app/api/products/route.ts",
+          "type": "blob",
+          "size": 1625,
+          "sha": "611a04bb7772b0ada13a0b942ffaeaf48ae13573"
+        },
+        {
+          "path": "app/api/projects",
+          "type": "tree",
+          "sha": "4679701cd98eede91d23b581eb5935af1aa0fc42"
+        },
+        {
+          "path": "app/api/projects/route.ts",
+          "type": "blob",
+          "size": 457,
+          "sha": "85394fe753a656b7febec3d5129bc71656f99025"
+        },
+        {
+          "path": "app/api/quotations",
+          "type": "tree",
+          "sha": "528752c30adaa55588a87a12c85161369d5d8b2e"
+        },
+        {
+          "path": "app/api/quotations/[id]",
+          "type": "tree",
+          "sha": "ef32bdfcb4e30cb28fcc93b9be0213f865dec92e"
+        },
+        {
+          "path": "app/api/quotations/[id]/approve",
+          "type": "tree",
+          "sha": "ead36a3cd813828e297660cc84448b6d3fc2ab68"
+        },
+        {
+          "path": "app/api/quotations/[id]/approve/route.ts",
+          "type": "blob",
+          "size": 1004,
+          "sha": "8b6fbd53af8928535c1475b54963061398792093"
+        },
+        {
+          "path": "app/api/quotations/route.ts",
+          "type": "blob",
+          "size": 479,
+          "sha": "6bead6c4d91ffe81ec8e2006d5b4256be1c27eb6"
+        },
+        {
+          "path": "app/api/requests",
+          "type": "tree",
+          "sha": "d29f8a9f9f3aacae49760e5f28dcce11ea9bd0f3"
+        },
+        {
+          "path": "app/api/requests/route.ts",
+          "type": "blob",
+          "size": 2111,
+          "sha": "484f0c9ff5669d6fcf5a4d90b788e4fdc67d4a18"
+        },
+        {
+          "path": "app/api/settings",
+          "type": "tree",
+          "sha": "ed6a172082902c4c463ae98db84413e3c335f8c6"
+        },
+        {
+          "path": "app/api/settings/route.ts",
+          "type": "blob",
+          "size": 1283,
+          "sha": "80558f96bcf3442f735c8edfdfd2d7d70d0a7eb4"
+        },
+        {
+          "path": "app/api/tickets",
+          "type": "tree",
+          "sha": "dbb0b88ec1da97f893eb86e8833fcd13f9d2f05c"
+        },
+        {
+          "path": "app/api/tickets/route.ts",
+          "type": "blob",
+          "size": 989,
+          "sha": "c7314181d42c7eb9b663e42d07c1bab35f7426e2"
+        },
+        {
+          "path": "app/api/wishlist",
+          "type": "tree",
+          "sha": "ee25d7eb4653ba03527df416d1fd581fbd891aed"
+        },
+        {
+          "path": "app/api/wishlist/route.ts",
+          "type": "blob",
+          "size": 1779,
+          "sha": "e11e4aedbfc283f6cb5d1b0bb1ff4433569c0ad6"
+        },
+        {
+          "path": "app/blog",
+          "type": "tree",
+          "sha": "b2835c64ed4641682fc58a3ce856cde02efdeced"
+        },
+        {
+          "path": "app/blog/[slug]",
+          "type": "tree",
+          "sha": "9113eabe484cf0c31e44eb3f21e7328da95f3d90"
+        },
+        {
+          "path": "app/blog/[slug]/page.tsx",
+          "type": "blob",
+          "size": 1622,
+          "sha": "a4e56f4764009aad1e366b4b6d84378901b51835"
+        },
+        {
+          "path": "app/blog/page.tsx",
+          "type": "blob",
+          "size": 1540,
+          "sha": "7458239cd57ad938ced6f2026df5ae662571b101"
+        },
+        {
+          "path": "app/bundles",
+          "type": "tree",
+          "sha": "79369868d26561a8d95ce9cd5f4bcfa62366a6ad"
+        },
+        {
+          "path": "app/bundles/page.tsx",
+          "type": "blob",
+          "size": 1868,
+          "sha": "01e8c08bde9fbafc4763ff290b8434def56f3fdf"
+        },
+        {
+          "path": "app/cart",
+          "type": "tree",
+          "sha": "ca745549d4874079068d99f11710d8b5ca140b85"
+        },
+        {
+          "path": "app/cart/page.tsx",
+          "type": "blob",
+          "size": 3299,
+          "sha": "c4169f80f9bb93feccb20884eab8615b89b44a59"
+        },
+        {
+          "path": "app/checkout",
+          "type": "tree",
+          "sha": "af3493a4ca101ea2f369905bcf4af077b2bf375f"
+        },
+        {
+          "path": "app/checkout/page.tsx",
+          "type": "blob",
+          "size": 3870,
+          "sha": "b59798d37e99530e27f0305d17c7bcfbaafbce7a"
+        },
+        {
+          "path": "app/dashboard",
+          "type": "tree",
+          "sha": "22e65ce824144e33387c117961b2c680518d95cd"
+        },
+        {
+          "path": "app/dashboard/page.tsx",
+          "type": "blob",
+          "size": 969,
+          "sha": "538ebc4a5b226663321ed6da98385c5229e6d5bb"
+        },
+        {
+          "path": "app/design",
+          "type": "tree",
+          "sha": "d018c1f7ddedd9c6433f50a7477b56a5389ecf49"
+        },
+        {
+          "path": "app/design/page.tsx",
+          "type": "blob",
+          "size": 734,
+          "sha": "25d9c52ae1722d96ae7d8643da84e7b3dab179ed"
+        },
+        {
+          "path": "app/error.tsx",
+          "type": "blob",
+          "size": 577,
+          "sha": "f7dbc660048b8f72d17c4578348ec8858fd572fb"
+        },
+        {
+          "path": "app/faq",
+          "type": "tree",
+          "sha": "316fe61023c25d69800a0a004cafe5a6678dc422"
+        },
+        {
+          "path": "app/faq/page.tsx",
+          "type": "blob",
+          "size": 586,
+          "sha": "54d712f62122ac881afccb199f62b84b4a0e2d6b"
+        },
+        {
+          "path": "app/globals.css",
+          "type": "blob",
+          "size": 3662,
+          "sha": "caccaa420f90ba8e213954512116e3d0c5a46bed"
+        },
+        {
+          "path": "app/invoices",
+          "type": "tree",
+          "sha": "5bda22c88d0a8def7c6966114c61b1c9e9a2fd42"
+        },
+        {
+          "path": "app/invoices/page.tsx",
+          "type": "blob",
+          "size": 1431,
+          "sha": "94252e51a8ef0d731a19b9204810a5315ebf3da8"
+        },
+        {
+          "path": "app/layout.tsx",
+          "type": "blob",
+          "size": 1235,
+          "sha": "1ba7eebfd276189673f41b66a4eedb0161286801"
+        },
+        {
+          "path": "app/login",
+          "type": "tree",
+          "sha": "47446259d103c0000f818425334df33e91974579"
+        },
+        {
+          "path": "app/login/page.tsx",
+          "type": "blob",
+          "size": 3168,
+          "sha": "0358064bdf7cb26fd02d9c9bb12effc8913cd7ca"
+        },
+        {
+          "path": "app/manifest.ts",
+          "type": "blob",
+          "size": 409,
+          "sha": "13412cb888f7b1f9ecb7f8c03e7ef93f304d7cda"
+        },
+        {
+          "path": "app/not-found.tsx",
+          "type": "blob",
+          "size": 413,
+          "sha": "6f0243aa193d5ee5c761298dc26983b9502ec3dc"
+        },
+        {
+          "path": "app/notifications",
+          "type": "tree",
+          "sha": "c046b64309f65f66ae4b66ae13752b3053e9974c"
+        },
+        {
+          "path": "app/notifications/page.tsx",
+          "type": "blob",
+          "size": 2050,
+          "sha": "6a4d65f0e3f44cd4f7ef90daa502f717c5d12445"
+        },
+        {
+          "path": "app/orders",
+          "type": "tree",
+          "sha": "a8517307afaae5b638a3dc42e553c71e8c1e2d96"
+        },
+        {
+          "path": "app/orders/page.tsx",
+          "type": "blob",
+          "size": 2396,
+          "sha": "a23d1736af6fec66e247282a0538c18faaa5f90b"
+        },
+        {
+          "path": "app/page.tsx",
+          "type": "blob",
+          "size": 2423,
+          "sha": "91249033a531e8b8e4c7734a28044895e754b91c"
+        },
+        {
+          "path": "app/portfolio",
+          "type": "tree",
+          "sha": "c225ec392a95490a5f8288e88bc84fc6e636e105"
+        },
+        {
+          "path": "app/portfolio/page.tsx",
+          "type": "blob",
+          "size": 1723,
+          "sha": "5a5325f12e032e90f98a4f9c148b8c0f83946bda"
+        },
+        {
+          "path": "app/projects",
+          "type": "tree",
+          "sha": "1cc2a9ec2c8f54b4befe6d1a2197c487c3316b29"
+        },
+        {
+          "path": "app/projects/page.tsx",
+          "type": "blob",
+          "size": 2134,
+          "sha": "38b46256cbe57004e0a9bba906171edcfa51bae7"
+        },
+        {
+          "path": "app/quotations",
+          "type": "tree",
+          "sha": "ba401f01842d8d7b8b10619a500bf067842bd007"
+        },
+        {
+          "path": "app/quotations/page.tsx",
+          "type": "blob",
+          "size": 2966,
+          "sha": "6550cfbc94a7957a500f9af2b6b48fe063634e2b"
+        },
+        {
+          "path": "app/request",
+          "type": "tree",
+          "sha": "9a5692bf07b4f1e5514810c752f2a3628a67f886"
+        },
+        {
+          "path": "app/request/page.tsx",
+          "type": "blob",
+          "size": 3501,
+          "sha": "43fe3c73471e2eb4797a6327d31fd07ae4919829"
+        },
+        {
+          "path": "app/requests",
+          "type": "tree",
+          "sha": "897dde042d0c59102870d151f7e6c60d9f7888a2"
+        },
+        {
+          "path": "app/requests/page.tsx",
+          "type": "blob",
+          "size": 98,
+          "sha": "b3cb7ad5a5b8d298f46224daf6d1e3afcb5bd500"
+        },
+        {
+          "path": "app/robots.ts",
+          "type": "blob",
+          "size": 610,
+          "sha": "55acce7780a195bfacd7180ad552bd7e6798692f"
+        },
+        {
+          "path": "app/settings",
+          "type": "tree",
+          "sha": "528de6ff47d5a3199ab7f71e3629a2a3674dc281"
+        },
+        {
+          "path": "app/settings/page.tsx",
+          "type": "blob",
+          "size": 5158,
+          "sha": "cb043bdb79a1556f0562f7e4099bf4e0a785bd3e"
+        },
+        {
+          "path": "app/sitemap.ts",
+          "type": "blob",
+          "size": 472,
+          "sha": "6426acc9c3b367262c457b3e7c7052332eb9e8bb"
+        },
+        {
+          "path": "app/store",
+          "type": "tree",
+          "sha": "1be9c9710af48bc706089d84caac024111efad26"
+        },
+        {
+          "path": "app/store/[id]",
+          "type": "tree",
+          "sha": "a91a8994a307bb0b81006eefde74f243b8ad40c1"
+        },
+        {
+          "path": "app/store/[id]/page.tsx",
+          "type": "blob",
+          "size": 6014,
+          "sha": "f436c4f7f6be44f84830dae5983f3af3b28e23aa"
+        },
+        {
+          "path": "app/store/page.tsx",
+          "type": "blob",
+          "size": 2578,
+          "sha": "5db52f23bfd76f01daabcc9debe46ed2e22dc561"
+        },
+        {
+          "path": "app/support",
+          "type": "tree",
+          "sha": "a7f226d21c6d6782a5f1a3ab87c6f52bf4672065"
+        },
+        {
+          "path": "app/support/page.tsx",
+          "type": "blob",
+          "size": 2004,
+          "sha": "8dc99fda7da56af658efb331dd8bb4cc8b34ebb0"
+        },
+        {
+          "path": "app/wishlist",
+          "type": "tree",
+          "sha": "93debdda18e9922a8fd52eb53fba5ec100b5942a"
+        },
+        {
+          "path": "app/wishlist/page.tsx",
+          "type": "blob",
+          "size": 2102,
+          "sha": "3a9696ef67a73d030b043f227b7c1f6270361c16"
+        },
+        {
+          "path": "components",
+          "type": "tree",
+          "sha": "6c5e234b6fc69aad83668c18c1792a059149775c"
+        },
+        {
+          "path": "components/header.tsx",
+          "type": "blob",
+          "size": 3204,
+          "sha": "48040425570ed27cbf1ad2e60c1c27458d54f487"
+        },
+        {
+          "path": "components/i18n-provider.tsx",
+          "type": "blob",
+          "size": 2105,
+          "sha": "ca64177f34cfa1e5d6a1f17474a4b7f8d54901ce"
+        },
+        {
+          "path": "components/product-card.tsx",
+          "type": "blob",
+          "size": 954,
+          "sha": "3e7cba23592e1528506ff9d83d9d1e5cd3f62267"
+        },
+        {
+          "path": "docs",
+          "type": "tree",
+          "sha": "a63f3ddfd58d79166b6899c5108826cc7d765407"
+        },
+        {
+          "path": "docs/API.md",
+          "type": "blob",
+          "size": 2041,
+          "sha": "9b3545a54b53d82e8c64976725478878cf7d52bb"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "type": "blob",
+          "size": 837,
+          "sha": "64aeb6d44fc95153708bea621c09a6725458732b"
+        },
+        {
+          "path": "docs/ROADMAP.md",
+          "type": "blob",
+          "size": 1372,
+          "sha": "e747cf9acc40c3afc7c248921a76b0f12be35034"
+        },
+        {
+          "path": "docs/SCRAPER.md",
+          "type": "blob",
+          "size": 1314,
+          "sha": "2ae551188d128e990e86da0544c2cd29ff0a7e81"
+        },
+        {
+          "path": "lib",
+          "type": "tree",
+          "sha": "50255b6b4e392fbcdeebea6d468d489d2639ea64"
+        },
+        {
+          "path": "lib/admin.ts",
+          "type": "blob",
+          "size": 278,
+          "sha": "41a74bfae124d2763769f38399f0b7c140e6a669"
+        },
+        {
+          "path": "lib/auth.ts",
+          "type": "blob",
+          "size": 2296,
+          "sha": "a40d731a162a79adde2b78019e765f209bc7673c"
+        },
+        {
+          "path": "lib/catalog.ts",
+          "type": "blob",
+          "size": 702,
+          "sha": "96e563f4d034b062958b6db201b47235408768fc"
+        },
+        {
+          "path": "lib/client-cart.ts",
+          "type": "blob",
+          "size": 914,
+          "sha": "4d8926b89ce55e68c3c1d5c698845e515e0a3de3"
+        },
+        {
+          "path": "lib/coupons.ts",
+          "type": "blob",
+          "size": 1268,
+          "sha": "b2b1f263d606df433ce64d2f47de34e77f0963fe"
+        },
+        {
+          "path": "lib/data.ts",
+          "type": "blob",
+          "size": 166,
+          "sha": "dec428da05aff8b23d1d5068a5b0551424ea88c9"
+        },
+        {
+          "path": "lib/db.ts",
+          "type": "blob",
+          "size": 259,
+          "sha": "1e14343927e1fbfd8b2dcb159bc67cae68f87bd8"
+        },
+        {
+          "path": "lib/invoice-pdf.ts",
+          "type": "blob",
+          "size": 2275,
+          "sha": "dc34b9d3564f7fec5f77ed8c95d3ca1d757045db"
+        },
+        {
+          "path": "lib/locale.ts",
+          "type": "blob",
+          "size": 3499,
+          "sha": "1634d8483f8cb99d1ce587420d70de2465c5d2dc"
+        },
+        {
+          "path": "lib/rate-limit.ts",
+          "type": "blob",
+          "size": 640,
+          "sha": "d7a054ee0622bbff81d6da3835754b1bdaa50f3a"
+        },
+        {
+          "path": "lib/security.ts",
+          "type": "blob",
+          "size": 658,
+          "sha": "24e3c1de89147cf256c34952827fefb82ef2da0b"
+        },
+        {
+          "path": "lib/services.ts",
+          "type": "blob",
+          "size": 467,
+          "sha": "3f20e9141d1ec9d281a5afa3c83748223c3740c2"
+        },
+        {
+          "path": "lib/session-constants.ts",
+          "type": "blob",
+          "size": 42,
+          "sha": "00d6b7287347892d49ca69abbd02a4634389f0bc"
+        },
+        {
+          "path": "next-env.d.ts",
+          "type": "blob",
+          "size": 120,
+          "sha": "bde397e1cac4e52da454984d714d098a55d367f2"
+        },
+        {
+          "path": "next.config.ts",
+          "type": "blob",
+          "size": 163,
+          "sha": "263d4b6e1100f5fee467f5db5df93ca1e3df44a5"
+        },
+        {
+          "path": "package.json",
+          "type": "blob",
+          "size": 1023,
+          "sha": "59998179f35853a4e189709070e8c389804ad962"
+        },
+        {
+          "path": "postcss.config.mjs",
+          "type": "blob",
+          "size": 79,
+          "sha": "dc0a7a7635d476dbe4f9791f318cdc310cfb44cc"
+        },
+        {
+          "path": "prisma",
+          "type": "tree",
+          "sha": "dcb3a6eefb6055c0501e2fea86ff524da49a7a87"
+        },
+        {
+          "path": "prisma/migrations",
+          "type": "tree",
+          "sha": "ab5f435851eeb2843a0470f48927a924c321a099"
+        },
+        {
+          "path": "prisma/migrations/00000000000000_initial",
+          "type": "tree",
+          "sha": "bcd317952e6f09746f9e7a418570e3ef2d702739"
+        },
+        {
+          "path": "prisma/migrations/00000000000000_initial/migration.sql",
+          "type": "blob",
+          "size": 10299,
+          "sha": "eea9e469807a7a6fe042e6a226c2499bd15c8361"
+        },
+        {
+          "path": "prisma/migrations/20260920010000_add_notifications",
+          "type": "tree",
+          "sha": "9995118741bbc16b1849acc6ed241cdb0c554c1d"
+        },
+        {
+          "path": "prisma/migrations/20260920010000_add_notifications/migration.sql",
+          "type": "blob",
+          "size": 644,
+          "sha": "5d3df121601bf411473ef5650488009c64a83457"
+        },
+        {
+          "path": "prisma/migrations/20260920020000_add_google_and_preferences",
+          "type": "tree",
+          "sha": "09171637cfd511c5f3c5434f455fee1dc16ceb93"
+        },
+        {
+          "path": "prisma/migrations/20260920020000_add_google_and_preferences/migration.sql",
+          "type": "blob",
+          "size": 210,
+          "sha": "8d90fde4b992423d2534adbed46bfdafd5f3748f"
+        },
+        {
+          "path": "prisma/migrations/20260920030000_add_content_cms",
+          "type": "tree",
+          "sha": "17f671220134e1168efcbe9166e23a9a126cb864"
+        },
+        {
+          "path": "prisma/migrations/20260920030000_add_content_cms/migration.sql",
+          "type": "blob",
+          "size": 2142,
+          "sha": "480dedd7ebf355dee6ba0ac5d6aee2916a121ab4"
+        },
+        {
+          "path": "prisma/migrations/20260920040000_add_coupons_bundles",
+          "type": "tree",
+          "sha": "215e019bc4e3a9c3cd4f68d247a324bb77c288c1"
+        },
+        {
+          "path": "prisma/migrations/20260920040000_add_coupons_bundles/migration.sql",
+          "type": "blob",
+          "size": 2164,
+          "sha": "288df9a49a4d480e79e5467798e4ff94801a2d94"
+        },
+        {
+          "path": "prisma/migrations/migration_lock.toml",
+          "type": "blob",
+          "size": 64,
+          "sha": "1eed3a58904f8213e4c40913f47825f292e307ab"
+        },
+        {
+          "path": "prisma/schema.prisma",
+          "type": "blob",
+          "size": 10556,
+          "sha": "84d0511da05dbbbf952cbc03b1857e84e2f49de3"
+        },
+        {
+          "path": "prisma/seed.ts",
+          "type": "blob",
+          "size": 5212,
+          "sha": "bcee1dc5a373e13c446eea8fa72592e67e016228"
+        },
+        {
+          "path": "proxy.ts",
+          "type": "blob",
+          "size": 999,
+          "sha": "6cb59fcaaad27e6e6973af27eb98abdf38633147"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "b8b42fced38027dd1b25b8eabc1d90cfb666ebd3"
+        },
+        {
+          "path": "scripts/scraper.mjs",
+          "type": "blob",
+          "size": 7828,
+          "sha": "cb3a5269d661b8f13a9d853635206699ad9c3942"
+        },
+        {
+          "path": "tests",
+          "type": "tree",
+          "sha": "8968bcb260598a1671362777e00144fa357c1d8e"
+        },
+        {
+          "path": "tests/security.test.ts",
+          "type": "blob",
+          "size": 801,
+          "sha": "4624f64e9e3733a3000a35e449ff79dd37bebbfe"
+        },
+        {
+          "path": "tsconfig.json",
+          "type": "blob",
+          "size": 572,
+          "sha": "6dff1529c1cdf48b179337493b429e36db4d578c"
+        },
+        {
+          "path": "vitest.config.ts",
+          "type": "blob",
+          "size": 181,
+          "sha": "ff0e518db6db1b05bda70a5916b502bd2ddf3ba1"
+        }
+      ],
+      "treeTruncated": false,
+      "scrapedAt": "2026-09-20T05:42:30.126Z"
+    },
     {
       "repository": {
         "id": 1377275714,
@@ -15,60 +1318,60 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-09-20T05:20:44Z",
-        "pushed_at": "2026-09-20T05:20:40Z",
+        "updated_at": "2026-09-20T05:41:40Z",
+        "pushed_at": "2026-09-20T05:41:36Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "JavaScript",
-        "size": 148,
+        "size": 212,
         "archived": false,
         "disabled": false,
         "topics": []
       },
       "languages": {
-        "JavaScript": 37164,
+        "JavaScript": 46532,
         "CSS": 21193,
-        "HTML": 1554
+        "HTML": 1860
       },
       "readme": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper\n- `scripts/validate.mjs` — automated structural/data validation\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md).\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n",
       "packageJson": null,
       "latestRelease": null,
       "commits": [
         {
-          "sha": "86e5de6af30ad11625aa3f4d8f32522bc413e923",
+          "sha": "f3612aa63f067f35e8eeb90342fcf5ec647837b8",
           "message": "chore: refresh GitHub corporate data",
           "author": "github-actions[bot]",
-          "date": "2026-09-20T05:20:39Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/86e5de6af30ad11625aa3f4d8f32522bc413e923"
+          "date": "2026-09-20T05:41:35Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/f3612aa63f067f35e8eeb90342fcf5ec647837b8"
         },
         {
-          "sha": "e4c0a92447a0f6a201a4ed7713bea84f77329d48",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T05:00:26Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/e4c0a92447a0f6a201a4ed7713bea84f77329d48"
+          "sha": "0c6f0d1b71293a7c743e2be24b8f17bd1ec1582f",
+          "message": "chore: refresh scraper revision after validation fixes",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:41:20Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/0c6f0d1b71293a7c743e2be24b8f17bd1ec1582f"
         },
         {
-          "sha": "0780e0df05a40783ba5703acb865423ad0fea455",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T04:39:47Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/0780e0df05a40783ba5703acb865423ad0fea455"
+          "sha": "78656b39eb5137d99b237e39bbda94678ec262cc",
+          "message": "feat: localize page titles across all 10 languages",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:41:01Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/78656b39eb5137d99b237e39bbda94678ec262cc"
         },
         {
-          "sha": "2bd0492f73f42f6192ea7fec8f7e5e6dcb3bba22",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T04:22:00Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/2bd0492f73f42f6192ea7fec8f7e5e6dcb3bba22"
+          "sha": "f8436ec9b9855fa9059b9be31f9d227bf78b7db0",
+          "message": "fix: harden language persistence",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:40:41Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/f8436ec9b9855fa9059b9be31f9d227bf78b7db0"
         },
         {
-          "sha": "d8daaf99496270cb0efe109c012d670a9cb1e40f",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T04:00:44Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/d8daaf99496270cb0efe109c012d670a9cb1e40f"
+          "sha": "7c9aba42ecfcb79482ef31059974007598c0e4ae",
+          "message": "fix: make settings storage resilient",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:40:38Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/7c9aba42ecfcb79482ef31059974007598c0e4ae"
         }
       ],
       "tree": [
@@ -109,14 +1412,14 @@
         {
           "path": "app.js",
           "type": "blob",
-          "size": 25663,
-          "sha": "d3c93aadb23e32e90be9c6a297e6d2ccdb49d926"
+          "size": 26257,
+          "sha": "bf3e0bcd2c08988d9c461215893d0739294cd92a"
         },
         {
           "path": "auth.js",
           "type": "blob",
-          "size": 10721,
-          "sha": "df49ba5af3477246d5904a4b0fe72bc71ac05b75"
+          "size": 13959,
+          "sha": "6152f579c29be62ee7f759ed39d6662bde4bcc99"
         },
         {
           "path": "config.example.js",
@@ -150,32 +1453,55 @@
         {
           "path": "experience.js",
           "type": "blob",
-          "size": 6707,
-          "sha": "06296ced50a947878b3e5e1b580ca4b333951e3c"
+          "size": 6804,
+          "sha": "844d163d770f32278dccc4e48cde3482953b275c"
         },
         {
           "path": "external-live.js",
           "type": "blob",
-          "size": 3595,
-          "sha": "8d8859c5f9ec483f2321dd81be0e61984dadfb89"
+          "size": 4176,
+          "sha": "7a591ba876717d491a34260d3b40c0a9d8c9cdbb"
         },
         {
           "path": "github-live.js",
           "type": "blob",
-          "size": 8566,
-          "sha": "973f647f735672b4e78a634b37aa769438a6560d"
+          "size": 8590,
+          "sha": "88b17441728e60fb9b65d81dff4b0ffedb9c1292"
         },
         {
           "path": "i18n.js",
           "type": "blob",
-          "size": 13048,
-          "sha": "7129e1f66569f2575dc19b4fdc2870bb9a0b7d7a"
+          "size": 16062,
+          "sha": "7c1aaf01446ca850d8b9c7b4d99c3431d4a8f921"
+        },
+        {
+          "path": "icons",
+          "type": "tree",
+          "sha": "02725f2bb07fc79a99b07c7caa278abbf9a0c14a"
+        },
+        {
+          "path": "icons/icon-192.svg",
+          "type": "blob",
+          "size": 281,
+          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
+        },
+        {
+          "path": "icons/icon-512.svg",
+          "type": "blob",
+          "size": 281,
+          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
+        },
+        {
+          "path": "icons/icon.svg",
+          "type": "blob",
+          "size": 281,
+          "sha": "5bcb0b2285b22f9ce9cdc04519c43a75aaa36106"
         },
         {
           "path": "index.html",
           "type": "blob",
-          "size": 1554,
-          "sha": "2b457dab4e7203aaa7b676293eb64dbfd612e5d2"
+          "size": 1860,
+          "sha": "bf6f03c0450351ff64c8a72d6c330eb8737fe715"
         },
         {
           "path": "portfolio.js",
@@ -186,25 +1512,25 @@
         {
           "path": "pwa-manifest.webmanifest",
           "type": "blob",
-          "size": 227,
-          "sha": "4fe08738329799dd5a98347017bc7320053140ff"
+          "size": 703,
+          "sha": "1d03a91f7dd64f7171b90d9b02b9e81916a474ba"
         },
         {
           "path": "scrape-config.json",
           "type": "blob",
-          "size": 1185,
-          "sha": "3a1785f19979516a0fa04236ee948791f43199ff"
+          "size": 1325,
+          "sha": "bee75cc1b401bb57bd6be91fffb6f8d56d37dcb5"
         },
         {
           "path": "scripts",
           "type": "tree",
-          "sha": "bb025a0e5d166acd0d78318ae3e8091eb4798051"
+          "sha": "0afcb8fd4e91cb869704004550e85832575d678a"
         },
         {
           "path": "scripts/scrape-public.mjs",
           "type": "blob",
-          "size": 4490,
-          "sha": "a3528badf2d12c47e63fc13550e468bfa46d418d"
+          "size": 8969,
+          "sha": "c9dbfa9c2f010ecb48e2cea5eb07d951df928efa"
         },
         {
           "path": "scripts/sync-github.mjs",
@@ -215,8 +1541,8 @@
         {
           "path": "scripts/validate.mjs",
           "type": "blob",
-          "size": 7978,
-          "sha": "336a80e74814cd7a6445c48390f839bba46e41ee"
+          "size": 9427,
+          "sha": "fa3b1802c6c34687ba3e6dd3d15107ae5721c687"
         },
         {
           "path": "styles.css",
@@ -227,8 +1553,8 @@
         {
           "path": "sw.js",
           "type": "blob",
-          "size": 1059,
-          "sha": "e29e57f1915842d9cab494dd6ad9718f70a932a5"
+          "size": 1164,
+          "sha": "09c380de276bb253b94e64fbcb89f6ffac7802bb"
         },
         {
           "path": "sync-config.json",
@@ -238,7 +1564,636 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:28:05.343Z"
+      "scrapedAt": "2026-09-20T05:42:30.098Z"
+    },
+    {
+      "repository": {
+        "id": 1377081187,
+        "full_name": "nararyajayautamagroub/modbussid-converter",
+        "name": "modbussid-converter",
+        "private": false,
+        "visibility": "public",
+        "html_url": "https://github.com/nararyajayautamagroub/modbussid-converter",
+        "default_branch": "main",
+        "description": null,
+        "created_at": "2026-09-19T11:38:21Z",
+        "updated_at": "2026-09-20T05:36:35Z",
+        "pushed_at": "2026-09-20T05:36:32Z",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "open_issues_count": 0,
+        "language": "Python",
+        "size": 146,
+        "archived": false,
+        "disabled": false,
+        "topics": []
+      },
+      "languages": {
+        "Python": 123237,
+        "HTML": 33689,
+        "JavaScript": 1159
+      },
+      "readme": "# Game Mod Asset Lab v4.1.0\n\nWeb-based inspector, classifier, exporter, scraper, account system, dan download utility untuk **file/mod yang memang Anda miliki atau berwenang memprosesnya**.\n\n## Alur utama\n\n**Upload / pilih asset → Inspect → temukan entry → klasifikasi template → Export → Download**\n\n## Platform dan kategori\n\n- BUSSID: Vehicle, Map, Kodename, Sprite Sheet, Lights\n- ETS2/ATS: Vehicle, Map\n- Roblox: Vehicle, Lights, Export\n\n## Template\n\n- **AO**: Ambient Occlusion\n- **Texture**: texture umum\n- **Kaca/XOR**: template kaca / glass\n\nClassifier memakai nama file berbasis token agar radio.png tidak salah dibaca sebagai AO hanya karena mengandung huruf ao.\n\n## Fitur yang sudah aktif\n\n- Deteksi file dan SHA-256\n- Deteksi container ZIP/TAR\n- Daftar isi archive\n- Export seluruh file atau entry terpilih ke ZIP\n- Manifest JSON pada hasil export\n- Upload file ke workspace repository dengan batas 100 MB\n- Inspeksi hanya pada path yang berada di dalam repository\n- Repository catalog lokal\n- Sinkronisasi catalog ke GitHub repository publik secara berkala\n- Endpoint health dan capabilities\n- Animasi data untuk Strobo, Rotator, LED Bar\n- Paket Roblox lampu berisi JSON + script Lua untuk Roblox Studio\n- Inspect ukuran/format image dan ekstraksi Sprite Sheet menjadi frame ZIP\n- Near-real-time repository tree dengan default branch, commit SHA, tanggal commit, dan filter prefix\n- Download asset Roblox publik melalui endpoint resmi Asset Delivery\n- Validasi URL Roblox sebelum download\n- Web scraper publik dengan parser HTML, metadata Open Graph, JSON-LD, heading, link, image, robots.txt, batas ukuran, timeout, anti-SSRF, dan same-host crawl\n- GitHub Actions untuk dependency check, static check, compile, dan test Python 3.10-3.13\n\n## Endpoint utama\n\n- GET /api/health\n- GET /api/auth/status\n- GET /api/auth/me\n- POST /api/auth/register\n- POST /api/auth/login\n- POST /api/auth/logout\n- POST /api/auth/logout-all\n- PUT /api/auth/settings\n- PUT /api/auth/profile\n- PUT /api/auth/password\n- GET /api/auth/google/start\n- GET /api/auth/google/callback\n- GET /api/i18n\n- GET /api/i18n/{language}\n- GET /manifest.webmanifest\n- GET /sw.js\n- GET /icon.svg\n- GET /api/capabilities\n- GET /api/categories\n- GET /api/repository\n- POST /api/assets/upload\n- GET /api/assets/inspect?path=...\n- GET /api/assets/export?path=...\n- GET /api/templates/types\n- GET /api/templates/classify?path=...\n- GET /api/assets/roblox/validate?url=...\n- GET /api/assets/roblox/url?url=...\n- GET /api/sprite-sheet/inspect?path=...\n- GET /api/sprite-sheet/extract?path=...&columns=4&rows=4\n- GET /api/repository/tree?prefix=...\n- GET /api/scraper/fetch?url=...\n- GET /api/scraper/crawl?url=...&max_pages=...\n- GET /api/lights/{strobo|rotator|ledbar}\n- GET /api/lights/{strobo|rotator|ledbar}/download?platform=...\n\n## Akurasi data repository\n\nWebsite membaca struktur repository lokal saat runtime. Endpoint /api/repository juga mencoba membaca tree branch main dari GitHub dan mengembalikan commit SHA, jumlah file, daftar path, serta status sinkronisasi.\n\nJika GitHub tidak bisa diakses, data lokal tetap dipakai sehingga website tidak mati hanya karena internet sedang bermain petak umpet.\n\n## Batas penting\n\nProject ini **tidak** membypass password, enkripsi, DRM, signature, private asset, atau access control.\n\nUntuk format game proprietary seperti beberapa format internal ETS2/BUSSID/Roblox, project hanya melaporkan metadata, mendeteksi container yang dikenali, atau memproses format yang didukung. Parser native penuh harus ditambahkan berdasarkan format, dokumentasi, atau sample yang sah.\n\nExporter Roblox lampu menghasilkan **JSON + script Lua Roblox Studio**. Output tersebut bukan file native .rbxm/.rbxmx.\n\n## Jalankan\n\n    python -m pip install -r requirements.txt\n    uvicorn web.app:app --reload\n\nBuka http://127.0.0.1:8000.\n\n## Validasi\n\n    python -m compileall -q bussid ets2 roblox shared web tests\n    python -m pytest -q -W error\n\n## Scraper\n\nScraper berjalan pada host publik HTTP/HTTPS, memvalidasi DNS/IP publik, memeriksa robots.txt bila tersedia, membatasi response sampai 20 MB per request, timeout 60 detik maksimum, dan crawl hanya pada host yang sama. Ini ditujukan untuk data publik, bukan untuk melewati login, paywall, private resource, atau access control.\n\n### Contoh\n\n    /api/scraper/fetch?url=https%3A%2F%2Fexample.com\n    /api/scraper/crawl?url=https%3A%2F%2Fexample.com&max_pages=5\n\n\n## CLI scraper v4.1\n\n    python scripts/scraper.py https://example.com\n    python scripts/scraper.py https://example.com --crawl --max-pages 5\n    python scripts/scraper.py https://example.com --output reports/example.json\n\n## Validasi lokal v4.1\n\n    python scripts/check.py\n\nPerintah ini menjalankan pip check, compileall, Ruff (E9/F), dan pytest dengan warning diperlakukan sebagai error.\n\n## Authentication & Account\n\nFitur v4.1:\n- Register dengan email/password dan migrasi SQLite otomatis untuk schema lama\n- Login/logout dengan rate limit percobaan password\n- Logout semua session\n- Ganti password\n- Session database SQLite\n- Google Login via OpenID Connect\n- Pengaturan profil, bahasa, tema, dan notifikasi\n- 10 bahasa: Indonesia, English, Melayu, Arabic, Japanese, Korean, Chinese, Spanish, Portuguese, French\n\nGoogle Login tidak mengaktifkan credential secara otomatis. Simpan credential di environment, jangan di source code:\n\n    GOOGLE_CLIENT_ID=...\n    GOOGLE_CLIENT_SECRET=...\n    GOOGLE_REDIRECT_URI=https://domain-anda.example/api/auth/google/callback\n\nDi Google Cloud Console, gunakan OAuth Client tipe **Web application** dan daftarkan redirect URI yang sama persis dengan `GOOGLE_REDIRECT_URI`.\n\nUntuk deployment HTTPS:\n\n    COOKIE_SECURE=1\n    SESSION_SECRET=<random-secret-panjang>\n\nTanpa Google credential, tombol Google Login tampil tetapi disabled. Register/login lokal tetap bekerja.\n\n## PWA & All Device Support\n\nWebsite menggunakan layout responsive untuk mobile, tablet, desktop, viewport safe-area, hamburger menu, dan installable PWA. Service worker tidak menyimpan response `/api/*` agar data akun, scraper, dan asset tidak masuk cache publik.\n",
+      "packageJson": null,
+      "latestRelease": null,
+      "commits": [
+        {
+          "sha": "d32b5905a09c03d01c6c860f554d1879c44cba08",
+          "message": "test: cover account profile update",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:31Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/d32b5905a09c03d01c6c860f554d1879c44cba08"
+        },
+        {
+          "sha": "ad73b5e14e432d4a21f34fae2e65b9e8be62361d",
+          "message": "docs: document profile settings endpoint",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:27Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/ad73b5e14e432d4a21f34fae2e65b9e8be62361d"
+        },
+        {
+          "sha": "568980fa382821a0d0ae17c8903ae8abe95d49d5",
+          "message": "feat: expose profile capability in API metadata",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:24Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/568980fa382821a0d0ae17c8903ae8abe95d49d5"
+        },
+        {
+          "sha": "ddd35252a7802dbc8e81bc6ecd39c73b9c384fb2",
+          "message": "feat: add profile name editing in settings",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:16Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/ddd35252a7802dbc8e81bc6ecd39c73b9c384fb2"
+        },
+        {
+          "sha": "2085ce30bb9644baa157105625d175accef850d4",
+          "message": "feat: add account profile update endpoint",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T05:36:04Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/2085ce30bb9644baa157105625d175accef850d4"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 349,
+          "sha": "396376102957d9be1fadd9a2ca7ddfcb7602cafe"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "9d9880215d77099fa3b980c0c82192c1c0bd7fcc"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "5786c8883a63a438d5dc3b54698088e0725678e6"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 876,
+          "sha": "d32cd07b7b3235f3cbcf65d0f59efbef33992b2e"
+        },
+        {
+          "path": ".gitignore",
+          "type": "blob",
+          "size": 154,
+          "sha": "1078e3a02dccec1a11447c60f2f50198f3a1d998"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 6098,
+          "sha": "181cef27d1c999b8bb375776237255fd68624311"
+        },
+        {
+          "path": "bussid",
+          "type": "tree",
+          "sha": "b5631f2e7244f2a7bb5990943eaaa4aca87d48e7"
+        },
+        {
+          "path": "bussid/kodename",
+          "type": "tree",
+          "sha": "d1b3521df2de2b0160b777bc2c1bc1882eff61a0"
+        },
+        {
+          "path": "bussid/kodename/README.md",
+          "type": "blob",
+          "size": 195,
+          "sha": "8cc0da916ae28dc073165cd69fcb693847c30f6c"
+        },
+        {
+          "path": "bussid/kodename/converter.py",
+          "type": "blob",
+          "size": 524,
+          "sha": "ba8d64b5f36af548f82cc6537f89b4472fd37b90"
+        },
+        {
+          "path": "bussid/kodename/templates",
+          "type": "tree",
+          "sha": "e4709865c94ec0230b24c6ce002ffe8d1300286d"
+        },
+        {
+          "path": "bussid/kodename/templates/README.md",
+          "type": "blob",
+          "size": 178,
+          "sha": "41e004735965a2a06e11bf611ac01331c396ffae"
+        },
+        {
+          "path": "bussid/lights",
+          "type": "tree",
+          "sha": "7bbd30028834e52948cc26f912895877bc80f658"
+        },
+        {
+          "path": "bussid/lights/README.md",
+          "type": "blob",
+          "size": 342,
+          "sha": "9820c4c01b2ec91555e0ebff6bf14cdedf9b83d8"
+        },
+        {
+          "path": "bussid/lights/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "bussid/lights/export.py",
+          "type": "blob",
+          "size": 328,
+          "sha": "eabe523bddc260db0f992867ade53d46b96bd63d"
+        },
+        {
+          "path": "bussid/map",
+          "type": "tree",
+          "sha": "684b23a30e3263515055d14f83305c62105f9a4c"
+        },
+        {
+          "path": "bussid/map/README.md",
+          "type": "blob",
+          "size": 351,
+          "sha": "615b9033a3a8adeb969b8251de2eccd2546acbf0"
+        },
+        {
+          "path": "bussid/map/converter.py",
+          "type": "blob",
+          "size": 519,
+          "sha": "78e03174bf6777c805f80658c3b4d166cc9265c1"
+        },
+        {
+          "path": "bussid/map/templates",
+          "type": "tree",
+          "sha": "aeea6b8ebf06fbebbddc0610ce4220f9c69de3af"
+        },
+        {
+          "path": "bussid/map/templates/README.md",
+          "type": "blob",
+          "size": 187,
+          "sha": "5f9ccc81e15c5e3dcafda7a88db57183a2d58953"
+        },
+        {
+          "path": "bussid/sprite-sheet",
+          "type": "tree",
+          "sha": "42649df665115134baed84d378489a1b7ac2a859"
+        },
+        {
+          "path": "bussid/sprite-sheet/README.md",
+          "type": "blob",
+          "size": 331,
+          "sha": "ce9f5af2e43a67d74d825d1b2c60656a14d4ec44"
+        },
+        {
+          "path": "bussid/sprite-sheet/converter.py",
+          "type": "blob",
+          "size": 528,
+          "sha": "a31fbdf8a2bc18377832863a2233366f23d0739b"
+        },
+        {
+          "path": "bussid/sprite-sheet/templates",
+          "type": "tree",
+          "sha": "a1bb72ce153e140668c5d87a11945176b1ac79d2"
+        },
+        {
+          "path": "bussid/sprite-sheet/templates/README.md",
+          "type": "blob",
+          "size": 198,
+          "sha": "d3facccd8e7b81b53186ddd47e3083b0672bc8a3"
+        },
+        {
+          "path": "bussid/vehicle",
+          "type": "tree",
+          "sha": "e4aea2e43f2e51c5648d5505a2ed204e276f71ff"
+        },
+        {
+          "path": "bussid/vehicle/README.md",
+          "type": "blob",
+          "size": 538,
+          "sha": "49b72876dfb70dd16cd3131bd6b19dba820594a3"
+        },
+        {
+          "path": "bussid/vehicle/converter.py",
+          "type": "blob",
+          "size": 523,
+          "sha": "8ef3e6ef899711fca2ec046af0e0f5cf78ed9a0d"
+        },
+        {
+          "path": "bussid/vehicle/templates",
+          "type": "tree",
+          "sha": "c2be60c58b31a2a8e80ecc094b0fa16991db07b5"
+        },
+        {
+          "path": "bussid/vehicle/templates/README.md",
+          "type": "blob",
+          "size": 430,
+          "sha": "707c407fd2ceefcef01a86b08e514271490ba7f4"
+        },
+        {
+          "path": "download",
+          "type": "tree",
+          "sha": "8b7f89ab48a8672a406f1bb8d565219001af3f37"
+        },
+        {
+          "path": "download/README.md",
+          "type": "blob",
+          "size": 355,
+          "sha": "694072dd31c45f7eb9c9f75f59792c8122829a09"
+        },
+        {
+          "path": "ets2",
+          "type": "tree",
+          "sha": "e462ee678d388c50ce974daee23ad194ad685aea"
+        },
+        {
+          "path": "ets2/map",
+          "type": "tree",
+          "sha": "f6fb24e2c703c397860f7a60a7ec305b474637a4"
+        },
+        {
+          "path": "ets2/map/README.md",
+          "type": "blob",
+          "size": 229,
+          "sha": "d451cf42dc98d900acb99d8ee27b0c8d7c3d206e"
+        },
+        {
+          "path": "ets2/map/converter.py",
+          "type": "blob",
+          "size": 517,
+          "sha": "a0eabba8f7ec649fe0b72d354cbd4decde4dd53c"
+        },
+        {
+          "path": "ets2/vehicle",
+          "type": "tree",
+          "sha": "0c60bc0ff4dcde3c5d1402f247ceca324fa09f0a"
+        },
+        {
+          "path": "ets2/vehicle/README.md",
+          "type": "blob",
+          "size": 434,
+          "sha": "cf227056c07df7553ada20eb0dbe539a58139376"
+        },
+        {
+          "path": "ets2/vehicle/converter.py",
+          "type": "blob",
+          "size": 521,
+          "sha": "76a8a156899dd40799c20d1265b1ab2d63f65de3"
+        },
+        {
+          "path": "requirements.txt",
+          "type": "blob",
+          "size": 215,
+          "sha": "c327961428a58c78ad2711db8cb71a250a7b9ab6"
+        },
+        {
+          "path": "roblox",
+          "type": "tree",
+          "sha": "e3c19f9222212dbdc6c2895f34e1e642d6f14d7a"
+        },
+        {
+          "path": "roblox/export",
+          "type": "tree",
+          "sha": "8247fffe9e2241956559865aeafab966dcfe8ec7"
+        },
+        {
+          "path": "roblox/export/README.md",
+          "type": "blob",
+          "size": 383,
+          "sha": "7aa03a08fb24e077775c8f6f62713a29a6cd7fb4"
+        },
+        {
+          "path": "roblox/export/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "roblox/export/url_asset.py",
+          "type": "blob",
+          "size": 449,
+          "sha": "6dac01184d451aac31dc763d6f9e10d158c8d4b3"
+        },
+        {
+          "path": "roblox/lights",
+          "type": "tree",
+          "sha": "0e416adb75decafb889bc98b4a40e12747a5432d"
+        },
+        {
+          "path": "roblox/lights/README.md",
+          "type": "blob",
+          "size": 534,
+          "sha": "c81e12ba08fd1bf0d2750829bc7870f7f2da69cd"
+        },
+        {
+          "path": "roblox/lights/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "roblox/lights/export.py",
+          "type": "blob",
+          "size": 328,
+          "sha": "d7c1e4adcb83eaf38283d9084f0d1bcf21aafa76"
+        },
+        {
+          "path": "roblox/vehicle",
+          "type": "tree",
+          "sha": "fc52b343eba274b6db8b5bf420be520c9b3a0b26"
+        },
+        {
+          "path": "roblox/vehicle/README.md",
+          "type": "blob",
+          "size": 265,
+          "sha": "e3d65f0a78943540a405aeedfc85dcb987cade1b"
+        },
+        {
+          "path": "roblox/vehicle/converter.py",
+          "type": "blob",
+          "size": 523,
+          "sha": "40ab863b5ba8dbb24b6059b74442f0d72108faaf"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "178d812c779ea6570cd69be3765cec933c1e702b"
+        },
+        {
+          "path": "scripts/README.md",
+          "type": "blob",
+          "size": 453,
+          "sha": "c5afb69bde19e0b38f6192c78902b00823b5128b"
+        },
+        {
+          "path": "scripts/check.py",
+          "type": "blob",
+          "size": 719,
+          "sha": "6fd13152f97cc0d6a1e54d6b33c7e373fcbb82c9"
+        },
+        {
+          "path": "scripts/scraper.py",
+          "type": "blob",
+          "size": 1737,
+          "sha": "c1bae96e0c28e4c76dd12adc8f54e613e2fa915d"
+        },
+        {
+          "path": "shared",
+          "type": "tree",
+          "sha": "9cf4a27a34c55702a95b3176ab7bf33ee5674b7a"
+        },
+        {
+          "path": "shared/asset_export.py",
+          "type": "blob",
+          "size": 3965,
+          "sha": "d12f8b93abd9a168b0d8117044beddb0b1a9c7c0"
+        },
+        {
+          "path": "shared/asset_inspector.py",
+          "type": "blob",
+          "size": 4219,
+          "sha": "bfcdfa23db570d8292a80fc6017b4533cd514d68"
+        },
+        {
+          "path": "shared/auth_db.py",
+          "type": "blob",
+          "size": 11927,
+          "sha": "0635ce1d43facb6c268246cbbea794c65a404502"
+        },
+        {
+          "path": "shared/i18n.py",
+          "type": "blob",
+          "size": 28129,
+          "sha": "413b55ad0bc237dae73b27e4a05478ba8d8f05a7"
+        },
+        {
+          "path": "shared/image_tools.py",
+          "type": "blob",
+          "size": 2512,
+          "sha": "468c871ae9e0246760283a2d374842523cce5ecb"
+        },
+        {
+          "path": "shared/light_animation.py",
+          "type": "blob",
+          "size": 1797,
+          "sha": "b98b616becf47257e37df2426cdf1159ff8b7987"
+        },
+        {
+          "path": "shared/package_export.py",
+          "type": "blob",
+          "size": 2810,
+          "sha": "5d70d2ea8a4b9d57bb159f4cb5c1d01cd2f4e935"
+        },
+        {
+          "path": "shared/path_security.py",
+          "type": "blob",
+          "size": 724,
+          "sha": "ed2d982cc1d6c3eb866a0e45f42bf1fa1d0444e3"
+        },
+        {
+          "path": "shared/roblox_url.py",
+          "type": "blob",
+          "size": 2816,
+          "sha": "41f579a45eb2cfb5ab753cbc30969010bacce4ff"
+        },
+        {
+          "path": "shared/scraper.py",
+          "type": "blob",
+          "size": 13868,
+          "sha": "88e46610bdff56e44d6c0354d1a56576cbb3e2b9"
+        },
+        {
+          "path": "shared/template_classifier.py",
+          "type": "blob",
+          "size": 1055,
+          "sha": "17d20f514b6a101a177697e11a96d8269a3639f4"
+        },
+        {
+          "path": "shared/version.py",
+          "type": "blob",
+          "size": 58,
+          "sha": "deaa28109e1e72107dc2166508cf3359a7203192"
+        },
+        {
+          "path": "templates",
+          "type": "tree",
+          "sha": "50757749d787b1fb5764c3e9fc13b11921dd014d"
+        },
+        {
+          "path": "templates/README.md",
+          "type": "blob",
+          "size": 298,
+          "sha": "b7c804cc5bda7280c222e38aef10d4b135c9848b"
+        },
+        {
+          "path": "tests",
+          "type": "tree",
+          "sha": "ed00c992dbf6b1c9862cd48f3e9044f1d0abaccf"
+        },
+        {
+          "path": "tests/test_api.py",
+          "type": "blob",
+          "size": 2076,
+          "sha": "ddac09bac2c9c52876a3278175590ff7f0df2538"
+        },
+        {
+          "path": "tests/test_asset_export.py",
+          "type": "blob",
+          "size": 588,
+          "sha": "63f42d52856a93c196fee77521a025bf1779694f"
+        },
+        {
+          "path": "tests/test_auth.py",
+          "type": "blob",
+          "size": 4559,
+          "sha": "e44422671e384bfe6c1598af8eff8bfd1fff696e"
+        },
+        {
+          "path": "tests/test_image_tools.py",
+          "type": "blob",
+          "size": 646,
+          "sha": "c75ac4aa0b712980e29e0ee758fef9e8b8a8796b"
+        },
+        {
+          "path": "tests/test_inspector.py",
+          "type": "blob",
+          "size": 372,
+          "sha": "080d0aa118f87f336d1c7269d891b5076caa430d"
+        },
+        {
+          "path": "tests/test_lights.py",
+          "type": "blob",
+          "size": 480,
+          "sha": "3ef3dd9c349409605cb1343cd07770d4e14bdb33"
+        },
+        {
+          "path": "tests/test_package_export.py",
+          "type": "blob",
+          "size": 729,
+          "sha": "6514a3e6b5ab7b486b70976ee7565a19b44b2303"
+        },
+        {
+          "path": "tests/test_roblox_url.py",
+          "type": "blob",
+          "size": 748,
+          "sha": "c96fb36991fd0874f12614e050d3a7fabaa6cdac"
+        },
+        {
+          "path": "tests/test_scraper.py",
+          "type": "blob",
+          "size": 1694,
+          "sha": "9f610381684e3bd90a9eafd79a0545e59bacefa6"
+        },
+        {
+          "path": "tests/test_templates.py",
+          "type": "blob",
+          "size": 591,
+          "sha": "042083898ce676ead752ae3db6fb4292328260b4"
+        },
+        {
+          "path": "tests/test_web_ui.py",
+          "type": "blob",
+          "size": 578,
+          "sha": "35560132508c61ad87e99975879a0ab6f5f04418"
+        },
+        {
+          "path": "web",
+          "type": "tree",
+          "sha": "2661ee58129c75e87072fda23913a994c62387b9"
+        },
+        {
+          "path": "web/app.py",
+          "type": "blob",
+          "size": 5038,
+          "sha": "56ce08e08b27c0a2b4b3e9d3ac6fe8e1cfcca778"
+        },
+        {
+          "path": "web/asset_api.py",
+          "type": "blob",
+          "size": 3488,
+          "sha": "6340fde5a5d7976abfd0ae16f146a2b0572cf5fc"
+        },
+        {
+          "path": "web/auth_api.py",
+          "type": "blob",
+          "size": 12159,
+          "sha": "b8fc68c3e2352854a78ad97a6a4f4b171b54a442"
+        },
+        {
+          "path": "web/catalog.py",
+          "type": "blob",
+          "size": 4946,
+          "sha": "b33eae2b70116a9983275e3aad982b24c1979e1a"
+        },
+        {
+          "path": "web/i18n_api.py",
+          "type": "blob",
+          "size": 541,
+          "sha": "065bcd97ef09100bef356b1b3d2adb09c4004b8d"
+        },
+        {
+          "path": "web/icon.svg",
+          "type": "blob",
+          "size": 343,
+          "sha": "827b384ba03f7ef3cd6b8b7636d35e36cff662b6"
+        },
+        {
+          "path": "web/index.html",
+          "type": "blob",
+          "size": 33689,
+          "sha": "9069bd9bcec10fc2c54eb43514ca490041445a21"
+        },
+        {
+          "path": "web/manifest.webmanifest",
+          "type": "blob",
+          "size": 391,
+          "sha": "3b3a8ec971a83c55f0a3afba2c8302777f96c836"
+        },
+        {
+          "path": "web/scraper_api.py",
+          "type": "blob",
+          "size": 1216,
+          "sha": "0118924be2e232efe90d45f16fe8009543e04776"
+        },
+        {
+          "path": "web/sprite_api.py",
+          "type": "blob",
+          "size": 1294,
+          "sha": "9dfd9411db2612fd42d8a939270903ecb15816a0"
+        },
+        {
+          "path": "web/sw.js",
+          "type": "blob",
+          "size": 1159,
+          "sha": "42f266d5a0d1e96575dddb7dc9957f4dc22abf35"
+        },
+        {
+          "path": "web/template_api.py",
+          "type": "blob",
+          "size": 398,
+          "sha": "8b028a5de7ea982d93500b75e6c7f837c3f5f769"
+        }
+      ],
+      "treeTruncated": false,
+      "scrapedAt": "2026-09-20T05:42:30.103Z"
     },
     {
       "repository": {
@@ -251,13 +2206,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-20T05:13:09Z",
-        "pushed_at": "2026-09-20T05:13:06Z",
+        "updated_at": "2026-09-20T05:28:10Z",
+        "pushed_at": "2026-09-20T05:28:06Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "TypeScript",
-        "size": 414,
+        "size": 472,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -326,6 +2281,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "99088b55e9c8464d4fe32228783b48ed043ae29d",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T05:28:05Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/99088b55e9c8464d4fe32228783b48ed043ae29d"
+        },
+        {
           "sha": "2ffded5b6c3870b1e89e10a9218db00c96153fcc",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -352,13 +2314,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-20T04:29:39Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/800fe01a8bb81a5355c7702a55836a0872947f03"
-        },
-        {
-          "sha": "4510af6b80fb0ed363a906b854323101def83ce7",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T04:12:46Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/4510af6b80fb0ed363a906b854323101def83ce7"
         }
       ],
       "tree": [
@@ -1466,13 +3421,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "952c7fbeb9713d983a0b5d3808e215b3707d88b2"
+          "sha": "bf43b4978327a1a7f6bd38732d24446bc35eee5b"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 210238,
-          "sha": "e438d392df829783611f650e624b4097507962a2"
+          "size": 210239,
+          "sha": "82c48f49e3c7605e167f22f71e381f9bb3dffc6a"
         },
         {
           "path": "data/repositories.ts",
@@ -1692,1304 +3647,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:28:05.371Z"
-    },
-    {
-      "repository": {
-        "id": 1377274533,
-        "full_name": "nararyajayautamagroub/nararyastudio-website",
-        "name": "nararyastudio-website",
-        "private": false,
-        "visibility": "public",
-        "html_url": "https://github.com/nararyajayautamagroub/nararyastudio-website",
-        "default_branch": "main",
-        "description": null,
-        "created_at": "2026-09-19T14:48:35Z",
-        "updated_at": "2026-09-20T03:40:48Z",
-        "pushed_at": "2026-09-20T03:40:45Z",
-        "stargazers_count": 0,
-        "forks_count": 0,
-        "open_issues_count": 0,
-        "language": "TypeScript",
-        "size": 253,
-        "archived": false,
-        "disabled": false,
-        "topics": []
-      },
-      "languages": {
-        "TypeScript": 154755,
-        "JavaScript": 7685
-      },
-      "readme": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, finance reports, CMS and staff operations\n- SEO sitemap + robots and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nFor a same-origin crawl:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL and the Google OAuth variables when Google Login is enabled.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n",
-      "packageJson": {
-        "name": "nararya-studio",
-        "version": "1.4.2",
-        "private": true,
-        "scripts": {
-          "dev": "next dev",
-          "build": "next build",
-          "start": "next start",
-          "lint": "tsc --noEmit",
-          "typecheck": "tsc --noEmit",
-          "test": "vitest run",
-          "db:generate": "prisma generate",
-          "db:validate": "prisma validate",
-          "db:migrate": "prisma migrate dev",
-          "db:seed": "tsx prisma/seed.ts",
-          "scrape": "node scripts/scraper.mjs"
-        },
-        "dependencies": {
-          "@prisma/client": "6.19.3",
-          "lucide-react": "1.47.0",
-          "next": "16.3.5",
-          "react": "19.3.0",
-          "react-dom": "19.3.0"
-        },
-        "devDependencies": {
-          "@tailwindcss/postcss": "4.3.3",
-          "@types/node": "22.20.3",
-          "@types/react": "19.3.0",
-          "@types/react-dom": "19.3.0",
-          "prisma": "6.19.3",
-          "tailwindcss": "4.3.3",
-          "tsx": "4.23.13",
-          "typescript": "7.0.2",
-          "vitest": "5.0.1"
-        },
-        "overrides": {
-          "deepmerge-ts": "8.0.1"
-        },
-        "allowScripts": {
-          "@prisma/client": true,
-          "prisma": true,
-          "@prisma/engines": true,
-          "esbuild": true
-        }
-      },
-      "latestRelease": null,
-      "commits": [
-        {
-          "sha": "28b8c93d2a082a9360e356088c3b0a1b17f7e5e6",
-          "message": "fix: configure TypeScript path alias for app imports",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:40:45Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/28b8c93d2a082a9360e356088c3b0a1b17f7e5e6"
-        },
-        {
-          "sha": "f27ceefe680bb20dbf55dd26d4ffb03998f150f1",
-          "message": "fix: use Next.js viewport export for responsive metadata",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:39:33Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/f27ceefe680bb20dbf55dd26d4ffb03998f150f1"
-        },
-        {
-          "sha": "17058b9ef0dd13367ca05d4e36390c0d338f2557",
-          "message": "chore: record approved npm install scripts",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:38:51Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/17058b9ef0dd13367ca05d4e36390c0d338f2557"
-        },
-        {
-          "sha": "524342a56af8b8e0cca29ccf070f2b12cf2aec03",
-          "message": "docs: refresh feature and scraper documentation",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:38:18Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/524342a56af8b8e0cca29ccf070f2b12cf2aec03"
-        },
-        {
-          "sha": "b53ffcea91ca100119c3dfba742dad08e8d83cda",
-          "message": "docs: refresh feature and scraper documentation",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:38:15Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyastudio-website/commit/b53ffcea91ca100119c3dfba742dad08e8d83cda"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".env.example",
-          "type": "blob",
-          "size": 206,
-          "sha": "81362b996a133c4ed26585ce4431c527a67af9e2"
-        },
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "5703c8bd1fddc99c21a0af20b80969dfcffc8f37"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "3d06611303fc837e27ac16412ffcf87a1c26ee81"
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "type": "blob",
-          "size": 1017,
-          "sha": "3177c161fcb4fd032f3c5c8e4dd44ffe6fd44b30"
-        },
-        {
-          "path": ".gitignore",
-          "type": "blob",
-          "size": 86,
-          "sha": "fd552472a8c5f66ace3e5caa2a4cd108ebaf588b"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 3515,
-          "sha": "9b58f5a0d35f6e196fa4aab4e35d89d3258878c8"
-        },
-        {
-          "path": "app",
-          "type": "tree",
-          "sha": "40bfacd88e90cf4f517fb89d7dc08af62ea591df"
-        },
-        {
-          "path": "app/admin",
-          "type": "tree",
-          "sha": "2bebcba5274a225773492bc3fc06618511c5ae46"
-        },
-        {
-          "path": "app/admin/content",
-          "type": "tree",
-          "sha": "c2ba715efeed412df3b136d44dc7a46d02826c5a"
-        },
-        {
-          "path": "app/admin/content/page.tsx",
-          "type": "blob",
-          "size": 3455,
-          "sha": "c08b41c311bc43c016ce3e9a9a0d754659ef81a2"
-        },
-        {
-          "path": "app/admin/coupons",
-          "type": "tree",
-          "sha": "1df58f3f5a9ea8e53d4ec1ba6d10b7659e177a52"
-        },
-        {
-          "path": "app/admin/coupons/page.tsx",
-          "type": "blob",
-          "size": 2412,
-          "sha": "d36cf5a72a43c4e0ad53cc36fff86658ee38c78a"
-        },
-        {
-          "path": "app/admin/finance",
-          "type": "tree",
-          "sha": "4371e31d12756fe9191117090e71a806513b4213"
-        },
-        {
-          "path": "app/admin/finance/page.tsx",
-          "type": "blob",
-          "size": 2288,
-          "sha": "2979c1255ef4c1ea61355f8bf010cd76a3404495"
-        },
-        {
-          "path": "app/admin/page.tsx",
-          "type": "blob",
-          "size": 1112,
-          "sha": "09bdc2c8af9a43ec4c7bee781bd979f2ea5eee61"
-        },
-        {
-          "path": "app/admin/reviews",
-          "type": "tree",
-          "sha": "042443d71054d58b862e5396ba2bf0ac53db6365"
-        },
-        {
-          "path": "app/admin/reviews/page.tsx",
-          "type": "blob",
-          "size": 2098,
-          "sha": "a5ce295f9efbbdd71f9efd4278adbb3b459010b1"
-        },
-        {
-          "path": "app/api",
-          "type": "tree",
-          "sha": "b9e736ee9b40beb6d8988732b18bedea81f85ad1"
-        },
-        {
-          "path": "app/api/admin",
-          "type": "tree",
-          "sha": "1b99e0f155223cf57a4ef5dc85737621f3111f9b"
-        },
-        {
-          "path": "app/api/admin/content",
-          "type": "tree",
-          "sha": "efc19f4279e07232caf3b920c559bde89f5df5af"
-        },
-        {
-          "path": "app/api/admin/content/[type]",
-          "type": "tree",
-          "sha": "26a43806d97eb5767b17962e43924e67626e7a39"
-        },
-        {
-          "path": "app/api/admin/content/[type]/[id]",
-          "type": "tree",
-          "sha": "3fdc478486468c3b0567763cd9f7f8f419b4beca"
-        },
-        {
-          "path": "app/api/admin/content/[type]/[id]/route.ts",
-          "type": "blob",
-          "size": 3158,
-          "sha": "8125fcbc420937c926c2afaf8e48822cdcd79769"
-        },
-        {
-          "path": "app/api/admin/content/[type]/route.ts",
-          "type": "blob",
-          "size": 3220,
-          "sha": "42f41f5af65a5a0835d070f6fb541a8ec86b8b82"
-        },
-        {
-          "path": "app/api/admin/coupons",
-          "type": "tree",
-          "sha": "eccf1439f290736503705354e766dea4240ecccb"
-        },
-        {
-          "path": "app/api/admin/coupons/route.ts",
-          "type": "blob",
-          "size": 1689,
-          "sha": "c969cdaaf1d68985044b60e756973bc9e48c2e39"
-        },
-        {
-          "path": "app/api/admin/finance",
-          "type": "tree",
-          "sha": "dab0364e9f19df1eb152191ce4ed92eb32bf8955"
-        },
-        {
-          "path": "app/api/admin/finance/report",
-          "type": "tree",
-          "sha": "3238ba7110aea0ef34ae14ecfc40d276675262cb"
-        },
-        {
-          "path": "app/api/admin/finance/report/route.ts",
-          "type": "blob",
-          "size": 1631,
-          "sha": "bed7292883eb96521aa1c61a7bb8f1f4c42584f6"
-        },
-        {
-          "path": "app/api/admin/products",
-          "type": "tree",
-          "sha": "eb27083e9e2b7a4c0ec450f8b4a21615d29fa843"
-        },
-        {
-          "path": "app/api/admin/products/[id]",
-          "type": "tree",
-          "sha": "6f1d35ae528c39b1bd479c54c936883684a14a16"
-        },
-        {
-          "path": "app/api/admin/products/[id]/route.ts",
-          "type": "blob",
-          "size": 2274,
-          "sha": "bc6e81dcc4b3f75c695a85edc7683d2076237be6"
-        },
-        {
-          "path": "app/api/admin/products/route.ts",
-          "type": "blob",
-          "size": 1889,
-          "sha": "e8f14ac714abe14b5ec5820204673862458dd2dc"
-        },
-        {
-          "path": "app/api/admin/quotations",
-          "type": "tree",
-          "sha": "b5da12ae36a9868523882dc6dac94a8a8d5127b6"
-        },
-        {
-          "path": "app/api/admin/quotations/route.ts",
-          "type": "blob",
-          "size": 1719,
-          "sha": "b969ad8514be4f3f7ef134d86b95184cbecbf0d4"
-        },
-        {
-          "path": "app/api/admin/requests",
-          "type": "tree",
-          "sha": "8138d879e04a7369e5fae5f4bb737c99cc2a1fa1"
-        },
-        {
-          "path": "app/api/admin/requests/[id]",
-          "type": "tree",
-          "sha": "eecf589fe55a644c32b3fa2f41e3adf92d5948bf"
-        },
-        {
-          "path": "app/api/admin/requests/[id]/route.ts",
-          "type": "blob",
-          "size": 1151,
-          "sha": "057a51a1218f35357e79d32d81028f1c3fb39a4c"
-        },
-        {
-          "path": "app/api/admin/requests/route.ts",
-          "type": "blob",
-          "size": 451,
-          "sha": "7ecacec6aff554065ad14e5ad2b851085104eecb"
-        },
-        {
-          "path": "app/api/admin/reviews",
-          "type": "tree",
-          "sha": "a4e18bece0ff47c6e65532c13bd91f749c55a939"
-        },
-        {
-          "path": "app/api/admin/reviews/[id]",
-          "type": "tree",
-          "sha": "930cc2972f34516837ecbd5279f12a46e74397d3"
-        },
-        {
-          "path": "app/api/admin/reviews/[id]/route.ts",
-          "type": "blob",
-          "size": 977,
-          "sha": "6e85a52f996e74fdded689466db004cc57bc8307"
-        },
-        {
-          "path": "app/api/admin/reviews/route.ts",
-          "type": "blob",
-          "size": 498,
-          "sha": "47a41dcd91bb22141f31870bfa53d5b66a8483cd"
-        },
-        {
-          "path": "app/api/auth",
-          "type": "tree",
-          "sha": "68a44da904dcbc8509c6b5baf6755584cb9d815c"
-        },
-        {
-          "path": "app/api/auth/google",
-          "type": "tree",
-          "sha": "0dffd8c238e036cc095f93d92705c16dadc175d2"
-        },
-        {
-          "path": "app/api/auth/google/callback",
-          "type": "tree",
-          "sha": "0db7f50d12ae792663a5c2c651304ae1a63a60ab"
-        },
-        {
-          "path": "app/api/auth/google/callback/route.ts",
-          "type": "blob",
-          "size": 3832,
-          "sha": "c6f71f5c645c19c478507998455d9541739aebe5"
-        },
-        {
-          "path": "app/api/auth/google/route.ts",
-          "type": "blob",
-          "size": 1189,
-          "sha": "d6ee3f385e64243e39edcf8000ba9f1429e411ae"
-        },
-        {
-          "path": "app/api/auth/login",
-          "type": "tree",
-          "sha": "b7774cfb6180f435dcd24fdc98911450aa873086"
-        },
-        {
-          "path": "app/api/auth/login/route.ts",
-          "type": "blob",
-          "size": 1080,
-          "sha": "93668f676fd82a536b11325a9c458f9e91e6bb26"
-        },
-        {
-          "path": "app/api/auth/logout",
-          "type": "tree",
-          "sha": "09ea9ce1771b12183264eaa337f5a24314a95d38"
-        },
-        {
-          "path": "app/api/auth/logout/route.ts",
-          "type": "blob",
-          "size": 202,
-          "sha": "6f75feba69064f7c3fc427ed021829a9a490405f"
-        },
-        {
-          "path": "app/api/auth/me",
-          "type": "tree",
-          "sha": "0710973911ae864becb5a591af8641b85440d29d"
-        },
-        {
-          "path": "app/api/auth/me/route.ts",
-          "type": "blob",
-          "size": 315,
-          "sha": "9f7a9fbe571dda2b4aa199e03096825b64097b6f"
-        },
-        {
-          "path": "app/api/auth/password",
-          "type": "tree",
-          "sha": "b9aa3974973a80c879c6d18b74881bca5b15a6c7"
-        },
-        {
-          "path": "app/api/auth/password/route.ts",
-          "type": "blob",
-          "size": 1102,
-          "sha": "5ff05a665738f551b4f8b23167fca1ceae0fa317"
-        },
-        {
-          "path": "app/api/auth/register",
-          "type": "tree",
-          "sha": "2a7047c24b15a49eb119c1b109b61b9e9943f88a"
-        },
-        {
-          "path": "app/api/auth/register/route.ts",
-          "type": "blob",
-          "size": 1630,
-          "sha": "eaa9c985fd0db141157b7ecf5525ac6ac1c1c2d1"
-        },
-        {
-          "path": "app/api/auth/sessions",
-          "type": "tree",
-          "sha": "464e7a107853f6ee4b845b56f62eb3dcbf2766e4"
-        },
-        {
-          "path": "app/api/auth/sessions/revoke-all",
-          "type": "tree",
-          "sha": "35ef423b388fc1a7c35efd830cc26f0f757cb520"
-        },
-        {
-          "path": "app/api/auth/sessions/revoke-all/route.ts",
-          "type": "blob",
-          "size": 331,
-          "sha": "58e6eb07e8bdc7371147d21ea3f01dd2b1f346e5"
-        },
-        {
-          "path": "app/api/blog",
-          "type": "tree",
-          "sha": "7f2e2a2d8e2e3c125793ac4eec0a1e4a82fdbf74"
-        },
-        {
-          "path": "app/api/blog/[slug]",
-          "type": "tree",
-          "sha": "d83206bc1dfa6a54032b3690b2f55f6ce417f7ac"
-        },
-        {
-          "path": "app/api/blog/[slug]/route.ts",
-          "type": "blob",
-          "size": 570,
-          "sha": "379e7270ca6b2c55a281862f72b668f8ea182476"
-        },
-        {
-          "path": "app/api/blog/route.ts",
-          "type": "blob",
-          "size": 455,
-          "sha": "05d92a16a9e2c687a68b049bbd7222eb4c72acc4"
-        },
-        {
-          "path": "app/api/bundles",
-          "type": "tree",
-          "sha": "576e98b6b7371ecde92aa2c825219120619c1cb1"
-        },
-        {
-          "path": "app/api/bundles/route.ts",
-          "type": "blob",
-          "size": 869,
-          "sha": "165e1aab799566448d3cf83df3b49ff7e5284e5b"
-        },
-        {
-          "path": "app/api/checkout",
-          "type": "tree",
-          "sha": "3c6ff66c4531f2672c9b326f339033cfe4bd8f25"
-        },
-        {
-          "path": "app/api/checkout/route.ts",
-          "type": "blob",
-          "size": 5627,
-          "sha": "4953de1971d62ec3f819f3cf3ef4b5d50bcb02cb"
-        },
-        {
-          "path": "app/api/coupons",
-          "type": "tree",
-          "sha": "b660ba068392a9bf92f3b583664ce2badcbec48b"
-        },
-        {
-          "path": "app/api/coupons/validate",
-          "type": "tree",
-          "sha": "c60740624b9a3b6ef5949bdee04a29f896f48ae6"
-        },
-        {
-          "path": "app/api/coupons/validate/route.ts",
-          "type": "blob",
-          "size": 1621,
-          "sha": "4ae89f7815789e90fee398cbac375b8509eeda74"
-        },
-        {
-          "path": "app/api/downloads",
-          "type": "tree",
-          "sha": "af014de95a38bd13dd988007c97876d7d5bba69e"
-        },
-        {
-          "path": "app/api/downloads/[token]",
-          "type": "tree",
-          "sha": "fb2d9f467c712d96967f16b0c024f3c90c2bc04a"
-        },
-        {
-          "path": "app/api/downloads/[token]/route.ts",
-          "type": "blob",
-          "size": 1512,
-          "sha": "6920cbf751be3679b6c340239e0803724d958a19"
-        },
-        {
-          "path": "app/api/health",
-          "type": "tree",
-          "sha": "a160cca55c062b9a2112fcbb408a9ef3b22d9545"
-        },
-        {
-          "path": "app/api/health/route.ts",
-          "type": "blob",
-          "size": 584,
-          "sha": "1fd4e02300e90274c1b891143e60520d3eab9587"
-        },
-        {
-          "path": "app/api/invoices",
-          "type": "tree",
-          "sha": "f4dcfa903289ac43d86de2d026d540f50f8984a5"
-        },
-        {
-          "path": "app/api/invoices/[id]",
-          "type": "tree",
-          "sha": "8d6695289fb97cf43c37fdda31490187879f8ce9"
-        },
-        {
-          "path": "app/api/invoices/[id]/route.ts",
-          "type": "blob",
-          "size": 1010,
-          "sha": "c1b32a2430421e47e4e252cc743b11b0ec52521f"
-        },
-        {
-          "path": "app/api/notifications",
-          "type": "tree",
-          "sha": "d6af3db7c1e764eaf2bf343b7cce6d1a97090407"
-        },
-        {
-          "path": "app/api/notifications/route.ts",
-          "type": "blob",
-          "size": 1204,
-          "sha": "0eaf3afdfc1e94d68191569332cae5a4d18e7222"
-        },
-        {
-          "path": "app/api/orders",
-          "type": "tree",
-          "sha": "ae5a02c0d2bc713cc9081f01eb6e23c9b8a1d722"
-        },
-        {
-          "path": "app/api/orders/[id]",
-          "type": "tree",
-          "sha": "080fbeb8acb13b015f44be60d6a5034403d7085e"
-        },
-        {
-          "path": "app/api/orders/[id]/downloads",
-          "type": "tree",
-          "sha": "6ed6c7f75e863a463c862748a96ff8f0ee604202"
-        },
-        {
-          "path": "app/api/orders/[id]/downloads/route.ts",
-          "type": "blob",
-          "size": 1174,
-          "sha": "b1884ff480933f7d9a0e14ebc1ac0a6506ea951f"
-        },
-        {
-          "path": "app/api/orders/route.ts",
-          "type": "blob",
-          "size": 532,
-          "sha": "73af9c3839a77f1064928dec588f1f4dbc090f77"
-        },
-        {
-          "path": "app/api/payments",
-          "type": "tree",
-          "sha": "695650cf37670ffb60eebfc1c9164d361b3625af"
-        },
-        {
-          "path": "app/api/payments/webhook",
-          "type": "tree",
-          "sha": "b2471f0805d963d856f78085fcef4ec49c223f42"
-        },
-        {
-          "path": "app/api/payments/webhook/route.ts",
-          "type": "blob",
-          "size": 2650,
-          "sha": "38c8c3d56e13f253ff72418ad8df817bef88ae92"
-        },
-        {
-          "path": "app/api/portfolio",
-          "type": "tree",
-          "sha": "a97bcda341f9e25ff616625d03f907d44004a295"
-        },
-        {
-          "path": "app/api/portfolio/route.ts",
-          "type": "blob",
-          "size": 754,
-          "sha": "404449d8497db62718e07e9641513568490b6c55"
-        },
-        {
-          "path": "app/api/products",
-          "type": "tree",
-          "sha": "5fdeae38924d65edf2bab7a181c0adeb08420a45"
-        },
-        {
-          "path": "app/api/products/[id]",
-          "type": "tree",
-          "sha": "db946f30ce56a4c634eaf71a750815ed979304f5"
-        },
-        {
-          "path": "app/api/products/[id]/reviews",
-          "type": "tree",
-          "sha": "1bd1f4e544fc397d6c67418f6c3648e6401e6486"
-        },
-        {
-          "path": "app/api/products/[id]/reviews/route.ts",
-          "type": "blob",
-          "size": 2110,
-          "sha": "d9535e66572ab0e5ae10cbd86dc66cca66b2dea7"
-        },
-        {
-          "path": "app/api/products/[id]/route.ts",
-          "type": "blob",
-          "size": 745,
-          "sha": "c3774e7638aaf6ad49d6903206a3330cbee8580f"
-        },
-        {
-          "path": "app/api/products/route.ts",
-          "type": "blob",
-          "size": 1625,
-          "sha": "611a04bb7772b0ada13a0b942ffaeaf48ae13573"
-        },
-        {
-          "path": "app/api/projects",
-          "type": "tree",
-          "sha": "4679701cd98eede91d23b581eb5935af1aa0fc42"
-        },
-        {
-          "path": "app/api/projects/route.ts",
-          "type": "blob",
-          "size": 457,
-          "sha": "85394fe753a656b7febec3d5129bc71656f99025"
-        },
-        {
-          "path": "app/api/quotations",
-          "type": "tree",
-          "sha": "528752c30adaa55588a87a12c85161369d5d8b2e"
-        },
-        {
-          "path": "app/api/quotations/[id]",
-          "type": "tree",
-          "sha": "ef32bdfcb4e30cb28fcc93b9be0213f865dec92e"
-        },
-        {
-          "path": "app/api/quotations/[id]/approve",
-          "type": "tree",
-          "sha": "ead36a3cd813828e297660cc84448b6d3fc2ab68"
-        },
-        {
-          "path": "app/api/quotations/[id]/approve/route.ts",
-          "type": "blob",
-          "size": 1004,
-          "sha": "8b6fbd53af8928535c1475b54963061398792093"
-        },
-        {
-          "path": "app/api/quotations/route.ts",
-          "type": "blob",
-          "size": 479,
-          "sha": "6bead6c4d91ffe81ec8e2006d5b4256be1c27eb6"
-        },
-        {
-          "path": "app/api/requests",
-          "type": "tree",
-          "sha": "d29f8a9f9f3aacae49760e5f28dcce11ea9bd0f3"
-        },
-        {
-          "path": "app/api/requests/route.ts",
-          "type": "blob",
-          "size": 2111,
-          "sha": "484f0c9ff5669d6fcf5a4d90b788e4fdc67d4a18"
-        },
-        {
-          "path": "app/api/settings",
-          "type": "tree",
-          "sha": "ed6a172082902c4c463ae98db84413e3c335f8c6"
-        },
-        {
-          "path": "app/api/settings/route.ts",
-          "type": "blob",
-          "size": 1283,
-          "sha": "80558f96bcf3442f735c8edfdfd2d7d70d0a7eb4"
-        },
-        {
-          "path": "app/api/tickets",
-          "type": "tree",
-          "sha": "dbb0b88ec1da97f893eb86e8833fcd13f9d2f05c"
-        },
-        {
-          "path": "app/api/tickets/route.ts",
-          "type": "blob",
-          "size": 989,
-          "sha": "c7314181d42c7eb9b663e42d07c1bab35f7426e2"
-        },
-        {
-          "path": "app/api/wishlist",
-          "type": "tree",
-          "sha": "ee25d7eb4653ba03527df416d1fd581fbd891aed"
-        },
-        {
-          "path": "app/api/wishlist/route.ts",
-          "type": "blob",
-          "size": 1779,
-          "sha": "e11e4aedbfc283f6cb5d1b0bb1ff4433569c0ad6"
-        },
-        {
-          "path": "app/blog",
-          "type": "tree",
-          "sha": "b2835c64ed4641682fc58a3ce856cde02efdeced"
-        },
-        {
-          "path": "app/blog/[slug]",
-          "type": "tree",
-          "sha": "9113eabe484cf0c31e44eb3f21e7328da95f3d90"
-        },
-        {
-          "path": "app/blog/[slug]/page.tsx",
-          "type": "blob",
-          "size": 1622,
-          "sha": "a4e56f4764009aad1e366b4b6d84378901b51835"
-        },
-        {
-          "path": "app/blog/page.tsx",
-          "type": "blob",
-          "size": 1540,
-          "sha": "7458239cd57ad938ced6f2026df5ae662571b101"
-        },
-        {
-          "path": "app/bundles",
-          "type": "tree",
-          "sha": "79369868d26561a8d95ce9cd5f4bcfa62366a6ad"
-        },
-        {
-          "path": "app/bundles/page.tsx",
-          "type": "blob",
-          "size": 1868,
-          "sha": "01e8c08bde9fbafc4763ff290b8434def56f3fdf"
-        },
-        {
-          "path": "app/cart",
-          "type": "tree",
-          "sha": "ca745549d4874079068d99f11710d8b5ca140b85"
-        },
-        {
-          "path": "app/cart/page.tsx",
-          "type": "blob",
-          "size": 3299,
-          "sha": "c4169f80f9bb93feccb20884eab8615b89b44a59"
-        },
-        {
-          "path": "app/checkout",
-          "type": "tree",
-          "sha": "af3493a4ca101ea2f369905bcf4af077b2bf375f"
-        },
-        {
-          "path": "app/checkout/page.tsx",
-          "type": "blob",
-          "size": 3870,
-          "sha": "b59798d37e99530e27f0305d17c7bcfbaafbce7a"
-        },
-        {
-          "path": "app/dashboard",
-          "type": "tree",
-          "sha": "22e65ce824144e33387c117961b2c680518d95cd"
-        },
-        {
-          "path": "app/dashboard/page.tsx",
-          "type": "blob",
-          "size": 969,
-          "sha": "538ebc4a5b226663321ed6da98385c5229e6d5bb"
-        },
-        {
-          "path": "app/design",
-          "type": "tree",
-          "sha": "d018c1f7ddedd9c6433f50a7477b56a5389ecf49"
-        },
-        {
-          "path": "app/design/page.tsx",
-          "type": "blob",
-          "size": 734,
-          "sha": "25d9c52ae1722d96ae7d8643da84e7b3dab179ed"
-        },
-        {
-          "path": "app/error.tsx",
-          "type": "blob",
-          "size": 577,
-          "sha": "f7dbc660048b8f72d17c4578348ec8858fd572fb"
-        },
-        {
-          "path": "app/faq",
-          "type": "tree",
-          "sha": "316fe61023c25d69800a0a004cafe5a6678dc422"
-        },
-        {
-          "path": "app/faq/page.tsx",
-          "type": "blob",
-          "size": 586,
-          "sha": "54d712f62122ac881afccb199f62b84b4a0e2d6b"
-        },
-        {
-          "path": "app/globals.css",
-          "type": "blob",
-          "size": 3662,
-          "sha": "caccaa420f90ba8e213954512116e3d0c5a46bed"
-        },
-        {
-          "path": "app/invoices",
-          "type": "tree",
-          "sha": "5bda22c88d0a8def7c6966114c61b1c9e9a2fd42"
-        },
-        {
-          "path": "app/invoices/page.tsx",
-          "type": "blob",
-          "size": 1431,
-          "sha": "94252e51a8ef0d731a19b9204810a5315ebf3da8"
-        },
-        {
-          "path": "app/layout.tsx",
-          "type": "blob",
-          "size": 1235,
-          "sha": "1ba7eebfd276189673f41b66a4eedb0161286801"
-        },
-        {
-          "path": "app/login",
-          "type": "tree",
-          "sha": "47446259d103c0000f818425334df33e91974579"
-        },
-        {
-          "path": "app/login/page.tsx",
-          "type": "blob",
-          "size": 3168,
-          "sha": "0358064bdf7cb26fd02d9c9bb12effc8913cd7ca"
-        },
-        {
-          "path": "app/not-found.tsx",
-          "type": "blob",
-          "size": 413,
-          "sha": "6f0243aa193d5ee5c761298dc26983b9502ec3dc"
-        },
-        {
-          "path": "app/notifications",
-          "type": "tree",
-          "sha": "c046b64309f65f66ae4b66ae13752b3053e9974c"
-        },
-        {
-          "path": "app/notifications/page.tsx",
-          "type": "blob",
-          "size": 2050,
-          "sha": "6a4d65f0e3f44cd4f7ef90daa502f717c5d12445"
-        },
-        {
-          "path": "app/orders",
-          "type": "tree",
-          "sha": "a8517307afaae5b638a3dc42e553c71e8c1e2d96"
-        },
-        {
-          "path": "app/orders/page.tsx",
-          "type": "blob",
-          "size": 2396,
-          "sha": "a23d1736af6fec66e247282a0538c18faaa5f90b"
-        },
-        {
-          "path": "app/page.tsx",
-          "type": "blob",
-          "size": 2423,
-          "sha": "91249033a531e8b8e4c7734a28044895e754b91c"
-        },
-        {
-          "path": "app/portfolio",
-          "type": "tree",
-          "sha": "c225ec392a95490a5f8288e88bc84fc6e636e105"
-        },
-        {
-          "path": "app/portfolio/page.tsx",
-          "type": "blob",
-          "size": 1723,
-          "sha": "5a5325f12e032e90f98a4f9c148b8c0f83946bda"
-        },
-        {
-          "path": "app/projects",
-          "type": "tree",
-          "sha": "1cc2a9ec2c8f54b4befe6d1a2197c487c3316b29"
-        },
-        {
-          "path": "app/projects/page.tsx",
-          "type": "blob",
-          "size": 2134,
-          "sha": "38b46256cbe57004e0a9bba906171edcfa51bae7"
-        },
-        {
-          "path": "app/quotations",
-          "type": "tree",
-          "sha": "ba401f01842d8d7b8b10619a500bf067842bd007"
-        },
-        {
-          "path": "app/quotations/page.tsx",
-          "type": "blob",
-          "size": 2966,
-          "sha": "6550cfbc94a7957a500f9af2b6b48fe063634e2b"
-        },
-        {
-          "path": "app/request",
-          "type": "tree",
-          "sha": "9a5692bf07b4f1e5514810c752f2a3628a67f886"
-        },
-        {
-          "path": "app/request/page.tsx",
-          "type": "blob",
-          "size": 3501,
-          "sha": "43fe3c73471e2eb4797a6327d31fd07ae4919829"
-        },
-        {
-          "path": "app/requests",
-          "type": "tree",
-          "sha": "897dde042d0c59102870d151f7e6c60d9f7888a2"
-        },
-        {
-          "path": "app/requests/page.tsx",
-          "type": "blob",
-          "size": 98,
-          "sha": "b3cb7ad5a5b8d298f46224daf6d1e3afcb5bd500"
-        },
-        {
-          "path": "app/robots.ts",
-          "type": "blob",
-          "size": 264,
-          "sha": "d9ba643ebc0f3e031729d9197a494a860c2e9038"
-        },
-        {
-          "path": "app/settings",
-          "type": "tree",
-          "sha": "528de6ff47d5a3199ab7f71e3629a2a3674dc281"
-        },
-        {
-          "path": "app/settings/page.tsx",
-          "type": "blob",
-          "size": 5158,
-          "sha": "cb043bdb79a1556f0562f7e4099bf4e0a785bd3e"
-        },
-        {
-          "path": "app/sitemap.ts",
-          "type": "blob",
-          "size": 322,
-          "sha": "368718090413c9e8ec37ac140efcaca848044b8e"
-        },
-        {
-          "path": "app/store",
-          "type": "tree",
-          "sha": "1be9c9710af48bc706089d84caac024111efad26"
-        },
-        {
-          "path": "app/store/[id]",
-          "type": "tree",
-          "sha": "a91a8994a307bb0b81006eefde74f243b8ad40c1"
-        },
-        {
-          "path": "app/store/[id]/page.tsx",
-          "type": "blob",
-          "size": 6014,
-          "sha": "f436c4f7f6be44f84830dae5983f3af3b28e23aa"
-        },
-        {
-          "path": "app/store/page.tsx",
-          "type": "blob",
-          "size": 2578,
-          "sha": "5db52f23bfd76f01daabcc9debe46ed2e22dc561"
-        },
-        {
-          "path": "app/support",
-          "type": "tree",
-          "sha": "a7f226d21c6d6782a5f1a3ab87c6f52bf4672065"
-        },
-        {
-          "path": "app/support/page.tsx",
-          "type": "blob",
-          "size": 2004,
-          "sha": "8dc99fda7da56af658efb331dd8bb4cc8b34ebb0"
-        },
-        {
-          "path": "app/wishlist",
-          "type": "tree",
-          "sha": "93debdda18e9922a8fd52eb53fba5ec100b5942a"
-        },
-        {
-          "path": "app/wishlist/page.tsx",
-          "type": "blob",
-          "size": 2102,
-          "sha": "3a9696ef67a73d030b043f227b7c1f6270361c16"
-        },
-        {
-          "path": "components",
-          "type": "tree",
-          "sha": "6c5e234b6fc69aad83668c18c1792a059149775c"
-        },
-        {
-          "path": "components/header.tsx",
-          "type": "blob",
-          "size": 3204,
-          "sha": "48040425570ed27cbf1ad2e60c1c27458d54f487"
-        },
-        {
-          "path": "components/i18n-provider.tsx",
-          "type": "blob",
-          "size": 2105,
-          "sha": "ca64177f34cfa1e5d6a1f17474a4b7f8d54901ce"
-        },
-        {
-          "path": "components/product-card.tsx",
-          "type": "blob",
-          "size": 954,
-          "sha": "3e7cba23592e1528506ff9d83d9d1e5cd3f62267"
-        },
-        {
-          "path": "docs",
-          "type": "tree",
-          "sha": "3f9bf22d244eed31070f78793cba7c43f4148438"
-        },
-        {
-          "path": "docs/API.md",
-          "type": "blob",
-          "size": 2041,
-          "sha": "9b3545a54b53d82e8c64976725478878cf7d52bb"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "type": "blob",
-          "size": 837,
-          "sha": "64aeb6d44fc95153708bea621c09a6725458732b"
-        },
-        {
-          "path": "docs/ROADMAP.md",
-          "type": "blob",
-          "size": 1372,
-          "sha": "e747cf9acc40c3afc7c248921a76b0f12be35034"
-        },
-        {
-          "path": "docs/SCRAPER.md",
-          "type": "blob",
-          "size": 1132,
-          "sha": "699f86e34f1d0b5b97bbc165a0f94d4dccdea1a7"
-        },
-        {
-          "path": "lib",
-          "type": "tree",
-          "sha": "7d8ed664c8fb2b5b8193ceb4fea5b0c68cfe1f5c"
-        },
-        {
-          "path": "lib/admin.ts",
-          "type": "blob",
-          "size": 278,
-          "sha": "41a74bfae124d2763769f38399f0b7c140e6a669"
-        },
-        {
-          "path": "lib/auth.ts",
-          "type": "blob",
-          "size": 2296,
-          "sha": "a40d731a162a79adde2b78019e765f209bc7673c"
-        },
-        {
-          "path": "lib/catalog.ts",
-          "type": "blob",
-          "size": 702,
-          "sha": "96e563f4d034b062958b6db201b47235408768fc"
-        },
-        {
-          "path": "lib/client-cart.ts",
-          "type": "blob",
-          "size": 914,
-          "sha": "4d8926b89ce55e68c3c1d5c698845e515e0a3de3"
-        },
-        {
-          "path": "lib/coupons.ts",
-          "type": "blob",
-          "size": 1268,
-          "sha": "b2b1f263d606df433ce64d2f47de34e77f0963fe"
-        },
-        {
-          "path": "lib/data.ts",
-          "type": "blob",
-          "size": 166,
-          "sha": "dec428da05aff8b23d1d5068a5b0551424ea88c9"
-        },
-        {
-          "path": "lib/db.ts",
-          "type": "blob",
-          "size": 259,
-          "sha": "1e14343927e1fbfd8b2dcb159bc67cae68f87bd8"
-        },
-        {
-          "path": "lib/invoice-pdf.ts",
-          "type": "blob",
-          "size": 2275,
-          "sha": "dc34b9d3564f7fec5f77ed8c95d3ca1d757045db"
-        },
-        {
-          "path": "lib/locale.ts",
-          "type": "blob",
-          "size": 3499,
-          "sha": "1634d8483f8cb99d1ce587420d70de2465c5d2dc"
-        },
-        {
-          "path": "lib/rate-limit.ts",
-          "type": "blob",
-          "size": 420,
-          "sha": "a4d599f4a6140473d577221dc6ebbc4da87b4810"
-        },
-        {
-          "path": "lib/security.ts",
-          "type": "blob",
-          "size": 658,
-          "sha": "24e3c1de89147cf256c34952827fefb82ef2da0b"
-        },
-        {
-          "path": "lib/services.ts",
-          "type": "blob",
-          "size": 467,
-          "sha": "3f20e9141d1ec9d281a5afa3c83748223c3740c2"
-        },
-        {
-          "path": "lib/session-constants.ts",
-          "type": "blob",
-          "size": 42,
-          "sha": "00d6b7287347892d49ca69abbd02a4634389f0bc"
-        },
-        {
-          "path": "next-env.d.ts",
-          "type": "blob",
-          "size": 120,
-          "sha": "bde397e1cac4e52da454984d714d098a55d367f2"
-        },
-        {
-          "path": "next.config.ts",
-          "type": "blob",
-          "size": 163,
-          "sha": "263d4b6e1100f5fee467f5db5df93ca1e3df44a5"
-        },
-        {
-          "path": "package.json",
-          "type": "blob",
-          "size": 1023,
-          "sha": "59998179f35853a4e189709070e8c389804ad962"
-        },
-        {
-          "path": "postcss.config.mjs",
-          "type": "blob",
-          "size": 79,
-          "sha": "dc0a7a7635d476dbe4f9791f318cdc310cfb44cc"
-        },
-        {
-          "path": "prisma",
-          "type": "tree",
-          "sha": "dcb3a6eefb6055c0501e2fea86ff524da49a7a87"
-        },
-        {
-          "path": "prisma/migrations",
-          "type": "tree",
-          "sha": "ab5f435851eeb2843a0470f48927a924c321a099"
-        },
-        {
-          "path": "prisma/migrations/00000000000000_initial",
-          "type": "tree",
-          "sha": "bcd317952e6f09746f9e7a418570e3ef2d702739"
-        },
-        {
-          "path": "prisma/migrations/00000000000000_initial/migration.sql",
-          "type": "blob",
-          "size": 10299,
-          "sha": "eea9e469807a7a6fe042e6a226c2499bd15c8361"
-        },
-        {
-          "path": "prisma/migrations/20260920010000_add_notifications",
-          "type": "tree",
-          "sha": "9995118741bbc16b1849acc6ed241cdb0c554c1d"
-        },
-        {
-          "path": "prisma/migrations/20260920010000_add_notifications/migration.sql",
-          "type": "blob",
-          "size": 644,
-          "sha": "5d3df121601bf411473ef5650488009c64a83457"
-        },
-        {
-          "path": "prisma/migrations/20260920020000_add_google_and_preferences",
-          "type": "tree",
-          "sha": "09171637cfd511c5f3c5434f455fee1dc16ceb93"
-        },
-        {
-          "path": "prisma/migrations/20260920020000_add_google_and_preferences/migration.sql",
-          "type": "blob",
-          "size": 210,
-          "sha": "8d90fde4b992423d2534adbed46bfdafd5f3748f"
-        },
-        {
-          "path": "prisma/migrations/20260920030000_add_content_cms",
-          "type": "tree",
-          "sha": "17f671220134e1168efcbe9166e23a9a126cb864"
-        },
-        {
-          "path": "prisma/migrations/20260920030000_add_content_cms/migration.sql",
-          "type": "blob",
-          "size": 2142,
-          "sha": "480dedd7ebf355dee6ba0ac5d6aee2916a121ab4"
-        },
-        {
-          "path": "prisma/migrations/20260920040000_add_coupons_bundles",
-          "type": "tree",
-          "sha": "215e019bc4e3a9c3cd4f68d247a324bb77c288c1"
-        },
-        {
-          "path": "prisma/migrations/20260920040000_add_coupons_bundles/migration.sql",
-          "type": "blob",
-          "size": 2164,
-          "sha": "288df9a49a4d480e79e5467798e4ff94801a2d94"
-        },
-        {
-          "path": "prisma/migrations/migration_lock.toml",
-          "type": "blob",
-          "size": 64,
-          "sha": "1eed3a58904f8213e4c40913f47825f292e307ab"
-        },
-        {
-          "path": "prisma/schema.prisma",
-          "type": "blob",
-          "size": 10556,
-          "sha": "84d0511da05dbbbf952cbc03b1857e84e2f49de3"
-        },
-        {
-          "path": "prisma/seed.ts",
-          "type": "blob",
-          "size": 5212,
-          "sha": "bcee1dc5a373e13c446eea8fa72592e67e016228"
-        },
-        {
-          "path": "proxy.ts",
-          "type": "blob",
-          "size": 999,
-          "sha": "6cb59fcaaad27e6e6973af27eb98abdf38633147"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "bacb9077528451d3438598947017aa4fac2e7166"
-        },
-        {
-          "path": "scripts/scraper.mjs",
-          "type": "blob",
-          "size": 7606,
-          "sha": "631af3d7b85f21233761a76f02541a35318d3add"
-        },
-        {
-          "path": "tests",
-          "type": "tree",
-          "sha": "8968bcb260598a1671362777e00144fa357c1d8e"
-        },
-        {
-          "path": "tests/security.test.ts",
-          "type": "blob",
-          "size": 801,
-          "sha": "4624f64e9e3733a3000a35e449ff79dd37bebbfe"
-        },
-        {
-          "path": "tsconfig.json",
-          "type": "blob",
-          "size": 592,
-          "sha": "4b637db9bfa5c98b935f90b438cb1f59844f6f63"
-        },
-        {
-          "path": "vitest.config.ts",
-          "type": "blob",
-          "size": 181,
-          "sha": "ff0e518db6db1b05bda70a5916b502bd2ddf3ba1"
-        }
-      ],
-      "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:28:05.411Z"
+      "scrapedAt": "2026-09-20T05:42:30.149Z"
     },
     {
       "repository": {
@@ -4814,636 +5472,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:28:05.460Z"
-    },
-    {
-      "repository": {
-        "id": 1377081187,
-        "full_name": "nararyajayautamagroub/modbussid-converter",
-        "name": "modbussid-converter",
-        "private": false,
-        "visibility": "public",
-        "html_url": "https://github.com/nararyajayautamagroub/modbussid-converter",
-        "default_branch": "main",
-        "description": null,
-        "created_at": "2026-09-19T11:38:21Z",
-        "updated_at": "2026-09-20T03:35:22Z",
-        "pushed_at": "2026-09-20T03:35:18Z",
-        "stargazers_count": 0,
-        "forks_count": 0,
-        "open_issues_count": 0,
-        "language": "Python",
-        "size": 146,
-        "archived": false,
-        "disabled": false,
-        "topics": []
-      },
-      "languages": {
-        "Python": 121133,
-        "HTML": 33085,
-        "JavaScript": 1159
-      },
-      "readme": "# Game Mod Asset Lab v4.1.0\n\nWeb-based inspector, classifier, exporter, scraper, account system, dan download utility untuk **file/mod yang memang Anda miliki atau berwenang memprosesnya**.\n\n## Alur utama\n\n**Upload / pilih asset → Inspect → temukan entry → klasifikasi template → Export → Download**\n\n## Platform dan kategori\n\n- BUSSID: Vehicle, Map, Kodename, Sprite Sheet, Lights\n- ETS2/ATS: Vehicle, Map\n- Roblox: Vehicle, Lights, Export\n\n## Template\n\n- **AO**: Ambient Occlusion\n- **Texture**: texture umum\n- **Kaca/XOR**: template kaca / glass\n\nClassifier memakai nama file berbasis token agar radio.png tidak salah dibaca sebagai AO hanya karena mengandung huruf ao.\n\n## Fitur yang sudah aktif\n\n- Deteksi file dan SHA-256\n- Deteksi container ZIP/TAR\n- Daftar isi archive\n- Export seluruh file atau entry terpilih ke ZIP\n- Manifest JSON pada hasil export\n- Upload file ke workspace repository dengan batas 100 MB\n- Inspeksi hanya pada path yang berada di dalam repository\n- Repository catalog lokal\n- Sinkronisasi catalog ke GitHub repository publik secara berkala\n- Endpoint health dan capabilities\n- Animasi data untuk Strobo, Rotator, LED Bar\n- Paket Roblox lampu berisi JSON + script Lua untuk Roblox Studio\n- Inspect ukuran/format image dan ekstraksi Sprite Sheet menjadi frame ZIP\n- Near-real-time repository tree dengan default branch, commit SHA, tanggal commit, dan filter prefix\n- Download asset Roblox publik melalui endpoint resmi Asset Delivery\n- Validasi URL Roblox sebelum download\n- Web scraper publik dengan parser HTML, metadata Open Graph, JSON-LD, heading, link, image, robots.txt, batas ukuran, timeout, anti-SSRF, dan same-host crawl\n- GitHub Actions untuk dependency check, static check, compile, dan test Python 3.10-3.13\n\n## Endpoint utama\n\n- GET /api/health\n- GET /api/auth/status\n- GET /api/auth/me\n- POST /api/auth/register\n- POST /api/auth/login\n- POST /api/auth/logout\n- POST /api/auth/logout-all\n- PUT /api/auth/settings\n- PUT /api/auth/password\n- GET /api/auth/google/start\n- GET /api/auth/google/callback\n- GET /api/i18n\n- GET /api/i18n/{language}\n- GET /manifest.webmanifest\n- GET /sw.js\n- GET /icon.svg\n- GET /api/capabilities\n- GET /api/categories\n- GET /api/repository\n- POST /api/assets/upload\n- GET /api/assets/inspect?path=...\n- GET /api/assets/export?path=...\n- GET /api/templates/types\n- GET /api/templates/classify?path=...\n- GET /api/assets/roblox/validate?url=...\n- GET /api/assets/roblox/url?url=...\n- GET /api/sprite-sheet/inspect?path=...\n- GET /api/sprite-sheet/extract?path=...&columns=4&rows=4\n- GET /api/repository/tree?prefix=...\n- GET /api/scraper/fetch?url=...\n- GET /api/scraper/crawl?url=...&max_pages=...\n- GET /api/lights/{strobo|rotator|ledbar}\n- GET /api/lights/{strobo|rotator|ledbar}/download?platform=...\n\n## Akurasi data repository\n\nWebsite membaca struktur repository lokal saat runtime. Endpoint /api/repository juga mencoba membaca tree branch main dari GitHub dan mengembalikan commit SHA, jumlah file, daftar path, serta status sinkronisasi.\n\nJika GitHub tidak bisa diakses, data lokal tetap dipakai sehingga website tidak mati hanya karena internet sedang bermain petak umpet.\n\n## Batas penting\n\nProject ini **tidak** membypass password, enkripsi, DRM, signature, private asset, atau access control.\n\nUntuk format game proprietary seperti beberapa format internal ETS2/BUSSID/Roblox, project hanya melaporkan metadata, mendeteksi container yang dikenali, atau memproses format yang didukung. Parser native penuh harus ditambahkan berdasarkan format, dokumentasi, atau sample yang sah.\n\nExporter Roblox lampu menghasilkan **JSON + script Lua Roblox Studio**. Output tersebut bukan file native .rbxm/.rbxmx.\n\n## Jalankan\n\n    python -m pip install -r requirements.txt\n    uvicorn web.app:app --reload\n\nBuka http://127.0.0.1:8000.\n\n## Validasi\n\n    python -m compileall -q bussid ets2 roblox shared web tests\n    python -m pytest -q -W error\n\n## Scraper\n\nScraper berjalan pada host publik HTTP/HTTPS, memvalidasi DNS/IP publik, memeriksa robots.txt bila tersedia, membatasi response sampai 20 MB per request, timeout 60 detik maksimum, dan crawl hanya pada host yang sama. Ini ditujukan untuk data publik, bukan untuk melewati login, paywall, private resource, atau access control.\n\n### Contoh\n\n    /api/scraper/fetch?url=https%3A%2F%2Fexample.com\n    /api/scraper/crawl?url=https%3A%2F%2Fexample.com&max_pages=5\n\n\n## CLI scraper v4.1\n\n    python scripts/scraper.py https://example.com\n    python scripts/scraper.py https://example.com --crawl --max-pages 5\n    python scripts/scraper.py https://example.com --output reports/example.json\n\n## Validasi lokal v4.1\n\n    python scripts/check.py\n\nPerintah ini menjalankan pip check, compileall, Ruff (E9/F), dan pytest dengan warning diperlakukan sebagai error.\n\n## Authentication & Account\n\nFitur v4.1:\n- Register dengan email/password dan migrasi SQLite otomatis untuk schema lama\n- Login/logout dengan rate limit percobaan password\n- Logout semua session\n- Ganti password\n- Session database SQLite\n- Google Login via OpenID Connect\n- Pengaturan bahasa, tema, dan notifikasi\n- 10 bahasa: Indonesia, English, Melayu, Arabic, Japanese, Korean, Chinese, Spanish, Portuguese, French\n\nGoogle Login tidak mengaktifkan credential secara otomatis. Simpan credential di environment, jangan di source code:\n\n    GOOGLE_CLIENT_ID=...\n    GOOGLE_CLIENT_SECRET=...\n    GOOGLE_REDIRECT_URI=https://domain-anda.example/api/auth/google/callback\n\nDi Google Cloud Console, gunakan OAuth Client tipe **Web application** dan daftarkan redirect URI yang sama persis dengan `GOOGLE_REDIRECT_URI`.\n\nUntuk deployment HTTPS:\n\n    COOKIE_SECURE=1\n    SESSION_SECRET=<random-secret-panjang>\n\nTanpa Google credential, tombol Google Login tampil tetapi disabled. Register/login lokal tetap bekerja.\n\n## PWA & All Device Support\n\nWebsite menggunakan layout responsive untuk mobile, tablet, desktop, viewport safe-area, hamburger menu, dan installable PWA. Service worker tidak menyimpan response `/api/*` agar data akun, scraper, dan asset tidak masuk cache publik.\n",
-      "packageJson": null,
-      "latestRelease": null,
-      "commits": [
-        {
-          "sha": "e94a26bb35fbfb54755fe2a66a11a875f7b549a2",
-          "message": "fix: correct README version label",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:35:18Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/e94a26bb35fbfb54755fe2a66a11a875f7b549a2"
-        },
-        {
-          "sha": "e7fc9b8dcd6b68597a969354be9c791938a1932d",
-          "message": "docs: align README product version with v4.1",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:35:04Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/e7fc9b8dcd6b68597a969354be9c791938a1932d"
-        },
-        {
-          "sha": "124fed0d180758d694866cb717cd841f38ab941b",
-          "message": "chore: align PWA manifest with v4.1",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:35:00Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/124fed0d180758d694866cb717cd841f38ab941b"
-        },
-        {
-          "sha": "409f5a428af201d54d87ac1a1dec51ad3e2ffe54",
-          "message": "test: align scraper version expectations with v4.1",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:34:54Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/409f5a428af201d54d87ac1a1dec51ad3e2ffe54"
-        },
-        {
-          "sha": "686e39d92ace9242c173bdc4c880db24dcdacb92",
-          "message": "test: align API version expectations with v4.1",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T03:34:51Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/686e39d92ace9242c173bdc4c880db24dcdacb92"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".env.example",
-          "type": "blob",
-          "size": 349,
-          "sha": "396376102957d9be1fadd9a2ca7ddfcb7602cafe"
-        },
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "9d9880215d77099fa3b980c0c82192c1c0bd7fcc"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "5786c8883a63a438d5dc3b54698088e0725678e6"
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "type": "blob",
-          "size": 876,
-          "sha": "d32cd07b7b3235f3cbcf65d0f59efbef33992b2e"
-        },
-        {
-          "path": ".gitignore",
-          "type": "blob",
-          "size": 154,
-          "sha": "1078e3a02dccec1a11447c60f2f50198f3a1d998"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 6066,
-          "sha": "0f49b5af67284fd9911d769c8afcea336909999f"
-        },
-        {
-          "path": "bussid",
-          "type": "tree",
-          "sha": "b5631f2e7244f2a7bb5990943eaaa4aca87d48e7"
-        },
-        {
-          "path": "bussid/kodename",
-          "type": "tree",
-          "sha": "d1b3521df2de2b0160b777bc2c1bc1882eff61a0"
-        },
-        {
-          "path": "bussid/kodename/README.md",
-          "type": "blob",
-          "size": 195,
-          "sha": "8cc0da916ae28dc073165cd69fcb693847c30f6c"
-        },
-        {
-          "path": "bussid/kodename/converter.py",
-          "type": "blob",
-          "size": 524,
-          "sha": "ba8d64b5f36af548f82cc6537f89b4472fd37b90"
-        },
-        {
-          "path": "bussid/kodename/templates",
-          "type": "tree",
-          "sha": "e4709865c94ec0230b24c6ce002ffe8d1300286d"
-        },
-        {
-          "path": "bussid/kodename/templates/README.md",
-          "type": "blob",
-          "size": 178,
-          "sha": "41e004735965a2a06e11bf611ac01331c396ffae"
-        },
-        {
-          "path": "bussid/lights",
-          "type": "tree",
-          "sha": "7bbd30028834e52948cc26f912895877bc80f658"
-        },
-        {
-          "path": "bussid/lights/README.md",
-          "type": "blob",
-          "size": 342,
-          "sha": "9820c4c01b2ec91555e0ebff6bf14cdedf9b83d8"
-        },
-        {
-          "path": "bussid/lights/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "bussid/lights/export.py",
-          "type": "blob",
-          "size": 328,
-          "sha": "eabe523bddc260db0f992867ade53d46b96bd63d"
-        },
-        {
-          "path": "bussid/map",
-          "type": "tree",
-          "sha": "684b23a30e3263515055d14f83305c62105f9a4c"
-        },
-        {
-          "path": "bussid/map/README.md",
-          "type": "blob",
-          "size": 351,
-          "sha": "615b9033a3a8adeb969b8251de2eccd2546acbf0"
-        },
-        {
-          "path": "bussid/map/converter.py",
-          "type": "blob",
-          "size": 519,
-          "sha": "78e03174bf6777c805f80658c3b4d166cc9265c1"
-        },
-        {
-          "path": "bussid/map/templates",
-          "type": "tree",
-          "sha": "aeea6b8ebf06fbebbddc0610ce4220f9c69de3af"
-        },
-        {
-          "path": "bussid/map/templates/README.md",
-          "type": "blob",
-          "size": 187,
-          "sha": "5f9ccc81e15c5e3dcafda7a88db57183a2d58953"
-        },
-        {
-          "path": "bussid/sprite-sheet",
-          "type": "tree",
-          "sha": "42649df665115134baed84d378489a1b7ac2a859"
-        },
-        {
-          "path": "bussid/sprite-sheet/README.md",
-          "type": "blob",
-          "size": 331,
-          "sha": "ce9f5af2e43a67d74d825d1b2c60656a14d4ec44"
-        },
-        {
-          "path": "bussid/sprite-sheet/converter.py",
-          "type": "blob",
-          "size": 528,
-          "sha": "a31fbdf8a2bc18377832863a2233366f23d0739b"
-        },
-        {
-          "path": "bussid/sprite-sheet/templates",
-          "type": "tree",
-          "sha": "a1bb72ce153e140668c5d87a11945176b1ac79d2"
-        },
-        {
-          "path": "bussid/sprite-sheet/templates/README.md",
-          "type": "blob",
-          "size": 198,
-          "sha": "d3facccd8e7b81b53186ddd47e3083b0672bc8a3"
-        },
-        {
-          "path": "bussid/vehicle",
-          "type": "tree",
-          "sha": "e4aea2e43f2e51c5648d5505a2ed204e276f71ff"
-        },
-        {
-          "path": "bussid/vehicle/README.md",
-          "type": "blob",
-          "size": 538,
-          "sha": "49b72876dfb70dd16cd3131bd6b19dba820594a3"
-        },
-        {
-          "path": "bussid/vehicle/converter.py",
-          "type": "blob",
-          "size": 523,
-          "sha": "8ef3e6ef899711fca2ec046af0e0f5cf78ed9a0d"
-        },
-        {
-          "path": "bussid/vehicle/templates",
-          "type": "tree",
-          "sha": "c2be60c58b31a2a8e80ecc094b0fa16991db07b5"
-        },
-        {
-          "path": "bussid/vehicle/templates/README.md",
-          "type": "blob",
-          "size": 430,
-          "sha": "707c407fd2ceefcef01a86b08e514271490ba7f4"
-        },
-        {
-          "path": "download",
-          "type": "tree",
-          "sha": "8b7f89ab48a8672a406f1bb8d565219001af3f37"
-        },
-        {
-          "path": "download/README.md",
-          "type": "blob",
-          "size": 355,
-          "sha": "694072dd31c45f7eb9c9f75f59792c8122829a09"
-        },
-        {
-          "path": "ets2",
-          "type": "tree",
-          "sha": "e462ee678d388c50ce974daee23ad194ad685aea"
-        },
-        {
-          "path": "ets2/map",
-          "type": "tree",
-          "sha": "f6fb24e2c703c397860f7a60a7ec305b474637a4"
-        },
-        {
-          "path": "ets2/map/README.md",
-          "type": "blob",
-          "size": 229,
-          "sha": "d451cf42dc98d900acb99d8ee27b0c8d7c3d206e"
-        },
-        {
-          "path": "ets2/map/converter.py",
-          "type": "blob",
-          "size": 517,
-          "sha": "a0eabba8f7ec649fe0b72d354cbd4decde4dd53c"
-        },
-        {
-          "path": "ets2/vehicle",
-          "type": "tree",
-          "sha": "0c60bc0ff4dcde3c5d1402f247ceca324fa09f0a"
-        },
-        {
-          "path": "ets2/vehicle/README.md",
-          "type": "blob",
-          "size": 434,
-          "sha": "cf227056c07df7553ada20eb0dbe539a58139376"
-        },
-        {
-          "path": "ets2/vehicle/converter.py",
-          "type": "blob",
-          "size": 521,
-          "sha": "76a8a156899dd40799c20d1265b1ab2d63f65de3"
-        },
-        {
-          "path": "requirements.txt",
-          "type": "blob",
-          "size": 215,
-          "sha": "c327961428a58c78ad2711db8cb71a250a7b9ab6"
-        },
-        {
-          "path": "roblox",
-          "type": "tree",
-          "sha": "e3c19f9222212dbdc6c2895f34e1e642d6f14d7a"
-        },
-        {
-          "path": "roblox/export",
-          "type": "tree",
-          "sha": "8247fffe9e2241956559865aeafab966dcfe8ec7"
-        },
-        {
-          "path": "roblox/export/README.md",
-          "type": "blob",
-          "size": 383,
-          "sha": "7aa03a08fb24e077775c8f6f62713a29a6cd7fb4"
-        },
-        {
-          "path": "roblox/export/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "roblox/export/url_asset.py",
-          "type": "blob",
-          "size": 449,
-          "sha": "6dac01184d451aac31dc763d6f9e10d158c8d4b3"
-        },
-        {
-          "path": "roblox/lights",
-          "type": "tree",
-          "sha": "0e416adb75decafb889bc98b4a40e12747a5432d"
-        },
-        {
-          "path": "roblox/lights/README.md",
-          "type": "blob",
-          "size": 534,
-          "sha": "c81e12ba08fd1bf0d2750829bc7870f7f2da69cd"
-        },
-        {
-          "path": "roblox/lights/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "roblox/lights/export.py",
-          "type": "blob",
-          "size": 328,
-          "sha": "d7c1e4adcb83eaf38283d9084f0d1bcf21aafa76"
-        },
-        {
-          "path": "roblox/vehicle",
-          "type": "tree",
-          "sha": "fc52b343eba274b6db8b5bf420be520c9b3a0b26"
-        },
-        {
-          "path": "roblox/vehicle/README.md",
-          "type": "blob",
-          "size": 265,
-          "sha": "e3d65f0a78943540a405aeedfc85dcb987cade1b"
-        },
-        {
-          "path": "roblox/vehicle/converter.py",
-          "type": "blob",
-          "size": 523,
-          "sha": "40ab863b5ba8dbb24b6059b74442f0d72108faaf"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "178d812c779ea6570cd69be3765cec933c1e702b"
-        },
-        {
-          "path": "scripts/README.md",
-          "type": "blob",
-          "size": 453,
-          "sha": "c5afb69bde19e0b38f6192c78902b00823b5128b"
-        },
-        {
-          "path": "scripts/check.py",
-          "type": "blob",
-          "size": 719,
-          "sha": "6fd13152f97cc0d6a1e54d6b33c7e373fcbb82c9"
-        },
-        {
-          "path": "scripts/scraper.py",
-          "type": "blob",
-          "size": 1737,
-          "sha": "c1bae96e0c28e4c76dd12adc8f54e613e2fa915d"
-        },
-        {
-          "path": "shared",
-          "type": "tree",
-          "sha": "187bf80137b98e136e6342758b90efdc28396c61"
-        },
-        {
-          "path": "shared/asset_export.py",
-          "type": "blob",
-          "size": 3965,
-          "sha": "d12f8b93abd9a168b0d8117044beddb0b1a9c7c0"
-        },
-        {
-          "path": "shared/asset_inspector.py",
-          "type": "blob",
-          "size": 4219,
-          "sha": "bfcdfa23db570d8292a80fc6017b4533cd514d68"
-        },
-        {
-          "path": "shared/auth_db.py",
-          "type": "blob",
-          "size": 11692,
-          "sha": "b30e7b6127a3974522e5a9fb3c58d5e73c9175b1"
-        },
-        {
-          "path": "shared/i18n.py",
-          "type": "blob",
-          "size": 28129,
-          "sha": "413b55ad0bc237dae73b27e4a05478ba8d8f05a7"
-        },
-        {
-          "path": "shared/image_tools.py",
-          "type": "blob",
-          "size": 2512,
-          "sha": "468c871ae9e0246760283a2d374842523cce5ecb"
-        },
-        {
-          "path": "shared/light_animation.py",
-          "type": "blob",
-          "size": 1797,
-          "sha": "b98b616becf47257e37df2426cdf1159ff8b7987"
-        },
-        {
-          "path": "shared/package_export.py",
-          "type": "blob",
-          "size": 2810,
-          "sha": "5d70d2ea8a4b9d57bb159f4cb5c1d01cd2f4e935"
-        },
-        {
-          "path": "shared/path_security.py",
-          "type": "blob",
-          "size": 724,
-          "sha": "ed2d982cc1d6c3eb866a0e45f42bf1fa1d0444e3"
-        },
-        {
-          "path": "shared/roblox_url.py",
-          "type": "blob",
-          "size": 2816,
-          "sha": "41f579a45eb2cfb5ab753cbc30969010bacce4ff"
-        },
-        {
-          "path": "shared/scraper.py",
-          "type": "blob",
-          "size": 13818,
-          "sha": "1c5b2f9a3a072bddbdd7ad78f259f8ba062cb3d5"
-        },
-        {
-          "path": "shared/template_classifier.py",
-          "type": "blob",
-          "size": 1055,
-          "sha": "17d20f514b6a101a177697e11a96d8269a3639f4"
-        },
-        {
-          "path": "shared/version.py",
-          "type": "blob",
-          "size": 58,
-          "sha": "deaa28109e1e72107dc2166508cf3359a7203192"
-        },
-        {
-          "path": "templates",
-          "type": "tree",
-          "sha": "50757749d787b1fb5764c3e9fc13b11921dd014d"
-        },
-        {
-          "path": "templates/README.md",
-          "type": "blob",
-          "size": 298,
-          "sha": "b7c804cc5bda7280c222e38aef10d4b135c9848b"
-        },
-        {
-          "path": "tests",
-          "type": "tree",
-          "sha": "0d0914ee0296cb6bccd99f7f1824387360a5c55f"
-        },
-        {
-          "path": "tests/test_api.py",
-          "type": "blob",
-          "size": 2076,
-          "sha": "ddac09bac2c9c52876a3278175590ff7f0df2538"
-        },
-        {
-          "path": "tests/test_asset_export.py",
-          "type": "blob",
-          "size": 588,
-          "sha": "63f42d52856a93c196fee77521a025bf1779694f"
-        },
-        {
-          "path": "tests/test_auth.py",
-          "type": "blob",
-          "size": 3747,
-          "sha": "f8bcda2b32725b0e06e8a29f3de60518f342e891"
-        },
-        {
-          "path": "tests/test_image_tools.py",
-          "type": "blob",
-          "size": 646,
-          "sha": "c75ac4aa0b712980e29e0ee758fef9e8b8a8796b"
-        },
-        {
-          "path": "tests/test_inspector.py",
-          "type": "blob",
-          "size": 372,
-          "sha": "080d0aa118f87f336d1c7269d891b5076caa430d"
-        },
-        {
-          "path": "tests/test_lights.py",
-          "type": "blob",
-          "size": 480,
-          "sha": "3ef3dd9c349409605cb1343cd07770d4e14bdb33"
-        },
-        {
-          "path": "tests/test_package_export.py",
-          "type": "blob",
-          "size": 729,
-          "sha": "6514a3e6b5ab7b486b70976ee7565a19b44b2303"
-        },
-        {
-          "path": "tests/test_roblox_url.py",
-          "type": "blob",
-          "size": 748,
-          "sha": "c96fb36991fd0874f12614e050d3a7fabaa6cdac"
-        },
-        {
-          "path": "tests/test_scraper.py",
-          "type": "blob",
-          "size": 1694,
-          "sha": "9f610381684e3bd90a9eafd79a0545e59bacefa6"
-        },
-        {
-          "path": "tests/test_templates.py",
-          "type": "blob",
-          "size": 591,
-          "sha": "042083898ce676ead752ae3db6fb4292328260b4"
-        },
-        {
-          "path": "tests/test_web_ui.py",
-          "type": "blob",
-          "size": 578,
-          "sha": "35560132508c61ad87e99975879a0ab6f5f04418"
-        },
-        {
-          "path": "web",
-          "type": "tree",
-          "sha": "f16df5171f5dcc07dc71265a8bc5fd950bbb7782"
-        },
-        {
-          "path": "web/app.py",
-          "type": "blob",
-          "size": 5027,
-          "sha": "a03a77f08fdb7c0c89a3e71ad2e49b07a8eee102"
-        },
-        {
-          "path": "web/asset_api.py",
-          "type": "blob",
-          "size": 3488,
-          "sha": "6340fde5a5d7976abfd0ae16f146a2b0572cf5fc"
-        },
-        {
-          "path": "web/auth_api.py",
-          "type": "blob",
-          "size": 11163,
-          "sha": "5faa4d1daa100aa9572d6e911ddf58c7de78a7d2"
-        },
-        {
-          "path": "web/catalog.py",
-          "type": "blob",
-          "size": 4946,
-          "sha": "b33eae2b70116a9983275e3aad982b24c1979e1a"
-        },
-        {
-          "path": "web/i18n_api.py",
-          "type": "blob",
-          "size": 541,
-          "sha": "065bcd97ef09100bef356b1b3d2adb09c4004b8d"
-        },
-        {
-          "path": "web/icon.svg",
-          "type": "blob",
-          "size": 343,
-          "sha": "827b384ba03f7ef3cd6b8b7636d35e36cff662b6"
-        },
-        {
-          "path": "web/index.html",
-          "type": "blob",
-          "size": 33085,
-          "sha": "94a13f71b7bef90731759ca5a68ffb0b42455bd5"
-        },
-        {
-          "path": "web/manifest.webmanifest",
-          "type": "blob",
-          "size": 393,
-          "sha": "3b01fe89cc188d5dc77ae97f691e351d249b1145"
-        },
-        {
-          "path": "web/scraper_api.py",
-          "type": "blob",
-          "size": 1216,
-          "sha": "0118924be2e232efe90d45f16fe8009543e04776"
-        },
-        {
-          "path": "web/sprite_api.py",
-          "type": "blob",
-          "size": 1294,
-          "sha": "9dfd9411db2612fd42d8a939270903ecb15816a0"
-        },
-        {
-          "path": "web/sw.js",
-          "type": "blob",
-          "size": 1159,
-          "sha": "42f266d5a0d1e96575dddb7dc9957f4dc22abf35"
-        },
-        {
-          "path": "web/template_api.py",
-          "type": "blob",
-          "size": 398,
-          "sha": "8b028a5de7ea982d93500b75e6c7f837c3f5f769"
-        }
-      ],
-      "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:28:05.499Z"
+      "scrapedAt": "2026-09-20T05:42:30.199Z"
     },
     {
       "repository": {
@@ -6083,7 +6112,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T05:28:05.515Z"
+      "scrapedAt": "2026-09-20T05:42:30.214Z"
     }
   ]
 }
