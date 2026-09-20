@@ -1,5 +1,6 @@
 import {NextResponse} from "next/server";
 import {z} from "zod";
+import type {Prisma} from "@/generated/prisma/client";
 import {getPrisma} from "@/lib/prisma";
 import {requireRole} from "@/lib/authorization";
 import {rejectCrossOrigin} from "@/lib/request-security";
@@ -28,7 +29,12 @@ export async function PATCH(req:Request){
   if(!prisma)return NextResponse.json({error:"Database unavailable"},{status:503});
   try{
     const body=schema.parse(await req.json());
-    const data=await prisma.setting.upsert({where:{key:body.key},create:{key:body.key,value:body.value},update:{value:body.value}});
+    const jsonValue=JSON.parse(JSON.stringify(body.value)) as Prisma.InputJsonValue;
+    const data=await prisma.setting.upsert({
+      where:{key:body.key},
+      create:{key:body.key,value:jsonValue},
+      update:{value:jsonValue}
+    });
     await logActivity({userId:auth.session.user.id,action:"ADMIN_SETTING_UPDATE",entityType:"Setting",entityId:body.key});
     return NextResponse.json({data});
   }catch(error){
