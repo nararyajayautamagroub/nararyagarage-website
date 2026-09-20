@@ -1,3 +1,4 @@
+import {rejectCrossOrigin} from "@/lib/request-security";
 import {NextResponse} from "next/server";
 import {z} from "zod";
 import {getPrisma} from "@/lib/prisma";
@@ -7,6 +8,7 @@ import {getRequestIp,rateLimit} from "@/lib/rate-limit";
 const schema=z.object({identifier:z.string().min(3).max(254),password:z.string().min(1).max(128)});
 
 export async function POST(req:Request){
+  const originError=rejectCrossOrigin(req); if(originError)return originError;
   const limited=rateLimit(`login:${getRequestIp(req)}`,8,60_000);
   if(!limited.ok)return NextResponse.json({error:"Terlalu banyak percobaan login",retryAfter:limited.retryAfter},{status:429,headers:{"Retry-After":String(limited.retryAfter)}});
 
