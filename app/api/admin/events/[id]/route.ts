@@ -2,6 +2,7 @@ import {NextResponse} from "next/server";
 import {z} from "zod";
 import {getPrisma} from "@/lib/prisma";
 import {requireRole} from "@/lib/authorization";
+import {rejectCrossOrigin} from "@/lib/request-security";
 
 const schema=z.object({
   name:z.string().trim().min(3).max(160).optional(),
@@ -17,6 +18,8 @@ const schema=z.object({
 });
 
 export async function PATCH(req:Request,{params}:{params:Promise<{id:string}>}){
+  const originError=rejectCrossOrigin(req);
+  if(originError)return originError;
   const auth=await requireRole(["OWNER","ADMIN","STAFF"]);
   if(!auth.ok)return auth.response;
   const prisma=getPrisma();
@@ -46,7 +49,9 @@ export async function PATCH(req:Request,{params}:{params:Promise<{id:string}>}){
   }
 }
 
-export async function DELETE(_req:Request,{params}:{params:Promise<{id:string}>}){
+export async function DELETE(req:Request,{params}:{params:Promise<{id:string}>}){
+  const originError=rejectCrossOrigin(req);
+  if(originError)return originError;
   const auth=await requireRole(["OWNER","ADMIN"]);
   if(!auth.ok)return auth.response;
   const prisma=getPrisma();
