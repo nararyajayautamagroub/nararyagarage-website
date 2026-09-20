@@ -9,13 +9,14 @@ export default async function Dashboard(){
   if(!current)redirect("/login?next=/member/dashboard");
   if(!current.prisma||!current.member)return <main className="mx-auto max-w-5xl px-6 py-16"><p className="text-zinc-500">Member database belum terhubung.</p></main>;
 
-  const [events,convoys,showcase,achievements,notifications,submissions]=await Promise.all([
+  const [events,convoys,showcase,achievements,notifications,submissions,fleet]=await Promise.all([
     current.prisma.eventParticipant.count({where:{memberId:current.member.id,status:{not:"CANCELLED"}}}),
     current.prisma.eventParticipant.count({where:{memberId:current.member.id,event:{type:{contains:"convoy",mode:"insensitive"}},status:{not:"CANCELLED"}}}),
     current.prisma.showcase.count({where:{author:current.session.user.username}}),
     current.prisma.memberAchievement.count({where:{memberId:current.member.id}}),
     current.prisma.notification.count({where:{memberId:current.member.id,readAt:null}}),
-    current.prisma.mod.count({where:{author:current.session.user.username}})
+    current.prisma.mod.count({where:{author:current.session.user.username}}),
+    current.prisma.fleetVehicle.count({where:{memberId:current.member.id}})
   ]);
 
   const cards:Array<[string,number,string]>=[
@@ -24,7 +25,8 @@ export default async function Dashboard(){
     ["Showcase",showcase,"/member/showcase"],
     ["Achievements",achievements,"/member/achievements"],
     ["Unread",notifications,"/member/notifications"],
-    ["Mod submissions",submissions,"/member/submissions"]
+    ["Mod submissions",submissions,"/member/submissions"],
+    ["Fleet",fleet,"/member/fleet"]
   ];
 
   return <main className="mx-auto max-w-6xl px-6 py-14">
