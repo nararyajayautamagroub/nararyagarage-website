@@ -23,11 +23,5 @@ jobs:
           package-manager-cache: false
       - name: Install
         run: npm install
-      - name: Generate Prisma
-        run: npm run db:generate
-      - name: Validate Prisma
-        run: npm run db:validate
-      - name: Typecheck
-        run: npm run typecheck
-      - name: Build
-        run: npm run build
+      - name: Full verification
+        run: npm run check
