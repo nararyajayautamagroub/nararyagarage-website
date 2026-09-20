@@ -4,7 +4,8 @@ import {getSession} from "@/lib/auth";
 import {getPrisma} from "@/lib/prisma";
 import {rejectCrossOrigin} from "@/lib/request-security";
 import {logActivity} from "@/lib/activity";
-import {locales} from "@/lib/i18n";
+import {locales,LOCALE_COOKIE,isLocale} from "@/lib/i18n";
+import {cookies} from "next/headers";
 
 const schema=z.object({
   emailNotifications:z.boolean().optional(),
@@ -25,7 +26,18 @@ export async function GET(){
   const member=await prisma.member.findUnique({where:{userId:session.user.id},select:{privacy:true}});
   if(!member)return NextResponse.json({error:"Member profile not found"},{status:404});
   const privacy=member.privacy&&typeof member.privacy==="object"&&!Array.isArray(member.privacy)?member.privacy:{};
-  return NextResponse.json({data:privacy},{headers:{"Cache-Control":"no-store"}});
+  const response=NextResponse.json({data:privacy},{headers:{"Cache-Control":"no-store"}});
+  const language=typeof privacy.language==="string"&&isLocale(privacy.language)?privacy.language:null;
+  if(language){
+    (await cookies()).set(LOCALE_COOKIE,language,{
+      httpOnly:false,
+      secure:process.env.NODE_ENV==="production",
+      sameSite:"lax",
+      path:"/",
+      maxAge:60*60*24*365
+    });
+  }
+  return response;
 }
 
 export async function PATCH(req:Request){
