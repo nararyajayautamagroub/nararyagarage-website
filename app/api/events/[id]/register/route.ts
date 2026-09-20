@@ -1,3 +1,4 @@
+import {rejectCrossOrigin} from "@/lib/request-security";
 import {NextResponse} from "next/server";
 import {getSession} from "@/lib/auth";
 import {getPrisma} from "@/lib/prisma";
@@ -5,6 +6,7 @@ import {getPrisma} from "@/lib/prisma";
 export const dynamic="force-dynamic";
 
 export async function POST(_req:Request,{params}:{params:Promise<{id:string}>}){
+  const originError=rejectCrossOrigin(_req); if(originError)return originError;
   const session=await getSession();
   if(!session)return NextResponse.json({error:"Authentication required"},{status:401});
   const prisma=getPrisma();
