@@ -172,3 +172,41 @@ export async function getPublishedNews(){
     });
   }catch{return [];}
 }
+
+
+export async function getPartners(){
+  const prisma=getPrisma();
+  if(!prisma)return [];
+  try{
+    return await prisma.partner.findMany({orderBy:{name:"asc"},take:100,select:{id:true,name:true,logoUrl:true,description:true,link:true,collaborationType:true}});
+  }catch{return [];}
+}
+
+export async function getAchievements(){
+  const prisma=getPrisma();
+  if(!prisma)return [];
+  try{
+    return await prisma.achievement.findMany({
+      orderBy:{name:"asc"},
+      take:100,
+      select:{id:true,code:true,name:true,description:true,_count:{select:{memberAchievements:true}}}
+    });
+  }catch{return [];}
+}
+
+export async function getConvoyEvents(){
+  const prisma=getPrisma();
+  if(!prisma)return [];
+  try{
+    return await prisma.event.findMany({
+      where:{
+        date:{gte:new Date()},
+        type:{contains:"convoy",mode:"insensitive"},
+        status:{in:["DRAFT","OPEN","FULL"]}
+      },
+      orderBy:{date:"asc"},
+      take:50,
+      select:{id:true,eventId:true,name:true,type:true,game:true,date:true,status:true,route:true,meetingPoint:true,quota:true,_count:{select:{participants:true}}}
+    });
+  }catch{return [];}
+}
