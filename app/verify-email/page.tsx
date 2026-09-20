@@ -1,29 +1,43 @@
 "use client";
 
-import {FormEvent,useState} from "react";
-import {useEffect} from "react";
+import {FormEvent,useEffect,useState} from "react";
 
 export default function VerifyEmailPage(){
   const [token,setToken]=useState("");
-  useEffect(()=>{setToken(new URLSearchParams(window.location.search).get("token")||"");},[]);
+  const [redirecting,setRedirecting]=useState(false);
   const [email,setEmail]=useState("");
-  const [message,setMessage]=useState(token?"Link verifikasi akan diproses saat halaman dibuka.":"");
+  const [message,setMessage]=useState("");
   const [error,setError]=useState("");
   const [loading,setLoading]=useState(false);
 
-  if(token){
-    window.location.replace("/api/auth/verify?token="+encodeURIComponent(token));
-    return <main className="mx-auto max-w-md px-6 py-20 text-center"><p className="text-zinc-500">Memverifikasi email...</p></main>;
-  }
+  useEffect(()=>{
+    const nextToken=new URLSearchParams(window.location.search).get("token")||"";
+    setToken(nextToken);
+    if(nextToken){
+      setRedirecting(true);
+      window.location.replace("/api/auth/verify?token="+encodeURIComponent(nextToken));
+    }
+  },[]);
 
   async function submit(event:FormEvent<HTMLFormElement>){
     event.preventDefault();setLoading(true);setError("");setMessage("");
     try{
-      const response=await fetch("/api/auth/verify/request",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email})});
+      const response=await fetch("/api/auth/verify/request",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({email})
+      });
       const data=await response.json().catch(()=>({}));
       setMessage(data.message||"Jika akun ada, instruksi verifikasi akan dikirim.");
-    }catch{setError("Request verifikasi gagal.");}
-    finally{setLoading(false);}
+    }catch{
+      setError("Request verifikasi gagal.");
+    }finally{
+      setLoading(false);
+    }
+  }
+
+  if(redirecting||token){
+    return <main className="mx-auto max-w-md px-6 py-20 text-center"><p className="text-zinc-500">Memverifikasi email...</p></main>;
   }
 
   return <main className="mx-auto flex min-h-[70vh] max-w-md items-center px-6 py-16">
