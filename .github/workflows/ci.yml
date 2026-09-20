@@ -22,6 +22,6 @@ jobs:
           node-version: 24
           package-manager-cache: false
       - name: Install
-        run: npm install
+        run: npm ci --no-audit --no-fund
       - name: Full verification
         run: npm run check
