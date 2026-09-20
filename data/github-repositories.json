@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-20T02:28:49.608Z",
+  "fetchedAt": "2026-09-20T02:44:01.052Z",
   "repositoryCount": 6,
   "repositories": [
     {
@@ -15,8 +15,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-09-20T02:28:38Z",
-        "pushed_at": "2026-09-20T02:28:45Z",
+        "updated_at": "2026-09-20T02:29:45Z",
+        "pushed_at": "2026-09-20T02:29:41Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -27,7 +27,7 @@
         "topics": []
       },
       "languages": {
-        "JavaScript": 34688,
+        "JavaScript": 34656,
         "CSS": 20758,
         "HTML": 1554
       },
@@ -36,39 +36,39 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "98c298eb2aa86063760456b17f2b77e4984a0ca9",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T02:29:40Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/98c298eb2aa86063760456b17f2b77e4984a0ca9"
+        },
+        {
+          "sha": "446402e5b55740e1654f4d99d93b68c1ca8c13f7",
+          "message": "fix: support custom HTTPS Supabase domains safely",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:29:32Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/446402e5b55740e1654f4d99d93b68c1ca8c13f7"
+        },
+        {
+          "sha": "7ca378d494d7b2cd6217ed435f75133e05db793c",
+          "message": "chore: trigger v4 integrated telemetry pipeline",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:29:26Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/7ca378d494d7b2cd6217ed435f75133e05db793c"
+        },
+        {
+          "sha": "43da685148e104e9574f128e05e67f638a21a47e",
+          "message": "fix: normalize default preference values for motion and refresh",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:29:08Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/43da685148e104e9574f128e05e67f638a21a47e"
+        },
+        {
           "sha": "df0f3c2fd092a6b47f5065796bc0c6028d45615b",
           "message": "fix: make experience HTML escaping parser-safe",
           "author": "nararyajayautamagroub",
           "date": "2026-09-20T02:28:45Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/df0f3c2fd092a6b47f5065796bc0c6028d45615b"
-        },
-        {
-          "sha": "1626d8370193f11c32df204076010072df930e9c",
-          "message": "fix: repair HTML escape helper syntax in experience module",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:28:34Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/1626d8370193f11c32df204076010072df930e9c"
-        },
-        {
-          "sha": "c88dff239f2db7d3abfc8236a41e0c93d5c48d50",
-          "message": "fix: simplify account chip rendering for valid browser syntax",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:28:22Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/c88dff239f2db7d3abfc8236a41e0c93d5c48d50"
-        },
-        {
-          "sha": "a048acbaa8affebbf39d596f92ed9c57706ad011",
-          "message": "fix: repair authenticated account display expression",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:28:12Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/a048acbaa8affebbf39d596f92ed9c57706ad011"
-        },
-        {
-          "sha": "a01d733539802b433a814dadc5cedef5c08087c6",
-          "message": "fix: simplify system health renderer and remove syntax fault",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:28:10Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/a01d733539802b433a814dadc5cedef5c08087c6"
         }
       ],
       "tree": [
@@ -115,8 +115,8 @@
         {
           "path": "auth.js",
           "type": "blob",
-          "size": 8574,
-          "sha": "783ff929a9ea7360d0b7b774d86be9f6937a43e6"
+          "size": 8661,
+          "sha": "748c4962397b4392b2a5f25525512afc9c41077d"
         },
         {
           "path": "config.example.js",
@@ -150,20 +150,20 @@
         {
           "path": "experience.js",
           "type": "blob",
-          "size": 6703,
-          "sha": "dc711fe3a19fdfc7093204c4e44d706572d8f04d"
+          "size": 6707,
+          "sha": "06296ced50a947878b3e5e1b580ca4b333951e3c"
         },
         {
           "path": "external-live.js",
           "type": "blob",
-          "size": 123,
-          "sha": "72de2951e097b4731b3a7f8cfd4f998fe6d6fef9"
+          "size": 3595,
+          "sha": "fcc182d50afc970588f4ee7dae59b0f537eb325a"
         },
         {
           "path": "github-live.js",
           "type": "blob",
-          "size": 8402,
-          "sha": "7f4ada6e0a048ac821aa461971b759b586921b1e"
+          "size": 8566,
+          "sha": "c3a3c0986504e4728b49d336836b3c8eba451fe2"
         },
         {
           "path": "i18n.js",
@@ -233,641 +233,12 @@
         {
           "path": "sync-config.json",
           "type": "blob",
-          "size": 1301,
-          "sha": "9f43c8d88817cfbabeb11a59e019418b9290bbb9"
+          "size": 1365,
+          "sha": "d2dd5fca904cae4c6f81f08de1c9eef50ab6ea3d"
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:28:49.338Z"
-    },
-    {
-      "repository": {
-        "id": 1377081187,
-        "full_name": "nararyajayautamagroub/modbussid-converter",
-        "name": "modbussid-converter",
-        "private": false,
-        "visibility": "public",
-        "html_url": "https://github.com/nararyajayautamagroub/modbussid-converter",
-        "default_branch": "main",
-        "description": null,
-        "created_at": "2026-09-19T11:38:21Z",
-        "updated_at": "2026-09-20T02:23:20Z",
-        "pushed_at": "2026-09-20T02:23:17Z",
-        "stargazers_count": 0,
-        "forks_count": 0,
-        "open_issues_count": 0,
-        "language": "Python",
-        "size": 121,
-        "archived": false,
-        "disabled": false,
-        "topics": []
-      },
-      "languages": {
-        "Python": 96962,
-        "HTML": 31663,
-        "JavaScript": 1159
-      },
-      "readme": "# Game Mod Asset Lab v4.0.0\n\nWeb-based inspector, classifier, exporter, scraper, account system, dan download utility untuk **file/mod yang memang Anda miliki atau berwenang memprosesnya**.\n\n## Alur utama\n\n**Upload / pilih asset → Inspect → temukan entry → klasifikasi template → Export → Download**\n\n## Platform dan kategori\n\n- BUSSID: Vehicle, Map, Kodename, Sprite Sheet, Lights\n- ETS2/ATS: Vehicle, Map\n- Roblox: Vehicle, Lights, Export\n\n## Template\n\n- **AO**: Ambient Occlusion\n- **Texture**: texture umum\n- **Kaca/XOR**: template kaca / glass\n\nClassifier memakai nama file berbasis token agar radio.png tidak salah dibaca sebagai AO hanya karena mengandung huruf ao.\n\n## Fitur yang sudah aktif\n\n- Deteksi file dan SHA-256\n- Deteksi container ZIP/TAR\n- Daftar isi archive\n- Export seluruh file atau entry terpilih ke ZIP\n- Manifest JSON pada hasil export\n- Upload file ke workspace repository dengan batas 100 MB\n- Inspeksi hanya pada path yang berada di dalam repository\n- Repository catalog lokal\n- Sinkronisasi catalog ke GitHub repository publik secara berkala\n- Endpoint health dan capabilities\n- Animasi data untuk Strobo, Rotator, LED Bar\n- Paket Roblox lampu berisi JSON + script Lua untuk Roblox Studio\n- Inspect ukuran/format image dan ekstraksi Sprite Sheet menjadi frame ZIP\n- Near-real-time repository tree dengan default branch, commit SHA, tanggal commit, dan filter prefix\n- Download asset Roblox publik melalui endpoint resmi Asset Delivery\n- Validasi URL Roblox sebelum download\n- Web scraper publik dengan parser HTML, metadata Open Graph, JSON-LD, heading, link, image, robots.txt, batas ukuran, timeout, anti-SSRF, dan same-host crawl\n- GitHub Actions untuk dependency check, static check, compile, dan test Python 3.10-3.13\n\n## Endpoint utama\n\n- GET /api/health\n- GET /api/auth/status\n- GET /api/auth/me\n- POST /api/auth/register\n- POST /api/auth/login\n- POST /api/auth/logout\n- POST /api/auth/logout-all\n- PUT /api/auth/settings\n- PUT /api/auth/password\n- GET /api/auth/google/start\n- GET /api/auth/google/callback\n- GET /api/i18n\n- GET /api/i18n/{language}\n- GET /manifest.webmanifest\n- GET /sw.js\n- GET /icon.svg\n- GET /api/capabilities\n- GET /api/categories\n- GET /api/repository\n- POST /api/assets/upload\n- GET /api/assets/inspect?path=...\n- GET /api/assets/export?path=...\n- GET /api/templates/types\n- GET /api/templates/classify?path=...\n- GET /api/assets/roblox/validate?url=...\n- GET /api/assets/roblox/url?url=...\n- GET /api/sprite-sheet/inspect?path=...\n- GET /api/sprite-sheet/extract?path=...&columns=4&rows=4\n- GET /api/repository/tree?prefix=...\n- GET /api/scraper/fetch?url=...\n- GET /api/scraper/crawl?url=...&max_pages=...\n- GET /api/lights/{strobo|rotator|ledbar}\n- GET /api/lights/{strobo|rotator|ledbar}/download?platform=...\n\n## Akurasi data repository\n\nWebsite membaca struktur repository lokal saat runtime. Endpoint /api/repository juga mencoba membaca tree branch main dari GitHub dan mengembalikan commit SHA, jumlah file, daftar path, serta status sinkronisasi.\n\nJika GitHub tidak bisa diakses, data lokal tetap dipakai sehingga website tidak mati hanya karena internet sedang bermain petak umpet.\n\n## Batas penting\n\nProject ini **tidak** membypass password, enkripsi, DRM, signature, private asset, atau access control.\n\nUntuk format game proprietary seperti beberapa format internal ETS2/BUSSID/Roblox, project hanya melaporkan metadata, mendeteksi container yang dikenali, atau memproses format yang didukung. Parser native penuh harus ditambahkan berdasarkan format, dokumentasi, atau sample yang sah.\n\nExporter Roblox lampu menghasilkan **JSON + script Lua Roblox Studio**. Output tersebut bukan file native .rbxm/.rbxmx.\n\n## Jalankan\n\n    python -m pip install -r requirements.txt\n    uvicorn web.app:app --reload\n\nBuka http://127.0.0.1:8000.\n\n## Validasi\n\n    python -m compileall -q bussid ets2 roblox shared web tests\n    python -m pytest -q -W error\n\n## Scraper\n\nScraper berjalan pada host publik HTTP/HTTPS, memvalidasi DNS/IP publik, memeriksa robots.txt bila tersedia, membatasi response sampai 20 MB per request, timeout 60 detik maksimum, dan crawl hanya pada host yang sama. Ini ditujukan untuk data publik, bukan untuk melewati login, paywall, private resource, atau access control.\n\n### Contoh\n\n    /api/scraper/fetch?url=https%3A%2F%2Fexample.com\n    /api/scraper/crawl?url=https%3A%2F%2Fexample.com&max_pages=5\n\n\n## CLI scraper v3\n\n    python scripts/scraper.py https://example.com\n    python scripts/scraper.py https://example.com --crawl --max-pages 5\n    python scripts/scraper.py https://example.com --output reports/example.json\n\n## Validasi lokal v3\n\n    python scripts/check.py\n\nPerintah ini menjalankan pip check, compileall, Ruff (E9/F), dan pytest dengan warning diperlakukan sebagai error.\n\n## Authentication & Account\n\nFitur v4:\n- Register dengan email/password\n- Login/logout\n- Logout semua session\n- Ganti password\n- Session database SQLite\n- Google Login via OpenID Connect\n- Pengaturan bahasa, tema, dan notifikasi\n- 10 bahasa: Indonesia, English, Melayu, Arabic, Japanese, Korean, Chinese, Spanish, Portuguese, French\n\nGoogle Login tidak mengaktifkan credential secara otomatis. Simpan credential di environment, jangan di source code:\n\n    GOOGLE_CLIENT_ID=...\n    GOOGLE_CLIENT_SECRET=...\n    GOOGLE_REDIRECT_URI=https://domain-anda.example/api/auth/google/callback\n\nDi Google Cloud Console, gunakan OAuth Client tipe **Web application** dan daftarkan redirect URI yang sama persis dengan `GOOGLE_REDIRECT_URI`.\n\nUntuk deployment HTTPS:\n\n    COOKIE_SECURE=1\n    SESSION_SECRET=<random-secret-panjang>\n\nTanpa Google credential, tombol Google Login tampil tetapi disabled. Register/login lokal tetap bekerja.\n\n## PWA & All Device Support\n\nWebsite menggunakan layout responsive untuk mobile, tablet, desktop, viewport safe-area, hamburger menu, dan installable PWA. Service worker tidak menyimpan response `/api/*` agar data akun, scraper, dan asset tidak masuk cache publik.\n",
-      "packageJson": null,
-      "latestRelease": null,
-      "commits": [
-        {
-          "sha": "d59c7058e8e3114e93fce0208f23829438d5ae63",
-          "message": "docs: list v4 auth i18n PWA endpoints",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:23:17Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/d59c7058e8e3114e93fce0208f23829438d5ae63"
-        },
-        {
-          "sha": "c0f154a689c65e503323a2063367b35b57115327",
-          "message": "test: cover v4 security headers and PWA endpoints",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:23:08Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/c0f154a689c65e503323a2063367b35b57115327"
-        },
-        {
-          "sha": "916d460ea8b26da593acf0c3006cdbdb67da5c9f",
-          "message": "security: add baseline response headers and auth no-store policy",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:23:00Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/916d460ea8b26da593acf0c3006cdbdb67da5c9f"
-        },
-        {
-          "sha": "1d3d25c597968ff2be8b4dd32a98be80f9d30fd0",
-          "message": "security: require verified Google email for account login",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:22:58Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/1d3d25c597968ff2be8b4dd32a98be80f9d30fd0"
-        },
-        {
-          "sha": "135d253adb48c4695e3f3a2ec01b91cbfe9f8617",
-          "message": "feat: add PWA icon and mobile install metadata",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:22:39Z",
-          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/135d253adb48c4695e3f3a2ec01b91cbfe9f8617"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".env.example",
-          "type": "blob",
-          "size": 349,
-          "sha": "396376102957d9be1fadd9a2ca7ddfcb7602cafe"
-        },
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "9d9880215d77099fa3b980c0c82192c1c0bd7fcc"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "5786c8883a63a438d5dc3b54698088e0725678e6"
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "type": "blob",
-          "size": 876,
-          "sha": "d32cd07b7b3235f3cbcf65d0f59efbef33992b2e"
-        },
-        {
-          "path": ".gitignore",
-          "type": "blob",
-          "size": 154,
-          "sha": "1078e3a02dccec1a11447c60f2f50198f3a1d998"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 5977,
-          "sha": "11fccb3d449d05ebe7325cccbf7218a8774d219c"
-        },
-        {
-          "path": "bussid",
-          "type": "tree",
-          "sha": "b5631f2e7244f2a7bb5990943eaaa4aca87d48e7"
-        },
-        {
-          "path": "bussid/kodename",
-          "type": "tree",
-          "sha": "d1b3521df2de2b0160b777bc2c1bc1882eff61a0"
-        },
-        {
-          "path": "bussid/kodename/README.md",
-          "type": "blob",
-          "size": 195,
-          "sha": "8cc0da916ae28dc073165cd69fcb693847c30f6c"
-        },
-        {
-          "path": "bussid/kodename/converter.py",
-          "type": "blob",
-          "size": 524,
-          "sha": "ba8d64b5f36af548f82cc6537f89b4472fd37b90"
-        },
-        {
-          "path": "bussid/kodename/templates",
-          "type": "tree",
-          "sha": "e4709865c94ec0230b24c6ce002ffe8d1300286d"
-        },
-        {
-          "path": "bussid/kodename/templates/README.md",
-          "type": "blob",
-          "size": 178,
-          "sha": "41e004735965a2a06e11bf611ac01331c396ffae"
-        },
-        {
-          "path": "bussid/lights",
-          "type": "tree",
-          "sha": "7bbd30028834e52948cc26f912895877bc80f658"
-        },
-        {
-          "path": "bussid/lights/README.md",
-          "type": "blob",
-          "size": 342,
-          "sha": "9820c4c01b2ec91555e0ebff6bf14cdedf9b83d8"
-        },
-        {
-          "path": "bussid/lights/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "bussid/lights/export.py",
-          "type": "blob",
-          "size": 328,
-          "sha": "eabe523bddc260db0f992867ade53d46b96bd63d"
-        },
-        {
-          "path": "bussid/map",
-          "type": "tree",
-          "sha": "684b23a30e3263515055d14f83305c62105f9a4c"
-        },
-        {
-          "path": "bussid/map/README.md",
-          "type": "blob",
-          "size": 351,
-          "sha": "615b9033a3a8adeb969b8251de2eccd2546acbf0"
-        },
-        {
-          "path": "bussid/map/converter.py",
-          "type": "blob",
-          "size": 519,
-          "sha": "78e03174bf6777c805f80658c3b4d166cc9265c1"
-        },
-        {
-          "path": "bussid/map/templates",
-          "type": "tree",
-          "sha": "aeea6b8ebf06fbebbddc0610ce4220f9c69de3af"
-        },
-        {
-          "path": "bussid/map/templates/README.md",
-          "type": "blob",
-          "size": 187,
-          "sha": "5f9ccc81e15c5e3dcafda7a88db57183a2d58953"
-        },
-        {
-          "path": "bussid/sprite-sheet",
-          "type": "tree",
-          "sha": "42649df665115134baed84d378489a1b7ac2a859"
-        },
-        {
-          "path": "bussid/sprite-sheet/README.md",
-          "type": "blob",
-          "size": 331,
-          "sha": "ce9f5af2e43a67d74d825d1b2c60656a14d4ec44"
-        },
-        {
-          "path": "bussid/sprite-sheet/converter.py",
-          "type": "blob",
-          "size": 528,
-          "sha": "a31fbdf8a2bc18377832863a2233366f23d0739b"
-        },
-        {
-          "path": "bussid/sprite-sheet/templates",
-          "type": "tree",
-          "sha": "a1bb72ce153e140668c5d87a11945176b1ac79d2"
-        },
-        {
-          "path": "bussid/sprite-sheet/templates/README.md",
-          "type": "blob",
-          "size": 198,
-          "sha": "d3facccd8e7b81b53186ddd47e3083b0672bc8a3"
-        },
-        {
-          "path": "bussid/vehicle",
-          "type": "tree",
-          "sha": "e4aea2e43f2e51c5648d5505a2ed204e276f71ff"
-        },
-        {
-          "path": "bussid/vehicle/README.md",
-          "type": "blob",
-          "size": 538,
-          "sha": "49b72876dfb70dd16cd3131bd6b19dba820594a3"
-        },
-        {
-          "path": "bussid/vehicle/converter.py",
-          "type": "blob",
-          "size": 523,
-          "sha": "8ef3e6ef899711fca2ec046af0e0f5cf78ed9a0d"
-        },
-        {
-          "path": "bussid/vehicle/templates",
-          "type": "tree",
-          "sha": "c2be60c58b31a2a8e80ecc094b0fa16991db07b5"
-        },
-        {
-          "path": "bussid/vehicle/templates/README.md",
-          "type": "blob",
-          "size": 430,
-          "sha": "707c407fd2ceefcef01a86b08e514271490ba7f4"
-        },
-        {
-          "path": "download",
-          "type": "tree",
-          "sha": "8b7f89ab48a8672a406f1bb8d565219001af3f37"
-        },
-        {
-          "path": "download/README.md",
-          "type": "blob",
-          "size": 355,
-          "sha": "694072dd31c45f7eb9c9f75f59792c8122829a09"
-        },
-        {
-          "path": "ets2",
-          "type": "tree",
-          "sha": "e462ee678d388c50ce974daee23ad194ad685aea"
-        },
-        {
-          "path": "ets2/map",
-          "type": "tree",
-          "sha": "f6fb24e2c703c397860f7a60a7ec305b474637a4"
-        },
-        {
-          "path": "ets2/map/README.md",
-          "type": "blob",
-          "size": 229,
-          "sha": "d451cf42dc98d900acb99d8ee27b0c8d7c3d206e"
-        },
-        {
-          "path": "ets2/map/converter.py",
-          "type": "blob",
-          "size": 517,
-          "sha": "a0eabba8f7ec649fe0b72d354cbd4decde4dd53c"
-        },
-        {
-          "path": "ets2/vehicle",
-          "type": "tree",
-          "sha": "0c60bc0ff4dcde3c5d1402f247ceca324fa09f0a"
-        },
-        {
-          "path": "ets2/vehicle/README.md",
-          "type": "blob",
-          "size": 434,
-          "sha": "cf227056c07df7553ada20eb0dbe539a58139376"
-        },
-        {
-          "path": "ets2/vehicle/converter.py",
-          "type": "blob",
-          "size": 521,
-          "sha": "76a8a156899dd40799c20d1265b1ab2d63f65de3"
-        },
-        {
-          "path": "requirements.txt",
-          "type": "blob",
-          "size": 215,
-          "sha": "c327961428a58c78ad2711db8cb71a250a7b9ab6"
-        },
-        {
-          "path": "roblox",
-          "type": "tree",
-          "sha": "e3c19f9222212dbdc6c2895f34e1e642d6f14d7a"
-        },
-        {
-          "path": "roblox/export",
-          "type": "tree",
-          "sha": "8247fffe9e2241956559865aeafab966dcfe8ec7"
-        },
-        {
-          "path": "roblox/export/README.md",
-          "type": "blob",
-          "size": 383,
-          "sha": "7aa03a08fb24e077775c8f6f62713a29a6cd7fb4"
-        },
-        {
-          "path": "roblox/export/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "roblox/export/url_asset.py",
-          "type": "blob",
-          "size": 449,
-          "sha": "6dac01184d451aac31dc763d6f9e10d158c8d4b3"
-        },
-        {
-          "path": "roblox/lights",
-          "type": "tree",
-          "sha": "0e416adb75decafb889bc98b4a40e12747a5432d"
-        },
-        {
-          "path": "roblox/lights/README.md",
-          "type": "blob",
-          "size": 534,
-          "sha": "c81e12ba08fd1bf0d2750829bc7870f7f2da69cd"
-        },
-        {
-          "path": "roblox/lights/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "roblox/lights/export.py",
-          "type": "blob",
-          "size": 328,
-          "sha": "d7c1e4adcb83eaf38283d9084f0d1bcf21aafa76"
-        },
-        {
-          "path": "roblox/vehicle",
-          "type": "tree",
-          "sha": "fc52b343eba274b6db8b5bf420be520c9b3a0b26"
-        },
-        {
-          "path": "roblox/vehicle/README.md",
-          "type": "blob",
-          "size": 265,
-          "sha": "e3d65f0a78943540a405aeedfc85dcb987cade1b"
-        },
-        {
-          "path": "roblox/vehicle/converter.py",
-          "type": "blob",
-          "size": 523,
-          "sha": "40ab863b5ba8dbb24b6059b74442f0d72108faaf"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "dd95e6e0d2edb84deb25af785e4038a048b82cff"
-        },
-        {
-          "path": "scripts/README.md",
-          "type": "blob",
-          "size": 453,
-          "sha": "c5afb69bde19e0b38f6192c78902b00823b5128b"
-        },
-        {
-          "path": "scripts/check.py",
-          "type": "blob",
-          "size": 719,
-          "sha": "6fd13152f97cc0d6a1e54d6b33c7e373fcbb82c9"
-        },
-        {
-          "path": "scripts/scraper.py",
-          "type": "blob",
-          "size": 1735,
-          "sha": "32f67050b54bfe801940869e1544384ea19a25d6"
-        },
-        {
-          "path": "shared",
-          "type": "tree",
-          "sha": "4bb151da841adb1cd540d8ba3aa077a4cd04bd34"
-        },
-        {
-          "path": "shared/asset_export.py",
-          "type": "blob",
-          "size": 3965,
-          "sha": "d12f8b93abd9a168b0d8117044beddb0b1a9c7c0"
-        },
-        {
-          "path": "shared/asset_inspector.py",
-          "type": "blob",
-          "size": 4219,
-          "sha": "bfcdfa23db570d8292a80fc6017b4533cd514d68"
-        },
-        {
-          "path": "shared/auth_db.py",
-          "type": "blob",
-          "size": 8341,
-          "sha": "77706c686a88ac577292f78273b03ce179de8a95"
-        },
-        {
-          "path": "shared/i18n.py",
-          "type": "blob",
-          "size": 8902,
-          "sha": "a77d8fc96ab3365aad5df2e144f43142b89e7be3"
-        },
-        {
-          "path": "shared/image_tools.py",
-          "type": "blob",
-          "size": 2512,
-          "sha": "468c871ae9e0246760283a2d374842523cce5ecb"
-        },
-        {
-          "path": "shared/light_animation.py",
-          "type": "blob",
-          "size": 1797,
-          "sha": "b98b616becf47257e37df2426cdf1159ff8b7987"
-        },
-        {
-          "path": "shared/package_export.py",
-          "type": "blob",
-          "size": 2810,
-          "sha": "5d70d2ea8a4b9d57bb159f4cb5c1d01cd2f4e935"
-        },
-        {
-          "path": "shared/path_security.py",
-          "type": "blob",
-          "size": 724,
-          "sha": "ed2d982cc1d6c3eb866a0e45f42bf1fa1d0444e3"
-        },
-        {
-          "path": "shared/roblox_url.py",
-          "type": "blob",
-          "size": 2816,
-          "sha": "41f579a45eb2cfb5ab753cbc30969010bacce4ff"
-        },
-        {
-          "path": "shared/scraper.py",
-          "type": "blob",
-          "size": 13818,
-          "sha": "f1af9c6ccabc2b9408d11eb17ff136b629f1d6e9"
-        },
-        {
-          "path": "shared/template_classifier.py",
-          "type": "blob",
-          "size": 1055,
-          "sha": "17d20f514b6a101a177697e11a96d8269a3639f4"
-        },
-        {
-          "path": "shared/version.py",
-          "type": "blob",
-          "size": 58,
-          "sha": "a7a62edfbc0c369788643657f86dd78278fb5843"
-        },
-        {
-          "path": "templates",
-          "type": "tree",
-          "sha": "50757749d787b1fb5764c3e9fc13b11921dd014d"
-        },
-        {
-          "path": "templates/README.md",
-          "type": "blob",
-          "size": 298,
-          "sha": "b7c804cc5bda7280c222e38aef10d4b135c9848b"
-        },
-        {
-          "path": "tests",
-          "type": "tree",
-          "sha": "24a5cb245d7b4c13ab3460757a722d2e073b410c"
-        },
-        {
-          "path": "tests/test_api.py",
-          "type": "blob",
-          "size": 2076,
-          "sha": "a9a152b7019b4bda2e4f3770ca6de9c64be24518"
-        },
-        {
-          "path": "tests/test_asset_export.py",
-          "type": "blob",
-          "size": 588,
-          "sha": "63f42d52856a93c196fee77521a025bf1779694f"
-        },
-        {
-          "path": "tests/test_auth.py",
-          "type": "blob",
-          "size": 2984,
-          "sha": "55f2d1e654439bf8938b1a0a4937d01646ee62c1"
-        },
-        {
-          "path": "tests/test_image_tools.py",
-          "type": "blob",
-          "size": 646,
-          "sha": "c75ac4aa0b712980e29e0ee758fef9e8b8a8796b"
-        },
-        {
-          "path": "tests/test_inspector.py",
-          "type": "blob",
-          "size": 372,
-          "sha": "080d0aa118f87f336d1c7269d891b5076caa430d"
-        },
-        {
-          "path": "tests/test_lights.py",
-          "type": "blob",
-          "size": 480,
-          "sha": "3ef3dd9c349409605cb1343cd07770d4e14bdb33"
-        },
-        {
-          "path": "tests/test_package_export.py",
-          "type": "blob",
-          "size": 729,
-          "sha": "6514a3e6b5ab7b486b70976ee7565a19b44b2303"
-        },
-        {
-          "path": "tests/test_roblox_url.py",
-          "type": "blob",
-          "size": 748,
-          "sha": "c96fb36991fd0874f12614e050d3a7fabaa6cdac"
-        },
-        {
-          "path": "tests/test_scraper.py",
-          "type": "blob",
-          "size": 1694,
-          "sha": "e50b72a2ab5632703e96894b93744a21786c050c"
-        },
-        {
-          "path": "tests/test_templates.py",
-          "type": "blob",
-          "size": 591,
-          "sha": "042083898ce676ead752ae3db6fb4292328260b4"
-        },
-        {
-          "path": "tests/test_web_ui.py",
-          "type": "blob",
-          "size": 440,
-          "sha": "92a447e9fd02a79adc3cf826b12af206f6729bb4"
-        },
-        {
-          "path": "web",
-          "type": "tree",
-          "sha": "2bf916408b60e798c113a0c3cec5d53bc56a3a36"
-        },
-        {
-          "path": "web/app.py",
-          "type": "blob",
-          "size": 5027,
-          "sha": "a03a77f08fdb7c0c89a3e71ad2e49b07a8eee102"
-        },
-        {
-          "path": "web/asset_api.py",
-          "type": "blob",
-          "size": 3488,
-          "sha": "6340fde5a5d7976abfd0ae16f146a2b0572cf5fc"
-        },
-        {
-          "path": "web/auth_api.py",
-          "type": "blob",
-          "size": 10473,
-          "sha": "75b4bbb3aecc18fd52d495c8ab184f89dcc84e0a"
-        },
-        {
-          "path": "web/catalog.py",
-          "type": "blob",
-          "size": 4946,
-          "sha": "b33eae2b70116a9983275e3aad982b24c1979e1a"
-        },
-        {
-          "path": "web/i18n_api.py",
-          "type": "blob",
-          "size": 541,
-          "sha": "065bcd97ef09100bef356b1b3d2adb09c4004b8d"
-        },
-        {
-          "path": "web/icon.svg",
-          "type": "blob",
-          "size": 343,
-          "sha": "827b384ba03f7ef3cd6b8b7636d35e36cff662b6"
-        },
-        {
-          "path": "web/index.html",
-          "type": "blob",
-          "size": 31663,
-          "sha": "971a368c1dec791fb5c726acf4736ccb6dc89b76"
-        },
-        {
-          "path": "web/manifest.webmanifest",
-          "type": "blob",
-          "size": 391,
-          "sha": "6ff96759a6bef5ff0bbea1d5236279553fe6cadc"
-        },
-        {
-          "path": "web/scraper_api.py",
-          "type": "blob",
-          "size": 1216,
-          "sha": "0118924be2e232efe90d45f16fe8009543e04776"
-        },
-        {
-          "path": "web/sprite_api.py",
-          "type": "blob",
-          "size": 1294,
-          "sha": "9dfd9411db2612fd42d8a939270903ecb15816a0"
-        },
-        {
-          "path": "web/sw.js",
-          "type": "blob",
-          "size": 1159,
-          "sha": "42f266d5a0d1e96575dddb7dc9957f4dc22abf35"
-        },
-        {
-          "path": "web/template_api.py",
-          "type": "blob",
-          "size": 398,
-          "sha": "8b028a5de7ea982d93500b75e6c7f837c3f5f769"
-        }
-      ],
-      "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:28:49.348Z"
+      "scrapedAt": "2026-09-20T02:44:00.879Z"
     },
     {
       "repository": {
@@ -880,8 +251,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-20T02:12:36Z",
-        "pushed_at": "2026-09-20T02:12:32Z",
+        "updated_at": "2026-09-20T02:28:54Z",
+        "pushed_at": "2026-09-20T02:28:51Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -955,6 +326,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "81cc3aa1c9468ad255b794e992f99ea852a90328",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T02:28:49Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/81cc3aa1c9468ad255b794e992f99ea852a90328"
+        },
+        {
           "sha": "8da93bec105a4209794866d64073e3801c4e02bf",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -981,13 +359,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-20T01:25:59Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/56de3681f71d334dc41df476bfe44a59b11dff74"
-        },
-        {
-          "sha": "fe7935d2e920d55446f02efeb2973d966dd1f40c",
-          "message": "docs: document dependency security policy",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T01:22:55Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/fe7935d2e920d55446f02efeb2973d966dd1f40c"
         }
       ],
       "tree": [
@@ -2095,13 +1466,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "4287167c935c04acaa3238a3111d20ff43678654"
+          "sha": "9f2bb0185912f40516033090363b77f66ca845ec"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 190174,
-          "sha": "831a59e264463d557872abfd50b0aed297dd6210"
+          "size": 195929,
+          "sha": "62e7537142960fae31aee011bb95cd5302075b19"
         },
         {
           "path": "data/repositories.ts",
@@ -2321,7 +1692,636 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:28:49.345Z"
+      "scrapedAt": "2026-09-20T02:44:00.905Z"
+    },
+    {
+      "repository": {
+        "id": 1377081187,
+        "full_name": "nararyajayautamagroub/modbussid-converter",
+        "name": "modbussid-converter",
+        "private": false,
+        "visibility": "public",
+        "html_url": "https://github.com/nararyajayautamagroub/modbussid-converter",
+        "default_branch": "main",
+        "description": null,
+        "created_at": "2026-09-19T11:38:21Z",
+        "updated_at": "2026-09-20T02:23:20Z",
+        "pushed_at": "2026-09-20T02:23:17Z",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "open_issues_count": 0,
+        "language": "Python",
+        "size": 121,
+        "archived": false,
+        "disabled": false,
+        "topics": []
+      },
+      "languages": {
+        "Python": 96962,
+        "HTML": 31663,
+        "JavaScript": 1159
+      },
+      "readme": "# Game Mod Asset Lab v4.0.0\n\nWeb-based inspector, classifier, exporter, scraper, account system, dan download utility untuk **file/mod yang memang Anda miliki atau berwenang memprosesnya**.\n\n## Alur utama\n\n**Upload / pilih asset → Inspect → temukan entry → klasifikasi template → Export → Download**\n\n## Platform dan kategori\n\n- BUSSID: Vehicle, Map, Kodename, Sprite Sheet, Lights\n- ETS2/ATS: Vehicle, Map\n- Roblox: Vehicle, Lights, Export\n\n## Template\n\n- **AO**: Ambient Occlusion\n- **Texture**: texture umum\n- **Kaca/XOR**: template kaca / glass\n\nClassifier memakai nama file berbasis token agar radio.png tidak salah dibaca sebagai AO hanya karena mengandung huruf ao.\n\n## Fitur yang sudah aktif\n\n- Deteksi file dan SHA-256\n- Deteksi container ZIP/TAR\n- Daftar isi archive\n- Export seluruh file atau entry terpilih ke ZIP\n- Manifest JSON pada hasil export\n- Upload file ke workspace repository dengan batas 100 MB\n- Inspeksi hanya pada path yang berada di dalam repository\n- Repository catalog lokal\n- Sinkronisasi catalog ke GitHub repository publik secara berkala\n- Endpoint health dan capabilities\n- Animasi data untuk Strobo, Rotator, LED Bar\n- Paket Roblox lampu berisi JSON + script Lua untuk Roblox Studio\n- Inspect ukuran/format image dan ekstraksi Sprite Sheet menjadi frame ZIP\n- Near-real-time repository tree dengan default branch, commit SHA, tanggal commit, dan filter prefix\n- Download asset Roblox publik melalui endpoint resmi Asset Delivery\n- Validasi URL Roblox sebelum download\n- Web scraper publik dengan parser HTML, metadata Open Graph, JSON-LD, heading, link, image, robots.txt, batas ukuran, timeout, anti-SSRF, dan same-host crawl\n- GitHub Actions untuk dependency check, static check, compile, dan test Python 3.10-3.13\n\n## Endpoint utama\n\n- GET /api/health\n- GET /api/auth/status\n- GET /api/auth/me\n- POST /api/auth/register\n- POST /api/auth/login\n- POST /api/auth/logout\n- POST /api/auth/logout-all\n- PUT /api/auth/settings\n- PUT /api/auth/password\n- GET /api/auth/google/start\n- GET /api/auth/google/callback\n- GET /api/i18n\n- GET /api/i18n/{language}\n- GET /manifest.webmanifest\n- GET /sw.js\n- GET /icon.svg\n- GET /api/capabilities\n- GET /api/categories\n- GET /api/repository\n- POST /api/assets/upload\n- GET /api/assets/inspect?path=...\n- GET /api/assets/export?path=...\n- GET /api/templates/types\n- GET /api/templates/classify?path=...\n- GET /api/assets/roblox/validate?url=...\n- GET /api/assets/roblox/url?url=...\n- GET /api/sprite-sheet/inspect?path=...\n- GET /api/sprite-sheet/extract?path=...&columns=4&rows=4\n- GET /api/repository/tree?prefix=...\n- GET /api/scraper/fetch?url=...\n- GET /api/scraper/crawl?url=...&max_pages=...\n- GET /api/lights/{strobo|rotator|ledbar}\n- GET /api/lights/{strobo|rotator|ledbar}/download?platform=...\n\n## Akurasi data repository\n\nWebsite membaca struktur repository lokal saat runtime. Endpoint /api/repository juga mencoba membaca tree branch main dari GitHub dan mengembalikan commit SHA, jumlah file, daftar path, serta status sinkronisasi.\n\nJika GitHub tidak bisa diakses, data lokal tetap dipakai sehingga website tidak mati hanya karena internet sedang bermain petak umpet.\n\n## Batas penting\n\nProject ini **tidak** membypass password, enkripsi, DRM, signature, private asset, atau access control.\n\nUntuk format game proprietary seperti beberapa format internal ETS2/BUSSID/Roblox, project hanya melaporkan metadata, mendeteksi container yang dikenali, atau memproses format yang didukung. Parser native penuh harus ditambahkan berdasarkan format, dokumentasi, atau sample yang sah.\n\nExporter Roblox lampu menghasilkan **JSON + script Lua Roblox Studio**. Output tersebut bukan file native .rbxm/.rbxmx.\n\n## Jalankan\n\n    python -m pip install -r requirements.txt\n    uvicorn web.app:app --reload\n\nBuka http://127.0.0.1:8000.\n\n## Validasi\n\n    python -m compileall -q bussid ets2 roblox shared web tests\n    python -m pytest -q -W error\n\n## Scraper\n\nScraper berjalan pada host publik HTTP/HTTPS, memvalidasi DNS/IP publik, memeriksa robots.txt bila tersedia, membatasi response sampai 20 MB per request, timeout 60 detik maksimum, dan crawl hanya pada host yang sama. Ini ditujukan untuk data publik, bukan untuk melewati login, paywall, private resource, atau access control.\n\n### Contoh\n\n    /api/scraper/fetch?url=https%3A%2F%2Fexample.com\n    /api/scraper/crawl?url=https%3A%2F%2Fexample.com&max_pages=5\n\n\n## CLI scraper v3\n\n    python scripts/scraper.py https://example.com\n    python scripts/scraper.py https://example.com --crawl --max-pages 5\n    python scripts/scraper.py https://example.com --output reports/example.json\n\n## Validasi lokal v3\n\n    python scripts/check.py\n\nPerintah ini menjalankan pip check, compileall, Ruff (E9/F), dan pytest dengan warning diperlakukan sebagai error.\n\n## Authentication & Account\n\nFitur v4:\n- Register dengan email/password\n- Login/logout\n- Logout semua session\n- Ganti password\n- Session database SQLite\n- Google Login via OpenID Connect\n- Pengaturan bahasa, tema, dan notifikasi\n- 10 bahasa: Indonesia, English, Melayu, Arabic, Japanese, Korean, Chinese, Spanish, Portuguese, French\n\nGoogle Login tidak mengaktifkan credential secara otomatis. Simpan credential di environment, jangan di source code:\n\n    GOOGLE_CLIENT_ID=...\n    GOOGLE_CLIENT_SECRET=...\n    GOOGLE_REDIRECT_URI=https://domain-anda.example/api/auth/google/callback\n\nDi Google Cloud Console, gunakan OAuth Client tipe **Web application** dan daftarkan redirect URI yang sama persis dengan `GOOGLE_REDIRECT_URI`.\n\nUntuk deployment HTTPS:\n\n    COOKIE_SECURE=1\n    SESSION_SECRET=<random-secret-panjang>\n\nTanpa Google credential, tombol Google Login tampil tetapi disabled. Register/login lokal tetap bekerja.\n\n## PWA & All Device Support\n\nWebsite menggunakan layout responsive untuk mobile, tablet, desktop, viewport safe-area, hamburger menu, dan installable PWA. Service worker tidak menyimpan response `/api/*` agar data akun, scraper, dan asset tidak masuk cache publik.\n",
+      "packageJson": null,
+      "latestRelease": null,
+      "commits": [
+        {
+          "sha": "d59c7058e8e3114e93fce0208f23829438d5ae63",
+          "message": "docs: list v4 auth i18n PWA endpoints",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:23:17Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/d59c7058e8e3114e93fce0208f23829438d5ae63"
+        },
+        {
+          "sha": "c0f154a689c65e503323a2063367b35b57115327",
+          "message": "test: cover v4 security headers and PWA endpoints",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:23:08Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/c0f154a689c65e503323a2063367b35b57115327"
+        },
+        {
+          "sha": "916d460ea8b26da593acf0c3006cdbdb67da5c9f",
+          "message": "security: add baseline response headers and auth no-store policy",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:23:00Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/916d460ea8b26da593acf0c3006cdbdb67da5c9f"
+        },
+        {
+          "sha": "1d3d25c597968ff2be8b4dd32a98be80f9d30fd0",
+          "message": "security: require verified Google email for account login",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:22:58Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/1d3d25c597968ff2be8b4dd32a98be80f9d30fd0"
+        },
+        {
+          "sha": "135d253adb48c4695e3f3a2ec01b91cbfe9f8617",
+          "message": "feat: add PWA icon and mobile install metadata",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:22:39Z",
+          "url": "https://github.com/nararyajayautamagroub/modbussid-converter/commit/135d253adb48c4695e3f3a2ec01b91cbfe9f8617"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 349,
+          "sha": "396376102957d9be1fadd9a2ca7ddfcb7602cafe"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "9d9880215d77099fa3b980c0c82192c1c0bd7fcc"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "5786c8883a63a438d5dc3b54698088e0725678e6"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 876,
+          "sha": "d32cd07b7b3235f3cbcf65d0f59efbef33992b2e"
+        },
+        {
+          "path": ".gitignore",
+          "type": "blob",
+          "size": 154,
+          "sha": "1078e3a02dccec1a11447c60f2f50198f3a1d998"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 5977,
+          "sha": "11fccb3d449d05ebe7325cccbf7218a8774d219c"
+        },
+        {
+          "path": "bussid",
+          "type": "tree",
+          "sha": "b5631f2e7244f2a7bb5990943eaaa4aca87d48e7"
+        },
+        {
+          "path": "bussid/kodename",
+          "type": "tree",
+          "sha": "d1b3521df2de2b0160b777bc2c1bc1882eff61a0"
+        },
+        {
+          "path": "bussid/kodename/README.md",
+          "type": "blob",
+          "size": 195,
+          "sha": "8cc0da916ae28dc073165cd69fcb693847c30f6c"
+        },
+        {
+          "path": "bussid/kodename/converter.py",
+          "type": "blob",
+          "size": 524,
+          "sha": "ba8d64b5f36af548f82cc6537f89b4472fd37b90"
+        },
+        {
+          "path": "bussid/kodename/templates",
+          "type": "tree",
+          "sha": "e4709865c94ec0230b24c6ce002ffe8d1300286d"
+        },
+        {
+          "path": "bussid/kodename/templates/README.md",
+          "type": "blob",
+          "size": 178,
+          "sha": "41e004735965a2a06e11bf611ac01331c396ffae"
+        },
+        {
+          "path": "bussid/lights",
+          "type": "tree",
+          "sha": "7bbd30028834e52948cc26f912895877bc80f658"
+        },
+        {
+          "path": "bussid/lights/README.md",
+          "type": "blob",
+          "size": 342,
+          "sha": "9820c4c01b2ec91555e0ebff6bf14cdedf9b83d8"
+        },
+        {
+          "path": "bussid/lights/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "bussid/lights/export.py",
+          "type": "blob",
+          "size": 328,
+          "sha": "eabe523bddc260db0f992867ade53d46b96bd63d"
+        },
+        {
+          "path": "bussid/map",
+          "type": "tree",
+          "sha": "684b23a30e3263515055d14f83305c62105f9a4c"
+        },
+        {
+          "path": "bussid/map/README.md",
+          "type": "blob",
+          "size": 351,
+          "sha": "615b9033a3a8adeb969b8251de2eccd2546acbf0"
+        },
+        {
+          "path": "bussid/map/converter.py",
+          "type": "blob",
+          "size": 519,
+          "sha": "78e03174bf6777c805f80658c3b4d166cc9265c1"
+        },
+        {
+          "path": "bussid/map/templates",
+          "type": "tree",
+          "sha": "aeea6b8ebf06fbebbddc0610ce4220f9c69de3af"
+        },
+        {
+          "path": "bussid/map/templates/README.md",
+          "type": "blob",
+          "size": 187,
+          "sha": "5f9ccc81e15c5e3dcafda7a88db57183a2d58953"
+        },
+        {
+          "path": "bussid/sprite-sheet",
+          "type": "tree",
+          "sha": "42649df665115134baed84d378489a1b7ac2a859"
+        },
+        {
+          "path": "bussid/sprite-sheet/README.md",
+          "type": "blob",
+          "size": 331,
+          "sha": "ce9f5af2e43a67d74d825d1b2c60656a14d4ec44"
+        },
+        {
+          "path": "bussid/sprite-sheet/converter.py",
+          "type": "blob",
+          "size": 528,
+          "sha": "a31fbdf8a2bc18377832863a2233366f23d0739b"
+        },
+        {
+          "path": "bussid/sprite-sheet/templates",
+          "type": "tree",
+          "sha": "a1bb72ce153e140668c5d87a11945176b1ac79d2"
+        },
+        {
+          "path": "bussid/sprite-sheet/templates/README.md",
+          "type": "blob",
+          "size": 198,
+          "sha": "d3facccd8e7b81b53186ddd47e3083b0672bc8a3"
+        },
+        {
+          "path": "bussid/vehicle",
+          "type": "tree",
+          "sha": "e4aea2e43f2e51c5648d5505a2ed204e276f71ff"
+        },
+        {
+          "path": "bussid/vehicle/README.md",
+          "type": "blob",
+          "size": 538,
+          "sha": "49b72876dfb70dd16cd3131bd6b19dba820594a3"
+        },
+        {
+          "path": "bussid/vehicle/converter.py",
+          "type": "blob",
+          "size": 523,
+          "sha": "8ef3e6ef899711fca2ec046af0e0f5cf78ed9a0d"
+        },
+        {
+          "path": "bussid/vehicle/templates",
+          "type": "tree",
+          "sha": "c2be60c58b31a2a8e80ecc094b0fa16991db07b5"
+        },
+        {
+          "path": "bussid/vehicle/templates/README.md",
+          "type": "blob",
+          "size": 430,
+          "sha": "707c407fd2ceefcef01a86b08e514271490ba7f4"
+        },
+        {
+          "path": "download",
+          "type": "tree",
+          "sha": "8b7f89ab48a8672a406f1bb8d565219001af3f37"
+        },
+        {
+          "path": "download/README.md",
+          "type": "blob",
+          "size": 355,
+          "sha": "694072dd31c45f7eb9c9f75f59792c8122829a09"
+        },
+        {
+          "path": "ets2",
+          "type": "tree",
+          "sha": "e462ee678d388c50ce974daee23ad194ad685aea"
+        },
+        {
+          "path": "ets2/map",
+          "type": "tree",
+          "sha": "f6fb24e2c703c397860f7a60a7ec305b474637a4"
+        },
+        {
+          "path": "ets2/map/README.md",
+          "type": "blob",
+          "size": 229,
+          "sha": "d451cf42dc98d900acb99d8ee27b0c8d7c3d206e"
+        },
+        {
+          "path": "ets2/map/converter.py",
+          "type": "blob",
+          "size": 517,
+          "sha": "a0eabba8f7ec649fe0b72d354cbd4decde4dd53c"
+        },
+        {
+          "path": "ets2/vehicle",
+          "type": "tree",
+          "sha": "0c60bc0ff4dcde3c5d1402f247ceca324fa09f0a"
+        },
+        {
+          "path": "ets2/vehicle/README.md",
+          "type": "blob",
+          "size": 434,
+          "sha": "cf227056c07df7553ada20eb0dbe539a58139376"
+        },
+        {
+          "path": "ets2/vehicle/converter.py",
+          "type": "blob",
+          "size": 521,
+          "sha": "76a8a156899dd40799c20d1265b1ab2d63f65de3"
+        },
+        {
+          "path": "requirements.txt",
+          "type": "blob",
+          "size": 215,
+          "sha": "c327961428a58c78ad2711db8cb71a250a7b9ab6"
+        },
+        {
+          "path": "roblox",
+          "type": "tree",
+          "sha": "e3c19f9222212dbdc6c2895f34e1e642d6f14d7a"
+        },
+        {
+          "path": "roblox/export",
+          "type": "tree",
+          "sha": "8247fffe9e2241956559865aeafab966dcfe8ec7"
+        },
+        {
+          "path": "roblox/export/README.md",
+          "type": "blob",
+          "size": 383,
+          "sha": "7aa03a08fb24e077775c8f6f62713a29a6cd7fb4"
+        },
+        {
+          "path": "roblox/export/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "roblox/export/url_asset.py",
+          "type": "blob",
+          "size": 449,
+          "sha": "6dac01184d451aac31dc763d6f9e10d158c8d4b3"
+        },
+        {
+          "path": "roblox/lights",
+          "type": "tree",
+          "sha": "0e416adb75decafb889bc98b4a40e12747a5432d"
+        },
+        {
+          "path": "roblox/lights/README.md",
+          "type": "blob",
+          "size": 534,
+          "sha": "c81e12ba08fd1bf0d2750829bc7870f7f2da69cd"
+        },
+        {
+          "path": "roblox/lights/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "roblox/lights/export.py",
+          "type": "blob",
+          "size": 328,
+          "sha": "d7c1e4adcb83eaf38283d9084f0d1bcf21aafa76"
+        },
+        {
+          "path": "roblox/vehicle",
+          "type": "tree",
+          "sha": "fc52b343eba274b6db8b5bf420be520c9b3a0b26"
+        },
+        {
+          "path": "roblox/vehicle/README.md",
+          "type": "blob",
+          "size": 265,
+          "sha": "e3d65f0a78943540a405aeedfc85dcb987cade1b"
+        },
+        {
+          "path": "roblox/vehicle/converter.py",
+          "type": "blob",
+          "size": 523,
+          "sha": "40ab863b5ba8dbb24b6059b74442f0d72108faaf"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "dd95e6e0d2edb84deb25af785e4038a048b82cff"
+        },
+        {
+          "path": "scripts/README.md",
+          "type": "blob",
+          "size": 453,
+          "sha": "c5afb69bde19e0b38f6192c78902b00823b5128b"
+        },
+        {
+          "path": "scripts/check.py",
+          "type": "blob",
+          "size": 719,
+          "sha": "6fd13152f97cc0d6a1e54d6b33c7e373fcbb82c9"
+        },
+        {
+          "path": "scripts/scraper.py",
+          "type": "blob",
+          "size": 1735,
+          "sha": "32f67050b54bfe801940869e1544384ea19a25d6"
+        },
+        {
+          "path": "shared",
+          "type": "tree",
+          "sha": "4bb151da841adb1cd540d8ba3aa077a4cd04bd34"
+        },
+        {
+          "path": "shared/asset_export.py",
+          "type": "blob",
+          "size": 3965,
+          "sha": "d12f8b93abd9a168b0d8117044beddb0b1a9c7c0"
+        },
+        {
+          "path": "shared/asset_inspector.py",
+          "type": "blob",
+          "size": 4219,
+          "sha": "bfcdfa23db570d8292a80fc6017b4533cd514d68"
+        },
+        {
+          "path": "shared/auth_db.py",
+          "type": "blob",
+          "size": 8341,
+          "sha": "77706c686a88ac577292f78273b03ce179de8a95"
+        },
+        {
+          "path": "shared/i18n.py",
+          "type": "blob",
+          "size": 8902,
+          "sha": "a77d8fc96ab3365aad5df2e144f43142b89e7be3"
+        },
+        {
+          "path": "shared/image_tools.py",
+          "type": "blob",
+          "size": 2512,
+          "sha": "468c871ae9e0246760283a2d374842523cce5ecb"
+        },
+        {
+          "path": "shared/light_animation.py",
+          "type": "blob",
+          "size": 1797,
+          "sha": "b98b616becf47257e37df2426cdf1159ff8b7987"
+        },
+        {
+          "path": "shared/package_export.py",
+          "type": "blob",
+          "size": 2810,
+          "sha": "5d70d2ea8a4b9d57bb159f4cb5c1d01cd2f4e935"
+        },
+        {
+          "path": "shared/path_security.py",
+          "type": "blob",
+          "size": 724,
+          "sha": "ed2d982cc1d6c3eb866a0e45f42bf1fa1d0444e3"
+        },
+        {
+          "path": "shared/roblox_url.py",
+          "type": "blob",
+          "size": 2816,
+          "sha": "41f579a45eb2cfb5ab753cbc30969010bacce4ff"
+        },
+        {
+          "path": "shared/scraper.py",
+          "type": "blob",
+          "size": 13818,
+          "sha": "f1af9c6ccabc2b9408d11eb17ff136b629f1d6e9"
+        },
+        {
+          "path": "shared/template_classifier.py",
+          "type": "blob",
+          "size": 1055,
+          "sha": "17d20f514b6a101a177697e11a96d8269a3639f4"
+        },
+        {
+          "path": "shared/version.py",
+          "type": "blob",
+          "size": 58,
+          "sha": "a7a62edfbc0c369788643657f86dd78278fb5843"
+        },
+        {
+          "path": "templates",
+          "type": "tree",
+          "sha": "50757749d787b1fb5764c3e9fc13b11921dd014d"
+        },
+        {
+          "path": "templates/README.md",
+          "type": "blob",
+          "size": 298,
+          "sha": "b7c804cc5bda7280c222e38aef10d4b135c9848b"
+        },
+        {
+          "path": "tests",
+          "type": "tree",
+          "sha": "24a5cb245d7b4c13ab3460757a722d2e073b410c"
+        },
+        {
+          "path": "tests/test_api.py",
+          "type": "blob",
+          "size": 2076,
+          "sha": "a9a152b7019b4bda2e4f3770ca6de9c64be24518"
+        },
+        {
+          "path": "tests/test_asset_export.py",
+          "type": "blob",
+          "size": 588,
+          "sha": "63f42d52856a93c196fee77521a025bf1779694f"
+        },
+        {
+          "path": "tests/test_auth.py",
+          "type": "blob",
+          "size": 2984,
+          "sha": "55f2d1e654439bf8938b1a0a4937d01646ee62c1"
+        },
+        {
+          "path": "tests/test_image_tools.py",
+          "type": "blob",
+          "size": 646,
+          "sha": "c75ac4aa0b712980e29e0ee758fef9e8b8a8796b"
+        },
+        {
+          "path": "tests/test_inspector.py",
+          "type": "blob",
+          "size": 372,
+          "sha": "080d0aa118f87f336d1c7269d891b5076caa430d"
+        },
+        {
+          "path": "tests/test_lights.py",
+          "type": "blob",
+          "size": 480,
+          "sha": "3ef3dd9c349409605cb1343cd07770d4e14bdb33"
+        },
+        {
+          "path": "tests/test_package_export.py",
+          "type": "blob",
+          "size": 729,
+          "sha": "6514a3e6b5ab7b486b70976ee7565a19b44b2303"
+        },
+        {
+          "path": "tests/test_roblox_url.py",
+          "type": "blob",
+          "size": 748,
+          "sha": "c96fb36991fd0874f12614e050d3a7fabaa6cdac"
+        },
+        {
+          "path": "tests/test_scraper.py",
+          "type": "blob",
+          "size": 1694,
+          "sha": "e50b72a2ab5632703e96894b93744a21786c050c"
+        },
+        {
+          "path": "tests/test_templates.py",
+          "type": "blob",
+          "size": 591,
+          "sha": "042083898ce676ead752ae3db6fb4292328260b4"
+        },
+        {
+          "path": "tests/test_web_ui.py",
+          "type": "blob",
+          "size": 440,
+          "sha": "92a447e9fd02a79adc3cf826b12af206f6729bb4"
+        },
+        {
+          "path": "web",
+          "type": "tree",
+          "sha": "2bf916408b60e798c113a0c3cec5d53bc56a3a36"
+        },
+        {
+          "path": "web/app.py",
+          "type": "blob",
+          "size": 5027,
+          "sha": "a03a77f08fdb7c0c89a3e71ad2e49b07a8eee102"
+        },
+        {
+          "path": "web/asset_api.py",
+          "type": "blob",
+          "size": 3488,
+          "sha": "6340fde5a5d7976abfd0ae16f146a2b0572cf5fc"
+        },
+        {
+          "path": "web/auth_api.py",
+          "type": "blob",
+          "size": 10473,
+          "sha": "75b4bbb3aecc18fd52d495c8ab184f89dcc84e0a"
+        },
+        {
+          "path": "web/catalog.py",
+          "type": "blob",
+          "size": 4946,
+          "sha": "b33eae2b70116a9983275e3aad982b24c1979e1a"
+        },
+        {
+          "path": "web/i18n_api.py",
+          "type": "blob",
+          "size": 541,
+          "sha": "065bcd97ef09100bef356b1b3d2adb09c4004b8d"
+        },
+        {
+          "path": "web/icon.svg",
+          "type": "blob",
+          "size": 343,
+          "sha": "827b384ba03f7ef3cd6b8b7636d35e36cff662b6"
+        },
+        {
+          "path": "web/index.html",
+          "type": "blob",
+          "size": 31663,
+          "sha": "971a368c1dec791fb5c726acf4736ccb6dc89b76"
+        },
+        {
+          "path": "web/manifest.webmanifest",
+          "type": "blob",
+          "size": 391,
+          "sha": "6ff96759a6bef5ff0bbea1d5236279553fe6cadc"
+        },
+        {
+          "path": "web/scraper_api.py",
+          "type": "blob",
+          "size": 1216,
+          "sha": "0118924be2e232efe90d45f16fe8009543e04776"
+        },
+        {
+          "path": "web/sprite_api.py",
+          "type": "blob",
+          "size": 1294,
+          "sha": "9dfd9411db2612fd42d8a939270903ecb15816a0"
+        },
+        {
+          "path": "web/sw.js",
+          "type": "blob",
+          "size": 1159,
+          "sha": "42f266d5a0d1e96575dddb7dc9957f4dc22abf35"
+        },
+        {
+          "path": "web/template_api.py",
+          "type": "blob",
+          "size": 398,
+          "sha": "8b028a5de7ea982d93500b75e6c7f837c3f5f769"
+        }
+      ],
+      "treeTruncated": false,
+      "scrapedAt": "2026-09-20T02:44:00.918Z"
     },
     {
       "repository": {
@@ -3263,7 +3263,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:28:49.356Z"
+      "scrapedAt": "2026-09-20T02:44:00.897Z"
     },
     {
       "repository": {
@@ -5059,7 +5059,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:28:49.608Z"
+      "scrapedAt": "2026-09-20T02:44:01.039Z"
     },
     {
       "repository": {
@@ -5699,7 +5699,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:28:49.488Z"
+      "scrapedAt": "2026-09-20T02:44:01.052Z"
     }
   ]
 }
