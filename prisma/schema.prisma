@@ -7,11 +7,44 @@ datasource db {
   provider = "postgresql"
 }
 
-enum MemberStatus { ACTIVE INACTIVE ON_LEAVE SUSPENDED BANNED RESIGNED }
-enum SubmissionStatus { PENDING REVIEWING APPROVED REJECTED PUBLISHED ARCHIVED }
-enum EventStatus { DRAFT OPEN FULL CLOSED CANCELLED COMPLETED }
-enum RegistrationStatus { REGISTERED CONFIRMED ATTENDED ABSENT CANCELLED }
-enum ReportStatus { REPORT REVIEW INVESTIGATION ACTION CLOSED }
+enum MemberStatus {
+  ACTIVE
+  INACTIVE
+  ON_LEAVE
+  SUSPENDED
+  BANNED
+  RESIGNED
+}
+enum SubmissionStatus {
+  PENDING
+  REVIEWING
+  APPROVED
+  REJECTED
+  PUBLISHED
+  ARCHIVED
+}
+enum EventStatus {
+  DRAFT
+  OPEN
+  FULL
+  CLOSED
+  CANCELLED
+  COMPLETED
+}
+enum RegistrationStatus {
+  REGISTERED
+  CONFIRMED
+  ATTENDED
+  ABSENT
+  CANCELLED
+}
+enum ReportStatus {
+  REPORT
+  REVIEW
+  INVESTIGATION
+  ACTION
+  CLOSED
+}
 
 model User {
  id String @id @default(cuid())
