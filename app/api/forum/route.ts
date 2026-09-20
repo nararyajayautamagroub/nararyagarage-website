@@ -1,8 +1,8 @@
-import {rejectCrossOrigin} from "@/lib/request-security";
 import {NextResponse} from "next/server";
 import {z} from "zod";
 import {getPrisma} from "@/lib/prisma";
 import {getSession} from "@/lib/auth";
+import {rejectCrossOrigin} from "@/lib/request-security";
 
 const schema=z.object({
   categoryId:z.string().min(1),
@@ -13,20 +13,32 @@ const schema=z.object({
 export const dynamic="force-dynamic";
 
 export async function GET(){
-  const originError=rejectCrossOrigin(req); if(originError)return originError;
   const prisma=getPrisma();
   if(!prisma)return NextResponse.json({data:[],configured:false});
   try{
     const data=await prisma.forumThread.findMany({
       orderBy:[{pinned:"desc"},{createdAt:"desc"}],
       take:100,
-      include:{category:true,_count:{select:{posts:true}}}
+      select:{
+        id:true,
+        categoryId:true,
+        title:true,
+        body:true,
+        pinned:true,
+        locked:true,
+        createdAt:true,
+        category:{select:{id:true,name:true}},
+        _count:{select:{posts:true}}
+      }
     });
     return NextResponse.json({data,configured:true},{headers:{"Cache-Control":"no-store"}});
   }catch{return NextResponse.json({error:"Database unavailable"},{status:503});}
 }
 
 export async function POST(req:Request){
+  const originError=rejectCrossOrigin(req);
+  if(originError)return originError;
+
   const session=await getSession();
   if(!session)return NextResponse.json({error:"Authentication required"},{status:401});
   const prisma=getPrisma();
