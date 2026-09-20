@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-20T04:29:39.747Z",
+  "fetchedAt": "2026-09-20T04:44:10.703Z",
   "repositoryCount": 6,
   "repositories": [
     {
@@ -15,13 +15,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-09-20T04:22:05Z",
-        "pushed_at": "2026-09-20T04:22:01Z",
+        "updated_at": "2026-09-20T04:39:52Z",
+        "pushed_at": "2026-09-20T04:39:48Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "JavaScript",
-        "size": 111,
+        "size": 148,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -35,6 +35,13 @@
       "packageJson": null,
       "latestRelease": null,
       "commits": [
+        {
+          "sha": "0780e0df05a40783ba5703acb865423ad0fea455",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T04:39:47Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/0780e0df05a40783ba5703acb865423ad0fea455"
+        },
         {
           "sha": "2bd0492f73f42f6192ea7fec8f7e5e6dcb3bba22",
           "message": "chore: refresh GitHub corporate data",
@@ -62,13 +69,6 @@
           "author": "nararyajayautamagroub",
           "date": "2026-09-20T03:33:39Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/5abc27d76ec995a9d88cf4301e5892464ce74903"
-        },
-        {
-          "sha": "c20a1ed0af18d696b034a6bbfaba8547f544ce87",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T03:33:35Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/c20a1ed0af18d696b034a6bbfaba8547f544ce87"
         }
       ],
       "tree": [
@@ -157,13 +157,13 @@
           "path": "external-live.js",
           "type": "blob",
           "size": 3595,
-          "sha": "0fb243b5d554ff1f2413055ca410d280e84a9c83"
+          "sha": "aeacd959e5f3e500da0041baf0484016fb1f1ca8"
         },
         {
           "path": "github-live.js",
           "type": "blob",
           "size": 8566,
-          "sha": "e3408ffcd5d6e3dbabbba5cef88f7cc7b78a7af2"
+          "sha": "6c42b8ea7cd19ea7455020e5dda086e1a045bb83"
         },
         {
           "path": "i18n.js",
@@ -238,7 +238,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T04:29:39.631Z"
+      "scrapedAt": "2026-09-20T04:44:10.511Z"
     },
     {
       "repository": {
@@ -251,8 +251,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-20T04:12:50Z",
-        "pushed_at": "2026-09-20T04:12:47Z",
+        "updated_at": "2026-09-20T04:29:43Z",
+        "pushed_at": "2026-09-20T04:29:40Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -326,6 +326,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "800fe01a8bb81a5355c7702a55836a0872947f03",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T04:29:39Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/800fe01a8bb81a5355c7702a55836a0872947f03"
+        },
+        {
           "sha": "4510af6b80fb0ed363a906b854323101def83ce7",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -352,13 +359,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-20T03:14:38Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/e688e02b4360c2e1234a8ce3829830873dfcffb8"
-        },
-        {
-          "sha": "826a281976ddb4ce7346ee6132a689dc491b4249",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T02:56:13Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/826a281976ddb4ce7346ee6132a689dc491b4249"
         }
       ],
       "tree": [
@@ -1466,13 +1466,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "768dc7a5385da7e8ebddd02994baa62c861c9d5e"
+          "sha": "415295d5fe758716ec1f2b48d96013727b3a91f0"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 210284,
-          "sha": "05a4b255d68c6e5e531f6eec2ce458d3ba57da55"
+          "size": 210267,
+          "sha": "c59b85fa0edfc015f01cbd9c391f1b3262a97ded"
         },
         {
           "path": "data/repositories.ts",
@@ -1692,7 +1692,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T04:29:39.645Z"
+      "scrapedAt": "2026-09-20T04:44:10.512Z"
     },
     {
       "repository": {
@@ -2989,7 +2989,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T04:29:39.599Z"
+      "scrapedAt": "2026-09-20T04:44:10.572Z"
     },
     {
       "repository": {
@@ -4814,7 +4814,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T04:29:39.732Z"
+      "scrapedAt": "2026-09-20T04:44:10.564Z"
     },
     {
       "repository": {
@@ -4833,7 +4833,7 @@
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "Python",
-        "size": 220,
+        "size": 146,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -5443,7 +5443,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T04:29:39.716Z"
+      "scrapedAt": "2026-09-20T04:44:10.703Z"
     },
     {
       "repository": {
@@ -6083,7 +6083,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T04:29:39.747Z"
+      "scrapedAt": "2026-09-20T04:44:10.685Z"
     }
   ]
 }
