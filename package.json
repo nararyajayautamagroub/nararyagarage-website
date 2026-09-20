@@ -14,12 +14,12 @@
     "db:seed": "npm run db:generate && tsx prisma/seed.ts"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "lucide-react": "latest",
-    "@prisma/client": "latest",
-    "@prisma/adapter-pg": "latest",
+    "next": "16.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "lucide-react": "^0.468.0",
+    "@prisma/client": "7.10.0",
+    "@prisma/adapter-pg": "7.10.0",
     "pg": "latest",
     "zod": "latest",
     "dotenv": "latest"
@@ -34,11 +34,11 @@
     "tailwindcss": "latest",
     "postcss": "latest",
     "autoprefixer": "latest",
-    "prisma": "latest",
+    "prisma": "7.10.0",
     "tsx": "latest"
   },
   "engines": {
-    "node": "^22 || ^24"
+    "node": ">=22.18 <25"
   },
   "packageManager": "npm@11.6.2"
 }
