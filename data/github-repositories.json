@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-20T01:40:28.315Z",
+  "fetchedAt": "2026-09-20T01:52:55.312Z",
   "repositoryCount": 6,
   "repositories": [
     {
@@ -15,8 +15,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-20T01:26:04Z",
-        "pushed_at": "2026-09-20T01:26:00Z",
+        "updated_at": "2026-09-20T01:40:32Z",
+        "pushed_at": "2026-09-20T01:40:29Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -90,6 +90,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "3f6ec353d5fd309f6e1a60f2a4cbd96b176df890",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T01:40:28Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/3f6ec353d5fd309f6e1a60f2a4cbd96b176df890"
+        },
+        {
           "sha": "56de3681f71d334dc41df476bfe44a59b11dff74",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -116,13 +123,6 @@
           "author": "nararyajayautamagroub",
           "date": "2026-09-20T01:21:52Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/72ff4e3f4fc9af30fb43f378409bf25f954ca671"
-        },
-        {
-          "sha": "0efe40e69b56fea756c96e18878a3dcf01edc4ae",
-          "message": "security: enforce high severity dependency audit",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T01:21:48Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/0efe40e69b56fea756c96e18878a3dcf01edc4ae"
         }
       ],
       "tree": [
@@ -1230,13 +1230,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "0c04be1f081d65700a8c3da1015fa32f3307c9fd"
+          "sha": "757c4f5cb4efc18b1c7315c35a2e775dcd546ddc"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 62700,
-          "sha": "0a1572991dfa0d2e3112a2d03ac382436ef5723f"
+          "size": 190172,
+          "sha": "beaa4e32dc4136ebedd23f76dc9eeca5b8b3ffaa"
         },
         {
           "path": "data/repositories.ts",
@@ -1456,7 +1456,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T01:40:28.107Z"
+      "scrapedAt": "2026-09-20T01:52:55.204Z"
     },
     {
       "repository": {
@@ -2398,7 +2398,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T01:40:28.148Z"
+      "scrapedAt": "2026-09-20T01:52:55.292Z"
     },
     {
       "repository": {
@@ -4194,7 +4194,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T01:40:28.151Z"
+      "scrapedAt": "2026-09-20T01:52:55.150Z"
     },
     {
       "repository": {
@@ -4376,7 +4376,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T01:40:28.171Z"
+      "scrapedAt": "2026-09-20T01:52:55.171Z"
     },
     {
       "repository": {
@@ -4950,7 +4950,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T01:40:28.272Z"
+      "scrapedAt": "2026-09-20T01:52:55.312Z"
     },
     {
       "repository": {
@@ -4974,623 +4974,14 @@
         "disabled": false,
         "topics": []
       },
-      "languages": {
-        "TypeScript": 52049,
-        "JavaScript": 222
-      },
-      "readme": "# NARASA CAKRA PERWANA Website\n\nWebsite PO Virtual / Virtual Transportation Community NARASA CAKRA PERWANA.\n\n## Implemented\n\n- Next.js App Router + TypeScript\n- White background + pink accent visual system\n- Light, consistent shadows\n- Animated pink buttons with hover, shine, press, focus and disabled states\n- Responsive navigation with working `=` hamburger menu\n- 7 official division directory + detail pages\n- Recruitment form -> validation -> API -> PostgreSQL\n- Events and Fleet pages read operational database\n- News, Gallery, Contact\n- Prisma schema + seed\n- Live GitHub repository monitor\n- Public repository metadata + latest commit + GitHub Actions status\n- Admin-only repository view for authenticated GitHub-owned repositories\n- Runtime error page, loading state, 404 page, health endpoint\n- GitHub Actions CI\n\n## Data accuracy policy\n\nThe site does not treat fabricated member totals, fleet IDs, event schedules, or news as real operational facts.\n\nInitial seed data contains only the known division structure and simulator mapping. Member counts, fleet records, events, and other operational values remain empty until entered or synchronized from a real source.\n\nGitHub project data is read directly from the GitHub API. Public pages expose public repository metadata only. Private repository metadata is server-side/admin-only and requires a configured GitHub token.\n\n## GitHub connection\n\nEnvironment:\n\n- `GITHUB_OWNER`\n- `GITHUB_TOKEN`\n- `GITHUB_SYNC_KEY`\n\nWithout `GITHUB_TOKEN`, public pages read public repositories from the configured owner. With the token, server-side admin tooling can include owned private repositories.\n\nGitHub data uses short server-side caching to reduce API traffic while keeping the project monitor current.\n\n## Admin security\n\nEnvironment:\n\n- `ADMIN_PASSWORD`\n- `ADMIN_SECRET`\n\nAdmin authentication uses an HttpOnly session cookie. Never commit secrets, .env files, tokens, passwords, webhook URLs, or database credentials.\n\n## Database\n\nEnvironment:\n\n- `DATABASE_URL`\n\nCommands:\n\n```bash\nnpm install\nnpx prisma generate\nnpm run db:push\nnpm run db:seed\nnpm run dev\n```\n\n## CI\n\nGitHub Actions runs:\n\n1. install dependencies\n2. Prisma client generation\n3. ESLint\n4. Next.js production build\n\nPrisma is pinned to a stable 7.x release instead of `latest` to keep the CLI deterministic in CI. Prisma documents `prisma generate` as the command for generating Prisma Client artifacts. citeturn591699search0turn591699search1\n",
-      "packageJson": {
-        "name": "narasacakraperwana-website",
-        "version": "3.0.0",
-        "private": true,
-        "scripts": {
-          "dev": "next dev",
-          "build": "prisma generate && next build",
-          "start": "next start",
-          "lint": "eslint .",
-          "typecheck": "tsc --noEmit",
-          "check": "npm run lint && npm run typecheck",
-          "db:generate": "prisma generate",
-          "db:push": "prisma db push",
-          "db:migrate": "prisma migrate dev",
-          "db:seed": "tsx prisma/seed.ts",
-          "scrape": "tsx scripts/scraper.ts",
-          "scrape:check": "tsx scripts/scraper.ts --dry-run"
-        },
-        "dependencies": {
-          "@prisma/client": "6.19.3",
-          "cheerio": "1.2.0",
-          "jose": "6.1.0",
-          "next": "16.3.5",
-          "react": "19.2.0",
-          "react-dom": "19.2.0",
-          "zod": "4.1.12"
-        },
-        "devDependencies": {
-          "@types/node": "24.10.1",
-          "@types/react": "19.2.7",
-          "@types/react-dom": "19.2.3",
-          "eslint": "10.10.0",
-          "eslint-config-next": "16.3.5",
-          "prisma": "6.19.3",
-          "tsx": "4.20.6",
-          "typescript": "5.9.3"
-        }
-      },
+      "languages": {},
+      "readme": null,
+      "packageJson": null,
       "latestRelease": null,
-      "commits": [
-        {
-          "sha": "d472e68263dd161698bcf6e248a17f83c2db3858",
-          "message": "fix: make scraper dry-run validate configuration",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T00:54:24Z",
-          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/d472e68263dd161698bcf6e248a17f83c2db3858"
-        },
-        {
-          "sha": "cb3bee1e7b999e742ef3e712cc33c289bfb17f8c",
-          "message": "fix: validate scraper configuration before execution",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T00:54:22Z",
-          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/cb3bee1e7b999e742ef3e712cc33c289bfb17f8c"
-        },
-        {
-          "sha": "5d5cf724f5387d93773f75bae7740deefb3fcb39",
-          "message": "security: require cron secret for scraper endpoint",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T00:54:20Z",
-          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/5d5cf724f5387d93773f75bae7740deefb3fcb39"
-        },
-        {
-          "sha": "421267b52db4a9ed53fb7a478b4ec46c335c2643",
-          "message": "ci: cancel superseded runs and keep final pipeline authoritative",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T00:54:06Z",
-          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/421267b52db4a9ed53fb7a478b4ec46c335c2643"
-        },
-        {
-          "sha": "da715c53ad74cf9ca29492468e97644646e35f10",
-          "message": "ci: stabilize lint typecheck and Prisma generation eslint.config.mjs",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T00:53:58Z",
-          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/da715c53ad74cf9ca29492468e97644646e35f10"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".env.example",
-          "type": "blob",
-          "size": 382,
-          "sha": "3901cd496be6b4f9615280e5d4535f31c446dcb5"
-        },
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "2c4ef4885f9ba8ae770239d58306d13eb0a02d3d"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "c936a896ab39a3b537ca102f3b096c1c8ec3cf33"
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "type": "blob",
-          "size": 530,
-          "sha": "b5097195055fd839175d172015c619284fa3ef0e"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 2478,
-          "sha": "38532c9eef198135aa1efceae79bff2f703bb962"
-        },
-        {
-          "path": "app",
-          "type": "tree",
-          "sha": "3102fcaba15940c784004ee9ffc3170c182b16fa"
-        },
-        {
-          "path": "app/about",
-          "type": "tree",
-          "sha": "0bde418628cfc9938aaf0f3731ded1aad75ff18d"
-        },
-        {
-          "path": "app/about/page.tsx",
-          "type": "blob",
-          "size": 1098,
-          "sha": "54e9f5e45c6e8c1340b081d48ac70cbbec17834b"
-        },
-        {
-          "path": "app/admin",
-          "type": "tree",
-          "sha": "56cc16a89d0e4a407d8d4abdc9332650d5afdb2c"
-        },
-        {
-          "path": "app/admin/github",
-          "type": "tree",
-          "sha": "0db65dc5f2a538ed8647e0a9dec735c8a81c5ebf"
-        },
-        {
-          "path": "app/admin/github/page.tsx",
-          "type": "blob",
-          "size": 1376,
-          "sha": "0180a05c272ecfd14f062d8106dfc0699ab31fa0"
-        },
-        {
-          "path": "app/admin/login",
-          "type": "tree",
-          "sha": "6036b6037da7a50f34a1f77bb9308d34f73905b3"
-        },
-        {
-          "path": "app/admin/login/page.tsx",
-          "type": "blob",
-          "size": 1371,
-          "sha": "4e10a2caba9a67dcf96732a39650df99ac262e24"
-        },
-        {
-          "path": "app/admin/page.tsx",
-          "type": "blob",
-          "size": 1493,
-          "sha": "434184d894f73c9c28a574ae17ef7634ccff7b08"
-        },
-        {
-          "path": "app/admin/recruitment",
-          "type": "tree",
-          "sha": "5349c036e583fa7a3e1b41a3cabc69ae6e6e7025"
-        },
-        {
-          "path": "app/admin/recruitment/page.tsx",
-          "type": "blob",
-          "size": 928,
-          "sha": "2bf240e9d1f729e245a29915924249f2873f8662"
-        },
-        {
-          "path": "app/admin/scraper",
-          "type": "tree",
-          "sha": "ec01dd5ebb81f7d59f195447703a24788251988a"
-        },
-        {
-          "path": "app/admin/scraper/page.tsx",
-          "type": "blob",
-          "size": 1535,
-          "sha": "8a56be6ca9bc538b8d116861c34b6f1501ddbb98"
-        },
-        {
-          "path": "app/api",
-          "type": "tree",
-          "sha": "e10ddc5ffc4cee1db285eb192268e9bcc90fa8be"
-        },
-        {
-          "path": "app/api/admin",
-          "type": "tree",
-          "sha": "3715bcb3013d17fc06827febbdeb2cdff655f383"
-        },
-        {
-          "path": "app/api/admin/login",
-          "type": "tree",
-          "sha": "f7df1e816da384adf41d92d4bd126e782715092b"
-        },
-        {
-          "path": "app/api/admin/login/route.ts",
-          "type": "blob",
-          "size": 798,
-          "sha": "356ad6b2f0ef63ea0a164bc1549d37e16d050268"
-        },
-        {
-          "path": "app/api/contact",
-          "type": "tree",
-          "sha": "5efd60403b91e03c6cfb6ab29b583dad231495f5"
-        },
-        {
-          "path": "app/api/contact/route.ts",
-          "type": "blob",
-          "size": 467,
-          "sha": "bd8f6042f949217c777377c5c3e10c6c494a4828"
-        },
-        {
-          "path": "app/api/divisions",
-          "type": "tree",
-          "sha": "f4311fea2bec01eb2a3ebb8df158e9e1e3895b2b"
-        },
-        {
-          "path": "app/api/divisions/route.ts",
-          "type": "blob",
-          "size": 314,
-          "sha": "f6875e7d6354ee8ef65e9da175ab72660155eb9c"
-        },
-        {
-          "path": "app/api/events",
-          "type": "tree",
-          "sha": "c2ac6e0871d705a20ca697cae0dfe758159d2d80"
-        },
-        {
-          "path": "app/api/events/route.ts",
-          "type": "blob",
-          "size": 210,
-          "sha": "a8f6321b32ed273ee15bc2c53500bccd0fdc1023"
-        },
-        {
-          "path": "app/api/fleet",
-          "type": "tree",
-          "sha": "bad4eafb841e8ca01445ca922fd236e07d447ed1"
-        },
-        {
-          "path": "app/api/fleet/route.ts",
-          "type": "blob",
-          "size": 431,
-          "sha": "a3b8d9dc0c2edf0e74ea5f8670af5e769e9f35a4"
-        },
-        {
-          "path": "app/api/gallery",
-          "type": "tree",
-          "sha": "7b94ec0c6ab1165381e5c11e6dd038b2c0d38d1e"
-        },
-        {
-          "path": "app/api/gallery/route.ts",
-          "type": "blob",
-          "size": 195,
-          "sha": "23898e81fde281b5d9adf0cf992b1cb42c96dade"
-        },
-        {
-          "path": "app/api/github",
-          "type": "tree",
-          "sha": "471ba479d5480b42edb705d5f49e9a74dd4d60a8"
-        },
-        {
-          "path": "app/api/github/repos",
-          "type": "tree",
-          "sha": "66b75313294d0fe9854baea89ff7e115ae1cf8c1"
-        },
-        {
-          "path": "app/api/github/repos/route.ts",
-          "type": "blob",
-          "size": 971,
-          "sha": "20b3219f0b9867d0afeb8a0c22023d193f0f04f2"
-        },
-        {
-          "path": "app/api/health",
-          "type": "tree",
-          "sha": "2f4bd20acafe0e99f314b50560fb3c4e6e6a1989"
-        },
-        {
-          "path": "app/api/health/route.ts",
-          "type": "blob",
-          "size": 439,
-          "sha": "bfb8ac365f18dc052eef996678065f85a8c5184b"
-        },
-        {
-          "path": "app/api/news",
-          "type": "tree",
-          "sha": "9f745737df0067e193103700899299208505c652"
-        },
-        {
-          "path": "app/api/news/route.ts",
-          "type": "blob",
-          "size": 210,
-          "sha": "a19c2dd681d61d04de8994576bc35c519b8349f1"
-        },
-        {
-          "path": "app/api/recruitment",
-          "type": "tree",
-          "sha": "f63cfaf27c782ca611ea34dd9a9f5d19d889abd1"
-        },
-        {
-          "path": "app/api/recruitment/route.ts",
-          "type": "blob",
-          "size": 883,
-          "sha": "3e6a21e8c84d8e958b1fc9657e0cfa8be55dfa0e"
-        },
-        {
-          "path": "app/api/scraper",
-          "type": "tree",
-          "sha": "9388304680df32ec6fe9543339a8ae57bc2e5693"
-        },
-        {
-          "path": "app/api/scraper/run",
-          "type": "tree",
-          "sha": "3a490bc34d362440e82a9c376b7052994250669f"
-        },
-        {
-          "path": "app/api/scraper/run/route.ts",
-          "type": "blob",
-          "size": 721,
-          "sha": "9bad2d07eb281ab2bc8c344ca1a48fe4c7e49863"
-        },
-        {
-          "path": "app/contact",
-          "type": "tree",
-          "sha": "3f50d60daacef6f672cbec939aa9c7c07ecb11eb"
-        },
-        {
-          "path": "app/contact/page.tsx",
-          "type": "blob",
-          "size": 1531,
-          "sha": "377c0ea4fc8f1561ca34202e47c185c9211fa846"
-        },
-        {
-          "path": "app/divisions",
-          "type": "tree",
-          "sha": "3dc90e74e5685400b434ae68f9e5d34af9b5f42f"
-        },
-        {
-          "path": "app/divisions/[slug]",
-          "type": "tree",
-          "sha": "9bd68cadaf9ac47f27fb1168397c28f0c7d30578"
-        },
-        {
-          "path": "app/divisions/[slug]/page.tsx",
-          "type": "blob",
-          "size": 1684,
-          "sha": "b7edd224debbcc16ea2b8b6d32a3e813bc1f0658"
-        },
-        {
-          "path": "app/divisions/page.tsx",
-          "type": "blob",
-          "size": 631,
-          "sha": "676304d5898c69249be17cf9cee73f19c7a0623e"
-        },
-        {
-          "path": "app/error.tsx",
-          "type": "blob",
-          "size": 509,
-          "sha": "4115a44632f7d8a2a6efec5f5fe0c37c6c93676e"
-        },
-        {
-          "path": "app/events",
-          "type": "tree",
-          "sha": "fbe8658a40e59d4f55a7e3aaaced2e8e61f71bcc"
-        },
-        {
-          "path": "app/events/page.tsx",
-          "type": "blob",
-          "size": 1132,
-          "sha": "cabd0cefe44557a60c0d5e288e2b861c8b9285d5"
-        },
-        {
-          "path": "app/fleet",
-          "type": "tree",
-          "sha": "6087f39384eef7480395fbab5dec9cd817c7b778"
-        },
-        {
-          "path": "app/fleet/page.tsx",
-          "type": "blob",
-          "size": 872,
-          "sha": "423f9d37f2ed37c9c06efa4c478e1336fd470728"
-        },
-        {
-          "path": "app/gallery",
-          "type": "tree",
-          "sha": "1438ebe7a29aee75759d1feb40974e410eb763fd"
-        },
-        {
-          "path": "app/gallery/page.tsx",
-          "type": "blob",
-          "size": 830,
-          "sha": "6cfe6768415cd5b45ddb7beab17622605ec947a2"
-        },
-        {
-          "path": "app/github",
-          "type": "tree",
-          "sha": "6663fc0ae97f7654e02642a100f3daf42c3bbed6"
-        },
-        {
-          "path": "app/github/page.tsx",
-          "type": "blob",
-          "size": 1862,
-          "sha": "a9e47890ba2fa5db068b944ea28c93ce85407811"
-        },
-        {
-          "path": "app/globals.css",
-          "type": "blob",
-          "size": 9267,
-          "sha": "5c953157a30ec80df83504da5dfd58716b913143"
-        },
-        {
-          "path": "app/layout.tsx",
-          "type": "blob",
-          "size": 831,
-          "sha": "ae02aba914ccba1d7c652b33ada5dfacec41ab48"
-        },
-        {
-          "path": "app/loading.tsx",
-          "type": "blob",
-          "size": 273,
-          "sha": "80dce59dc999d428cc541b30486fe81541cb649b"
-        },
-        {
-          "path": "app/news",
-          "type": "tree",
-          "sha": "1df08bbb83cbfc1ac382c30a38cf634c4d5bbfa5"
-        },
-        {
-          "path": "app/news/[slug]",
-          "type": "tree",
-          "sha": "96f3019cde5197785759d90839024043b1008b78"
-        },
-        {
-          "path": "app/news/[slug]/page.tsx",
-          "type": "blob",
-          "size": 728,
-          "sha": "817d57db58f407c84d5fb7f21800302bf27ad600"
-        },
-        {
-          "path": "app/news/page.tsx",
-          "type": "blob",
-          "size": 884,
-          "sha": "e59dddefe7c8355f02a47566472be12e7e40e4eb"
-        },
-        {
-          "path": "app/not-found.tsx",
-          "type": "blob",
-          "size": 363,
-          "sha": "1a098712b2b85d3257f489fb18bf0351b54d5e48"
-        },
-        {
-          "path": "app/page.tsx",
-          "type": "blob",
-          "size": 2665,
-          "sha": "4e895ee908ec8edd80c89cb1c89f0a6945cd4a75"
-        },
-        {
-          "path": "app/recruitment",
-          "type": "tree",
-          "sha": "f246a78c563dd034947882c0b034ef9abf7814b3"
-        },
-        {
-          "path": "app/recruitment/page.tsx",
-          "type": "blob",
-          "size": 2708,
-          "sha": "e7ad94ad851d13d0ee5501bd26b5bc9d0491de23"
-        },
-        {
-          "path": "app/robots.ts",
-          "type": "blob",
-          "size": 188,
-          "sha": "1ee90115958011cd86ef09e95848a03a6f4b56ad"
-        },
-        {
-          "path": "app/sitemap.ts",
-          "type": "blob",
-          "size": 482,
-          "sha": "ac985f1797825d75ccbed3b1d9dc95e530e62c9e"
-        },
-        {
-          "path": "components",
-          "type": "tree",
-          "sha": "5e1558c7fc9fc003b68775485dabad8b7f42d2b5"
-        },
-        {
-          "path": "components/DivisionCard.tsx",
-          "type": "blob",
-          "size": 698,
-          "sha": "007b72f0ffa29dcfc4697bc21f8d68940b1f0feb"
-        },
-        {
-          "path": "components/Footer.tsx",
-          "type": "blob",
-          "size": 353,
-          "sha": "9201d2c0f19d8d50227ab7877ecfe0b95c2dbe3e"
-        },
-        {
-          "path": "components/Navbar.tsx",
-          "type": "blob",
-          "size": 1463,
-          "sha": "33ec214d685f0b60798efb5626935d517f826b0e"
-        },
-        {
-          "path": "eslint.config.mjs",
-          "type": "blob",
-          "size": 222,
-          "sha": "320256eec0008254ca5a935ab374948237e6b64c"
-        },
-        {
-          "path": "lib",
-          "type": "tree",
-          "sha": "1efec9cbf8673b72c02ec39c6063be0e076b578d"
-        },
-        {
-          "path": "lib/admin-auth.ts",
-          "type": "blob",
-          "size": 801,
-          "sha": "2379a75b69dbf5fecc73512a7806d688d3fa35cd"
-        },
-        {
-          "path": "lib/data.ts",
-          "type": "blob",
-          "size": 1815,
-          "sha": "3eb5a6fe4a898cb358437c5d6fe66c7eb9331380"
-        },
-        {
-          "path": "lib/db.ts",
-          "type": "blob",
-          "size": 262,
-          "sha": "dbb82099a09855ee84980f5839607ab00776d9a4"
-        },
-        {
-          "path": "lib/github.ts",
-          "type": "blob",
-          "size": 2834,
-          "sha": "9b3751836f418f9da820c3ab9eb1cbf3c8fa7b29"
-        },
-        {
-          "path": "lib/scraper.ts",
-          "type": "blob",
-          "size": 8852,
-          "sha": "095b3080977e8660ff38428f8fdf690e2fd0b01d"
-        },
-        {
-          "path": "lib/server-data.ts",
-          "type": "blob",
-          "size": 630,
-          "sha": "a8afb1dfb161f96fa93787b29771114388bb5dac"
-        },
-        {
-          "path": "lib/validation.ts",
-          "type": "blob",
-          "size": 584,
-          "sha": "bdf7a457f261a12cddcbd55fe3a1fb1b95f81c30"
-        },
-        {
-          "path": "next-env.d.ts",
-          "type": "blob",
-          "size": 210,
-          "sha": "911f40cab2f44621cfde2741243eddd21654b301"
-        },
-        {
-          "path": "next.config.ts",
-          "type": "blob",
-          "size": 146,
-          "sha": "126b5202d9f6e2c46ecf23975d0ec096c41af3af"
-        },
-        {
-          "path": "package.json",
-          "type": "blob",
-          "size": 964,
-          "sha": "f34ee2b796334f015bbcc5b33041870c2c7e9cd3"
-        },
-        {
-          "path": "prisma",
-          "type": "tree",
-          "sha": "b874e6d8362a00520421a15e0c0c4df2673a004e"
-        },
-        {
-          "path": "prisma/schema.prisma",
-          "type": "blob",
-          "size": 5290,
-          "sha": "4f345fb424e41a468e4f3292a13ce44a7f8db30a"
-        },
-        {
-          "path": "prisma/seed.ts",
-          "type": "blob",
-          "size": 1600,
-          "sha": "3d3e5eca299ce27f6c7fa23b9f91502583c36c40"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "ed726f8cc2942835fc584d01d75ec6acb128485a"
-        },
-        {
-          "path": "scripts/scraper.ts",
-          "type": "blob",
-          "size": 398,
-          "sha": "edc39586c5499b5e764bdcdd9a03b5b056c42c5a"
-        },
-        {
-          "path": "tsconfig.json",
-          "type": "blob",
-          "size": 492,
-          "sha": "872518c32eca28a2109f8b69d8357b35b7a9cc7e"
-        },
-        {
-          "path": "vercel.json",
-          "type": "blob",
-          "size": 86,
-          "sha": "597757bd755f23746df8e16ad77591d62a23f82e"
-        }
-      ],
+      "commits": [],
+      "tree": [],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T01:40:28.315Z"
+      "scrapedAt": "2026-09-20T01:52:55.195Z"
     }
   ]
 }
