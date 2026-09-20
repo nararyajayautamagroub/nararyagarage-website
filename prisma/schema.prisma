@@ -283,6 +283,7 @@ model Achievement {
  code String @unique
  name String
  description String
+ memberAchievements MemberAchievement[]
 }
 
 model MemberAchievement {
