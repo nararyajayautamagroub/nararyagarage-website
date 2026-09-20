@@ -9,6 +9,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PRISMA_HIDE_UPDATE_MESSAGE: "1"
+
 jobs:
   verify:
     runs-on: ubuntu-latest
