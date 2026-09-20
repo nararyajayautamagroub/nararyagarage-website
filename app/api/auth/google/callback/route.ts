@@ -68,7 +68,7 @@ export async function GET(req:Request){
     });
     if(!profileResponse.ok)throw new Error("Google profile request failed");
     const profile=await profileResponse.json() as GoogleProfile;
-    if(!profile.sub||!profile.email)throw new Error("Google account did not provide a verified email");
+    if(!profile.sub||!profile.email||profile.email_verified===false)throw new Error("Google account email is not verified");
 
     const email=profile.email.toLowerCase();
     const prisma=getPrisma();
@@ -79,9 +79,9 @@ export async function GET(req:Request){
       include:{user:true}
     });
 
-    let user=identity?.user;
+    let user=identity?.user ?? undefined;
     if(!user){
-      user=await prisma.user.findUnique({where:{email}});
+      user= (await prisma.user.findUnique({where:{email}})) ?? undefined;
     }
 
     if(!user){
