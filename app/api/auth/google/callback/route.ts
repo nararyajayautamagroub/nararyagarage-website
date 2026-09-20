@@ -68,7 +68,7 @@ export async function GET(req:Request){
     });
     if(!profileResponse.ok)throw new Error("Google profile request failed");
     const profile=await profileResponse.json() as GoogleProfile;
-    if(!profile.sub||!profile.email||profile.email_verified===false)throw new Error("Google account email is not verified");
+    if(!profile.sub||!profile.email||profile.email_verified!==true)throw new Error("Google account email is not verified");
 
     const email=profile.email.toLowerCase();
     const prisma=getPrisma();
@@ -93,11 +93,11 @@ export async function GET(req:Request){
           displayName:profile.name?.trim()||username,
           avatarUrl:profile.picture||null,
           passwordHash:hashPassword(randomBytes(48).toString("base64url")),
-          emailVerifiedAt:profile.email_verified===false?null:new Date(),
+          emailVerifiedAt:profile.email_verified===true?new Date():null,
           member:{create:{memberId:"NG-"+randomBytes(4).toString("hex").toUpperCase(),role:"Member"}}
         }
       });
-    }else if(!user.emailVerifiedAt&&profile.email_verified!==false){
+    }else if(!user.emailVerifiedAt&&profile.email_verified===true){
       user=await prisma.user.update({where:{id:user.id},data:{emailVerifiedAt:new Date()}});
     }
 
