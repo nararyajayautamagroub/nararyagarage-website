@@ -46,6 +46,14 @@ enum ReportStatus {
   CLOSED
 }
 
+enum RecruitmentStatus {
+  PENDING
+  REVIEWING
+  ACCEPTED
+  REJECTED
+  WITHDRAWN
+}
+
 model User {
  id String @id @default(cuid())
  email String @unique
@@ -109,6 +117,8 @@ model Member {
  achievements MemberAchievement[]
  activities ActivityLog[]
  communityMemberships CommunityMember[]
+ recruitmentApplications RecruitmentApplication[]
+ fleetVehicles FleetVehicle[]
 }
 
 model Platform {
@@ -377,4 +387,39 @@ model GithubWebhookEvent {
 model Setting {
  key String @id
  value Json
+}
+
+model RecruitmentApplication {
+ id String @id @default(cuid())
+ memberId String
+ desiredRole String
+ motivation String
+ experience String?
+ portfolioUrl String?
+ status RecruitmentStatus @default(PENDING)
+ reviewerId String?
+ reviewedAt DateTime?
+ createdAt DateTime @default(now())
+ member Member @relation(fields:[memberId], references:[id], onDelete:Cascade)
+ @@index([memberId, status])
+ @@index([status, createdAt])
+}
+
+model FleetVehicle {
+ id String @id @default(cuid())
+ memberId String
+ name String
+ category String
+ platform String?
+ game String?
+ chassis String?
+ body String?
+ livery String?
+ screenshotUrl String?
+ description String?
+ status SubmissionStatus @default(PENDING)
+ createdAt DateTime @default(now())
+ member Member @relation(fields:[memberId], references:[id], onDelete:Cascade)
+ @@index([memberId, status])
+ @@index([status, createdAt])
 }
