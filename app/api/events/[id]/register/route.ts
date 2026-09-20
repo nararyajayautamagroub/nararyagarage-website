@@ -1,3 +1,22 @@
+export async function GET(_req:Request,{params}:{params:Promise<{id:string}>}){
+  const session=await getSession();
+  if(!session)return NextResponse.json({registered:false,authenticated:false});
+  const prisma=getPrisma();
+  if(!prisma)return NextResponse.json({error:"Database unavailable"},{status:503});
+  const {id}=await params;
+  try{
+    const member=await prisma.member.findUnique({where:{userId:session.user.id},select:{id:true}});
+    if(!member)return NextResponse.json({registered:false,authenticated:true});
+    const participant=await prisma.eventParticipant.findUnique({
+      where:{eventId_memberId:{eventId:id,memberId:member.id}},
+      select:{status:true}
+    });
+    return NextResponse.json({registered:Boolean(participant&&participant.status!=="CANCELLED"),authenticated:true,status:participant?.status??null});
+  }catch{
+    return NextResponse.json({error:"Registration status unavailable"},{status:503});
+  }
+}
+
 import {NextResponse} from "next/server";
 import {getSession} from "@/lib/auth";
 import {getPrisma} from "@/lib/prisma";
