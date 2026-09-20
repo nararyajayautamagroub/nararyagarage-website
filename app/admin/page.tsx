@@ -5,12 +5,12 @@ import {hasRole,ADMIN_ROLES} from "@/lib/authorization";
 import {getPrisma} from "@/lib/prisma";
 
 const modules=[
-  ["Overview","/admin"],["Members","/admin/members"],["Recruitment","#recruitment"],["Communities","/community"],
-  ["Platforms","/platforms"],["Events","/admin/events"],["Convoys","#convoys"],["Fleet","#fleet"],
+  ["Overview","/admin"],["Members","/admin/members"],["Recruitment","/admin/members"],["Communities","/community"],
+  ["Platforms","/platforms"],["Events","/admin/events"],["Convoys","/convoy"],["Fleet","/showcase"],
   ["Mods","/modding"],["Liveries","/liveries"],["3D Showcase","/showcase"],["Gallery","/gallery"],
   ["Videos","/videos"],["Forum","/forum"],["Tutorials","/tutorials"],["Downloads","/downloads"],
-  ["Reports","/admin/reports"],["Moderation","/admin/reports"],["News","/news"],["Notifications","#notifications"],
-  ["Partners","#partners"],["Achievements","#achievements"],["Analytics","#analytics"],["Logs","#logs"],["Settings","#settings"],
+  ["Reports","/admin/reports"],["Moderation","/admin/reports"],["News","/news"],["Notifications","/admin/notifications"],
+  ["Partners","/partners"],["Achievements","/achievements"],["Analytics","/admin/analytics"],["Logs","/admin/logs"],["Settings","/admin/settings"],
   ["Creator Submission","/submit"]
 ];
 
