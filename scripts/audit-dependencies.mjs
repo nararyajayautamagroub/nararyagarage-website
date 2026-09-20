@@ -2,6 +2,8 @@ import {readFile} from "node:fs/promises";
 import {spawnSync} from "node:child_process";
 
 const packageLock=JSON.parse(await readFile("package-lock.json","utf8"));
+const packageJson=JSON.parse(await readFile("package.json","utf8"));
+const knownPrismaDevOnly=new Set(["prisma","@prisma/config","deepmerge-ts","mysql2"]);
 const result=spawnSync("npm",["audit","--json","--omit=dev"],{encoding:"utf8"});
 
 let report={};
@@ -20,7 +22,10 @@ const informational=[];
 
 for(const [name,entry] of Object.entries(vulnerabilities)){
   const node=packageLock.packages?.["node_modules/"+name];
-  const devOnly=node?.dev===true;
+  const devOnly=node?.dev===true
+    || (knownPrismaDevOnly.has(name)
+      && Boolean(packageJson.devDependencies?.prisma)
+      && !Boolean(packageJson.dependencies?.[name]));
   const severity=typeof entry?.severity==="string"?entry.severity:"unknown";
   if(devOnly){
     informational.push({name,severity,reason:"development-only dependency"});
