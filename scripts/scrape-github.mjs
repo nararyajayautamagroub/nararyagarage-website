@@ -120,7 +120,11 @@ async function mapLimit(items,limit,worker){
       if(index>=items.length)return;
       try{output[index]=await worker(items[index]);}
       catch(error){
-        output[index]={repository:items[index],error:error instanceof Error?error.message:"Unknown scraper error",scrapedAt:new Date().toISOString()};
+        output[index]={
+          repository:items[index],
+          error:error instanceof Error?error.message:"Unknown scraper error",
+          scrapedAt:new Date().toISOString()
+        };
       }
     }
   }
