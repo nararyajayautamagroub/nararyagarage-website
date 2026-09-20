@@ -24,7 +24,10 @@ function sha256(value:string){
 }
 
 function authSecret(){
-  return process.env.AUTH_SECRET||"development-only-change-me";
+  const secret=process.env.AUTH_SECRET;
+  if(secret)return secret;
+  if(process.env.NODE_ENV==="production")throw new Error("AUTH_SECRET is required in production");
+  return "development-only-change-me";
 }
 
 function sign(value:string){
