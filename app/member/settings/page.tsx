@@ -2,6 +2,7 @@
 
 import {useEffect,useState} from "react";
 import Link from "next/link";
+import {locales,type Locale} from "@/lib/i18n";
 
 type SettingKey =
   | "emailNotifications"
@@ -10,7 +11,7 @@ type SettingKey =
   | "profileVisibility"
   | "activityVisibility";
 
-type Prefs = Record<SettingKey, boolean>;
+type Prefs = Record<SettingKey, boolean> & {language:Locale};
 
 const keys: SettingKey[] = [
   "emailNotifications",
@@ -33,7 +34,8 @@ const defaults: Prefs = {
   discordNotifications:false,
   whatsappNotifications:false,
   profileVisibility:true,
-  activityVisibility:true
+  activityVisibility:true,
+  language:"id"
 };
 
 export default function Settings(){
@@ -71,9 +73,25 @@ export default function Settings(){
     setPrefs({...prefs,...data.data});
   }
 
+  async function changeLanguage(language:Locale){
+    const response = await fetch("/api/member/settings",{
+      method:"PATCH",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({language})
+    });
+    const data = await response.json().catch(() => ({}));
+    if(!response.ok){
+      setError(data.error || "Gagal menyimpan bahasa");
+      return;
+    }
+    document.cookie="nararya_locale="+encodeURIComponent(language)+"; path=/; max-age=31536000; samesite=lax";
+    setPrefs({...prefs,...data.data});
+    window.location.reload();
+  }
+
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
-      <div className="flex items-end justify-between gap-4">
+    <main className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs font-black tracking-[.25em] text-orange-400">MEMBER · SETTINGS</p>
           <h1 className="mt-2 text-4xl font-black">Settings</h1>
@@ -84,7 +102,15 @@ export default function Settings(){
       {error && <p role="alert" className="mt-6 rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-red-300">{error}</p>}
       {message && <p className="mt-6 rounded-xl border border-orange-500/30 bg-orange-500/10 p-4 text-orange-200">{message}</p>}
 
-      <div className="mt-8 space-y-3">
+      <section className="mt-8 rounded-3xl border border-white/10 bg-zinc-950 p-6">
+        <h2 className="text-xl font-black">Language</h2>
+        <p className="mt-2 text-sm text-zinc-500">10 bahasa tersedia dan pilihan disimpan di perangkat serta profil member.</p>
+        <select value={prefs.language} onChange={event=>changeLanguage(event.target.value as Locale)} className="mt-5 w-full rounded-xl border border-orange-500 bg-white px-4 py-3 font-bold text-orange-700">
+          {locales.map(locale=><option key={locale.code} value={locale.code}>{locale.label}</option>)}
+        </select>
+      </section>
+
+      <div className="mt-6 space-y-3">
         {keys.map(key => (
           <button
             type="button"
