@@ -15,7 +15,6 @@ permissions:
 
 jobs:
   migration:
-    if: ${{ !hashFiles('prisma/migrations/*/migration.sql') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -23,18 +22,38 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
+
+      - name: Check whether initial migration exists
+        id: migration-check
+        shell: bash
+        run: |
+          if find prisma/migrations -type f -name "migration.sql" -print -quit 2>/dev/null | grep -q .; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            echo "Initial migration already exists."
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+            echo "No migration found."
+          fi
+
       - name: Setup Node
+        if: steps.migration-check.outputs.needed == 'true'
         uses: actions/setup-node@v7
         with:
           node-version: 24
           package-manager-cache: false
+
       - name: Install dependencies
+        if: steps.migration-check.outputs.needed == 'true'
         run: npm install --ignore-scripts --no-audit --no-fund
+
       - name: Generate initial migration
+        if: steps.migration-check.outputs.needed == 'true'
         run: |
           mkdir -p prisma/migrations/0001_initial
           npx prisma migrate diff --from-empty --to-schema prisma/schema.prisma --script > prisma/migrations/0001_initial/migration.sql
+
       - name: Commit migration
+        if: steps.migration-check.outputs.needed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
