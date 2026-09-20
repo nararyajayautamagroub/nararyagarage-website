@@ -23,8 +23,8 @@
     "lucide-react": "1.47.0",
     "@prisma/client": "7.10.0",
     "@prisma/adapter-pg": "7.10.0",
-    "pg": "latest",
-    "zod": "latest",
+    "pg": "8.23.0",
+    "zod": "4.6.5",
     "dotenv": "latest"
   },
   "devDependencies": {
@@ -32,8 +32,8 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "@types/pg": "latest",
-    "typescript": "latest",
+    "@types/pg": "8.23.1",
+    "typescript": "7.0.2",
     "tailwindcss": "latest",
     "postcss": "latest",
     "autoprefixer": "latest",
