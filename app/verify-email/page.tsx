@@ -1,18 +1,18 @@
 "use client";
 
 import {FormEvent,useState} from "react";
-import {useSearchParams} from "next/navigation";
+import {useEffect} from "react";
 
 export default function VerifyEmailPage(){
-  const params=useSearchParams();
-  const token=params.get("token");
+  const [token,setToken]=useState("");
+  useEffect(()=>{setToken(new URLSearchParams(window.location.search).get("token")||"");},[]);
   const [email,setEmail]=useState("");
   const [message,setMessage]=useState(token?"Link verifikasi akan diproses saat halaman dibuka.":"");
   const [error,setError]=useState("");
   const [loading,setLoading]=useState(false);
 
   if(token){
-    if(typeof window!=="undefined")window.location.replace("/api/auth/verify?token="+encodeURIComponent(token));
+    window.location.replace("/api/auth/verify?token="+encodeURIComponent(token));
     return <main className="mx-auto max-w-md px-6 py-20 text-center"><p className="text-zinc-500">Memverifikasi email...</p></main>;
   }
 
