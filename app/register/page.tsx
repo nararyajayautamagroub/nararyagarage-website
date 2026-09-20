@@ -24,11 +24,13 @@ export default function RegisterPage(){
   }
 
   return <main className="mx-auto flex min-h-[75vh] max-w-lg items-center px-6 py-16">
-    <form onSubmit={submit} className="w-full rounded-3xl border border-white/10 bg-zinc-950 p-7 shadow-2xl">
+    <form onSubmit={submit} className="w-full rounded-3xl border border-white/10 bg-zinc-950 p-7 shadow-xl">
       <p className="text-xs font-black tracking-[.25em] text-orange-400">JOIN THE GARAGE</p>
       <h1 className="mt-2 text-3xl font-black">Buat akun member</h1>
       <p className="mt-2 text-sm text-zinc-400">Satu akun untuk komunitas, event, forum, showcase, dan aktivitas member.</p>
-      <div className="mt-7 grid gap-4 sm:grid-cols-2">
+      <a href="/api/auth/google?next=/member" className="ng-orange-outline mt-6 w-full">DAFTAR DENGAN GOOGLE</a>
+      <div className="my-5 flex items-center gap-3 text-xs text-zinc-600"><span className="h-px flex-1 bg-white/10"/><span>ATAU</span><span className="h-px flex-1 bg-white/10"/></div>
+      <div className="grid gap-4 sm:grid-cols-2">
         <label className="text-sm font-bold sm:col-span-2">Nama tampil<input required minLength={2} maxLength={80} value={form.displayName} onChange={e=>change("displayName",e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-black px-4 py-3 outline-none focus:border-orange-500" /></label>
         <label className="text-sm font-bold">Username<input required pattern="[A-Za-z0-9_]{3,32}" value={form.username} onChange={e=>change("username",e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-black px-4 py-3 outline-none focus:border-orange-500" /></label>
         <label className="text-sm font-bold">Email<input required type="email" value={form.email} onChange={e=>change("email",e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-black px-4 py-3 outline-none focus:border-orange-500" /></label>
