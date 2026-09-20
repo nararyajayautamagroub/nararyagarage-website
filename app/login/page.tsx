@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {FormEvent,useEffect,useState} from "react";
-import {useRouter,useSearchParams} from "next/navigation";
+import {useRouter} from "next/navigation";
 
 const oauthMessages:Record<string,string>={
   oauth_state:"Sesi OAuth tidak valid. Ulangi login.",
@@ -16,16 +16,19 @@ const oauthMessages:Record<string,string>={
 
 export default function LoginPage(){
   const router=useRouter();
-  const params=useSearchParams();
+  const [nextPath,setNextPath]=useState("/member");
   const [identifier,setIdentifier]=useState("");
   const [password,setPassword]=useState("");
   const [error,setError]=useState("");
   const [loading,setLoading]=useState(false);
 
   useEffect(()=>{
+    const params=new URLSearchParams(window.location.search);
     const code=params.get("error");
+    const next=params.get("next");
+    setNextPath(next&&next.startsWith("/")&&!next.startsWith("//")?next:"/member");
     if(code)setError(oauthMessages[code]||"Login gagal.");
-  },[params]);
+  },[]);
 
   async function submit(event:FormEvent<HTMLFormElement>){
     event.preventDefault();
@@ -34,9 +37,7 @@ export default function LoginPage(){
       const res=await fetch("/api/auth/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({identifier,password})});
       const data=await res.json().catch(()=>({}));
       if(!res.ok)throw new Error(data.error||"Login gagal");
-      const next=params.get("next");
-      const safeNext=next&&next.startsWith("/")&&!next.startsWith("//")?next:"/member";
-      router.push(safeNext);
+      router.push(nextPath);
       router.refresh();
     }catch(error){
       setError(error instanceof Error?error.message:"Login gagal");
@@ -49,7 +50,7 @@ export default function LoginPage(){
       <h1 className="mt-2 text-3xl font-black">Masuk</h1>
       <p className="mt-2 text-sm text-zinc-400">Login dengan akun lokal atau Google.</p>
 
-      <a href={"/api/auth/google?next="+encodeURIComponent(params.get("next")||"/member")} className="ng-orange-outline mt-6 w-full">CONTINUE WITH GOOGLE</a>
+      <a href={"/api/auth/google?next="+encodeURIComponent(nextPath)} className="ng-orange-outline mt-6 w-full">CONTINUE WITH GOOGLE</a>
       <div className="my-5 flex items-center gap-3 text-xs text-zinc-600"><span className="h-px flex-1 bg-white/10"/><span>ATAU</span><span className="h-px flex-1 bg-white/10"/></div>
 
       <label className="block text-sm font-bold">Email atau username<input required value={identifier} onChange={e=>setIdentifier(e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-black px-4 py-3 text-white outline-none focus:border-orange-500" /></label>
