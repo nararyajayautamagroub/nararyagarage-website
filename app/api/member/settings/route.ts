@@ -4,13 +4,15 @@ import {getSession} from "@/lib/auth";
 import {getPrisma} from "@/lib/prisma";
 import {rejectCrossOrigin} from "@/lib/request-security";
 import {logActivity} from "@/lib/activity";
+import {locales} from "@/lib/i18n";
 
 const schema=z.object({
   emailNotifications:z.boolean().optional(),
   discordNotifications:z.boolean().optional(),
   whatsappNotifications:z.boolean().optional(),
   profileVisibility:z.boolean().optional(),
-  activityVisibility:z.boolean().optional()
+  activityVisibility:z.boolean().optional(),
+  language:z.enum(locales.map(item=>item.code) as [string,...string[]]).optional()
 });
 
 export const dynamic="force-dynamic";
