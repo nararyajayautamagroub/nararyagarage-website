@@ -5,6 +5,8 @@ import {z} from "zod";
 import {getPrisma} from "@/lib/prisma";
 import {createSession,hashPassword} from "@/lib/auth";
 import {getRequestIp,rateLimit} from "@/lib/rate-limit";
+import {createAuthToken} from "@/lib/auth";
+import {emailConfigured,sendEmail} from "@/lib/email";
 
 const schema=z.object({
   email:z.string().email().max(254),
@@ -36,7 +38,24 @@ export async function POST(req:Request){
       select:{id:true,username:true,displayName:true}
     });
     await createSession(user.id);
-    return NextResponse.json({user},{status:201});
+
+    let verificationSent=false;
+    if(emailConfigured()){
+      try{
+        const token=await createAuthToken(user.id,"EMAIL_VERIFY",60);
+        const base=process.env.NEXT_PUBLIC_SITE_URL||new URL(req.url).origin;
+        const link=base+"/verify-email?token="+encodeURIComponent(token);
+        await sendEmail({
+          to:body.email.toLowerCase(),
+          subject:"Verifikasi akun NARARYA GARAGE",
+          text:"Verifikasi akun kamu: "+link,
+          html:"<p>Verifikasi akun NARARYA GARAGE.</p><p><a href=\"" + link + "\">Verifikasi email</a></p>"
+        });
+        verificationSent=true;
+      }catch{}
+    }
+
+    return NextResponse.json({user,verificationSent},{status:201});
   }catch(error){
     if(error instanceof z.ZodError)return NextResponse.json({error:"Invalid registration data",issues:error.issues},{status:400});
     return NextResponse.json({error:"Registration failed"},{status:500});
