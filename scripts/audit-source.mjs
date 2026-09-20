@@ -4,10 +4,10 @@ import {join} from "node:path";
 const roots=["app","components","lib","scripts"];
 const extensions=new Set([".ts",".tsx",".mjs",".prisma"]);
 const banned=[
-  [/TODO|FIXME/g,"TODO/FIXME marker"],
-  [/as\s+any\b/g,"as any"],
-  [/@ts-ignore|@ts-expect-error/g,"TypeScript suppression"],
-  [/<img\b/g,"raw img tag"]
+  [/TODO|FIXME/,"TODO/FIXME marker"],
+  [/as\s+any\b/,"as any"],
+  [/@ts-ignore|@ts-expect-error/,"TypeScript suppression"],
+  [/<img\b/,"raw img tag"]
 ];
 
 async function walk(directory){
