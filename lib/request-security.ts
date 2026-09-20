@@ -1,3 +1,5 @@
+import {NextResponse} from "next/server";
+
 export function isSameOrigin(req:Request){
   const origin=req.headers.get("origin");
   if(!origin)return true;
@@ -11,4 +13,10 @@ export function isSameOrigin(req:Request){
   if(!host)return true;
   const proto=req.headers.get("x-forwarded-proto")||"https";
   return origin===`${proto}://${host}`;
+}
+
+export function rejectCrossOrigin(req:Request){
+  return isSameOrigin(req)
+    ? null
+    : NextResponse.json({error:"Cross-origin request rejected"},{status:403});
 }
