@@ -1,245 +1,9 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-20T02:44:01.052Z",
+  "fetchedAt": "2026-09-20T02:56:13.011Z",
   "repositoryCount": 6,
   "repositories": [
-    {
-      "repository": {
-        "id": 1377275714,
-        "full_name": "nararyajayautamagroub/nexovonarsacorporation-website",
-        "name": "nexovonarsacorporation-website",
-        "private": false,
-        "visibility": "public",
-        "html_url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website",
-        "default_branch": "main",
-        "description": null,
-        "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-09-20T02:29:45Z",
-        "pushed_at": "2026-09-20T02:29:41Z",
-        "stargazers_count": 0,
-        "forks_count": 0,
-        "open_issues_count": 0,
-        "language": "JavaScript",
-        "size": 134,
-        "archived": false,
-        "disabled": false,
-        "topics": []
-      },
-      "languages": {
-        "JavaScript": 34656,
-        "CSS": 20758,
-        "HTML": 1554
-      },
-      "readme": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper\n- `scripts/validate.mjs` — automated structural/data validation\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md).\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n",
-      "packageJson": null,
-      "latestRelease": null,
-      "commits": [
-        {
-          "sha": "98c298eb2aa86063760456b17f2b77e4984a0ca9",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T02:29:40Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/98c298eb2aa86063760456b17f2b77e4984a0ca9"
-        },
-        {
-          "sha": "446402e5b55740e1654f4d99d93b68c1ca8c13f7",
-          "message": "fix: support custom HTTPS Supabase domains safely",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:29:32Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/446402e5b55740e1654f4d99d93b68c1ca8c13f7"
-        },
-        {
-          "sha": "7ca378d494d7b2cd6217ed435f75133e05db793c",
-          "message": "chore: trigger v4 integrated telemetry pipeline",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:29:26Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/7ca378d494d7b2cd6217ed435f75133e05db793c"
-        },
-        {
-          "sha": "43da685148e104e9574f128e05e67f638a21a47e",
-          "message": "fix: normalize default preference values for motion and refresh",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:29:08Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/43da685148e104e9574f128e05e67f638a21a47e"
-        },
-        {
-          "sha": "df0f3c2fd092a6b47f5065796bc0c6028d45615b",
-          "message": "fix: make experience HTML escaping parser-safe",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T02:28:45Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/df0f3c2fd092a6b47f5065796bc0c6028d45615b"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "8ba718908dd21201efaf513a328d4078db6cc07d"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "68b3769d65bfae639ba92e86e6703bd9f593319c"
-        },
-        {
-          "path": ".github/workflows/deploy.yml",
-          "type": "blob",
-          "size": 1584,
-          "sha": "18d9dd561c19177c02a797c490f5aa15927cce7c"
-        },
-        {
-          "path": ".github/workflows/quality.yml",
-          "type": "blob",
-          "size": 1033,
-          "sha": "88a308b0fb1d3de4999cfbc2f41aa733dd098398"
-        },
-        {
-          "path": ".github/workflows/sync-corporate-data.yml",
-          "type": "blob",
-          "size": 1874,
-          "sha": "8dd4ff6dcb88ce0256597bd2f5f33ad7baf831f0"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 5794,
-          "sha": "9c977c568f59d14a8b2968b94ed5564dabd27778"
-        },
-        {
-          "path": "app.js",
-          "type": "blob",
-          "size": 25663,
-          "sha": "d3c93aadb23e32e90be9c6a297e6d2ccdb49d926"
-        },
-        {
-          "path": "auth.js",
-          "type": "blob",
-          "size": 8661,
-          "sha": "748c4962397b4392b2a5f25525512afc9c41077d"
-        },
-        {
-          "path": "config.example.js",
-          "type": "blob",
-          "size": 326,
-          "sha": "7946d9a0eb270eb8fcdcd9da9ebebad9160c640b"
-        },
-        {
-          "path": "config.js",
-          "type": "blob",
-          "size": 352,
-          "sha": "c56e6d9b564df8b30ea651c34347b42fa9e9e6b2"
-        },
-        {
-          "path": "data.js",
-          "type": "blob",
-          "size": 2062,
-          "sha": "0e5742a52e822dd06e060a29d28f77065d01bffa"
-        },
-        {
-          "path": "docs",
-          "type": "tree",
-          "sha": "503e3bc2202059cc8c9e9291107b65d033477e63"
-        },
-        {
-          "path": "docs/AUTH_SETUP.md",
-          "type": "blob",
-          "size": 2061,
-          "sha": "9eea4d446a3daf9dfee83c4d362ef351e91fd35f"
-        },
-        {
-          "path": "experience.js",
-          "type": "blob",
-          "size": 6707,
-          "sha": "06296ced50a947878b3e5e1b580ca4b333951e3c"
-        },
-        {
-          "path": "external-live.js",
-          "type": "blob",
-          "size": 3595,
-          "sha": "fcc182d50afc970588f4ee7dae59b0f537eb325a"
-        },
-        {
-          "path": "github-live.js",
-          "type": "blob",
-          "size": 8566,
-          "sha": "c3a3c0986504e4728b49d336836b3c8eba451fe2"
-        },
-        {
-          "path": "i18n.js",
-          "type": "blob",
-          "size": 11779,
-          "sha": "5adc423589d31b9910fd1f3416ea59065b4dc5fc"
-        },
-        {
-          "path": "index.html",
-          "type": "blob",
-          "size": 1554,
-          "sha": "2b457dab4e7203aaa7b676293eb64dbfd612e5d2"
-        },
-        {
-          "path": "portfolio.js",
-          "type": "blob",
-          "size": 3709,
-          "sha": "a52c790db19d93ca9c1481a9d430b463b5e770bf"
-        },
-        {
-          "path": "pwa-manifest.webmanifest",
-          "type": "blob",
-          "size": 227,
-          "sha": "4fe08738329799dd5a98347017bc7320053140ff"
-        },
-        {
-          "path": "scrape-config.json",
-          "type": "blob",
-          "size": 980,
-          "sha": "69d53671341da13121d05fe302ce3e01ba49309e"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "bf79f5a72ca05d8b9db35818c1999ab1b48ded07"
-        },
-        {
-          "path": "scripts/scrape-public.mjs",
-          "type": "blob",
-          "size": 4490,
-          "sha": "a3528badf2d12c47e63fc13550e468bfa46d418d"
-        },
-        {
-          "path": "scripts/sync-github.mjs",
-          "type": "blob",
-          "size": 5531,
-          "sha": "97b0c6662efaf683572e60564fd8d43a981fd19a"
-        },
-        {
-          "path": "scripts/validate.mjs",
-          "type": "blob",
-          "size": 7530,
-          "sha": "3254243d7d92b2890ba57c2282ede3109f7f5174"
-        },
-        {
-          "path": "styles.css",
-          "type": "blob",
-          "size": 20758,
-          "sha": "e468749b4603bfaf73a9d83dfd687355ea50a8fc"
-        },
-        {
-          "path": "sw.js",
-          "type": "blob",
-          "size": 1059,
-          "sha": "e29e57f1915842d9cab494dd6ad9718f70a932a5"
-        },
-        {
-          "path": "sync-config.json",
-          "type": "blob",
-          "size": 1365,
-          "sha": "d2dd5fca904cae4c6f81f08de1c9eef50ab6ea3d"
-        }
-      ],
-      "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:44:00.879Z"
-    },
     {
       "repository": {
         "id": 1377275248,
@@ -251,8 +15,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-20T02:28:54Z",
-        "pushed_at": "2026-09-20T02:28:51Z",
+        "updated_at": "2026-09-20T02:44:05Z",
+        "pushed_at": "2026-09-20T02:44:02Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -326,6 +90,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "69399aa7230e20b1f5763947db27e75c37e73586",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T02:44:01Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/69399aa7230e20b1f5763947db27e75c37e73586"
+        },
+        {
           "sha": "81cc3aa1c9468ad255b794e992f99ea852a90328",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -352,13 +123,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-20T01:40:28Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/3f6ec353d5fd309f6e1a60f2a4cbd96b176df890"
-        },
-        {
-          "sha": "56de3681f71d334dc41df476bfe44a59b11dff74",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-20T01:25:59Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/56de3681f71d334dc41df476bfe44a59b11dff74"
         }
       ],
       "tree": [
@@ -1466,13 +1230,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "9f2bb0185912f40516033090363b77f66ca845ec"
+          "sha": "1eaaad6768dff9b377ef8a3a683fbf07da429192"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 195929,
-          "sha": "62e7537142960fae31aee011bb95cd5302075b19"
+          "size": 195890,
+          "sha": "5f1d950cc57bebd8fcff5db6d044a9412b87a41d"
         },
         {
           "path": "data/repositories.ts",
@@ -1692,7 +1456,243 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:44:00.905Z"
+      "scrapedAt": "2026-09-20T02:56:12.859Z"
+    },
+    {
+      "repository": {
+        "id": 1377275714,
+        "full_name": "nararyajayautamagroub/nexovonarsacorporation-website",
+        "name": "nexovonarsacorporation-website",
+        "private": false,
+        "visibility": "public",
+        "html_url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website",
+        "default_branch": "main",
+        "description": null,
+        "created_at": "2026-09-19T14:49:26Z",
+        "updated_at": "2026-09-20T02:29:45Z",
+        "pushed_at": "2026-09-20T02:29:41Z",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "open_issues_count": 0,
+        "language": "JavaScript",
+        "size": 134,
+        "archived": false,
+        "disabled": false,
+        "topics": []
+      },
+      "languages": {
+        "JavaScript": 34656,
+        "CSS": 20758,
+        "HTML": 1554
+      },
+      "readme": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper\n- `scripts/validate.mjs` — automated structural/data validation\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md).\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n",
+      "packageJson": null,
+      "latestRelease": null,
+      "commits": [
+        {
+          "sha": "98c298eb2aa86063760456b17f2b77e4984a0ca9",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-09-20T02:29:40Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/98c298eb2aa86063760456b17f2b77e4984a0ca9"
+        },
+        {
+          "sha": "446402e5b55740e1654f4d99d93b68c1ca8c13f7",
+          "message": "fix: support custom HTTPS Supabase domains safely",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:29:32Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/446402e5b55740e1654f4d99d93b68c1ca8c13f7"
+        },
+        {
+          "sha": "7ca378d494d7b2cd6217ed435f75133e05db793c",
+          "message": "chore: trigger v4 integrated telemetry pipeline",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:29:26Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/7ca378d494d7b2cd6217ed435f75133e05db793c"
+        },
+        {
+          "sha": "43da685148e104e9574f128e05e67f638a21a47e",
+          "message": "fix: normalize default preference values for motion and refresh",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:29:08Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/43da685148e104e9574f128e05e67f638a21a47e"
+        },
+        {
+          "sha": "df0f3c2fd092a6b47f5065796bc0c6028d45615b",
+          "message": "fix: make experience HTML escaping parser-safe",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T02:28:45Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/df0f3c2fd092a6b47f5065796bc0c6028d45615b"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "8ba718908dd21201efaf513a328d4078db6cc07d"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "68b3769d65bfae639ba92e86e6703bd9f593319c"
+        },
+        {
+          "path": ".github/workflows/deploy.yml",
+          "type": "blob",
+          "size": 1584,
+          "sha": "18d9dd561c19177c02a797c490f5aa15927cce7c"
+        },
+        {
+          "path": ".github/workflows/quality.yml",
+          "type": "blob",
+          "size": 1033,
+          "sha": "88a308b0fb1d3de4999cfbc2f41aa733dd098398"
+        },
+        {
+          "path": ".github/workflows/sync-corporate-data.yml",
+          "type": "blob",
+          "size": 1874,
+          "sha": "8dd4ff6dcb88ce0256597bd2f5f33ad7baf831f0"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 5794,
+          "sha": "9c977c568f59d14a8b2968b94ed5564dabd27778"
+        },
+        {
+          "path": "app.js",
+          "type": "blob",
+          "size": 25663,
+          "sha": "d3c93aadb23e32e90be9c6a297e6d2ccdb49d926"
+        },
+        {
+          "path": "auth.js",
+          "type": "blob",
+          "size": 8661,
+          "sha": "748c4962397b4392b2a5f25525512afc9c41077d"
+        },
+        {
+          "path": "config.example.js",
+          "type": "blob",
+          "size": 326,
+          "sha": "7946d9a0eb270eb8fcdcd9da9ebebad9160c640b"
+        },
+        {
+          "path": "config.js",
+          "type": "blob",
+          "size": 352,
+          "sha": "c56e6d9b564df8b30ea651c34347b42fa9e9e6b2"
+        },
+        {
+          "path": "data.js",
+          "type": "blob",
+          "size": 2062,
+          "sha": "0e5742a52e822dd06e060a29d28f77065d01bffa"
+        },
+        {
+          "path": "docs",
+          "type": "tree",
+          "sha": "503e3bc2202059cc8c9e9291107b65d033477e63"
+        },
+        {
+          "path": "docs/AUTH_SETUP.md",
+          "type": "blob",
+          "size": 2061,
+          "sha": "9eea4d446a3daf9dfee83c4d362ef351e91fd35f"
+        },
+        {
+          "path": "experience.js",
+          "type": "blob",
+          "size": 6707,
+          "sha": "06296ced50a947878b3e5e1b580ca4b333951e3c"
+        },
+        {
+          "path": "external-live.js",
+          "type": "blob",
+          "size": 3595,
+          "sha": "fcc182d50afc970588f4ee7dae59b0f537eb325a"
+        },
+        {
+          "path": "github-live.js",
+          "type": "blob",
+          "size": 8566,
+          "sha": "c3a3c0986504e4728b49d336836b3c8eba451fe2"
+        },
+        {
+          "path": "i18n.js",
+          "type": "blob",
+          "size": 11779,
+          "sha": "5adc423589d31b9910fd1f3416ea59065b4dc5fc"
+        },
+        {
+          "path": "index.html",
+          "type": "blob",
+          "size": 1554,
+          "sha": "2b457dab4e7203aaa7b676293eb64dbfd612e5d2"
+        },
+        {
+          "path": "portfolio.js",
+          "type": "blob",
+          "size": 3709,
+          "sha": "a52c790db19d93ca9c1481a9d430b463b5e770bf"
+        },
+        {
+          "path": "pwa-manifest.webmanifest",
+          "type": "blob",
+          "size": 227,
+          "sha": "4fe08738329799dd5a98347017bc7320053140ff"
+        },
+        {
+          "path": "scrape-config.json",
+          "type": "blob",
+          "size": 980,
+          "sha": "69d53671341da13121d05fe302ce3e01ba49309e"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "bf79f5a72ca05d8b9db35818c1999ab1b48ded07"
+        },
+        {
+          "path": "scripts/scrape-public.mjs",
+          "type": "blob",
+          "size": 4490,
+          "sha": "a3528badf2d12c47e63fc13550e468bfa46d418d"
+        },
+        {
+          "path": "scripts/sync-github.mjs",
+          "type": "blob",
+          "size": 5531,
+          "sha": "97b0c6662efaf683572e60564fd8d43a981fd19a"
+        },
+        {
+          "path": "scripts/validate.mjs",
+          "type": "blob",
+          "size": 7530,
+          "sha": "3254243d7d92b2890ba57c2282ede3109f7f5174"
+        },
+        {
+          "path": "styles.css",
+          "type": "blob",
+          "size": 20758,
+          "sha": "e468749b4603bfaf73a9d83dfd687355ea50a8fc"
+        },
+        {
+          "path": "sw.js",
+          "type": "blob",
+          "size": 1059,
+          "sha": "e29e57f1915842d9cab494dd6ad9718f70a932a5"
+        },
+        {
+          "path": "sync-config.json",
+          "type": "blob",
+          "size": 1365,
+          "sha": "d2dd5fca904cae4c6f81f08de1c9eef50ab6ea3d"
+        }
+      ],
+      "treeTruncated": false,
+      "scrapedAt": "2026-09-20T02:56:12.827Z"
     },
     {
       "repository": {
@@ -2321,7 +2321,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:44:00.918Z"
+      "scrapedAt": "2026-09-20T02:56:12.846Z"
     },
     {
       "repository": {
@@ -3263,7 +3263,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:44:00.897Z"
+      "scrapedAt": "2026-09-20T02:56:12.884Z"
     },
     {
       "repository": {
@@ -5059,7 +5059,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:44:01.039Z"
+      "scrapedAt": "2026-09-20T02:56:12.999Z"
     },
     {
       "repository": {
@@ -5699,7 +5699,7 @@
         }
       ],
       "treeTruncated": false,
-      "scrapedAt": "2026-09-20T02:44:01.052Z"
+      "scrapedAt": "2026-09-20T02:56:13.011Z"
     }
   ]
 }
