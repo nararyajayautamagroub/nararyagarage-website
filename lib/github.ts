@@ -34,6 +34,7 @@ export type RepoCommit={
 };
 
 export type RepoTreeItem={path:string;type:string;size?:number;sha?:string};
+export type RepoSourceFile={path:string;size:number;content:string|null};
 
 export type RepositoryDeepSnapshot={
   repository:RepoSnapshot;
@@ -44,6 +45,7 @@ export type RepositoryDeepSnapshot={
   commits:RepoCommit[];
   tree:RepoTreeItem[];
   treeTruncated:boolean;
+  sourceFiles:RepoSourceFile[];
   fetchedAt:string;
 };
 
@@ -160,6 +162,24 @@ async function mapLimit<T,R>(items:T[],limit:number,worker:(item:T)=>Promise<R>)
   return output;
 }
 
+export async function getRepoSourceFiles(fullName:string,branch:string,tree:RepoTreeItem[],limit=24){
+  const candidates=tree
+    .filter(item=>item.type==="blob"&&/\.(json|md|mdx|ya?ml|toml|csv|txt)$/i.test(item.path))
+    .filter(item=>/(^|\/)(data|config|configs|content|docs|public|src|app|README|readme)(\/|\.|$)/i.test(item.path))
+    .sort((a,b)=>(a.size??0)-(b.size??0))
+    .slice(0,Math.min(Math.max(limit,1),50));
+
+  return mapLimit(candidates,4,async item=>{
+    try{
+      const raw=await getRepoFile(fullName,item.path,branch);
+      const text=raw===null?null:raw.slice(0,12000);
+      return {path:item.path,size:item.size??text?.length??0,content:text};
+    }catch{
+      return {path:item.path,size:item.size??0,content:null};
+    }
+  });
+}
+
 export async function getRepositoryDeepSnapshot(fullName:string):Promise<RepositoryDeepSnapshot>{
   const repository=await getRepo(fullName);
   const [readme,packageText,languages,latestRelease,commits,treeInfo]=await Promise.all([
@@ -170,6 +190,7 @@ export async function getRepositoryDeepSnapshot(fullName:string):Promise<Reposit
     getRepoCommits(fullName,5),
     getRepoTree(fullName,repository.default_branch)
   ]);
+  const sourceFiles=await getRepoSourceFiles(fullName,repository.default_branch,treeInfo.tree,24);
 
   let packageJson:Record<string,unknown>|null=null;
   if(packageText){
@@ -190,6 +211,7 @@ export async function getRepositoryDeepSnapshot(fullName:string):Promise<Reposit
     commits,
     tree:treeInfo.tree,
     treeTruncated:treeInfo.truncated,
+    sourceFiles,
     fetchedAt:new Date().toISOString()
   };
 }
@@ -208,6 +230,7 @@ export async function getAllRepositorySnapshots(){
         commits:[],
         tree:[],
         treeTruncated:false,
+        sourceFiles:[],
         fetchedAt:new Date().toISOString(),
         error:error instanceof Error?error.message:"Repository sync failed"
       };
