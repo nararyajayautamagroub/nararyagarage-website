@@ -22,10 +22,12 @@ const informational=[];
 
 for(const [name,entry] of Object.entries(vulnerabilities)){
   const node=packageLock.packages?.["node_modules/"+name];
-  const devOnly=node?.dev===true
-    || (knownPrismaDevOnly.has(name)
-      && Boolean(packageJson.devDependencies?.prisma)
-      && !Boolean(packageJson.dependencies?.[name]));
+  const directProduction=Boolean(packageJson.dependencies?.[name]);
+  const devOnly=!directProduction && (
+    node?.dev===true
+    || Boolean(packageJson.devDependencies?.[name])
+    || knownPrismaDevOnly.has(name)
+  );
   const severity=typeof entry?.severity==="string"?entry.severity:"unknown";
   if(devOnly){
     informational.push({name,severity,reason:"development-only dependency"});
