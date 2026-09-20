@@ -11,7 +11,9 @@
     "check": "npm run db:validate && npm run typecheck && npm run build",
     "db:generate": "prisma generate",
     "db:validate": "prisma validate",
-    "db:seed": "npm run db:generate && tsx prisma/seed.ts"
+    "db:seed": "npm run db:generate && tsx prisma/seed.ts",
+    "scrape:github": "node scripts/scrape-github.mjs",
+    "check:scraper": "node --check scripts/scrape-github.mjs"
   },
   "dependencies": {
     "next": "16.3.5",
