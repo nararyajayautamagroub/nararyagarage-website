@@ -1,8 +1,8 @@
-import {rejectCrossOrigin} from "@/lib/request-security";
 import {NextResponse} from "next/server";
 import {z} from "zod";
 import {getPrisma} from "@/lib/prisma";
 import {requireRole} from "@/lib/authorization";
+import {rejectCrossOrigin} from "@/lib/request-security";
 
 const schema=z.object({
   eventId:z.string().trim().min(2).max(60),
@@ -23,16 +23,22 @@ const schema=z.object({
 export const dynamic="force-dynamic";
 
 export async function GET(){
-  const originError=rejectCrossOrigin(req); if(originError)return originError;
   const auth=await requireRole(["OWNER","ADMIN","STAFF"]);
   if(!auth.ok)return auth.response;
   const prisma=getPrisma();
   if(!prisma)return NextResponse.json({error:"Database unavailable"},{status:503});
-  const data=await prisma.event.findMany({orderBy:{date:"desc"},take:200,select:{id:true,eventId:true,name:true,type:true,date:true,status:true,quota:true,game:true,route:true}});
+  const data=await prisma.event.findMany({
+    orderBy:{date:"desc"},
+    take:200,
+    select:{id:true,eventId:true,name:true,type:true,date:true,status:true,quota:true,game:true,route:true}
+  });
   return NextResponse.json({data},{headers:{"Cache-Control":"no-store"}});
 }
 
 export async function POST(req:Request){
+  const originError=rejectCrossOrigin(req);
+  if(originError)return originError;
+
   const auth=await requireRole(["OWNER","ADMIN","STAFF"]);
   if(!auth.ok)return auth.response;
   const prisma=getPrisma();
