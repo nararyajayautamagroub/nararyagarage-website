@@ -16,8 +16,7 @@ export async function GET(){
   const prisma=getPrisma();
   if(!prisma)return NextResponse.json({data:[],configured:false});
   const data=await prisma.setting.findMany({orderBy:{key:"asc"}});
-    return NextResponse.json({data:data.map(item=>({...item,value:isSensitiveKey(item.key)?"[REDACTED]":item.value}))},{headers:{"Cache-Control":"no-store"}});
-  return NextResponse.json({data},{headers:{"Cache-Control":"no-store"}});
+  return NextResponse.json({data:data.map(item=>({...item,value:isSensitiveKey(item.key)?"[REDACTED]":item.value}))},{headers:{"Cache-Control":"no-store"}});
 }
 
 export async function PATCH(req:Request){
