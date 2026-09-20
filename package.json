@@ -17,7 +17,7 @@
     "scrape:github": "node scripts/scrape-github.mjs",
     "check:scraper": "node --check scripts/scrape-github.mjs",
     "audit:source": "node scripts/audit-source.mjs",
-    "security:audit": "npm audit --omit=dev --audit-level=high"
+    "security:audit": "node scripts/audit-dependencies.mjs"
   },
   "dependencies": {
     "next": "16.3.5",
