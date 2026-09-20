@@ -1,2 +1,15 @@
-import {SectionTitle} from "../../components/cards";
-export default function Forum(){const cats=["General","BUSSID","ETS2","ATS","TOE3","TSI","ROBLOX","Modding","Event","Help","Off Topic"];return <main className="mx-auto max-w-7xl px-6 py-20"><SectionTitle eyebrow="Community discussion" title="Forum" desc="Thread, reply, reaction, pin, lock, search dan report disiapkan sebagai modul komunitas."/><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{cats.map(c=><div key={c} className="rounded-xl border border-white/10 p-5 font-bold">{c}<p className="mt-2 text-xs font-normal text-zinc-500">No threads yet</p></div>)}</div></main>}
+import {SectionTitle} from "@/components/cards";
+import {getForumCategories} from "@/lib/data";
+
+export const dynamic="force-dynamic";
+
+export default async function Forum(){
+  const categories=await getForumCategories();
+  return <main className="mx-auto max-w-7xl px-6 py-20">
+    <SectionTitle eyebrow="Community discussion" title="Forum" desc="Thread dan reply komunitas dengan moderation, lock, pin dan report."/>
+    {categories.length?<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{categories.map(category=><div key={category.id} className="rounded-xl border border-white/10 bg-zinc-950 p-5">
+      <h2 className="font-bold">{category.name}</h2>
+      <p className="mt-2 text-xs text-zinc-500">{category._count.threads} thread</p>
+    </div>)}</div>:<p className="rounded-2xl border border-white/10 bg-zinc-950 p-7 text-zinc-500">Belum ada kategori forum.</p>}
+  </main>;
+}
