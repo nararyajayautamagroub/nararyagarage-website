@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-22T03:12:35.264Z",
+  "fetchedAt": "2026-09-22T03:29:41.852Z",
   "repositoryCount": 6,
   "repositories": [
     {
@@ -15,8 +15,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-09-22T03:01:56Z",
-        "pushed_at": "2026-09-22T03:01:52Z",
+        "updated_at": "2026-09-22T03:22:25Z",
+        "pushed_at": "2026-09-22T03:22:21Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -56,6 +56,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "289c27773a3039b0e7e58d20005d96d1f1f91806",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-09-22T03:22:20Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/289c27773a3039b0e7e58d20005d96d1f1f91806"
+        },
+        {
           "sha": "b6bc615da5911a3287dc97f0151c71d96ce47b78",
           "message": "chore: refresh GitHub corporate data",
           "author": "github-actions[bot]",
@@ -82,13 +89,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-22T02:05:23Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/7e18e9ce2a83fdf820209a0372c0e0fbe9adc29e"
-        },
-        {
-          "sha": "69ecb01c500b5eb4f6b2e227d408165b42180213",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-22T01:49:46Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/69ecb01c500b5eb4f6b2e227d408165b42180213"
         }
       ],
       "tree": [
@@ -195,7 +195,7 @@
           "path": "external-live.js",
           "type": "blob",
           "size": 4176,
-          "sha": "288aa34ad2c3f97f72bbc263facbbd7086bcfc4d"
+          "sha": "d35fbf64f34a3e520d2db48f731e97503c0dea86"
         },
         {
           "path": "gateway",
@@ -218,7 +218,7 @@
           "path": "github-live.js",
           "type": "blob",
           "size": 8967,
-          "sha": "c0b366578bd6ee8a02142a2c56cf7da948f5208b"
+          "sha": "99c411ac05bc58c3e810300f758b217bc7834c0b"
         },
         {
           "path": "i18n.js",
@@ -351,7 +351,7 @@
           "content": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\n- `scripts/validate.mjs` — automated structural/data validation\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\n- `gateway/test.mjs` — gateway integration smoke test\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\\n- `icons/` — installable PWA icon assets\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n\n\n## NPM and Gateway Runtime\n\nThe repository now has an npm contract for local/server execution:\n\n```bash\nnpm install\nnpm test\nnpm start\n```\n\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\n\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\n\n## Copyright Footer\n\nWebsite and bot surfaces use the required footer:\n\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\n"
         }
       ],
-      "scrapedAt": "2026-09-22T03:12:35.060Z"
+      "scrapedAt": "2026-09-22T03:29:41.544Z"
     },
     {
       "repository": {
@@ -364,8 +364,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-22T02:45:19Z",
-        "pushed_at": "2026-09-22T02:45:15Z",
+        "updated_at": "2026-09-22T03:12:39Z",
+        "pushed_at": "2026-09-22T03:12:36Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -439,6 +439,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "26169d5d1d993c922e25b961f872295fb584bb35",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-22T03:12:35Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/26169d5d1d993c922e25b961f872295fb584bb35"
+        },
+        {
           "sha": "a7371e85df121dbe0ae85ca915524da82c840222",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -465,13 +472,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-22T01:51:56Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/d8c57bbf76b1c94d1ae2157c3c3970978509f3a5"
-        },
-        {
-          "sha": "c86e3733900717f12d8acf83ef782767147de417",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-22T01:40:21Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/c86e3733900717f12d8acf83ef782767147de417"
         }
       ],
       "tree": [
@@ -1828,13 +1828,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "58bf6fb200a04f1712d38a2e4c53ae6622c383ac"
+          "sha": "ed0d4cbd7285bd85b9e68bc5dfb8c019fea554b4"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 271017,
-          "sha": "7849c5fa6a33caf1ec582e255d5775ee113b515e"
+          "size": 247007,
+          "sha": "10cd76b9cb39c201b150894da940631b50b9e8e0"
         },
         {
           "path": "data/repositories.ts",
@@ -2123,7 +2123,7 @@
         {
           "path": "docs/SECURITY.md",
           "size": 681,
-          "content": "# Security Baseline\n\n- Password wajib di-hash dengan algoritma modern.\n- Secret hanya melalui environment variables atau secret manager.\n- Validasi input dan output untuk mencegah injection/XSS.\n- CSRF protection untuk cookie-based mutation endpoints.\n- Secure, HttpOnly, SameSite cookies.\n- Rate limiting pada login, register, upload, report, dan API sensitif.\n- Validasi MIME type, extension, ukuran, dan nama file upload.\n- Jangan memperbolehkan executable upload.\n- RBAC diterapkan server-side, bukan hanya menyembunyikan tombol di UI.\n- Audit log untuk perubahan role, suspend, ban, moderation, dan pengaturan penting.\n- Jangan mengumpulkan data pribadi yang tidak diperlukan."
+          "content": null
         },
         {
           "path": "README.md",
@@ -2142,11 +2142,11 @@
         },
         {
           "path": "data/github-repositories.json",
-          "size": 271017,
+          "size": 247007,
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-22T03:12:35.167Z"
+      "scrapedAt": "2026-09-22T03:29:41.696Z"
     },
     {
       "repository": {
@@ -3117,7 +3117,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-22T03:12:35.245Z"
+      "scrapedAt": "2026-09-22T03:29:41.806Z"
     },
     {
       "repository": {
@@ -4742,22 +4742,22 @@
         {
           "path": "docs/ARCHITECTURE.md",
           "size": 837,
-          "content": "# NARARYA STUDIO Architecture\n\nPublic/customer UI -> Next.js route handlers -> service/domain layer -> PostgreSQL/Prisma -> protected storage -> notifications.\n\n## Production rules\n- Harga, status, produk, quotation, portfolio dan konten harus berasal dari database/admin.\n- Download hanya melalui authorization + expiring token.\n- Gunakan environment variables untuk secret/payment/storage credentials.\n- RBAC wajib diterapkan pada admin endpoints.\n- Validasi upload: MIME, extension, size, filename normalization.\n- Audit every privileged mutation.\n- Payment webhook harus idempotent.\n- Never log passwords, tokens, identity documents, or payment secrets.\n\n## Modules\nCommerce, Requests, Quotations, Orders, Digital Delivery, Customer Dashboard, Portfolio, Support, Notifications, Promotions, Reviews, Finance, RBAC, Audit, Analytics.\n"
+          "content": null
         },
         {
           "path": "docs/SCRAPER.md",
           "size": 1314,
-          "content": "# Scraper\n\nNARARYA STUDIO menyediakan scraper CLI ringan berbasis Node.js tanpa dependency tambahan.\n\nPenggunaan:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nCrawler memakai mode same-origin secara default:\n\n    npm run scrape -- https://example.com --max-pages 25\n\nUntuk eksplisit same-origin:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nUntuk mengizinkan crawl lintas origin gunakan `--all-origins` hanya bila memang diperlukan:\n\nDengan delay dan timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nKonfigurasi banyak sumber:\n\n    {\n      \"sources\": [\n        \"https://example.com\",\n        { \"url\": \"https://example.org/news\" }\n      ]\n    }\n\nLalu:\n\n    npm run scrape -- --config scraper-config.json --out scrape-output.json\n\nScraper menghormati robots.txt secara default dan membatasi jumlah halaman, timeout, serta jeda antar halaman.\n\nData yang dikumpulkan dari HTML mencakup title, description, canonical, Open Graph, headings, JSON-LD, tautan dan teks yang sudah dibersihkan.\n\nGunakan hanya pada sumber yang memang boleh diakses dan sesuai Terms of Service serta robots policy situs tersebut. Scraper ini sengaja tidak mencoba melewati login, CAPTCHA, paywall, rate limit, atau kontrol akses.\n"
+          "content": null
         },
         {
           "path": "docs/ROADMAP.md",
           "size": 1372,
-          "content": "# Roadmap\n\n## Implemented\n\n- Responsive public pages and mobile navigation\n- Ten-language selector with Arabic RTL handling\n- Theme settings: system, light and dark\n- Google OAuth login, local password authentication and session controls\n- Product catalog/search/filter/pagination and server-side price calculation\n- Cart, checkout, order tracking, invoice PDF and digital downloads\n- Payment webhook verification and idempotent payment events\n- Wishlist, quotations, notifications, support tickets, coupons, bundles and reviews\n- Staff RBAC product/request/quotation/review/content/coupon/finance APIs and dashboards\n- PostgreSQL/Prisma schema and migrations for accounts, commerce and CMS\n- SEO metadata, sitemap, robots, security headers, error boundary and 404\n- Reusable scraper CLI and documentation\n- CI schema validation, Prisma generation, typecheck, tests and production build\n- Legacy static frontend removed so the Next.js app is the single source of truth\n\n## Remaining production modules\n\n1. Payment provider-specific adapter and payment-status mapping\n2. File upload pipeline with private object-storage multipart uploads\n3. Notification delivery providers for email, Discord, WhatsApp and push\n4. Full audit-log administration and broader staff/customer CRUD\n5. Database-backed analytics/telemetry dashboard\n6. Playwright E2E and security regression suite\n"
+          "content": null
         },
         {
           "path": "docs/API.md",
           "size": 2041,
-          "content": "# API Contract\n\n## Public\n\nGET /api/health\nGET /api/products?q=&category=&page=&limit=\nGET /api/products/:id\nGET /api/products/:id/reviews\nGET /api/bundles\nGET /api/portfolio\nGET /api/projects\nGET /api/blog\nGET /api/blog/:slug\nPOST /api/requests\nPOST /api/coupons/validate\nPOST /api/checkout\n\n## Authentication\n\nPOST /api/auth/register\nPOST /api/auth/login\nPOST /api/auth/logout\nGET /api/auth/me\nGET /api/auth/google\nGET /api/auth/google/callback\nPOST /api/auth/password\nPOST /api/auth/sessions/revoke-all\n\nGoogle OAuth uses an authorization-code flow with a short-lived HttpOnly state cookie. The callback requires a verified Google email before creating/linking the local account.\n\n## Customer\n\nGET /api/settings\nPATCH /api/settings\nGET /api/orders\nPOST /api/orders/:id/downloads\nGET /api/downloads/:token\nGET /api/quotations\nPOST /api/quotations/:id/approve\nGET /api/wishlist\nPOST /api/wishlist\nDELETE /api/wishlist?productId=\nGET /api/notifications\nPATCH /api/notifications\nGET /api/invoices/:id\nPOST /api/tickets\nPOST /api/products/:id/reviews\n\n## Payment\n\nPOST /api/payments/webhook\n\nWebhook authentication uses HMAC-SHA256 over the raw request body with PAYMENT_WEBHOOK_SECRET and the x-webhook-signature header. Event IDs are stored uniquely so the same event is not applied twice.\n\n## Staff\n\nGET /api/admin/products\nPOST /api/admin/products\nPATCH /api/admin/products/:id\nDELETE /api/admin/products/:id\nGET /api/admin/requests\nPATCH /api/admin/requests/:id\nPOST /api/admin/quotations\nGET /api/admin/reviews\nPATCH /api/admin/reviews/:id\nDELETE /api/admin/reviews/:id\nGET /api/admin/finance/report\nGET /api/admin/content/:type\nPOST /api/admin/content/:type\nPATCH /api/admin/content/:type/:id\nDELETE /api/admin/content/:type/:id\nGET /api/admin/coupons\nPOST /api/admin/coupons\n\nStaff APIs require a session with an allowed role.\n\n## Scraper\n\nThe scraper is a local CLI under scripts/scraper.mjs. It is intentionally separate from the public HTTP API so a public visitor cannot turn the website into an arbitrary server-side fetch proxy.\n"
+          "content": null
         },
         {
           "path": "README.md",
@@ -4765,7 +4765,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-22T03:12:35.154Z"
+      "scrapedAt": "2026-09-22T03:29:41.645Z"
     },
     {
       "repository": {
@@ -4833,43 +4833,7 @@
         }
       },
       "latestRelease": null,
-      "commits": [
-        {
-          "sha": "dac2203bd5983040ca7fcb727fb32a05357d827e",
-          "message": "release: finalize v3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:55:57Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/dac2203bd5983040ca7fcb727fb32a05357d827e"
-        },
-        {
-          "sha": "b0ac000716c28ffb17aa6a550aa8ded20cd4554b",
-          "message": "fix: align stale release regression test with 3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:55:22Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/b0ac000716c28ffb17aa6a550aa8ded20cd4554b"
-        },
-        {
-          "sha": "bc5d01a31f7fafc33dfc823532aaf320c783dc4f",
-          "message": "test: align release regression test with 3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:54:29Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/bc5d01a31f7fafc33dfc823532aaf320c783dc4f"
-        },
-        {
-          "sha": "c80cc73d0f865bdb4647efaff7e91182e9532da9",
-          "message": "test: align runtime contract with 3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:54:11Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/c80cc73d0f865bdb4647efaff7e91182e9532da9"
-        },
-        {
-          "sha": "c1e983e4de5eafa724592be93c3e0f944eefdc20",
-          "message": "test: align release checks with 3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:54:08Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/c1e983e4de5eafa724592be93c3e0f944eefdc20"
-        }
-      ],
+      "commits": [],
       "tree": [
         {
           "path": ".env.example",
@@ -6748,7 +6712,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-22T03:12:35.264Z"
+      "scrapedAt": "2026-09-22T03:29:41.852Z"
     },
     {
       "repository": {
@@ -6780,7 +6744,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-09-22T03:12:35.160Z"
+      "scrapedAt": "2026-09-22T03:29:41.678Z"
     }
   ]
 }
