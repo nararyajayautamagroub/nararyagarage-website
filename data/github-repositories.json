@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-23T12:45:45.237Z",
+  "fetchedAt": "2026-09-23T13:14:24.708Z",
   "repositoryCount": 6,
   "repositories": [
     {
@@ -15,13 +15,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-09-23T12:27:34Z",
-        "pushed_at": "2026-09-23T12:27:30Z",
+        "updated_at": "2026-09-23T12:52:33Z",
+        "pushed_at": "2026-09-23T12:52:29Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "JavaScript",
-        "size": 346,
+        "size": 351,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -56,6 +56,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "cdaeace7e10c41d1c67020d1a27a575f1297d8c3",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-09-23T12:52:28Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/cdaeace7e10c41d1c67020d1a27a575f1297d8c3"
+        },
+        {
           "sha": "85b1f3c50cce9bf870b91476e3161f8acef34b24",
           "message": "chore: refresh GitHub corporate data",
           "author": "github-actions[bot]",
@@ -82,13 +89,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-23T11:23:19Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/d49d21b318ce99ed218252893d021bfc1f7f1a56"
-        },
-        {
-          "sha": "523a176a195bceee9d1b9a30627673368bc2954e",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-09-23T11:03:43Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/523a176a195bceee9d1b9a30627673368bc2954e"
         }
       ],
       "tree": [
@@ -195,7 +195,7 @@
           "path": "external-live.js",
           "type": "blob",
           "size": 4176,
-          "sha": "687a66b32db6b47194e8739c02e0be14a58d1271"
+          "sha": "83067e64c8018ccb091360d1a613b96a37eb5019"
         },
         {
           "path": "gateway",
@@ -218,7 +218,7 @@
           "path": "github-live.js",
           "type": "blob",
           "size": 8968,
-          "sha": "cc3d5527515ac3b9e5911b2007de4072239acf7f"
+          "sha": "c69fd037c8f66ddb6571004fed102f131c4d8452"
         },
         {
           "path": "i18n.js",
@@ -351,7 +351,7 @@
           "content": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\n- `scripts/validate.mjs` — automated structural/data validation\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\n- `gateway/test.mjs` — gateway integration smoke test\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\\n- `icons/` — installable PWA icon assets\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n\n\n## NPM and Gateway Runtime\n\nThe repository now has an npm contract for local/server execution:\n\n```bash\nnpm install\nnpm test\nnpm start\n```\n\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\n\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\n\n## Copyright Footer\n\nWebsite and bot surfaces use the required footer:\n\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\n"
         }
       ],
-      "scrapedAt": "2026-09-23T12:45:44.041Z"
+      "scrapedAt": "2026-09-23T13:14:24.311Z"
     },
     {
       "repository": {
@@ -364,8 +364,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-23T12:21:00Z",
-        "pushed_at": "2026-09-23T12:20:56Z",
+        "updated_at": "2026-09-23T12:45:50Z",
+        "pushed_at": "2026-09-23T12:45:46Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -439,6 +439,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "f6572ba64dab97988ef52da508c949ea6a7f580e",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-23T12:45:45Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/f6572ba64dab97988ef52da508c949ea6a7f580e"
+        },
+        {
           "sha": "f6d47e57078fa2486fca483e2c5b6b3e6c3ad397",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -465,13 +472,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-23T11:29:27Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/49230c1bc23fbd668d88ca923360442aa6d9e991"
-        },
-        {
-          "sha": "199ff58d7e7156807942e189fbb878b36988a30c",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-23T11:12:30Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/199ff58d7e7156807942e189fbb878b36988a30c"
         }
       ],
       "tree": [
@@ -1828,13 +1828,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "f74b952650d67528a1a7dae178cb052568c8a8e6"
+          "sha": "05472c36b8789e58f5b2f750d84d36766cd9ae45"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 270237,
-          "sha": "c685f26c9fe477d78c205476dd98f0679af5ef7a"
+          "size": 273242,
+          "sha": "3a4b02bf4eab83fd98f5427796a11df1a91dc7e9"
         },
         {
           "path": "data/repositories.ts",
@@ -2138,15 +2138,15 @@
         {
           "path": "docs/REPOSITORY-SYNC.md",
           "size": 2098,
-          "content": "# Repository Data Sync\n\nNARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Prisma sebagai sumber data aplikasi.\n\n## Live repository discovery\n\n`/repositories` dan `GET /api/github/repositories` menemukan repository milik akun GitHub yang terhubung secara dinamis. Registry `data/repositories.ts` hanya menyimpan label/purpose, bukan daftar repository yang harus ada.\n\n`GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.\n\nGitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi.\n\n## Secrets\n\n- `GITHUB_TOKEN`: token GitHub dengan akses minimum yang dibutuhkan. Wajib untuk data private.\n- `GITHUB_WEBHOOK_SECRET`: secret untuk verifikasi `X-Hub-Signature-256`.\n- `DATABASE_URL`: PostgreSQL production database.\n- `NEXT_PUBLIC_SITE_URL`: URL deployment.\n\nJangan commit secret ke repository.\n\n## Webhook\n\nEndpoint: `POST /api/github/webhook`.\n\nWebhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`.\n\n## Database\n\nProject menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter.\n\nData aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.\n\n## Source of truth\n\n- GitHub: repository, branch, commit, issue, pull request, workflow dan source repository.\n- PostgreSQL/Prisma: member, event, convoy, mod, livery, showcase, gallery, forum, tutorial, download, moderation, notification dan pengaturan.\n- Website: layer UI/API yang membaca kedua sumber secara live.\n\n## Private repository\n\nRepository private hanya dapat dibaca saat deployment memiliki token dengan permission yang sesuai. Tanpa token tersebut, kegagalan akses ditampilkan sebagai data unavailable, bukan diganti angka fiktif.\n"
+          "content": null
         },
         {
           "path": "data/github-repositories.json",
-          "size": 270237,
-          "content": "{\n  \"source\": \"GitHub REST API\",\n  \"owner\": \"nararyajayautamagroub\",\n  \"fetchedAt\": \"2026-09-23T12:20:55.066Z\",\n  \"repositoryCount\": 6,\n  \"repositories\": [\n    {\n      \"repository\": {\n        \"id\": 1377275714,\n        \"full_name\": \"nararyajayautamagroub/nexovonarsacorporation-website\",\n        \"name\": \"nexovonarsacorporation-website\",\n        \"private\": false,\n        \"visibility\": \"public\",\n        \"html_url\": \"https://github.com/nararyajayautamagroub/nexovonarsacorporation-website\",\n        \"default_branch\": \"main\",\n        \"description\": null,\n        \"created_at\": \"2026-09-19T14:49:26Z\",\n        \"updated_at\": \"2026-09-23T12:02:39Z\",\n        \"pushed_at\": \"2026-09-23T12:02:35Z\",\n        \"stargazers_count\": 0,\n        \"forks_count\": 0,\n        \"open_issues_count\": 0,\n        \"language\": \"JavaScript\",\n        \"size\": 346,\n        \"archived\": false,\n        \"disabled\": false,\n        \"topics\": []\n      },\n      \"languages\": {\n        \"JavaScript\": 57881,\n        \"CSS\": 21788,\n        \"HTML\": 1958\n      },\n      \"readme\": \"# NEXOVONARSA CORPORATION — Corporate Project Control Center\\n\\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\\n\\n## Included\\n- Corporate dashboard and status KPIs\\n- Companies and business-unit overview\\n- Central Projects database with search and filters\\n- Project detail modal with corporate-control fields\\n- Roadmap 2026–2030 and management hierarchy\\n- Calendar/review cadence, milestones and tasks\\n- Reports, risks, budget, documents and decisions\\n- Notifications, team view and audit/activity log\\n- CSV export of the current project filter\\n- Responsive dark corporate interface with animated buttons and subtle shadows\\n- System Health page for automated telemetry and integrity checks\\n- Scraper Sources page for public metadata monitoring\\n- Automated repository validator for data, routes, links and source integrity\\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\\n- Email/password login, registration, password reset and Google OAuth UI\\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\\n- Static deployment, no build step required\\n\\n## Files\\n- `index.html` — application shell\\n- `styles.css` — responsive corporate UI\\n- `data.js` — companies, roadmap and alerts\\n- `portfolio.js` — project portfolio baseline\\n- `app.js` — dashboard logic, filters, detail view and CSV export\\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\\n- `scripts/validate.mjs` — automated structural/data validation\\\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\\\n- `gateway/test.mjs` — gateway integration smoke test\\\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\\n- `scrape-config.json` — public scraper source registry\\n- `external-live.js` — generated scraper snapshot\\\\n- `icons/` — installable PWA icon assets\\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\\n\\n## Data governance\\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\\n\\n**Last Update:** 10/08/2026  \\n**Planning Period:** 2026–2030  \\n**Document Owner:** NEXOVONARSA CORPORATION\\n\\n## Live GitHub integration\\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\\n\\n### What is synchronized\\n- Repository inventory and visibility\\n- Repository URL, default branch, language and size\\n- Latest push/update timestamps\\n- Latest commit\\n- Open issues and pull requests\\n- Branch count\\n- Latest GitHub Actions workflow state\\n- Corporate mapping (company, business unit and project)\\n\\n### Refresh model\\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\\n\\n### Private repositories\\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\\n\\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\\n\\n### Current connected repositories\\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\\n- `nararya-customer-service-platform` (private)\\n- `modbussid-converter`\\n- `nararya-bot-discord`\\n- `narasacakraperwana-website`\\n- `nararyastudio-website`\\n- `nararyagarage-website`\\n- `nexovonarsacorporation-website`\\n\\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\\n\\n\\n## Automated quality controls\\n\\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\\n\\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\\n\\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\\n\\n\\n## Authentication and localization\\n\\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\\n\\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\\n\\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\\n\\n\\n## NPM and Gateway Runtime\\n\\nThe repository now has an npm contract for local/server execution:\\n\\n```bash\\nnpm install\\nnpm test\\nnpm start\\n```\\n\\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\\n\\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\\n\\n## Copyright Footer\\n\\nWebsite and bot surfaces use the required footer:\\n\\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\\n\",\n      \"packageJson\": {\n        \"name\": \"nexovonarsacorporation-website\",\n        \"version\": \"5.3.0\",\n        \"private\": true,\n        \"type\": \"module\",\n        \"description\": \"NEXOVONARSA CORPORATION Project Control Center with static frontend and optional Node.js gateway.\",\n        \"scripts\": {\n          \"check\": \"node scripts/validate.mjs\",\n          \"smoke\": \"node scripts/smoke-test.mjs\",\n          \"test:gateway\": \"node gateway/test.mjs\",\n          \"test\": \"npm run check && npm run smoke && npm run test:gateway\",\n          \"start\": \"node gateway/server.mjs\",\n          \"dev\": \"node --watch gateway/server.mjs\",\n          \"scrape\": \"node scripts/scrape-public.mjs\",\n          \"sync\": \"node scripts/sync-github.mjs\"\n        },\n        \"engines\": {\n          \"node\": \">=22.12.0\",\n          \"npm\": \">=10.0.0\"\n        }\n      },\n      \"latestRelease\": null,\n      \"commits\": [\n        {\n          \"sha\": \"f2888e85cb682aab086f7ae34ad79f015131111c\",\n          \"message\": \"chore: refresh GitHub corporate data\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-23T12:02:34Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/f2888e85cb682aab086f7ae34ad79f015131111c\"\n        },\n        {\n          \"sha\": \"5230999dd32244b841bacff503eceee371ebe49e\",\n          \"message\": \"chore: refresh GitHub corporate data\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-23T11:48:25Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/5230999dd32244b841bacff503eceee371ebe49e\"\n        },\n        {\n          \"sha\": \"d49d21b318ce99ed218252893d021bfc1f7f1a56\",\n          \"message\": \"chore: refresh GitHub corporate data\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-23T11:23:19Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/d49d21b318ce99ed218252893d021bfc1f7f1a56\"\n        },\n        {\n          \"sha\": \"523a176a195bceee9d1b9a30627673368bc2954e\",\n          \"message\": \"chore: refresh GitHub corporate data\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-23T11:03:43Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/523a176a195bceee9d1b9a30627673368bc2954e\"\n        },\n        {\n          \"sha\": \"b23596cca5acbe5a9d42b0b4dce43eb3e3f04874\",\n          \"message\": \"chore: refresh GitHub corporate data\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-23T10:49:05Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/b23596cca5acbe5a9d42b0b4dce43eb3e3f04874\"\n        }\n      ],\n      \"tree\": [\n        {\n          \"path\": \".github\",\n          \"type\": \"tree\",\n          \"sha\": \"3ccb863406c41ba6f6e05185c501f77540f55727\"\n        },\n        {\n          \"path\": \".github/workflows\",\n          \"type\": \"tree\",\n          \"sha\": \"08074fd8f9f1e8f99996c511740437706996809c\"\n        },\n        {\n          \"path\": \".github/workflows/deploy.yml\",\n          \"type\": \"blob\",\n          \"size\": 2914,\n          \"sha\": \"1a93722079fb26f412157b10e87f28df05622a25\"\n        },\n        {\n          \"path\": \".github/workflows/npm-quality.yml\",\n          \"type\": \"blob\",\n          \"size\": 596,\n          \"sha\": \"2b1e2af4b0784913f8a8a0f7ecd8dec005e367f2\"\n        },\n        {\n          \"path\": \".github/workflows/quality.yml\",\n          \"type\": \"blob\",\n          \"size\": 1114,\n          \"sha\": \"c33eb0a860c04ee5f361669895fd3c04221fa2f1\"\n        },\n        {\n          \"path\": \".github/workflows/sync-corporate-data.yml\",\n          \"type\": \"blob\",\n          \"size\": 1874,\n          \"sha\": \"8dd4ff6dcb88ce0256597bd2f5f33ad7baf831f0\"\n        },\n        {\n          \"path\": \".gitignore\",\n          \"type\": \"blob"
+          "size": 273242,
+          "content": null
         }
       ],
-      "scrapedAt": "2026-09-23T12:45:44.440Z"
+      "scrapedAt": "2026-09-23T13:14:24.645Z"
     },
     {
       "repository": {
@@ -3039,22 +3039,22 @@
         {
           "path": "platforms/ets2_ats/map/README.md",
           "size": 137,
-          "content": null
+          "content": "# ETS2 / ATS Map\n\nAdapter inspect dan export untuk asset map ETS2/ATS.\n\nEditor engine-native membutuhkan toolchain SCS/ETS2 yang sesuai.\n"
         },
         {
           "path": "assets/README.md",
           "size": 142,
-          "content": null
+          "content": "# assets\n\nAsset template dan input project-level.\n\nTemplate bersama berada di `assets/templates/`.\n\nKategori template: AO, Texture, Kaca/XOR.\n"
         },
         {
           "path": "platforms/roblox/vehicle/README.md",
           "size": 147,
-          "content": null
+          "content": "# Roblox Vehicle\n\nAdapter inspect dan export package kendaraan Roblox.\n\nNative `.rbxm` atau `.rbxmx` tidak dibuat hanya dengan mengganti ekstensi.\n"
         },
         {
           "path": "platforms/roblox/lights/README.md",
           "size": 155,
-          "content": null
+          "content": "# Roblox Lights\n\nPreset Strobo, Rotator, dan LED Bar.\n\nOutput JSON + ZIP dengan script Lua untuk Roblox Studio. Output bukan `.rbxm` atau `.rbxmx` native.\n"
         },
         {
           "path": "platforms/bussid/kodename/README.md",
@@ -3117,7 +3117,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-23T12:45:44.410Z"
+      "scrapedAt": "2026-09-23T13:14:24.708Z"
     },
     {
       "repository": {
@@ -4765,7 +4765,7 @@
           "content": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API with persisted payment method, payment instructions endpoint and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, FAQ, request tracking, finance reports, CMS and staff operations\n- SEO sitemap + robots, mobile web manifest and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nThe scraper uses same-origin crawling by default:\n\n    npm run scrape -- https://example.com --max-pages 25\n\nExplicit same-origin mode:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nUse `--all-origins` only when cross-domain crawling is actually required.\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL, the Google OAuth variables when Google Login is enabled, and Midtrans keys when PAYMENT_GATEWAY=MIDTRANS.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract. Manual payment instructions can be supplied with PAYMENT_QRIS_INSTRUCTIONS, PAYMENT_VA_INSTRUCTIONS, PAYMENT_BANK_INSTRUCTIONS and PAYMENT_WALLET_INSTRUCTIONS.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n\n## Payment Gateway\n\nSet `PAYMENT_GATEWAY=MIDTRANS` to create real Snap transactions from the server. Configure `MIDTRANS_SERVER_KEY`, `MIDTRANS_CLIENT_KEY`, and `MIDTRANS_IS_PRODUCTION`. Midtrans uses the Server Key for server-side Basic authentication and the Client Key for browser Snap.js. Notifications are verified with Midtrans's `signature_key` formula and processed idempotently. Production must use an HTTPS notification URL configured in the Midtrans dashboard.\n\nFor local or manual flows, keep `PAYMENT_GATEWAY=MANUAL`; payment instructions can be supplied with the `PAYMENT_*_INSTRUCTIONS` variables.\n\n## JavaScript frontend\n\nInteractive checkout and login now use `.jsx`, while shared vanilla browser modules live under `public/js/`. TypeScript remains for database, authentication, RBAC and payment verification so runtime-sensitive code keeps compile-time checks. `npm run verify` runs the schema, generation, typecheck, tests and production build chain.\n"
         }
       ],
-      "scrapedAt": "2026-09-23T12:45:44.251Z"
+      "scrapedAt": "2026-09-23T13:14:24.489Z"
     },
     {
       "repository": {
@@ -6748,7 +6748,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-23T12:45:45.237Z"
+      "scrapedAt": "2026-09-23T13:14:24.613Z"
     },
     {
       "repository": {
@@ -6772,18 +6772,717 @@
         "disabled": false,
         "topics": []
       },
-      "languages": {
-        "TypeScript": 83793,
-        "JavaScript": 381
-      },
-      "readme": "# NARASA CAKRA PERWANA Website\n\nWebsite PO Virtual / Virtual Transportation Community NARASA CAKRA PERWANA.\n\n## Version 4.0\n\n- Responsive white + pink design\n- Soft shadows and animated buttons\n- Mobile hamburger menu\n- 10-language selector\n- Account register\n- Email/password login\n- Google OAuth login\n- JWT session\n- User dashboard\n- Profile/settings\n- Password change and password creation for Google-only accounts\n- PostgreSQL + Prisma\n- Live GitHub project monitor\n- Private GitHub repository admin monitor\n- HTML/RSS/JSON scraper\n- Scraper history + stored items\n- Scheduled scraper endpoint\n- Admin authentication\n- Error, 404 and loading boundaries\n- Health endpoint\n- ESLint + TypeScript + production build checks\n\n## Ten languages\n\n- 🇮🇩 Bahasa Indonesia\n- 🇬🇧 English\n- 🇲🇾 Bahasa Melayu\n- 🇨🇳 简体中文\n- 🇯🇵 日本語\n- 🇰🇷 한국어\n- 🇸🇦 العربية\n- 🇪🇸 Español\n- 🇫🇷 Français\n- 🇩🇪 Deutsch\n\nThe selected locale is stored in a browser cookie and, for authenticated users, in PostgreSQL.\n\n## Authentication\n\nLocal account:\n- Register\n- Login\n- Logout\n- Password hash with bcrypt\n- JWT session\n\nGoogle:\n- Google OAuth provider through NextAuth\n- Existing Google users are matched by normalized email\n- Google-only users can create a local password later in Settings\n\nRequired environment:\n\n```env\nNEXTAUTH_URL=\"https://narasacakraperwana.com\"\nNEXTAUTH_SECRET=\"\"\nGOOGLE_CLIENT_ID=\"\"\nGOOGLE_CLIENT_SECRET=\"\"\n```\n\nGoogle OAuth redirect URIs:\n\n```\nhttps://YOUR-DOMAIN/api/auth/callback/google\nhttp://localhost:3000/api/auth/callback/google\n```\n\nDo not put Google secrets in source control.\n\n## Scraper\n\nSupported:\n- HTML/CSS selector\n- RSS/XML\n- JSON\n\nSafety:\n- HTTPS only\n- response timeout\n- response size limit\n- configurable host allowlist\n- database persistence\n- run history\n- dry-run configuration validation\n\nCommands:\n\n```bash\nnpm run scrape\nnpm run scrape:check\n```\n\nScheduler endpoint:\n\n`/api/scraper/run`\n\nIt requires `CRON_SECRET` or `SCRAPER_RUN_SECRET`.\n\n## GitHub connection\n\nPublic website:\n- public repository metadata\n- commit information when authenticated\n- GitHub Actions state when authenticated\n\nAdmin:\n- can synchronize owned private repositories with `GITHUB_TOKEN`\n\nPrivate repository information is never rendered on the public project monitor.\n\n## Data policy\n\nUnverified member totals, fleet units, events, and news are not seeded as real facts. Empty operational values remain empty until supplied by an authorized source or admin.\n\n## Local setup\n\n```bash\nnpm install\nnpx prisma generate\nnpm run db:push\nnpm run db:seed\nnpm run check\nnpm run dev\n```\n\nFor full production deployment, set `DATABASE_URL`, NextAuth secrets, Google OAuth credentials, GitHub token, admin secrets, and scraper configuration.\n",
+      "languages": {},
+      "readme": null,
       "packageJson": null,
       "latestRelease": null,
       "commits": [],
-      "tree": [],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 524,
+          "sha": "933931e01a6a2a11e258fcc593d725683180cb03"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "7133e0b82a7141dfc6fecbdfa1ef99731e37b738"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "8282ff4488af7e6d77160c501c20291e94f94df1"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 990,
+          "sha": "7b23d31e844fde80c9c761436be8ac6d64bf0d93"
+        },
+        {
+          "path": ".gitignore",
+          "type": "blob",
+          "size": 105,
+          "sha": "0700db4f999a957271b54455b39158188318774d"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 2805,
+          "sha": "7da7735fcb8a5a48c95ab39690beed0c4070c670"
+        },
+        {
+          "path": "app",
+          "type": "tree",
+          "sha": "62bc4fb5b180238beb01e83de27514fecdcf8711"
+        },
+        {
+          "path": "app/about",
+          "type": "tree",
+          "sha": "0bde418628cfc9938aaf0f3731ded1aad75ff18d"
+        },
+        {
+          "path": "app/about/page.tsx",
+          "type": "blob",
+          "size": 1098,
+          "sha": "54e9f5e45c6e8c1340b081d48ac70cbbec17834b"
+        },
+        {
+          "path": "app/admin",
+          "type": "tree",
+          "sha": "f060ab251066d88bd91f2732b4ecdc85bac84b63"
+        },
+        {
+          "path": "app/admin/github",
+          "type": "tree",
+          "sha": "0db65dc5f2a538ed8647e0a9dec735c8a81c5ebf"
+        },
+        {
+          "path": "app/admin/github/page.tsx",
+          "type": "blob",
+          "size": 1376,
+          "sha": "0180a05c272ecfd14f062d8106dfc0699ab31fa0"
+        },
+        {
+          "path": "app/admin/login",
+          "type": "tree",
+          "sha": "6036b6037da7a50f34a1f77bb9308d34f73905b3"
+        },
+        {
+          "path": "app/admin/login/page.tsx",
+          "type": "blob",
+          "size": 1371,
+          "sha": "4e10a2caba9a67dcf96732a39650df99ac262e24"
+        },
+        {
+          "path": "app/admin/page.tsx",
+          "type": "blob",
+          "size": 1814,
+          "sha": "c928c386b24f0d000411ad686b53c2b082781a06"
+        },
+        {
+          "path": "app/admin/recruitment",
+          "type": "tree",
+          "sha": "5349c036e583fa7a3e1b41a3cabc69ae6e6e7025"
+        },
+        {
+          "path": "app/admin/recruitment/page.tsx",
+          "type": "blob",
+          "size": 928,
+          "sha": "2bf240e9d1f729e245a29915924249f2873f8662"
+        },
+        {
+          "path": "app/admin/scraper",
+          "type": "tree",
+          "sha": "ec01dd5ebb81f7d59f195447703a24788251988a"
+        },
+        {
+          "path": "app/admin/scraper/page.tsx",
+          "type": "blob",
+          "size": 1535,
+          "sha": "8a56be6ca9bc538b8d116861c34b6f1501ddbb98"
+        },
+        {
+          "path": "app/api",
+          "type": "tree",
+          "sha": "ca1669d5a2300233144156177ea8c62fb41e574a"
+        },
+        {
+          "path": "app/api/admin",
+          "type": "tree",
+          "sha": "47100cc5ab53100fe994753c593da577dac29ed5"
+        },
+        {
+          "path": "app/api/admin/login",
+          "type": "tree",
+          "sha": "84a59098cdb596090dffdbfe983939f04177a351"
+        },
+        {
+          "path": "app/api/admin/login/route.ts",
+          "type": "blob",
+          "size": 1070,
+          "sha": "fec6fea65f94890a975889816cd15c7ce754f626"
+        },
+        {
+          "path": "app/api/auth",
+          "type": "tree",
+          "sha": "5e9782d73467730c9ca79a58dc43fbb73fe92c73"
+        },
+        {
+          "path": "app/api/auth/[...nextauth]",
+          "type": "tree",
+          "sha": "323d2f71be7d90955de01f835195cac05f356aa5"
+        },
+        {
+          "path": "app/api/auth/[...nextauth]/route.ts",
+          "type": "blob",
+          "size": 88,
+          "sha": "19a23872b61dd1b57889d68030947b801fc6873d"
+        },
+        {
+          "path": "app/api/contact",
+          "type": "tree",
+          "sha": "5efd60403b91e03c6cfb6ab29b583dad231495f5"
+        },
+        {
+          "path": "app/api/contact/route.ts",
+          "type": "blob",
+          "size": 467,
+          "sha": "bd8f6042f949217c777377c5c3e10c6c494a4828"
+        },
+        {
+          "path": "app/api/divisions",
+          "type": "tree",
+          "sha": "f4311fea2bec01eb2a3ebb8df158e9e1e3895b2b"
+        },
+        {
+          "path": "app/api/divisions/route.ts",
+          "type": "blob",
+          "size": 314,
+          "sha": "f6875e7d6354ee8ef65e9da175ab72660155eb9c"
+        },
+        {
+          "path": "app/api/events",
+          "type": "tree",
+          "sha": "c2ac6e0871d705a20ca697cae0dfe758159d2d80"
+        },
+        {
+          "path": "app/api/events/route.ts",
+          "type": "blob",
+          "size": 210,
+          "sha": "a8f6321b32ed273ee15bc2c53500bccd0fdc1023"
+        },
+        {
+          "path": "app/api/fleet",
+          "type": "tree",
+          "sha": "270e8c837ec9a8df2ceffd53122ab3bb5d8c3aa3"
+        },
+        {
+          "path": "app/api/fleet/route.ts",
+          "type": "blob",
+          "size": 628,
+          "sha": "892cc35183ffadb7e280b68086177dbaa4962eb1"
+        },
+        {
+          "path": "app/api/gallery",
+          "type": "tree",
+          "sha": "7b94ec0c6ab1165381e5c11e6dd038b2c0d38d1e"
+        },
+        {
+          "path": "app/api/gallery/route.ts",
+          "type": "blob",
+          "size": 195,
+          "sha": "23898e81fde281b5d9adf0cf992b1cb42c96dade"
+        },
+        {
+          "path": "app/api/github",
+          "type": "tree",
+          "sha": "471ba479d5480b42edb705d5f49e9a74dd4d60a8"
+        },
+        {
+          "path": "app/api/github/repos",
+          "type": "tree",
+          "sha": "66b75313294d0fe9854baea89ff7e115ae1cf8c1"
+        },
+        {
+          "path": "app/api/github/repos/route.ts",
+          "type": "blob",
+          "size": 971,
+          "sha": "20b3219f0b9867d0afeb8a0c22023d193f0f04f2"
+        },
+        {
+          "path": "app/api/health",
+          "type": "tree",
+          "sha": "482f55805077bd6ca8c68f364767d7466d1d43ef"
+        },
+        {
+          "path": "app/api/health/route.ts",
+          "type": "blob",
+          "size": 802,
+          "sha": "911bb29eacf3b7bf357c323d4c29a0779c1f6d93"
+        },
+        {
+          "path": "app/api/locale",
+          "type": "tree",
+          "sha": "51e8b2510227eb3c827d7bd9e6e99d4c1f16bb3c"
+        },
+        {
+          "path": "app/api/locale/route.ts",
+          "type": "blob",
+          "size": 461,
+          "sha": "8741498727617d079c20d6ae67aabcd2d7e9e681"
+        },
+        {
+          "path": "app/api/news",
+          "type": "tree",
+          "sha": "9f745737df0067e193103700899299208505c652"
+        },
+        {
+          "path": "app/api/news/route.ts",
+          "type": "blob",
+          "size": 210,
+          "sha": "a19c2dd681d61d04de8994576bc35c519b8349f1"
+        },
+        {
+          "path": "app/api/recruitment",
+          "type": "tree",
+          "sha": "f63cfaf27c782ca611ea34dd9a9f5d19d889abd1"
+        },
+        {
+          "path": "app/api/recruitment/route.ts",
+          "type": "blob",
+          "size": 883,
+          "sha": "3e6a21e8c84d8e958b1fc9657e0cfa8be55dfa0e"
+        },
+        {
+          "path": "app/api/register",
+          "type": "tree",
+          "sha": "3ff0c7a8f1c8bb03d8a22dcf2e6557f83808dc37"
+        },
+        {
+          "path": "app/api/register/route.ts",
+          "type": "blob",
+          "size": 1311,
+          "sha": "5760e2e98a0ab1fcb27c1dfb44ca186e92a1ac2c"
+        },
+        {
+          "path": "app/api/scraper",
+          "type": "tree",
+          "sha": "9388304680df32ec6fe9543339a8ae57bc2e5693"
+        },
+        {
+          "path": "app/api/scraper/run",
+          "type": "tree",
+          "sha": "3a490bc34d362440e82a9c376b7052994250669f"
+        },
+        {
+          "path": "app/api/scraper/run/route.ts",
+          "type": "blob",
+          "size": 721,
+          "sha": "9bad2d07eb281ab2bc8c344ca1a48fe4c7e49863"
+        },
+        {
+          "path": "app/api/settings",
+          "type": "tree",
+          "sha": "7b09d6ce952be52f75b7659d4730e16b98f5cf9f"
+        },
+        {
+          "path": "app/api/settings/route.ts",
+          "type": "blob",
+          "size": 2265,
+          "sha": "e0d483ad9759f54754be1b7b7770a7089e4166ab"
+        },
+        {
+          "path": "app/contact",
+          "type": "tree",
+          "sha": "3f50d60daacef6f672cbec939aa9c7c07ecb11eb"
+        },
+        {
+          "path": "app/contact/page.tsx",
+          "type": "blob",
+          "size": 1531,
+          "sha": "377c0ea4fc8f1561ca34202e47c185c9211fa846"
+        },
+        {
+          "path": "app/dashboard",
+          "type": "tree",
+          "sha": "81f42769388cf91ed4bea3c54b5c825e3df6f304"
+        },
+        {
+          "path": "app/dashboard/page.tsx",
+          "type": "blob",
+          "size": 1559,
+          "sha": "e5dadfae3c86828851d5172b5b075af6bc16d9e6"
+        },
+        {
+          "path": "app/divisions",
+          "type": "tree",
+          "sha": "3dc90e74e5685400b434ae68f9e5d34af9b5f42f"
+        },
+        {
+          "path": "app/divisions/[slug]",
+          "type": "tree",
+          "sha": "9bd68cadaf9ac47f27fb1168397c28f0c7d30578"
+        },
+        {
+          "path": "app/divisions/[slug]/page.tsx",
+          "type": "blob",
+          "size": 1684,
+          "sha": "b7edd224debbcc16ea2b8b6d32a3e813bc1f0658"
+        },
+        {
+          "path": "app/divisions/page.tsx",
+          "type": "blob",
+          "size": 631,
+          "sha": "676304d5898c69249be17cf9cee73f19c7a0623e"
+        },
+        {
+          "path": "app/error.tsx",
+          "type": "blob",
+          "size": 509,
+          "sha": "4115a44632f7d8a2a6efec5f5fe0c37c6c93676e"
+        },
+        {
+          "path": "app/events",
+          "type": "tree",
+          "sha": "fbe8658a40e59d4f55a7e3aaaced2e8e61f71bcc"
+        },
+        {
+          "path": "app/events/page.tsx",
+          "type": "blob",
+          "size": 1132,
+          "sha": "cabd0cefe44557a60c0d5e288e2b861c8b9285d5"
+        },
+        {
+          "path": "app/fleet",
+          "type": "tree",
+          "sha": "6087f39384eef7480395fbab5dec9cd817c7b778"
+        },
+        {
+          "path": "app/fleet/page.tsx",
+          "type": "blob",
+          "size": 872,
+          "sha": "423f9d37f2ed37c9c06efa4c478e1336fd470728"
+        },
+        {
+          "path": "app/gallery",
+          "type": "tree",
+          "sha": "1438ebe7a29aee75759d1feb40974e410eb763fd"
+        },
+        {
+          "path": "app/gallery/page.tsx",
+          "type": "blob",
+          "size": 830,
+          "sha": "6cfe6768415cd5b45ddb7beab17622605ec947a2"
+        },
+        {
+          "path": "app/github",
+          "type": "tree",
+          "sha": "9ae2aa31bf154508aae7845e5c5008a4ea05e319"
+        },
+        {
+          "path": "app/github/[name]",
+          "type": "tree",
+          "sha": "cbc338231be8fada81fe0442d464594db95c6138"
+        },
+        {
+          "path": "app/github/[name]/page.tsx",
+          "type": "blob",
+          "size": 2064,
+          "sha": "a613b6f2387d86eb1dc7ef271b06d1257b9572a7"
+        },
+        {
+          "path": "app/github/page.tsx",
+          "type": "blob",
+          "size": 1987,
+          "sha": "5b63ae17eb5645de368077a11875125b12c7a671"
+        },
+        {
+          "path": "app/globals.css",
+          "type": "blob",
+          "size": 12381,
+          "sha": "0e891bb8b6a8637e9121af820d7637b0e1d416e5"
+        },
+        {
+          "path": "app/layout.tsx",
+          "type": "blob",
+          "size": 1192,
+          "sha": "48b583054161079b8a19380925116219a47a0a1e"
+        },
+        {
+          "path": "app/loading.tsx",
+          "type": "blob",
+          "size": 313,
+          "sha": "5b9f76f5cc1003d0e1fe13700dd2d9ea50c7af43"
+        },
+        {
+          "path": "app/login",
+          "type": "tree",
+          "sha": "4feaf94a0fd2d5aeed837462ae1d3d04d7032746"
+        },
+        {
+          "path": "app/login/page.tsx",
+          "type": "blob",
+          "size": 1762,
+          "sha": "34e9766bbddf7b0aee45f019a0cda4ff8b864f7d"
+        },
+        {
+          "path": "app/news",
+          "type": "tree",
+          "sha": "1df08bbb83cbfc1ac382c30a38cf634c4d5bbfa5"
+        },
+        {
+          "path": "app/news/[slug]",
+          "type": "tree",
+          "sha": "96f3019cde5197785759d90839024043b1008b78"
+        },
+        {
+          "path": "app/news/[slug]/page.tsx",
+          "type": "blob",
+          "size": 728,
+          "sha": "817d57db58f407c84d5fb7f21800302bf27ad600"
+        },
+        {
+          "path": "app/news/page.tsx",
+          "type": "blob",
+          "size": 884,
+          "sha": "e59dddefe7c8355f02a47566472be12e7e40e4eb"
+        },
+        {
+          "path": "app/not-found.tsx",
+          "type": "blob",
+          "size": 363,
+          "sha": "1a098712b2b85d3257f489fb18bf0351b54d5e48"
+        },
+        {
+          "path": "app/page.tsx",
+          "type": "blob",
+          "size": 3101,
+          "sha": "6484bece0c0e8d5cab7abe4c8f44f4699ed8f317"
+        },
+        {
+          "path": "app/providers.tsx",
+          "type": "blob",
+          "size": 214,
+          "sha": "07fb378ebb6bd7e32ae8482c6fcb93ead2bad8e5"
+        },
+        {
+          "path": "app/recruitment",
+          "type": "tree",
+          "sha": "f246a78c563dd034947882c0b034ef9abf7814b3"
+        },
+        {
+          "path": "app/recruitment/page.tsx",
+          "type": "blob",
+          "size": 2708,
+          "sha": "e7ad94ad851d13d0ee5501bd26b5bc9d0491de23"
+        },
+        {
+          "path": "app/register",
+          "type": "tree",
+          "sha": "28b14fa9f665579feffa188031fc171d75c5f90a"
+        },
+        {
+          "path": "app/register/page.tsx",
+          "type": "blob",
+          "size": 2166,
+          "sha": "5ead66a0e6062e4dbbdbdc9873c08d8b1c3e6e70"
+        },
+        {
+          "path": "app/robots.ts",
+          "type": "blob",
+          "size": 188,
+          "sha": "1ee90115958011cd86ef09e95848a03a6f4b56ad"
+        },
+        {
+          "path": "app/settings",
+          "type": "tree",
+          "sha": "af86ac5867c644c47965e6e723f2d22a2a248583"
+        },
+        {
+          "path": "app/settings/page.tsx",
+          "type": "blob",
+          "size": 3171,
+          "sha": "f20bf20ea00aefa10faf6d34c346089c24726a01"
+        },
+        {
+          "path": "app/sitemap.ts",
+          "type": "blob",
+          "size": 482,
+          "sha": "ac985f1797825d75ccbed3b1d9dc95e530e62c9e"
+        },
+        {
+          "path": "components",
+          "type": "tree",
+          "sha": "d3ad49a0a168a192d5821a07a0640c90f4367504"
+        },
+        {
+          "path": "components/DivisionCard.tsx",
+          "type": "blob",
+          "size": 698,
+          "sha": "007b72f0ffa29dcfc4697bc21f8d68940b1f0feb"
+        },
+        {
+          "path": "components/Footer.tsx",
+          "type": "blob",
+          "size": 353,
+          "sha": "9201d2c0f19d8d50227ab7877ecfe0b95c2dbe3e"
+        },
+        {
+          "path": "components/LocaleSwitcher.tsx",
+          "type": "blob",
+          "size": 702,
+          "sha": "4c6830a09d65ea003fcc6c8e5f27e795bd9201f1"
+        },
+        {
+          "path": "components/Navbar.tsx",
+          "type": "blob",
+          "size": 1619,
+          "sha": "59958bbc0b8b3e7df9977d60f38bf98cc5a8f7da"
+        },
+        {
+          "path": "components/SessionProvider.tsx",
+          "type": "blob",
+          "size": 191,
+          "sha": "05de0308da2117fa979b8c1043ae6d9681805354"
+        },
+        {
+          "path": "components/UserMenu.tsx",
+          "type": "blob",
+          "size": 982,
+          "sha": "1ddec39f1083d43dd281d31f0a4adee4192efb3a"
+        },
+        {
+          "path": "eslint.config.mjs",
+          "type": "blob",
+          "size": 381,
+          "sha": "68c8b2edd89850ccba41e1c38ac3d688171d6234"
+        },
+        {
+          "path": "lib",
+          "type": "tree",
+          "sha": "5c447d92f20906cd421d9b7193f0475234b6f6ae"
+        },
+        {
+          "path": "lib/admin-auth.ts",
+          "type": "blob",
+          "size": 801,
+          "sha": "2379a75b69dbf5fecc73512a7806d688d3fa35cd"
+        },
+        {
+          "path": "lib/auth.ts",
+          "type": "blob",
+          "size": 3381,
+          "sha": "6ee224d5768e666b751a7b01b5e6a727050dae93"
+        },
+        {
+          "path": "lib/data.ts",
+          "type": "blob",
+          "size": 1815,
+          "sha": "3eb5a6fe4a898cb358437c5d6fe66c7eb9331380"
+        },
+        {
+          "path": "lib/db.ts",
+          "type": "blob",
+          "size": 262,
+          "sha": "dbb82099a09855ee84980f5839607ab00776d9a4"
+        },
+        {
+          "path": "lib/github.ts",
+          "type": "blob",
+          "size": 5419,
+          "sha": "f45f064a3813369cc35407595ed814fdb40705d7"
+        },
+        {
+          "path": "lib/i18n.ts",
+          "type": "blob",
+          "size": 4366,
+          "sha": "413bb92a52313bc43728ab5c7494f37c3c89f2b9"
+        },
+        {
+          "path": "lib/rate-limit.ts",
+          "type": "blob",
+          "size": 479,
+          "sha": "9065b98f311d0dda826a3f28dce9c9e51c840285"
+        },
+        {
+          "path": "lib/scraper.ts",
+          "type": "blob",
+          "size": 10193,
+          "sha": "7007f86b26c9c6bea1444e36840da2340f0a703d"
+        },
+        {
+          "path": "lib/server-data.ts",
+          "type": "blob",
+          "size": 630,
+          "sha": "a8afb1dfb161f96fa93787b29771114388bb5dac"
+        },
+        {
+          "path": "lib/validation.ts",
+          "type": "blob",
+          "size": 584,
+          "sha": "bdf7a457f261a12cddcbd55fe3a1fb1b95f81c30"
+        },
+        {
+          "path": "next-env.d.ts",
+          "type": "blob",
+          "size": 210,
+          "sha": "911f40cab2f44621cfde2741243eddd21654b301"
+        },
+        {
+          "path": "next.config.ts",
+          "type": "blob",
+          "size": 531,
+          "sha": "6f165f6c03c04542533c646591b88d456a4fa220"
+        },
+        {
+          "path": "package.json",
+          "type": "blob",
+          "size": 1205,
+          "sha": "5cd2c737122bbd9f69d196569800c6f5fbd1a8b8"
+        },
+        {
+          "path": "prisma",
+          "type": "tree",
+          "sha": "d712f554a0e60e24b90382af4dc0763c25bb988b"
+        },
+        {
+          "path": "prisma/schema.prisma",
+          "type": "blob",
+          "size": 5707,
+          "sha": "39e92e75a5de60c7af1df69b1c3ea250788fc68c"
+        },
+        {
+          "path": "prisma/seed.ts",
+          "type": "blob",
+          "size": 1600,
+          "sha": "3d3e5eca299ce27f6c7fa23b9f91502583c36c40"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "ed726f8cc2942835fc584d01d75ec6acb128485a"
+        },
+        {
+          "path": "scripts/scraper.ts",
+          "type": "blob",
+          "size": 398,
+          "sha": "edc39586c5499b5e764bdcdd9a03b5b056c42c5a"
+        },
+        {
+          "path": "tsconfig.json",
+          "type": "blob",
+          "size": 572,
+          "sha": "90d8988eda831b36c82622e0648760d0ca09b1dc"
+        },
+        {
+          "path": "types",
+          "type": "tree",
+          "sha": "cdccaf706109b6e6a9d1bbee83d710117bde0d5e"
+        },
+        {
+          "path": "types/next-auth.d.ts",
+          "type": "blob",
+          "size": 405,
+          "sha": "15079954281fa6a64ff641d9377f9d1794829e66"
+        },
+        {
+          "path": "vercel.json",
+          "type": "blob",
+          "size": 86,
+          "sha": "597757bd755f23746df8e16ad77591d62a23f82e"
+        }
+      ],
       "treeTruncated": false,
-      "sourceFiles": [],
-      "scrapedAt": "2026-09-23T12:45:44.378Z"
+      "sourceFiles": [
+        {
+          "path": "README.md",
+          "size": 2805,
+          "content": null
+        }
+      ],
+      "scrapedAt": "2026-09-23T13:14:24.697Z"
     }
   ]
 }
