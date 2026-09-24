@@ -1,980 +1,9 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-24T00:17:03.614Z",
+  "fetchedAt": "2026-09-24T00:45:36.336Z",
   "repositoryCount": 6,
   "repositories": [
-    {
-      "repository": {
-        "id": 1377081187,
-        "full_name": "nararyajayautamagroub/GameModAssetLab",
-        "name": "GameModAssetLab",
-        "private": false,
-        "visibility": "public",
-        "html_url": "https://github.com/nararyajayautamagroub/GameModAssetLab",
-        "default_branch": "main",
-        "description": null,
-        "created_at": "2026-09-19T11:38:21Z",
-        "updated_at": "2026-09-24T00:03:55Z",
-        "pushed_at": "2026-09-20T08:38:25Z",
-        "stargazers_count": 0,
-        "forks_count": 0,
-        "open_issues_count": 0,
-        "language": "Python",
-        "size": 351,
-        "archived": false,
-        "disabled": false,
-        "topics": []
-      },
-      "languages": {
-        "Python": 134328,
-        "JavaScript": 24027,
-        "HTML": 10023,
-        "CSS": 5918
-      },
-      "readme": "# Game Mod Asset Lab v5.0.0\n\nGame Mod Asset Lab adalah aplikasi web untuk inspeksi, klasifikasi, packaging, export, scraper publik, dan pengelolaan asset yang memang dimiliki atau memang boleh diproses oleh pengguna.\n\n## Struktur v5\n\n| Folder | Deskripsi |\n|---|---|\n| `backend/` | FastAPI application, API routes, gateway, auth, catalog, scraper, dan asset API. |\n| `frontend/` | HTML, vanilla JavaScript, CSS responsive, PWA manifest, service worker, dan icon. |\n| `core/` | Logic inti yang dipakai bersama backend, tooling, tests, dan adapter platform. |\n| `platforms/` | Adapter BUSSID, ETS2/ATS, dan Roblox. |\n| `assets/` | Template dan input asset project-level. |\n| `artifacts/` | Output runtime seperti generated export dan download artifact. |\n| `tooling/` | Scraper CLI, smoke test, frontend smoke, repository audit, dan check pipeline. |\n| `tests/` | Test otomatis backend, auth, exporter, image, scraper, dan UI. |\n| `docs/` | Dokumentasi arsitektur, deskripsi folder, dan migrasi v5. |\n\n## Fitur aktif\n\n- Asset inspector dengan SHA-256 dan ZIP/TAR inspection.\n- Selective export dan manifest JSON.\n- Template classifier AO, Texture, dan Kaca/XOR.\n- Sprite Sheet inspect dan frame extraction.\n- Strobo, Rotator, dan LED Bar animation package.\n- Public Roblox Asset Delivery melalui endpoint resmi.\n- Register, login, logout, logout-all, profile, settings, dan password change.\n- Google Login melalui OpenID Connect jika credential dikonfigurasi.\n- 10 bahasa.\n- Responsive mobile, tablet, desktop, dan PWA.\n- Repository catalog, tree, dan folder description endpoint.\n- Public web scraper dengan anti-SSRF dan same-host crawl.\n\n## Website\n\nFrontend utama:\n\n    frontend/index.html\n    frontend/app.js\n    frontend/styles.css\n\nBackend entrypoint:\n\n    backend/app.py\n\nFooter resmi:\n\n**PT. NARARYA JAYA UTAMA GROUB - All Right Reserved**\n\n## API utama\n\n    GET /api/health\n    GET /api/gateway/health\n    GET /api/gateway/routes\n    GET /api/repository\n    GET /api/repository/tree?prefix=...\n    GET /api/repository/folders\n\nAuthentication:\n\n    GET /api/auth/status\n    POST /api/auth/register\n    POST /api/auth/login\n    POST /api/auth/logout\n    POST /api/auth/logout-all\n    PUT /api/auth/settings\n    PUT /api/auth/profile\n    PUT /api/auth/password\n\nScraper:\n\n    GET /api/scraper/fetch?url=...\n    GET /api/scraper/crawl?url=...&max_pages=...\n\n## Scraper CLI\n\n    python tooling/scraper.py https://example.com\n    python tooling/scraper.py https://example.com --crawl --max-pages 5\n    python tooling/scraper.py https://example.com --output reports/example.json\n\nScraper hanya ditujukan untuk resource publik dan tidak melewati login, paywall, private resource, DRM, atau access control.\n\n## Instalasi\n\n    npm install\n    npm run check\n    npm start\n\nPython validation:\n\n    python -m pip install -r requirements.txt\n    python tooling/check.py\n\nLocal server:\n\n    http://127.0.0.1:8000\n\n## Google Login\n\n    GOOGLE_CLIENT_ID=...\n    GOOGLE_CLIENT_SECRET=...\n    GOOGLE_REDIRECT_URI=https://domain.example/api/auth/google/callback\n\nUntuk HTTPS:\n\n    COOKIE_SECURE=1\n    SESSION_SECRET=<random-secret-panjang>\n\nJangan menyimpan secret di repository.\n\n## Validation\n\n    npm run frontend:smoke\n    python tooling/repository_audit.py\n    python tooling/smoke.py\n    python -m pytest -q -W error\n\nCI menjalankan npm check, pip check, compileall, Ruff, pytest, dan runtime smoke.\n\n## Batas keamanan\n\nProject tidak membypass password, enkripsi, DRM, signature, private asset, atau access control.\n\nUntuk format proprietary, tool hanya mengklaim kemampuan yang benar-benar tersedia. Export ZIP tidak berarti format native game telah dikonversi.\n\n## Version\n\nGame Mod Asset Lab v5.0.0\n",
-      "packageJson": {
-        "name": "game-mod-asset-lab",
-        "version": "5.0.0",
-        "private": true,
-        "description": "Responsive vanilla JavaScript frontend for Game Mod Asset Lab",
-        "engines": {
-          "node": ">=20.0.0",
-          "npm": ">=10.0.0"
-        },
-        "scripts": {
-          "check": "npm run syntax && npm run frontend:smoke && python tooling/repository_audit.py",
-          "syntax": "node --check frontend/app.js",
-          "frontend:smoke": "node tooling/frontend-smoke.mjs",
-          "start": "python -m uvicorn backend.app:app",
-          "dev": "python -m uvicorn backend.app:app --reload"
-        }
-      },
-      "latestRelease": null,
-      "commits": [
-        {
-          "sha": "372db2f308e3f51f06a42d42502c99e1c3b27d49",
-          "message": "fix: bootstrap repository root for smoke test imports",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T08:38:25Z",
-          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/372db2f308e3f51f06a42d42502c99e1c3b27d49"
-        },
-        {
-          "sha": "2a5ccc8c50b9fa6feddd53c3cc93c74181138fa1",
-          "message": "test: validate dynamically rendered light translation markers",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T08:37:39Z",
-          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/2a5ccc8c50b9fa6feddd53c3cc93c74181138fa1"
-        },
-        {
-          "sha": "bf15dbf98f72739001c855a33dcc0359d8970050",
-          "message": "test: validate service worker registration in frontend JavaScript",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T08:36:59Z",
-          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/bf15dbf98f72739001c855a33dcc0359d8970050"
-        },
-        {
-          "sha": "6c854e8ccf10d089cc47b875ed19df722207543c",
-          "message": "fix: validate gateway smoke response without unused variable",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T08:36:09Z",
-          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/6c854e8ccf10d089cc47b875ed19df722207543c"
-        },
-        {
-          "sha": "96e92e9f44798ef825830be55292e74599ef4317",
-          "message": "fix: remove unused scraper urlopen import",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T08:36:06Z",
-          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/96e92e9f44798ef825830be55292e74599ef4317"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".env.example",
-          "type": "blob",
-          "size": 349,
-          "sha": "396376102957d9be1fadd9a2ca7ddfcb7602cafe"
-        },
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "f6e288486569095bace5b750d97099b3c0c57069"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "2ed483f912ba894790e29aae2537673482dc2732"
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "type": "blob",
-          "size": 1200,
-          "sha": "4e59635947a34fcefacb967264429be21d129726"
-        },
-        {
-          "path": ".gitignore",
-          "type": "blob",
-          "size": 280,
-          "sha": "53a131c2e1cca544958bee87b75763090770c2f2"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 3696,
-          "sha": "3cc32cd9c668f1c296352225348d8d733f1730cb"
-        },
-        {
-          "path": "artifacts",
-          "type": "tree",
-          "sha": "ec4c048a3b1071033fa1c0e36ef474a0b3fcb0d2"
-        },
-        {
-          "path": "artifacts/README.md",
-          "type": "blob",
-          "size": 212,
-          "sha": "ef9fb701cb00ce13928f496fcc101a45bfc51f76"
-        },
-        {
-          "path": "artifacts/downloads",
-          "type": "tree",
-          "sha": "8dd902bb3f2fabede5ae14d09d137eaf58142d42"
-        },
-        {
-          "path": "artifacts/downloads/README.md",
-          "type": "blob",
-          "size": 133,
-          "sha": "539ca56328ed13972ef5daac0370c4894ebba09e"
-        },
-        {
-          "path": "artifacts/generated",
-          "type": "tree",
-          "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e"
-        },
-        {
-          "path": "artifacts/generated/.gitkeep",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "assets",
-          "type": "tree",
-          "sha": "829e43479b8ad1b4d8bee79a1bc1552cc43bf0c0"
-        },
-        {
-          "path": "assets/README.md",
-          "type": "blob",
-          "size": 142,
-          "sha": "c5e1c03df640ae30d168b97176a94d40e0da716d"
-        },
-        {
-          "path": "assets/templates",
-          "type": "tree",
-          "sha": "b033e1e0a99168c7875681d6f9d08d912501bd7d"
-        },
-        {
-          "path": "assets/templates/README.md",
-          "type": "blob",
-          "size": 183,
-          "sha": "61845cd4d5839e33a4247f65947ac28decbef43c"
-        },
-        {
-          "path": "backend",
-          "type": "tree",
-          "sha": "564329a6b55a60e19912de0a6d18011cf7b67e13"
-        },
-        {
-          "path": "backend/README.md",
-          "type": "blob",
-          "size": 254,
-          "sha": "9c3d2bcff756c94fcdc02f893c5f7e163366e808"
-        },
-        {
-          "path": "backend/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "backend/app.py",
-          "type": "blob",
-          "size": 5539,
-          "sha": "2a802a49b2e30606230bd36692d7800df8432878"
-        },
-        {
-          "path": "backend/asset_api.py",
-          "type": "blob",
-          "size": 3562,
-          "sha": "e35680f418214148743c40c9e80bd06f2fc00f6b"
-        },
-        {
-          "path": "backend/auth_api.py",
-          "type": "blob",
-          "size": 12157,
-          "sha": "a2b532c029aa2972258f0ca9288cd2defc75426a"
-        },
-        {
-          "path": "backend/catalog.py",
-          "type": "blob",
-          "size": 5964,
-          "sha": "116a6e11be1851dcd8acd04716a4a1c04966f026"
-        },
-        {
-          "path": "backend/gateway_api.py",
-          "type": "blob",
-          "size": 1076,
-          "sha": "619d8fe7e9ccb811e424e80046a288a3342b68b8"
-        },
-        {
-          "path": "backend/i18n_api.py",
-          "type": "blob",
-          "size": 539,
-          "sha": "d8d70435bf8f5d2ce7d39a9e4e71537c0000fdab"
-        },
-        {
-          "path": "backend/scraper_api.py",
-          "type": "blob",
-          "size": 1285,
-          "sha": "2ba6907330e5ff150c7fbcd28d4d923f290dc5aa"
-        },
-        {
-          "path": "backend/sprite_api.py",
-          "type": "blob",
-          "size": 1296,
-          "sha": "12b417b2a1a4baa5948a6b8bccbd6d692c3f0924"
-        },
-        {
-          "path": "backend/template_api.py",
-          "type": "blob",
-          "size": 394,
-          "sha": "fe015266f5f0038b534c5d711f79ff7598ad9b16"
-        },
-        {
-          "path": "core",
-          "type": "tree",
-          "sha": "b575dbe22f607f549fcc29e59a2b4fe86071e79f"
-        },
-        {
-          "path": "core/README.md",
-          "type": "blob",
-          "size": 267,
-          "sha": "fa1be177b1ef931f50306b993448a79dec7085fc"
-        },
-        {
-          "path": "core/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "core/asset_export.py",
-          "type": "blob",
-          "size": 3965,
-          "sha": "d12f8b93abd9a168b0d8117044beddb0b1a9c7c0"
-        },
-        {
-          "path": "core/asset_inspector.py",
-          "type": "blob",
-          "size": 3836,
-          "sha": "6c12f9d9d2c76e9e3d78a7fb315372d5575b0f48"
-        },
-        {
-          "path": "core/auth_db.py",
-          "type": "blob",
-          "size": 11927,
-          "sha": "0635ce1d43facb6c268246cbbea794c65a404502"
-        },
-        {
-          "path": "core/i18n.py",
-          "type": "blob",
-          "size": 28755,
-          "sha": "baba9aa15fdd431988d034a1c4c3633ebd98e806"
-        },
-        {
-          "path": "core/image_tools.py",
-          "type": "blob",
-          "size": 2512,
-          "sha": "468c871ae9e0246760283a2d374842523cce5ecb"
-        },
-        {
-          "path": "core/light_animation.py",
-          "type": "blob",
-          "size": 1797,
-          "sha": "b98b616becf47257e37df2426cdf1159ff8b7987"
-        },
-        {
-          "path": "core/package_export.py",
-          "type": "blob",
-          "size": 2810,
-          "sha": "5d70d2ea8a4b9d57bb159f4cb5c1d01cd2f4e935"
-        },
-        {
-          "path": "core/path_security.py",
-          "type": "blob",
-          "size": 834,
-          "sha": "7e85f35b7b147dee3450851a31dd3b424e3a0d73"
-        },
-        {
-          "path": "core/roblox_url.py",
-          "type": "blob",
-          "size": 2816,
-          "sha": "8d06dbb44d65339d5f4802bea200f4060be1bd28"
-        },
-        {
-          "path": "core/scraper.py",
-          "type": "blob",
-          "size": 14035,
-          "sha": "361e3bd0c426ce461b41fd93d6cd0215608499e5"
-        },
-        {
-          "path": "core/template_classifier.py",
-          "type": "blob",
-          "size": 1055,
-          "sha": "17d20f514b6a101a177697e11a96d8269a3639f4"
-        },
-        {
-          "path": "core/version.py",
-          "type": "blob",
-          "size": 58,
-          "sha": "a88b89beadb4ba40cb4750467c1f355d3a2e7369"
-        },
-        {
-          "path": "docs",
-          "type": "tree",
-          "sha": "579a15be4769ec702ee1af1945f492a48d4574da"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "type": "blob",
-          "size": 1239,
-          "sha": "e79fd39bcb64ae70a711fcfe2c3a9d848b4136b2"
-        },
-        {
-          "path": "docs/FOLDER_DESCRIPTIONS.md",
-          "type": "blob",
-          "size": 668,
-          "sha": "4f193aa90b02a287bc078e8c93bd2627f1a62bc6"
-        },
-        {
-          "path": "docs/MIGRATION_V5.md",
-          "type": "blob",
-          "size": 831,
-          "sha": "e417dea862fced078c8da695bf73f80a8853d475"
-        },
-        {
-          "path": "docs/README.md",
-          "type": "blob",
-          "size": 123,
-          "sha": "7996406725bb6b3fb5da447151081f93432fe1d6"
-        },
-        {
-          "path": "frontend",
-          "type": "tree",
-          "sha": "c8530df781df85fa0eea3e498dae21c03d540ef8"
-        },
-        {
-          "path": "frontend/README.md",
-          "type": "blob",
-          "size": 261,
-          "sha": "92d7862b1329495aae5406c75e3bf0fd470a34e1"
-        },
-        {
-          "path": "frontend/app.js",
-          "type": "blob",
-          "size": 20683,
-          "sha": "c2575882f57f52a99461e483e89f0e9b49b69184"
-        },
-        {
-          "path": "frontend/icon.svg",
-          "type": "blob",
-          "size": 343,
-          "sha": "827b384ba03f7ef3cd6b8b7636d35e36cff662b6"
-        },
-        {
-          "path": "frontend/index.html",
-          "type": "blob",
-          "size": 10023,
-          "sha": "871101b32a2991854754ee51bbcff4648145d996"
-        },
-        {
-          "path": "frontend/manifest.webmanifest",
-          "type": "blob",
-          "size": 391,
-          "sha": "1ca4b139626d954b7609818051e02c50758e2d08"
-        },
-        {
-          "path": "frontend/styles.css",
-          "type": "blob",
-          "size": 5918,
-          "sha": "5a0cfa18379c6cc057e3cde5cf7df1aba393b53b"
-        },
-        {
-          "path": "frontend/sw.js",
-          "type": "blob",
-          "size": 1248,
-          "sha": "8a6a0b1cdcb4e7dd7d479e455fff539865a21c0b"
-        },
-        {
-          "path": "package-lock.json",
-          "type": "blob",
-          "size": 281,
-          "sha": "bd43ae6ac92ac502703c9a7da745239124c66325"
-        },
-        {
-          "path": "package.json",
-          "type": "blob",
-          "size": 548,
-          "sha": "e12f9fc050176e213586c7044f761f37f0939ae8"
-        },
-        {
-          "path": "platforms",
-          "type": "tree",
-          "sha": "66bf6d6a11ab34dcc8368d08bf9913794c3a1e73"
-        },
-        {
-          "path": "platforms/README.md",
-          "type": "blob",
-          "size": 244,
-          "sha": "8fdc4361b327e7c8b85db17f8b89d98c7f300207"
-        },
-        {
-          "path": "platforms/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "platforms/bussid",
-          "type": "tree",
-          "sha": "6b8074be5bbe20963091c3b218be4b5c2b55a60a"
-        },
-        {
-          "path": "platforms/bussid/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "platforms/bussid/kodename",
-          "type": "tree",
-          "sha": "ec512aedf42cecf035426dc3edafc34a00621e80"
-        },
-        {
-          "path": "platforms/bussid/kodename/README.md",
-          "type": "blob",
-          "size": 161,
-          "sha": "b500c6976e8e10ef8a6c380e7d31815463494c19"
-        },
-        {
-          "path": "platforms/bussid/kodename/converter.py",
-          "type": "blob",
-          "size": 518,
-          "sha": "cecd83786c3f039c214d3ca919a81e120ef558f4"
-        },
-        {
-          "path": "platforms/bussid/kodename/templates",
-          "type": "tree",
-          "sha": "095dd93bc932758e83f92b5a6e4d094c9079f66c"
-        },
-        {
-          "path": "platforms/bussid/kodename/templates/README.md",
-          "type": "blob",
-          "size": 122,
-          "sha": "350643fc8d70778eedaf47f449b7ac89fd13ed49"
-        },
-        {
-          "path": "platforms/bussid/lights",
-          "type": "tree",
-          "sha": "87281e46b72e2efb4177d23ccb43f75d2d854275"
-        },
-        {
-          "path": "platforms/bussid/lights/README.md",
-          "type": "blob",
-          "size": 130,
-          "sha": "ffb494db7810725f7e6a2f895edc5d60d64bb8f3"
-        },
-        {
-          "path": "platforms/bussid/lights/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "platforms/bussid/lights/export.py",
-          "type": "blob",
-          "size": 324,
-          "sha": "500aa864aef72f86964b45fd56f1217fee6bc053"
-        },
-        {
-          "path": "platforms/bussid/map",
-          "type": "tree",
-          "sha": "f27c0726787ac3ee3ef1a93e8b3aafce90f777a4"
-        },
-        {
-          "path": "platforms/bussid/map/README.md",
-          "type": "blob",
-          "size": 170,
-          "sha": "c9da9c6857c82ec2c7c298672be3e158452372c1"
-        },
-        {
-          "path": "platforms/bussid/map/converter.py",
-          "type": "blob",
-          "size": 513,
-          "sha": "dc5aaae790c2af80ee217c1738a9b97ad1fb5852"
-        },
-        {
-          "path": "platforms/bussid/map/templates",
-          "type": "tree",
-          "sha": "5ee8d8f1764ad0badcd90d6c912bd004b15ea31a"
-        },
-        {
-          "path": "platforms/bussid/map/templates/README.md",
-          "type": "blob",
-          "size": 99,
-          "sha": "a198e6bd2af3226095364cb6d44fbd4a22b8e1db"
-        },
-        {
-          "path": "platforms/bussid/sprite_sheet",
-          "type": "tree",
-          "sha": "7fcab2f33153a35725e53856eadabedac5816017"
-        },
-        {
-          "path": "platforms/bussid/sprite_sheet/README.md",
-          "type": "blob",
-          "size": 135,
-          "sha": "609a36f7d101c6e3e999a52ccc5b9699330063eb"
-        },
-        {
-          "path": "platforms/bussid/sprite_sheet/converter.py",
-          "type": "blob",
-          "size": 522,
-          "sha": "67ba1b1d3a93341374dc67590ecc34646f636aad"
-        },
-        {
-          "path": "platforms/bussid/sprite_sheet/templates",
-          "type": "tree",
-          "sha": "d39b0d36668917d6b492f050616519fe5f35a2fe"
-        },
-        {
-          "path": "platforms/bussid/sprite_sheet/templates/README.md",
-          "type": "blob",
-          "size": 130,
-          "sha": "99549cbbb3ed131b272ef196e3cafe5ef5a7cdda"
-        },
-        {
-          "path": "platforms/bussid/vehicle",
-          "type": "tree",
-          "sha": "2072bf5cb34dc084aaa4671a3cf773db8b76de12"
-        },
-        {
-          "path": "platforms/bussid/vehicle/README.md",
-          "type": "blob",
-          "size": 165,
-          "sha": "c0d21c275c98ccd1da3c459e1d3ebe404cf75ea5"
-        },
-        {
-          "path": "platforms/bussid/vehicle/converter.py",
-          "type": "blob",
-          "size": 517,
-          "sha": "380eef7d5dc4ab68ac54126b284aef62c5ec81f6"
-        },
-        {
-          "path": "platforms/bussid/vehicle/templates",
-          "type": "tree",
-          "sha": "200ed9b72e56b97a5a6e4f48876d7c32a92c2f9c"
-        },
-        {
-          "path": "platforms/bussid/vehicle/templates/README.md",
-          "type": "blob",
-          "size": 127,
-          "sha": "8c609e9130c174ec33ba8ea4857e441ed9810613"
-        },
-        {
-          "path": "platforms/ets2_ats",
-          "type": "tree",
-          "sha": "e531ef1cf05435d7c74cfcfd4837af3c82a6ce2b"
-        },
-        {
-          "path": "platforms/ets2_ats/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "platforms/ets2_ats/map",
-          "type": "tree",
-          "sha": "16ed2f07daaf1abbcc8493cf9c5c0195086b025b"
-        },
-        {
-          "path": "platforms/ets2_ats/map/README.md",
-          "type": "blob",
-          "size": 137,
-          "sha": "79dcefe5a948e13dfba8da660592a39755187915"
-        },
-        {
-          "path": "platforms/ets2_ats/map/converter.py",
-          "type": "blob",
-          "size": 511,
-          "sha": "2bd32d1851b4654bc008345f2a040b316dd1acb5"
-        },
-        {
-          "path": "platforms/ets2_ats/vehicle",
-          "type": "tree",
-          "sha": "2c82af95b4515c9aae00805b94a58df87091acaa"
-        },
-        {
-          "path": "platforms/ets2_ats/vehicle/README.md",
-          "type": "blob",
-          "size": 190,
-          "sha": "6c497f0e09cfc59c882cf9eb7c5592804d6cbd0e"
-        },
-        {
-          "path": "platforms/ets2_ats/vehicle/converter.py",
-          "type": "blob",
-          "size": 515,
-          "sha": "957eb46ba991c1d093f5f5369f5f7eb873c7d0ec"
-        },
-        {
-          "path": "platforms/roblox",
-          "type": "tree",
-          "sha": "64c335515d8d7dcfa7e694e25e34f39034c8b18b"
-        },
-        {
-          "path": "platforms/roblox/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "platforms/roblox/export",
-          "type": "tree",
-          "sha": "be66b4e1ea029bd87b119e1cfc4c49f8050b02e7"
-        },
-        {
-          "path": "platforms/roblox/export/README.md",
-          "type": "blob",
-          "size": 161,
-          "sha": "1368d5cd93cccd0a8c2222ac0594d3b228bdcb5a"
-        },
-        {
-          "path": "platforms/roblox/export/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "platforms/roblox/export/url_asset.py",
-          "type": "blob",
-          "size": 443,
-          "sha": "e51fb91a36c48b016950c4df22c6f4060715f888"
-        },
-        {
-          "path": "platforms/roblox/lights",
-          "type": "tree",
-          "sha": "d364ef7468dbbf57acf08d36ae1b6b8f09ab11e5"
-        },
-        {
-          "path": "platforms/roblox/lights/README.md",
-          "type": "blob",
-          "size": 155,
-          "sha": "1f38577c4daf6c3ff66b0ae0868266eaad1d658e"
-        },
-        {
-          "path": "platforms/roblox/lights/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "platforms/roblox/lights/export.py",
-          "type": "blob",
-          "size": 324,
-          "sha": "23505598f699270376d86035d3e2a89416b5ad39"
-        },
-        {
-          "path": "platforms/roblox/vehicle",
-          "type": "tree",
-          "sha": "9b898f9b589de16425b51e39c4ff474dad7335f4"
-        },
-        {
-          "path": "platforms/roblox/vehicle/README.md",
-          "type": "blob",
-          "size": 147,
-          "sha": "79d0619174bb6dbd7144e5576360b1b7d815bf90"
-        },
-        {
-          "path": "platforms/roblox/vehicle/converter.py",
-          "type": "blob",
-          "size": 517,
-          "sha": "cf1015a38cfe34b22c5b7b1785aba28614c936b4"
-        },
-        {
-          "path": "requirements.txt",
-          "type": "blob",
-          "size": 217,
-          "sha": "0b37fa65276081ae74462fa27450cc8a4dafc23d"
-        },
-        {
-          "path": "tests",
-          "type": "tree",
-          "sha": "fac6b349366dcd24f28c76e0d2ce8662f04a2f58"
-        },
-        {
-          "path": "tests/README.md",
-          "type": "blob",
-          "size": 189,
-          "sha": "4aa3d4e4be2c00acb1d57ccc3bed60f453e0bbc2"
-        },
-        {
-          "path": "tests/test_api.py",
-          "type": "blob",
-          "size": 3114,
-          "sha": "da0b189ce0e06b3ae01b501fe6828b78b359a568"
-        },
-        {
-          "path": "tests/test_asset_export.py",
-          "type": "blob",
-          "size": 586,
-          "sha": "1e7612831f778d5b8f08dcdeebb8ddee6e4898c9"
-        },
-        {
-          "path": "tests/test_auth.py",
-          "type": "blob",
-          "size": 4624,
-          "sha": "68234ce9571930f8c46de4fa289cda9874a29a68"
-        },
-        {
-          "path": "tests/test_image_tools.py",
-          "type": "blob",
-          "size": 644,
-          "sha": "dbb09ef5720cfbd8b9ee6309014c9c4008c2ae2a"
-        },
-        {
-          "path": "tests/test_inspector.py",
-          "type": "blob",
-          "size": 370,
-          "sha": "3cf0d01993352c5cc0dc60ac752fac64f0c12552"
-        },
-        {
-          "path": "tests/test_lights.py",
-          "type": "blob",
-          "size": 478,
-          "sha": "ec27e411424eb5030ce881aa74fc9e6dac1622d5"
-        },
-        {
-          "path": "tests/test_package_export.py",
-          "type": "blob",
-          "size": 727,
-          "sha": "aaff4b453f50f33c0eb084411002314506b3a8db"
-        },
-        {
-          "path": "tests/test_roblox_url.py",
-          "type": "blob",
-          "size": 746,
-          "sha": "5e6dd87e1e47cd69d874601ed5297a63edddad9c"
-        },
-        {
-          "path": "tests/test_scraper.py",
-          "type": "blob",
-          "size": 1859,
-          "sha": "55a00e90387f7a03ae71e273339586be33a3aec2"
-        },
-        {
-          "path": "tests/test_templates.py",
-          "type": "blob",
-          "size": 589,
-          "sha": "19a610b91cb516f8574beda1ee64f74d488512b1"
-        },
-        {
-          "path": "tests/test_web_ui.py",
-          "type": "blob",
-          "size": 929,
-          "sha": "9d69cd0dcdd31cef68f6f94475f188da70d8fc5f"
-        },
-        {
-          "path": "tooling",
-          "type": "tree",
-          "sha": "698ca84427b66b9a09f0d75313a70b2828ded053"
-        },
-        {
-          "path": "tooling/README.md",
-          "type": "blob",
-          "size": 231,
-          "sha": "c32a5c431074ccc01dafa0164f1c4aefd21cb61f"
-        },
-        {
-          "path": "tooling/__init__.py",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        },
-        {
-          "path": "tooling/check.py",
-          "type": "blob",
-          "size": 742,
-          "sha": "8498c1ff4e00820d77f15a8be6248c7f2d6d24fb"
-        },
-        {
-          "path": "tooling/frontend-smoke.mjs",
-          "type": "blob",
-          "size": 2096,
-          "sha": "f050079fc74c0dfd4f2357b01fad6868d141f3db"
-        },
-        {
-          "path": "tooling/repository_audit.py",
-          "type": "blob",
-          "size": 3150,
-          "sha": "15df33b4f48a9d7e0665351d439c6ae459e731c1"
-        },
-        {
-          "path": "tooling/scraper.py",
-          "type": "blob",
-          "size": 1771,
-          "sha": "6b0274cc0e025afc1954be083381423fa7e6379e"
-        },
-        {
-          "path": "tooling/smoke.py",
-          "type": "blob",
-          "size": 3083,
-          "sha": "eca0373bdd15ac2c81b484112a1d8a8423bd2064"
-        },
-        {
-          "path": "uploads",
-          "type": "tree",
-          "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e"
-        },
-        {
-          "path": "uploads/.gitkeep",
-          "type": "blob",
-          "size": 0,
-          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-        }
-      ],
-      "treeTruncated": false,
-      "sourceFiles": [
-        {
-          "path": "platforms/bussid/map/templates/README.md",
-          "size": 99,
-          "content": null
-        },
-        {
-          "path": "platforms/bussid/kodename/templates/README.md",
-          "size": 122,
-          "content": null
-        },
-        {
-          "path": "docs/README.md",
-          "size": 123,
-          "content": null
-        },
-        {
-          "path": "platforms/bussid/vehicle/templates/README.md",
-          "size": 127,
-          "content": "# BUSSID Vehicle Templates\n\nAO = Ambient Occlusion.\n\nTexture = texture kendaraan umum.\n\nKaca/XOR = template window atau glass.\n"
-        },
-        {
-          "path": "platforms/bussid/lights/README.md",
-          "size": 130,
-          "content": null
-        },
-        {
-          "path": "platforms/bussid/sprite_sheet/templates/README.md",
-          "size": 130,
-          "content": null
-        },
-        {
-          "path": "artifacts/downloads/README.md",
-          "size": 133,
-          "content": null
-        },
-        {
-          "path": "platforms/bussid/sprite_sheet/README.md",
-          "size": 135,
-          "content": null
-        },
-        {
-          "path": "platforms/ets2_ats/map/README.md",
-          "size": 137,
-          "content": null
-        },
-        {
-          "path": "assets/README.md",
-          "size": 142,
-          "content": null
-        },
-        {
-          "path": "platforms/roblox/vehicle/README.md",
-          "size": 147,
-          "content": null
-        },
-        {
-          "path": "platforms/roblox/lights/README.md",
-          "size": 155,
-          "content": null
-        },
-        {
-          "path": "platforms/bussid/kodename/README.md",
-          "size": 161,
-          "content": null
-        },
-        {
-          "path": "platforms/roblox/export/README.md",
-          "size": 161,
-          "content": null
-        },
-        {
-          "path": "platforms/bussid/vehicle/README.md",
-          "size": 165,
-          "content": null
-        },
-        {
-          "path": "platforms/bussid/map/README.md",
-          "size": 170,
-          "content": null
-        },
-        {
-          "path": "assets/templates/README.md",
-          "size": 183,
-          "content": null
-        },
-        {
-          "path": "tests/README.md",
-          "size": 189,
-          "content": null
-        },
-        {
-          "path": "platforms/ets2_ats/vehicle/README.md",
-          "size": 190,
-          "content": null
-        },
-        {
-          "path": "artifacts/README.md",
-          "size": 212,
-          "content": null
-        },
-        {
-          "path": "tooling/README.md",
-          "size": 231,
-          "content": null
-        },
-        {
-          "path": "platforms/README.md",
-          "size": 244,
-          "content": null
-        },
-        {
-          "path": "backend/README.md",
-          "size": 254,
-          "content": null
-        },
-        {
-          "path": "frontend/README.md",
-          "size": 261,
-          "content": null
-        }
-      ],
-      "scrapedAt": "2026-09-24T00:17:03.601Z"
-    },
     {
       "repository": {
         "id": 1377275248,
@@ -986,8 +15,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-23T23:51:45Z",
-        "pushed_at": "2026-09-23T23:51:41Z",
+        "updated_at": "2026-09-24T00:17:09Z",
+        "pushed_at": "2026-09-24T00:17:04Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -1061,6 +90,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "09c388409c520c945ec2cd8f4fece7a05eca0e13",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-24T00:17:03Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/09c388409c520c945ec2cd8f4fece7a05eca0e13"
+        },
+        {
           "sha": "5096872bf6b77e9805ca41f32275b42b8f4fda63",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -1087,13 +123,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-23T23:10:10Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/195614597d5f5e2ba9cbd105d4ddbd419a0d48b7"
-        },
-        {
-          "sha": "27574883cab1713717961aa67b2f642dcd02955a",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-23T22:54:09Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/27574883cab1713717961aa67b2f642dcd02955a"
         }
       ],
       "tree": [
@@ -2450,13 +1479,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "4e115d0806dc2fca0ca0d24b606bc6e662a5e4ac"
+          "sha": "d98fdb6b2a28f642af202cf79e69213e8228526d"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 163682,
-          "sha": "2a1b4b2cb8501cf7acc52933af91825123017bc4"
+          "size": 249426,
+          "sha": "1abff79cd89d52bf1ae485c1906151a51f056d3d"
         },
         {
           "path": "data/repositories.ts",
@@ -2760,15 +1789,986 @@
         {
           "path": "docs/REPOSITORY-SYNC.md",
           "size": 2098,
-          "content": null
+          "content": "# Repository Data Sync\n\nNARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Prisma sebagai sumber data aplikasi.\n\n## Live repository discovery\n\n`/repositories` dan `GET /api/github/repositories` menemukan repository milik akun GitHub yang terhubung secara dinamis. Registry `data/repositories.ts` hanya menyimpan label/purpose, bukan daftar repository yang harus ada.\n\n`GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.\n\nGitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi.\n\n## Secrets\n\n- `GITHUB_TOKEN`: token GitHub dengan akses minimum yang dibutuhkan. Wajib untuk data private.\n- `GITHUB_WEBHOOK_SECRET`: secret untuk verifikasi `X-Hub-Signature-256`.\n- `DATABASE_URL`: PostgreSQL production database.\n- `NEXT_PUBLIC_SITE_URL`: URL deployment.\n\nJangan commit secret ke repository.\n\n## Webhook\n\nEndpoint: `POST /api/github/webhook`.\n\nWebhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`.\n\n## Database\n\nProject menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter.\n\nData aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.\n\n## Source of truth\n\n- GitHub: repository, branch, commit, issue, pull request, workflow dan source repository.\n- PostgreSQL/Prisma: member, event, convoy, mod, livery, showcase, gallery, forum, tutorial, download, moderation, notification dan pengaturan.\n- Website: layer UI/API yang membaca kedua sumber secara live.\n\n## Private repository\n\nRepository private hanya dapat dibaca saat deployment memiliki token dengan permission yang sesuai. Tanpa token tersebut, kegagalan akses ditampilkan sebagai data unavailable, bukan diganti angka fiktif.\n"
         },
         {
           "path": "data/github-repositories.json",
-          "size": 163682,
+          "size": 249426,
+          "content": "{\n  \"source\": \"GitHub REST API\",\n  \"owner\": \"nararyajayautamagroub\",\n  \"fetchedAt\": \"2026-09-24T00:17:03.614Z\",\n  \"repositoryCount\": 6,\n  \"repositories\": [\n    {\n      \"repository\": {\n        \"id\": 1377081187,\n        \"full_name\": \"nararyajayautamagroub/GameModAssetLab\",\n        \"name\": \"GameModAssetLab\",\n        \"private\": false,\n        \"visibility\": \"public\",\n        \"html_url\": \"https://github.com/nararyajayautamagroub/GameModAssetLab\",\n        \"default_branch\": \"main\",\n        \"description\": null,\n        \"created_at\": \"2026-09-19T11:38:21Z\",\n        \"updated_at\": \"2026-09-24T00:03:55Z\",\n        \"pushed_at\": \"2026-09-20T08:38:25Z\",\n        \"stargazers_count\": 0,\n        \"forks_count\": 0,\n        \"open_issues_count\": 0,\n        \"language\": \"Python\",\n        \"size\": 351,\n        \"archived\": false,\n        \"disabled\": false,\n        \"topics\": []\n      },\n      \"languages\": {\n        \"Python\": 134328,\n        \"JavaScript\": 24027,\n        \"HTML\": 10023,\n        \"CSS\": 5918\n      },\n      \"readme\": \"# Game Mod Asset Lab v5.0.0\\n\\nGame Mod Asset Lab adalah aplikasi web untuk inspeksi, klasifikasi, packaging, export, scraper publik, dan pengelolaan asset yang memang dimiliki atau memang boleh diproses oleh pengguna.\\n\\n## Struktur v5\\n\\n| Folder | Deskripsi |\\n|---|---|\\n| `backend/` | FastAPI application, API routes, gateway, auth, catalog, scraper, dan asset API. |\\n| `frontend/` | HTML, vanilla JavaScript, CSS responsive, PWA manifest, service worker, dan icon. |\\n| `core/` | Logic inti yang dipakai bersama backend, tooling, tests, dan adapter platform. |\\n| `platforms/` | Adapter BUSSID, ETS2/ATS, dan Roblox. |\\n| `assets/` | Template dan input asset project-level. |\\n| `artifacts/` | Output runtime seperti generated export dan download artifact. |\\n| `tooling/` | Scraper CLI, smoke test, frontend smoke, repository audit, dan check pipeline. |\\n| `tests/` | Test otomatis backend, auth, exporter, image, scraper, dan UI. |\\n| `docs/` | Dokumentasi arsitektur, deskripsi folder, dan migrasi v5. |\\n\\n## Fitur aktif\\n\\n- Asset inspector dengan SHA-256 dan ZIP/TAR inspection.\\n- Selective export dan manifest JSON.\\n- Template classifier AO, Texture, dan Kaca/XOR.\\n- Sprite Sheet inspect dan frame extraction.\\n- Strobo, Rotator, dan LED Bar animation package.\\n- Public Roblox Asset Delivery melalui endpoint resmi.\\n- Register, login, logout, logout-all, profile, settings, dan password change.\\n- Google Login melalui OpenID Connect jika credential dikonfigurasi.\\n- 10 bahasa.\\n- Responsive mobile, tablet, desktop, dan PWA.\\n- Repository catalog, tree, dan folder description endpoint.\\n- Public web scraper dengan anti-SSRF dan same-host crawl.\\n\\n## Website\\n\\nFrontend utama:\\n\\n    frontend/index.html\\n    frontend/app.js\\n    frontend/styles.css\\n\\nBackend entrypoint:\\n\\n    backend/app.py\\n\\nFooter resmi:\\n\\n**PT. NARARYA JAYA UTAMA GROUB - All Right Reserved**\\n\\n## API utama\\n\\n    GET /api/health\\n    GET /api/gateway/health\\n    GET /api/gateway/routes\\n    GET /api/repository\\n    GET /api/repository/tree?prefix=...\\n    GET /api/repository/folders\\n\\nAuthentication:\\n\\n    GET /api/auth/status\\n    POST /api/auth/register\\n    POST /api/auth/login\\n    POST /api/auth/logout\\n    POST /api/auth/logout-all\\n    PUT /api/auth/settings\\n    PUT /api/auth/profile\\n    PUT /api/auth/password\\n\\nScraper:\\n\\n    GET /api/scraper/fetch?url=...\\n    GET /api/scraper/crawl?url=...&max_pages=...\\n\\n## Scraper CLI\\n\\n    python tooling/scraper.py https://example.com\\n    python tooling/scraper.py https://example.com --crawl --max-pages 5\\n    python tooling/scraper.py https://example.com --output reports/example.json\\n\\nScraper hanya ditujukan untuk resource publik dan tidak melewati login, paywall, private resource, DRM, atau access control.\\n\\n## Instalasi\\n\\n    npm install\\n    npm run check\\n    npm start\\n\\nPython validation:\\n\\n    python -m pip install -r requirements.txt\\n    python tooling/check.py\\n\\nLocal server:\\n\\n    http://127.0.0.1:8000\\n\\n## Google Login\\n\\n    GOOGLE_CLIENT_ID=...\\n    GOOGLE_CLIENT_SECRET=...\\n    GOOGLE_REDIRECT_URI=https://domain.example/api/auth/google/callback\\n\\nUntuk HTTPS:\\n\\n    COOKIE_SECURE=1\\n    SESSION_SECRET=<random-secret-panjang>\\n\\nJangan menyimpan secret di repository.\\n\\n## Validation\\n\\n    npm run frontend:smoke\\n    python tooling/repository_audit.py\\n    python tooling/smoke.py\\n    python -m pytest -q -W error\\n\\nCI menjalankan npm check, pip check, compileall, Ruff, pytest, dan runtime smoke.\\n\\n## Batas keamanan\\n\\nProject tidak membypass password, enkripsi, DRM, signature, private asset, atau access control.\\n\\nUntuk format proprietary, tool hanya mengklaim kemampuan yang benar-benar tersedia. Export ZIP tidak berarti format native game telah dikonversi.\\n\\n## Version\\n\\nGame Mod Asset Lab v5.0.0\\n\",\n      \"packageJson\": {\n        \"name\": \"game-mod-asset-lab\",\n        \"version\": \"5.0.0\",\n        \"private\": true,\n        \"description\": \"Responsive vanilla JavaScript frontend for Game Mod Asset Lab\",\n        \"engines\": {\n          \"node\": \">=20.0.0\",\n          \"npm\": \">=10.0.0\"\n        },\n        \"scripts\": {\n          \"check\": \"npm run syntax && npm run frontend:smoke && python tooling/repository_audit.py\",\n          \"syntax\": \"node --check frontend/app.js\",\n          \"frontend:smoke\": \"node tooling/frontend-smoke.mjs\",\n          \"start\": \"python -m uvicorn backend.app:app\",\n          \"dev\": \"python -m uvicorn backend.app:app --reload\"\n        }\n      },\n      \"latestRelease\": null,\n      \"commits\": [\n        {\n          \"sha\": \"372db2f308e3f51f06a42d42502c99e1c3b27d49\",\n          \"message\": \"fix: bootstrap repository root for smoke test imports\",\n          \"author\": \"nararyajayautamagroub\",\n          \"date\": \"2026-09-20T08:38:25Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/GameModAssetLab/commit/372db2f308e3f51f06a42d42502c99e1c3b27d49\"\n        },\n        {\n          \"sha\": \"2a5ccc8c50b9fa6feddd53c3cc93c74181138fa1\",\n          \"message\": \"test: validate dynamically rendered light translation markers\",\n          \"author\": \"nararyajayautamagroub\",\n          \"date\": \"2026-09-20T08:37:39Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/GameModAssetLab/commit/2a5ccc8c50b9fa6feddd53c3cc93c74181138fa1\"\n        },\n        {\n          \"sha\": \"bf15dbf98f72739001c855a33dcc0359d8970050\",\n          \"message\": \"test: validate service worker registration in frontend JavaScript\",\n          \"author\": \"nararyajayautamagroub\",\n          \"date\": \"2026-09-20T08:36:59Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/GameModAssetLab/commit/bf15dbf98f72739001c855a33dcc0359d8970050\"\n        },\n        {\n          \"sha\": \"6c854e8ccf10d089cc47b875ed19df722207543c\",\n          \"message\": \"fix: validate gateway smoke response without unused variable\",\n          \"author\": \"nararyajayautamagroub\",\n          \"date\": \"2026-09-20T08:36:09Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/GameModAssetLab/commit/6c854e8ccf10d089cc47b875ed19df722207543c\"\n        },\n        {\n          \"sha\": \"96e92e9f44798ef825830be55292e74599ef4317\",\n          \"message\": \"fix: remove unused scraper urlopen import\",\n          \"author\": \"nararyajayautamagroub\",\n          \"date\": \"2026-09-20T08:36:06Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/GameModAssetLab/commit/96e92e9f44798ef825830be55292e74599ef4317\"\n        }\n      ],\n      \"tree\": [\n        {\n          \"path\": \".env.example\",\n          \"type\": \"blob\",\n          \"size\": 349,\n          \"sha\": \"396376102957d9be1fadd9a2ca7ddfcb7602cafe\"\n        },\n        {\n          \"path\": \".github\",\n          \"type\": \"tree\",\n          \"sha\": \"f6e288486569095bace5b750d97099b3c0c57069\"\n        },\n        {\n          \"path\": \".github/workflows\",\n          \"type\": \"tree\",\n          \"sha\": \"2ed483f912ba894790e29aae2537673482dc2732\"\n        },\n        {\n          \"path\": \".github/workflows/ci.yml\",\n          \"type\": \"blob\",\n          \"size\": 1200,\n          \"sha\": \"4e59635947a34fcefacb967264429be21d129726\"\n        },\n        {\n          \"path\": \".gitignore\",\n          \"type\": \"blob\",\n          \"size\": 280,\n          \"sha\": \"53a131c2e1cca544958bee87b75763090770c2f2\"\n        },\n        {\n          \"path\": \"README.md\",\n          \"type\": \"blob\",\n          \"size\": 3696,\n          \"sha\": \"3cc32cd9c668f1c296352225348d8d733f1730cb\"\n        },\n        {\n          \"path\": \"artifacts\",\n          \"type\": \"tree\",\n          \"sha\": \"ec4c048a3b1071033fa1c0e36ef474a0b3fcb0d2\"\n        },\n        {\n          \"path\": \"artifacts/README.md\",\n          \"type\": \"blob\",\n          \"size\": 212,\n          \"sha\": \"ef9fb701cb00ce13928f496fcc101a45bfc51f76\"\n        },\n        {\n          \"path\": \"artifacts/downloads\",\n          \"type\": \"tree\",\n          \"sha\": \"8dd902bb3f2fabede5ae14d09d137eaf58142d42\"\n        },\n        {\n          \"path\": \"artifacts/downloads/README.md\",\n          \"type\": \"blob\",\n          \"size\": 133,\n          \"sha\": \"539ca56328ed13972ef5daac0370c4894ebba09e\"\n        },\n        {\n          \"path\": \"artifacts/generated\",\n          \"type\": \"tree\",\n          \"sha\": \"d564d0bc3dd917926892c55e3706cc116d5b165e\"\n        },\n        {\n          \"path\": \"artifacts/generated/.gitkeep\",\n          \"type\": \"blob\",\n          \"size\": 0,\n          \"sha\": \"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\"\n        },\n        {\n          \"path\": \"assets\",\n          \"type\": \"tree\",\n          \"sha\": \"829e43479b8ad1b4d8bee79a1bc1552cc43bf0c0\"\n        },\n        {\n          \"path\": \"assets/README.md\",\n          \"type\": \"blob\",\n          \"size\": 142,\n          \"sha\": \"c5e1c03df640ae30d168b97176a94d40e0da716d\"\n        },\n        {\n          \"path\": \"assets/templates\",\n          \"type\": \"tree\",\n          \"sha\": \"b033e1e0a99168c7875681d6f9d08d912501bd7d\"\n        },\n        {\n          \"path\": \"assets/templates/README.md\",\n          \"type\": \"blob\",\n          \"size\": 183,\n          \"sha\": \"61845cd4d5839e33a4247f65947ac28decbef43c\"\n        },\n        {\n          \"path\": \"backend\",\n          \"type\": \"tree\",\n          \"sha\": \"564329a6b55a60e19912de0a6d18011cf7b67e13\"\n        },\n        {\n          \"path\": \"backend/README.md\",\n          \"type\": \"blob\",\n          \"size\": 254,\n          \"sha\": \"9c3d2bcff756c94fcdc02f893c5f7e163366e808\"\n        },\n        {\n          \"path\": \"backend/__init__.py\",\n          \"type\": \"blob\",\n          \"size\": 0,\n          \"sha\": \"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\"\n        },\n        {\n          \"path\": \"backend/app.py\",\n          \"type\": \"blob\",\n          \"size\": 5539,\n          \"sha\": \"2a802a49b2e30606230bd36692d7800df8432878\"\n        },\n        {\n          \"path\": \"backend/asset_api.py\",\n          \"type\": \"blob\",\n          \"size\": 3562,\n          \"sha\": \"e35680f418214148743c40c9e80bd06f2fc00f6b\"\n        },\n        {\n          \"path\": \"backend/auth_api.py\",\n          \"type\": \"blob\",\n          \"size\": 12157,\n          \"sha\": \"a2b532c029aa2972258f0ca9288cd2defc75426a\"\n        },\n        {\n          \"path\": \"backend/catalog.py\",\n          \"type\": \"blob\",\n          \"size\": 5964,\n          \"sha\": \"116a6e11be1851dcd8acd04716a4a1c04966f026\"\n        },\n        {\n          \"path\": \"backend/gateway_api.py\",\n          \"type\": \"blob\",\n          \"size\": 1076,\n          \"sha\": \"619d8fe7e9ccb811e424e80046a288a3342b68b8\"\n        },\n        {\n          \"path\": \"backend/i18n_api.py\",\n          \"type\": \"blob\",\n          \"size\": 539,\n          \"sha\": \"d8d70435bf8f5d2ce7d39a9e4e71537c0000fdab\"\n        },\n        {\n          \"path\": \"backend/scraper_api.py\",\n          \"type\": \"blob\",\n          \"size\": 1285,\n          \"sha\": \"2ba6907330e5ff150c7fbcd28d4d923f290dc5aa\"\n        },\n        {\n          \"path\": \"backend/sprite_api.py\",\n          \"type\": \"blob\",\n          \"size\": 1296,\n          \"sha\": \"12b417b2a1a4baa5948a6b8bccbd6d692c3f0924\"\n        },\n        {\n          \"path\": \"backend/template_api.py\",\n          \"type\": \"blob\",\n          \"size\": 394,\n          \"sha\": \"fe015266f5f0038b534c5d711f79ff7598ad9b1"
+        }
+      ],
+      "scrapedAt": "2026-09-24T00:45:36.336Z"
+    },
+    {
+      "repository": {
+        "id": 1377081187,
+        "full_name": "nararyajayautamagroub/GameModAssetLab",
+        "name": "GameModAssetLab",
+        "private": false,
+        "visibility": "public",
+        "html_url": "https://github.com/nararyajayautamagroub/GameModAssetLab",
+        "default_branch": "main",
+        "description": null,
+        "created_at": "2026-09-19T11:38:21Z",
+        "updated_at": "2026-09-24T00:03:55Z",
+        "pushed_at": "2026-09-20T08:38:25Z",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "open_issues_count": 0,
+        "language": "Python",
+        "size": 351,
+        "archived": false,
+        "disabled": false,
+        "topics": []
+      },
+      "languages": {
+        "Python": 134328,
+        "JavaScript": 24027,
+        "HTML": 10023,
+        "CSS": 5918
+      },
+      "readme": "# Game Mod Asset Lab v5.0.0\n\nGame Mod Asset Lab adalah aplikasi web untuk inspeksi, klasifikasi, packaging, export, scraper publik, dan pengelolaan asset yang memang dimiliki atau memang boleh diproses oleh pengguna.\n\n## Struktur v5\n\n| Folder | Deskripsi |\n|---|---|\n| `backend/` | FastAPI application, API routes, gateway, auth, catalog, scraper, dan asset API. |\n| `frontend/` | HTML, vanilla JavaScript, CSS responsive, PWA manifest, service worker, dan icon. |\n| `core/` | Logic inti yang dipakai bersama backend, tooling, tests, dan adapter platform. |\n| `platforms/` | Adapter BUSSID, ETS2/ATS, dan Roblox. |\n| `assets/` | Template dan input asset project-level. |\n| `artifacts/` | Output runtime seperti generated export dan download artifact. |\n| `tooling/` | Scraper CLI, smoke test, frontend smoke, repository audit, dan check pipeline. |\n| `tests/` | Test otomatis backend, auth, exporter, image, scraper, dan UI. |\n| `docs/` | Dokumentasi arsitektur, deskripsi folder, dan migrasi v5. |\n\n## Fitur aktif\n\n- Asset inspector dengan SHA-256 dan ZIP/TAR inspection.\n- Selective export dan manifest JSON.\n- Template classifier AO, Texture, dan Kaca/XOR.\n- Sprite Sheet inspect dan frame extraction.\n- Strobo, Rotator, dan LED Bar animation package.\n- Public Roblox Asset Delivery melalui endpoint resmi.\n- Register, login, logout, logout-all, profile, settings, dan password change.\n- Google Login melalui OpenID Connect jika credential dikonfigurasi.\n- 10 bahasa.\n- Responsive mobile, tablet, desktop, dan PWA.\n- Repository catalog, tree, dan folder description endpoint.\n- Public web scraper dengan anti-SSRF dan same-host crawl.\n\n## Website\n\nFrontend utama:\n\n    frontend/index.html\n    frontend/app.js\n    frontend/styles.css\n\nBackend entrypoint:\n\n    backend/app.py\n\nFooter resmi:\n\n**PT. NARARYA JAYA UTAMA GROUB - All Right Reserved**\n\n## API utama\n\n    GET /api/health\n    GET /api/gateway/health\n    GET /api/gateway/routes\n    GET /api/repository\n    GET /api/repository/tree?prefix=...\n    GET /api/repository/folders\n\nAuthentication:\n\n    GET /api/auth/status\n    POST /api/auth/register\n    POST /api/auth/login\n    POST /api/auth/logout\n    POST /api/auth/logout-all\n    PUT /api/auth/settings\n    PUT /api/auth/profile\n    PUT /api/auth/password\n\nScraper:\n\n    GET /api/scraper/fetch?url=...\n    GET /api/scraper/crawl?url=...&max_pages=...\n\n## Scraper CLI\n\n    python tooling/scraper.py https://example.com\n    python tooling/scraper.py https://example.com --crawl --max-pages 5\n    python tooling/scraper.py https://example.com --output reports/example.json\n\nScraper hanya ditujukan untuk resource publik dan tidak melewati login, paywall, private resource, DRM, atau access control.\n\n## Instalasi\n\n    npm install\n    npm run check\n    npm start\n\nPython validation:\n\n    python -m pip install -r requirements.txt\n    python tooling/check.py\n\nLocal server:\n\n    http://127.0.0.1:8000\n\n## Google Login\n\n    GOOGLE_CLIENT_ID=...\n    GOOGLE_CLIENT_SECRET=...\n    GOOGLE_REDIRECT_URI=https://domain.example/api/auth/google/callback\n\nUntuk HTTPS:\n\n    COOKIE_SECURE=1\n    SESSION_SECRET=<random-secret-panjang>\n\nJangan menyimpan secret di repository.\n\n## Validation\n\n    npm run frontend:smoke\n    python tooling/repository_audit.py\n    python tooling/smoke.py\n    python -m pytest -q -W error\n\nCI menjalankan npm check, pip check, compileall, Ruff, pytest, dan runtime smoke.\n\n## Batas keamanan\n\nProject tidak membypass password, enkripsi, DRM, signature, private asset, atau access control.\n\nUntuk format proprietary, tool hanya mengklaim kemampuan yang benar-benar tersedia. Export ZIP tidak berarti format native game telah dikonversi.\n\n## Version\n\nGame Mod Asset Lab v5.0.0\n",
+      "packageJson": {
+        "name": "game-mod-asset-lab",
+        "version": "5.0.0",
+        "private": true,
+        "description": "Responsive vanilla JavaScript frontend for Game Mod Asset Lab",
+        "engines": {
+          "node": ">=20.0.0",
+          "npm": ">=10.0.0"
+        },
+        "scripts": {
+          "check": "npm run syntax && npm run frontend:smoke && python tooling/repository_audit.py",
+          "syntax": "node --check frontend/app.js",
+          "frontend:smoke": "node tooling/frontend-smoke.mjs",
+          "start": "python -m uvicorn backend.app:app",
+          "dev": "python -m uvicorn backend.app:app --reload"
+        }
+      },
+      "latestRelease": null,
+      "commits": [
+        {
+          "sha": "372db2f308e3f51f06a42d42502c99e1c3b27d49",
+          "message": "fix: bootstrap repository root for smoke test imports",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T08:38:25Z",
+          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/372db2f308e3f51f06a42d42502c99e1c3b27d49"
+        },
+        {
+          "sha": "2a5ccc8c50b9fa6feddd53c3cc93c74181138fa1",
+          "message": "test: validate dynamically rendered light translation markers",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T08:37:39Z",
+          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/2a5ccc8c50b9fa6feddd53c3cc93c74181138fa1"
+        },
+        {
+          "sha": "bf15dbf98f72739001c855a33dcc0359d8970050",
+          "message": "test: validate service worker registration in frontend JavaScript",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T08:36:59Z",
+          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/bf15dbf98f72739001c855a33dcc0359d8970050"
+        },
+        {
+          "sha": "6c854e8ccf10d089cc47b875ed19df722207543c",
+          "message": "fix: validate gateway smoke response without unused variable",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T08:36:09Z",
+          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/6c854e8ccf10d089cc47b875ed19df722207543c"
+        },
+        {
+          "sha": "96e92e9f44798ef825830be55292e74599ef4317",
+          "message": "fix: remove unused scraper urlopen import",
+          "author": "nararyajayautamagroub",
+          "date": "2026-09-20T08:36:06Z",
+          "url": "https://github.com/nararyajayautamagroub/GameModAssetLab/commit/96e92e9f44798ef825830be55292e74599ef4317"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 349,
+          "sha": "396376102957d9be1fadd9a2ca7ddfcb7602cafe"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "f6e288486569095bace5b750d97099b3c0c57069"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "2ed483f912ba894790e29aae2537673482dc2732"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 1200,
+          "sha": "4e59635947a34fcefacb967264429be21d129726"
+        },
+        {
+          "path": ".gitignore",
+          "type": "blob",
+          "size": 280,
+          "sha": "53a131c2e1cca544958bee87b75763090770c2f2"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 3696,
+          "sha": "3cc32cd9c668f1c296352225348d8d733f1730cb"
+        },
+        {
+          "path": "artifacts",
+          "type": "tree",
+          "sha": "ec4c048a3b1071033fa1c0e36ef474a0b3fcb0d2"
+        },
+        {
+          "path": "artifacts/README.md",
+          "type": "blob",
+          "size": 212,
+          "sha": "ef9fb701cb00ce13928f496fcc101a45bfc51f76"
+        },
+        {
+          "path": "artifacts/downloads",
+          "type": "tree",
+          "sha": "8dd902bb3f2fabede5ae14d09d137eaf58142d42"
+        },
+        {
+          "path": "artifacts/downloads/README.md",
+          "type": "blob",
+          "size": 133,
+          "sha": "539ca56328ed13972ef5daac0370c4894ebba09e"
+        },
+        {
+          "path": "artifacts/generated",
+          "type": "tree",
+          "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e"
+        },
+        {
+          "path": "artifacts/generated/.gitkeep",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "assets",
+          "type": "tree",
+          "sha": "829e43479b8ad1b4d8bee79a1bc1552cc43bf0c0"
+        },
+        {
+          "path": "assets/README.md",
+          "type": "blob",
+          "size": 142,
+          "sha": "c5e1c03df640ae30d168b97176a94d40e0da716d"
+        },
+        {
+          "path": "assets/templates",
+          "type": "tree",
+          "sha": "b033e1e0a99168c7875681d6f9d08d912501bd7d"
+        },
+        {
+          "path": "assets/templates/README.md",
+          "type": "blob",
+          "size": 183,
+          "sha": "61845cd4d5839e33a4247f65947ac28decbef43c"
+        },
+        {
+          "path": "backend",
+          "type": "tree",
+          "sha": "564329a6b55a60e19912de0a6d18011cf7b67e13"
+        },
+        {
+          "path": "backend/README.md",
+          "type": "blob",
+          "size": 254,
+          "sha": "9c3d2bcff756c94fcdc02f893c5f7e163366e808"
+        },
+        {
+          "path": "backend/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "backend/app.py",
+          "type": "blob",
+          "size": 5539,
+          "sha": "2a802a49b2e30606230bd36692d7800df8432878"
+        },
+        {
+          "path": "backend/asset_api.py",
+          "type": "blob",
+          "size": 3562,
+          "sha": "e35680f418214148743c40c9e80bd06f2fc00f6b"
+        },
+        {
+          "path": "backend/auth_api.py",
+          "type": "blob",
+          "size": 12157,
+          "sha": "a2b532c029aa2972258f0ca9288cd2defc75426a"
+        },
+        {
+          "path": "backend/catalog.py",
+          "type": "blob",
+          "size": 5964,
+          "sha": "116a6e11be1851dcd8acd04716a4a1c04966f026"
+        },
+        {
+          "path": "backend/gateway_api.py",
+          "type": "blob",
+          "size": 1076,
+          "sha": "619d8fe7e9ccb811e424e80046a288a3342b68b8"
+        },
+        {
+          "path": "backend/i18n_api.py",
+          "type": "blob",
+          "size": 539,
+          "sha": "d8d70435bf8f5d2ce7d39a9e4e71537c0000fdab"
+        },
+        {
+          "path": "backend/scraper_api.py",
+          "type": "blob",
+          "size": 1285,
+          "sha": "2ba6907330e5ff150c7fbcd28d4d923f290dc5aa"
+        },
+        {
+          "path": "backend/sprite_api.py",
+          "type": "blob",
+          "size": 1296,
+          "sha": "12b417b2a1a4baa5948a6b8bccbd6d692c3f0924"
+        },
+        {
+          "path": "backend/template_api.py",
+          "type": "blob",
+          "size": 394,
+          "sha": "fe015266f5f0038b534c5d711f79ff7598ad9b16"
+        },
+        {
+          "path": "core",
+          "type": "tree",
+          "sha": "b575dbe22f607f549fcc29e59a2b4fe86071e79f"
+        },
+        {
+          "path": "core/README.md",
+          "type": "blob",
+          "size": 267,
+          "sha": "fa1be177b1ef931f50306b993448a79dec7085fc"
+        },
+        {
+          "path": "core/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "core/asset_export.py",
+          "type": "blob",
+          "size": 3965,
+          "sha": "d12f8b93abd9a168b0d8117044beddb0b1a9c7c0"
+        },
+        {
+          "path": "core/asset_inspector.py",
+          "type": "blob",
+          "size": 3836,
+          "sha": "6c12f9d9d2c76e9e3d78a7fb315372d5575b0f48"
+        },
+        {
+          "path": "core/auth_db.py",
+          "type": "blob",
+          "size": 11927,
+          "sha": "0635ce1d43facb6c268246cbbea794c65a404502"
+        },
+        {
+          "path": "core/i18n.py",
+          "type": "blob",
+          "size": 28755,
+          "sha": "baba9aa15fdd431988d034a1c4c3633ebd98e806"
+        },
+        {
+          "path": "core/image_tools.py",
+          "type": "blob",
+          "size": 2512,
+          "sha": "468c871ae9e0246760283a2d374842523cce5ecb"
+        },
+        {
+          "path": "core/light_animation.py",
+          "type": "blob",
+          "size": 1797,
+          "sha": "b98b616becf47257e37df2426cdf1159ff8b7987"
+        },
+        {
+          "path": "core/package_export.py",
+          "type": "blob",
+          "size": 2810,
+          "sha": "5d70d2ea8a4b9d57bb159f4cb5c1d01cd2f4e935"
+        },
+        {
+          "path": "core/path_security.py",
+          "type": "blob",
+          "size": 834,
+          "sha": "7e85f35b7b147dee3450851a31dd3b424e3a0d73"
+        },
+        {
+          "path": "core/roblox_url.py",
+          "type": "blob",
+          "size": 2816,
+          "sha": "8d06dbb44d65339d5f4802bea200f4060be1bd28"
+        },
+        {
+          "path": "core/scraper.py",
+          "type": "blob",
+          "size": 14035,
+          "sha": "361e3bd0c426ce461b41fd93d6cd0215608499e5"
+        },
+        {
+          "path": "core/template_classifier.py",
+          "type": "blob",
+          "size": 1055,
+          "sha": "17d20f514b6a101a177697e11a96d8269a3639f4"
+        },
+        {
+          "path": "core/version.py",
+          "type": "blob",
+          "size": 58,
+          "sha": "a88b89beadb4ba40cb4750467c1f355d3a2e7369"
+        },
+        {
+          "path": "docs",
+          "type": "tree",
+          "sha": "579a15be4769ec702ee1af1945f492a48d4574da"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "type": "blob",
+          "size": 1239,
+          "sha": "e79fd39bcb64ae70a711fcfe2c3a9d848b4136b2"
+        },
+        {
+          "path": "docs/FOLDER_DESCRIPTIONS.md",
+          "type": "blob",
+          "size": 668,
+          "sha": "4f193aa90b02a287bc078e8c93bd2627f1a62bc6"
+        },
+        {
+          "path": "docs/MIGRATION_V5.md",
+          "type": "blob",
+          "size": 831,
+          "sha": "e417dea862fced078c8da695bf73f80a8853d475"
+        },
+        {
+          "path": "docs/README.md",
+          "type": "blob",
+          "size": 123,
+          "sha": "7996406725bb6b3fb5da447151081f93432fe1d6"
+        },
+        {
+          "path": "frontend",
+          "type": "tree",
+          "sha": "c8530df781df85fa0eea3e498dae21c03d540ef8"
+        },
+        {
+          "path": "frontend/README.md",
+          "type": "blob",
+          "size": 261,
+          "sha": "92d7862b1329495aae5406c75e3bf0fd470a34e1"
+        },
+        {
+          "path": "frontend/app.js",
+          "type": "blob",
+          "size": 20683,
+          "sha": "c2575882f57f52a99461e483e89f0e9b49b69184"
+        },
+        {
+          "path": "frontend/icon.svg",
+          "type": "blob",
+          "size": 343,
+          "sha": "827b384ba03f7ef3cd6b8b7636d35e36cff662b6"
+        },
+        {
+          "path": "frontend/index.html",
+          "type": "blob",
+          "size": 10023,
+          "sha": "871101b32a2991854754ee51bbcff4648145d996"
+        },
+        {
+          "path": "frontend/manifest.webmanifest",
+          "type": "blob",
+          "size": 391,
+          "sha": "1ca4b139626d954b7609818051e02c50758e2d08"
+        },
+        {
+          "path": "frontend/styles.css",
+          "type": "blob",
+          "size": 5918,
+          "sha": "5a0cfa18379c6cc057e3cde5cf7df1aba393b53b"
+        },
+        {
+          "path": "frontend/sw.js",
+          "type": "blob",
+          "size": 1248,
+          "sha": "8a6a0b1cdcb4e7dd7d479e455fff539865a21c0b"
+        },
+        {
+          "path": "package-lock.json",
+          "type": "blob",
+          "size": 281,
+          "sha": "bd43ae6ac92ac502703c9a7da745239124c66325"
+        },
+        {
+          "path": "package.json",
+          "type": "blob",
+          "size": 548,
+          "sha": "e12f9fc050176e213586c7044f761f37f0939ae8"
+        },
+        {
+          "path": "platforms",
+          "type": "tree",
+          "sha": "66bf6d6a11ab34dcc8368d08bf9913794c3a1e73"
+        },
+        {
+          "path": "platforms/README.md",
+          "type": "blob",
+          "size": 244,
+          "sha": "8fdc4361b327e7c8b85db17f8b89d98c7f300207"
+        },
+        {
+          "path": "platforms/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "platforms/bussid",
+          "type": "tree",
+          "sha": "6b8074be5bbe20963091c3b218be4b5c2b55a60a"
+        },
+        {
+          "path": "platforms/bussid/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "platforms/bussid/kodename",
+          "type": "tree",
+          "sha": "ec512aedf42cecf035426dc3edafc34a00621e80"
+        },
+        {
+          "path": "platforms/bussid/kodename/README.md",
+          "type": "blob",
+          "size": 161,
+          "sha": "b500c6976e8e10ef8a6c380e7d31815463494c19"
+        },
+        {
+          "path": "platforms/bussid/kodename/converter.py",
+          "type": "blob",
+          "size": 518,
+          "sha": "cecd83786c3f039c214d3ca919a81e120ef558f4"
+        },
+        {
+          "path": "platforms/bussid/kodename/templates",
+          "type": "tree",
+          "sha": "095dd93bc932758e83f92b5a6e4d094c9079f66c"
+        },
+        {
+          "path": "platforms/bussid/kodename/templates/README.md",
+          "type": "blob",
+          "size": 122,
+          "sha": "350643fc8d70778eedaf47f449b7ac89fd13ed49"
+        },
+        {
+          "path": "platforms/bussid/lights",
+          "type": "tree",
+          "sha": "87281e46b72e2efb4177d23ccb43f75d2d854275"
+        },
+        {
+          "path": "platforms/bussid/lights/README.md",
+          "type": "blob",
+          "size": 130,
+          "sha": "ffb494db7810725f7e6a2f895edc5d60d64bb8f3"
+        },
+        {
+          "path": "platforms/bussid/lights/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "platforms/bussid/lights/export.py",
+          "type": "blob",
+          "size": 324,
+          "sha": "500aa864aef72f86964b45fd56f1217fee6bc053"
+        },
+        {
+          "path": "platforms/bussid/map",
+          "type": "tree",
+          "sha": "f27c0726787ac3ee3ef1a93e8b3aafce90f777a4"
+        },
+        {
+          "path": "platforms/bussid/map/README.md",
+          "type": "blob",
+          "size": 170,
+          "sha": "c9da9c6857c82ec2c7c298672be3e158452372c1"
+        },
+        {
+          "path": "platforms/bussid/map/converter.py",
+          "type": "blob",
+          "size": 513,
+          "sha": "dc5aaae790c2af80ee217c1738a9b97ad1fb5852"
+        },
+        {
+          "path": "platforms/bussid/map/templates",
+          "type": "tree",
+          "sha": "5ee8d8f1764ad0badcd90d6c912bd004b15ea31a"
+        },
+        {
+          "path": "platforms/bussid/map/templates/README.md",
+          "type": "blob",
+          "size": 99,
+          "sha": "a198e6bd2af3226095364cb6d44fbd4a22b8e1db"
+        },
+        {
+          "path": "platforms/bussid/sprite_sheet",
+          "type": "tree",
+          "sha": "7fcab2f33153a35725e53856eadabedac5816017"
+        },
+        {
+          "path": "platforms/bussid/sprite_sheet/README.md",
+          "type": "blob",
+          "size": 135,
+          "sha": "609a36f7d101c6e3e999a52ccc5b9699330063eb"
+        },
+        {
+          "path": "platforms/bussid/sprite_sheet/converter.py",
+          "type": "blob",
+          "size": 522,
+          "sha": "67ba1b1d3a93341374dc67590ecc34646f636aad"
+        },
+        {
+          "path": "platforms/bussid/sprite_sheet/templates",
+          "type": "tree",
+          "sha": "d39b0d36668917d6b492f050616519fe5f35a2fe"
+        },
+        {
+          "path": "platforms/bussid/sprite_sheet/templates/README.md",
+          "type": "blob",
+          "size": 130,
+          "sha": "99549cbbb3ed131b272ef196e3cafe5ef5a7cdda"
+        },
+        {
+          "path": "platforms/bussid/vehicle",
+          "type": "tree",
+          "sha": "2072bf5cb34dc084aaa4671a3cf773db8b76de12"
+        },
+        {
+          "path": "platforms/bussid/vehicle/README.md",
+          "type": "blob",
+          "size": 165,
+          "sha": "c0d21c275c98ccd1da3c459e1d3ebe404cf75ea5"
+        },
+        {
+          "path": "platforms/bussid/vehicle/converter.py",
+          "type": "blob",
+          "size": 517,
+          "sha": "380eef7d5dc4ab68ac54126b284aef62c5ec81f6"
+        },
+        {
+          "path": "platforms/bussid/vehicle/templates",
+          "type": "tree",
+          "sha": "200ed9b72e56b97a5a6e4f48876d7c32a92c2f9c"
+        },
+        {
+          "path": "platforms/bussid/vehicle/templates/README.md",
+          "type": "blob",
+          "size": 127,
+          "sha": "8c609e9130c174ec33ba8ea4857e441ed9810613"
+        },
+        {
+          "path": "platforms/ets2_ats",
+          "type": "tree",
+          "sha": "e531ef1cf05435d7c74cfcfd4837af3c82a6ce2b"
+        },
+        {
+          "path": "platforms/ets2_ats/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "platforms/ets2_ats/map",
+          "type": "tree",
+          "sha": "16ed2f07daaf1abbcc8493cf9c5c0195086b025b"
+        },
+        {
+          "path": "platforms/ets2_ats/map/README.md",
+          "type": "blob",
+          "size": 137,
+          "sha": "79dcefe5a948e13dfba8da660592a39755187915"
+        },
+        {
+          "path": "platforms/ets2_ats/map/converter.py",
+          "type": "blob",
+          "size": 511,
+          "sha": "2bd32d1851b4654bc008345f2a040b316dd1acb5"
+        },
+        {
+          "path": "platforms/ets2_ats/vehicle",
+          "type": "tree",
+          "sha": "2c82af95b4515c9aae00805b94a58df87091acaa"
+        },
+        {
+          "path": "platforms/ets2_ats/vehicle/README.md",
+          "type": "blob",
+          "size": 190,
+          "sha": "6c497f0e09cfc59c882cf9eb7c5592804d6cbd0e"
+        },
+        {
+          "path": "platforms/ets2_ats/vehicle/converter.py",
+          "type": "blob",
+          "size": 515,
+          "sha": "957eb46ba991c1d093f5f5369f5f7eb873c7d0ec"
+        },
+        {
+          "path": "platforms/roblox",
+          "type": "tree",
+          "sha": "64c335515d8d7dcfa7e694e25e34f39034c8b18b"
+        },
+        {
+          "path": "platforms/roblox/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "platforms/roblox/export",
+          "type": "tree",
+          "sha": "be66b4e1ea029bd87b119e1cfc4c49f8050b02e7"
+        },
+        {
+          "path": "platforms/roblox/export/README.md",
+          "type": "blob",
+          "size": 161,
+          "sha": "1368d5cd93cccd0a8c2222ac0594d3b228bdcb5a"
+        },
+        {
+          "path": "platforms/roblox/export/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "platforms/roblox/export/url_asset.py",
+          "type": "blob",
+          "size": 443,
+          "sha": "e51fb91a36c48b016950c4df22c6f4060715f888"
+        },
+        {
+          "path": "platforms/roblox/lights",
+          "type": "tree",
+          "sha": "d364ef7468dbbf57acf08d36ae1b6b8f09ab11e5"
+        },
+        {
+          "path": "platforms/roblox/lights/README.md",
+          "type": "blob",
+          "size": 155,
+          "sha": "1f38577c4daf6c3ff66b0ae0868266eaad1d658e"
+        },
+        {
+          "path": "platforms/roblox/lights/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "platforms/roblox/lights/export.py",
+          "type": "blob",
+          "size": 324,
+          "sha": "23505598f699270376d86035d3e2a89416b5ad39"
+        },
+        {
+          "path": "platforms/roblox/vehicle",
+          "type": "tree",
+          "sha": "9b898f9b589de16425b51e39c4ff474dad7335f4"
+        },
+        {
+          "path": "platforms/roblox/vehicle/README.md",
+          "type": "blob",
+          "size": 147,
+          "sha": "79d0619174bb6dbd7144e5576360b1b7d815bf90"
+        },
+        {
+          "path": "platforms/roblox/vehicle/converter.py",
+          "type": "blob",
+          "size": 517,
+          "sha": "cf1015a38cfe34b22c5b7b1785aba28614c936b4"
+        },
+        {
+          "path": "requirements.txt",
+          "type": "blob",
+          "size": 217,
+          "sha": "0b37fa65276081ae74462fa27450cc8a4dafc23d"
+        },
+        {
+          "path": "tests",
+          "type": "tree",
+          "sha": "fac6b349366dcd24f28c76e0d2ce8662f04a2f58"
+        },
+        {
+          "path": "tests/README.md",
+          "type": "blob",
+          "size": 189,
+          "sha": "4aa3d4e4be2c00acb1d57ccc3bed60f453e0bbc2"
+        },
+        {
+          "path": "tests/test_api.py",
+          "type": "blob",
+          "size": 3114,
+          "sha": "da0b189ce0e06b3ae01b501fe6828b78b359a568"
+        },
+        {
+          "path": "tests/test_asset_export.py",
+          "type": "blob",
+          "size": 586,
+          "sha": "1e7612831f778d5b8f08dcdeebb8ddee6e4898c9"
+        },
+        {
+          "path": "tests/test_auth.py",
+          "type": "blob",
+          "size": 4624,
+          "sha": "68234ce9571930f8c46de4fa289cda9874a29a68"
+        },
+        {
+          "path": "tests/test_image_tools.py",
+          "type": "blob",
+          "size": 644,
+          "sha": "dbb09ef5720cfbd8b9ee6309014c9c4008c2ae2a"
+        },
+        {
+          "path": "tests/test_inspector.py",
+          "type": "blob",
+          "size": 370,
+          "sha": "3cf0d01993352c5cc0dc60ac752fac64f0c12552"
+        },
+        {
+          "path": "tests/test_lights.py",
+          "type": "blob",
+          "size": 478,
+          "sha": "ec27e411424eb5030ce881aa74fc9e6dac1622d5"
+        },
+        {
+          "path": "tests/test_package_export.py",
+          "type": "blob",
+          "size": 727,
+          "sha": "aaff4b453f50f33c0eb084411002314506b3a8db"
+        },
+        {
+          "path": "tests/test_roblox_url.py",
+          "type": "blob",
+          "size": 746,
+          "sha": "5e6dd87e1e47cd69d874601ed5297a63edddad9c"
+        },
+        {
+          "path": "tests/test_scraper.py",
+          "type": "blob",
+          "size": 1859,
+          "sha": "55a00e90387f7a03ae71e273339586be33a3aec2"
+        },
+        {
+          "path": "tests/test_templates.py",
+          "type": "blob",
+          "size": 589,
+          "sha": "19a610b91cb516f8574beda1ee64f74d488512b1"
+        },
+        {
+          "path": "tests/test_web_ui.py",
+          "type": "blob",
+          "size": 929,
+          "sha": "9d69cd0dcdd31cef68f6f94475f188da70d8fc5f"
+        },
+        {
+          "path": "tooling",
+          "type": "tree",
+          "sha": "698ca84427b66b9a09f0d75313a70b2828ded053"
+        },
+        {
+          "path": "tooling/README.md",
+          "type": "blob",
+          "size": 231,
+          "sha": "c32a5c431074ccc01dafa0164f1c4aefd21cb61f"
+        },
+        {
+          "path": "tooling/__init__.py",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        {
+          "path": "tooling/check.py",
+          "type": "blob",
+          "size": 742,
+          "sha": "8498c1ff4e00820d77f15a8be6248c7f2d6d24fb"
+        },
+        {
+          "path": "tooling/frontend-smoke.mjs",
+          "type": "blob",
+          "size": 2096,
+          "sha": "f050079fc74c0dfd4f2357b01fad6868d141f3db"
+        },
+        {
+          "path": "tooling/repository_audit.py",
+          "type": "blob",
+          "size": 3150,
+          "sha": "15df33b4f48a9d7e0665351d439c6ae459e731c1"
+        },
+        {
+          "path": "tooling/scraper.py",
+          "type": "blob",
+          "size": 1771,
+          "sha": "6b0274cc0e025afc1954be083381423fa7e6379e"
+        },
+        {
+          "path": "tooling/smoke.py",
+          "type": "blob",
+          "size": 3083,
+          "sha": "eca0373bdd15ac2c81b484112a1d8a8423bd2064"
+        },
+        {
+          "path": "uploads",
+          "type": "tree",
+          "sha": "d564d0bc3dd917926892c55e3706cc116d5b165e"
+        },
+        {
+          "path": "uploads/.gitkeep",
+          "type": "blob",
+          "size": 0,
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        }
+      ],
+      "treeTruncated": false,
+      "sourceFiles": [
+        {
+          "path": "platforms/bussid/map/templates/README.md",
+          "size": 99,
+          "content": "# BUSSID Map Templates\n\nTemplate map menggunakan label AO, Texture, dan Kaca/XOR sebagai metadata.\n"
+        },
+        {
+          "path": "platforms/bussid/kodename/templates/README.md",
+          "size": 122,
+          "content": "# BUSSID Kodename Templates\n\nMetadata template: AO, Texture, dan Kaca/XOR.\n\nClassifier tidak mengubah isi texture sumber.\n"
+        },
+        {
+          "path": "docs/README.md",
+          "size": 123,
+          "content": "# docs\n\nDokumentasi arsitektur dan operasi repository.\n\n- `ARCHITECTURE.md`\n- `FOLDER_DESCRIPTIONS.md`\n- `MIGRATION_V5.md`\n"
+        },
+        {
+          "path": "platforms/bussid/vehicle/templates/README.md",
+          "size": 127,
+          "content": "# BUSSID Vehicle Templates\n\nAO = Ambient Occlusion.\n\nTexture = texture kendaraan umum.\n\nKaca/XOR = template window atau glass.\n"
+        },
+        {
+          "path": "platforms/bussid/lights/README.md",
+          "size": 130,
+          "content": "# BUSSID Lights\n\nPreset: Strobo, Rotator, LED Bar.\n\nExport menghasilkan interchange package, bukan format internal BUSSID native.\n"
+        },
+        {
+          "path": "platforms/bussid/sprite_sheet/templates/README.md",
+          "size": 130,
+          "content": "# BUSSID Sprite Sheet Templates\n\nKategori metadata: AO, Texture, dan Kaca/XOR.\n\nKlasifikasi tidak mengubah pixel secara otomatis.\n"
+        },
+        {
+          "path": "artifacts/downloads/README.md",
+          "size": 133,
+          "content": "# Downloads\n\nArea dokumentasi artifact download.\n\nRuntime download tidak harus dikomit kecuali dimaksudkan sebagai release artifact.\n"
+        },
+        {
+          "path": "platforms/bussid/sprite_sheet/README.md",
+          "size": 135,
+          "content": "# BUSSID Sprite Sheet\n\nAdapter gambar sprite sheet.\n\nPillow dipakai oleh `core/image_tools.py` untuk inspect dan frame ZIP extraction.\n"
+        },
+        {
+          "path": "platforms/ets2_ats/map/README.md",
+          "size": 137,
+          "content": "# ETS2 / ATS Map\n\nAdapter inspect dan export untuk asset map ETS2/ATS.\n\nEditor engine-native membutuhkan toolchain SCS/ETS2 yang sesuai.\n"
+        },
+        {
+          "path": "assets/README.md",
+          "size": 142,
+          "content": null
+        },
+        {
+          "path": "platforms/roblox/vehicle/README.md",
+          "size": 147,
+          "content": null
+        },
+        {
+          "path": "platforms/roblox/lights/README.md",
+          "size": 155,
+          "content": null
+        },
+        {
+          "path": "platforms/bussid/kodename/README.md",
+          "size": 161,
+          "content": null
+        },
+        {
+          "path": "platforms/roblox/export/README.md",
+          "size": 161,
+          "content": null
+        },
+        {
+          "path": "platforms/bussid/vehicle/README.md",
+          "size": 165,
+          "content": null
+        },
+        {
+          "path": "platforms/bussid/map/README.md",
+          "size": 170,
+          "content": null
+        },
+        {
+          "path": "assets/templates/README.md",
+          "size": 183,
+          "content": null
+        },
+        {
+          "path": "tests/README.md",
+          "size": 189,
+          "content": null
+        },
+        {
+          "path": "platforms/ets2_ats/vehicle/README.md",
+          "size": 190,
+          "content": null
+        },
+        {
+          "path": "artifacts/README.md",
+          "size": 212,
+          "content": null
+        },
+        {
+          "path": "tooling/README.md",
+          "size": 231,
+          "content": null
+        },
+        {
+          "path": "platforms/README.md",
+          "size": 244,
+          "content": null
+        },
+        {
+          "path": "backend/README.md",
+          "size": 254,
+          "content": null
+        },
+        {
+          "path": "frontend/README.md",
+          "size": 261,
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-24T00:17:03.490Z"
+      "scrapedAt": "2026-09-24T00:45:36.316Z"
     },
     {
       "repository": {
@@ -3117,7 +3117,7 @@
           "content": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\n- `scripts/validate.mjs` — automated structural/data validation\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\n- `gateway/test.mjs` — gateway integration smoke test\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\\n- `icons/` — installable PWA icon assets\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n\n\n## NPM and Gateway Runtime\n\nThe repository now has an npm contract for local/server execution:\n\n```bash\nnpm install\nnpm test\nnpm start\n```\n\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\n\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\n\n## Copyright Footer\n\nWebsite and bot surfaces use the required footer:\n\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\n"
         }
       ],
-      "scrapedAt": "2026-09-24T00:17:03.303Z"
+      "scrapedAt": "2026-09-24T00:45:35.976Z"
     },
     {
       "repository": {
@@ -4762,10 +4762,10 @@
         {
           "path": "README.md",
           "size": 4983,
-          "content": null
+          "content": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API with persisted payment method, payment instructions endpoint and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, FAQ, request tracking, finance reports, CMS and staff operations\n- SEO sitemap + robots, mobile web manifest and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nThe scraper uses same-origin crawling by default:\n\n    npm run scrape -- https://example.com --max-pages 25\n\nExplicit same-origin mode:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nUse `--all-origins` only when cross-domain crawling is actually required.\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL, the Google OAuth variables when Google Login is enabled, and Midtrans keys when PAYMENT_GATEWAY=MIDTRANS.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract. Manual payment instructions can be supplied with PAYMENT_QRIS_INSTRUCTIONS, PAYMENT_VA_INSTRUCTIONS, PAYMENT_BANK_INSTRUCTIONS and PAYMENT_WALLET_INSTRUCTIONS.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n\n## Payment Gateway\n\nSet `PAYMENT_GATEWAY=MIDTRANS` to create real Snap transactions from the server. Configure `MIDTRANS_SERVER_KEY`, `MIDTRANS_CLIENT_KEY`, and `MIDTRANS_IS_PRODUCTION`. Midtrans uses the Server Key for server-side Basic authentication and the Client Key for browser Snap.js. Notifications are verified with Midtrans's `signature_key` formula and processed idempotently. Production must use an HTTPS notification URL configured in the Midtrans dashboard.\n\nFor local or manual flows, keep `PAYMENT_GATEWAY=MANUAL`; payment instructions can be supplied with the `PAYMENT_*_INSTRUCTIONS` variables.\n\n## JavaScript frontend\n\nInteractive checkout and login now use `.jsx`, while shared vanilla browser modules live under `public/js/`. TypeScript remains for database, authentication, RBAC and payment verification so runtime-sensitive code keeps compile-time checks. `npm run verify` runs the schema, generation, typecheck, tests and production build chain.\n"
         }
       ],
-      "scrapedAt": "2026-09-24T00:17:03.472Z"
+      "scrapedAt": "2026-09-24T00:45:36.166Z"
     },
     {
       "repository": {
@@ -6748,7 +6748,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-24T00:17:03.614Z"
+      "scrapedAt": "2026-09-24T00:45:36.275Z"
     },
     {
       "repository": {
@@ -6780,7 +6780,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-09-24T00:17:03.508Z"
+      "scrapedAt": "2026-09-24T00:45:36.198Z"
     }
   ]
 }
