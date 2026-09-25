@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-09-25T09:13:27.920Z",
+  "fetchedAt": "2026-09-25T09:31:59.134Z",
   "repositoryCount": 6,
   "repositories": [
     {
@@ -15,8 +15,8 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-09-25T08:55:07Z",
-        "pushed_at": "2026-09-25T08:55:02Z",
+        "updated_at": "2026-09-25T09:13:32Z",
+        "pushed_at": "2026-09-25T09:13:29Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
@@ -90,6 +90,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "367366b0b118f2ce1877ea633fbbad626e3650fd",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-09-25T09:13:27Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/367366b0b118f2ce1877ea633fbbad626e3650fd"
+        },
+        {
           "sha": "8f648ff9173a6e7958799005fbd300cc1b9286a9",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -116,13 +123,6 @@
           "author": "github-actions[bot]",
           "date": "2026-09-25T07:54:02Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/23a230cae93276c751633262d651aa3f0b4bcda9"
-        },
-        {
-          "sha": "8104092c50497948c9a543c6ce79cf5f5bc5aa5f",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-09-25T07:31:50Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/8104092c50497948c9a543c6ce79cf5f5bc5aa5f"
         }
       ],
       "tree": [
@@ -1479,13 +1479,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "8d2f62c17120c043268a8ba9d546e8c33764bbc8"
+          "sha": "cb83699f5d5dd028f4616fb63ed21086ce90dc55"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 108466,
-          "sha": "fa6f0ce6e8f88311f639183ffac4a93209581327"
+          "size": 270080,
+          "sha": "a8ae7acc04fa9e9fbf4b25d6250dc1e8f7fab6fe"
         },
         {
           "path": "data/repositories.ts",
@@ -1789,15 +1789,15 @@
         {
           "path": "docs/REPOSITORY-SYNC.md",
           "size": 2098,
-          "content": "# Repository Data Sync\n\nNARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Prisma sebagai sumber data aplikasi.\n\n## Live repository discovery\n\n`/repositories` dan `GET /api/github/repositories` menemukan repository milik akun GitHub yang terhubung secara dinamis. Registry `data/repositories.ts` hanya menyimpan label/purpose, bukan daftar repository yang harus ada.\n\n`GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.\n\nGitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi.\n\n## Secrets\n\n- `GITHUB_TOKEN`: token GitHub dengan akses minimum yang dibutuhkan. Wajib untuk data private.\n- `GITHUB_WEBHOOK_SECRET`: secret untuk verifikasi `X-Hub-Signature-256`.\n- `DATABASE_URL`: PostgreSQL production database.\n- `NEXT_PUBLIC_SITE_URL`: URL deployment.\n\nJangan commit secret ke repository.\n\n## Webhook\n\nEndpoint: `POST /api/github/webhook`.\n\nWebhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`.\n\n## Database\n\nProject menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter.\n\nData aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.\n\n## Source of truth\n\n- GitHub: repository, branch, commit, issue, pull request, workflow dan source repository.\n- PostgreSQL/Prisma: member, event, convoy, mod, livery, showcase, gallery, forum, tutorial, download, moderation, notification dan pengaturan.\n- Website: layer UI/API yang membaca kedua sumber secara live.\n\n## Private repository\n\nRepository private hanya dapat dibaca saat deployment memiliki token dengan permission yang sesuai. Tanpa token tersebut, kegagalan akses ditampilkan sebagai data unavailable, bukan diganti angka fiktif.\n"
+          "content": null
         },
         {
           "path": "data/github-repositories.json",
-          "size": 108466,
-          "content": "{\n  \"source\": \"GitHub REST API\",\n  \"owner\": \"nararyajayautamagroub\",\n  \"fetchedAt\": \"2026-09-25T08:55:01.545Z\",\n  \"repositoryCount\": 6,\n  \"repositories\": [\n    {\n      \"repository\": {\n        \"id\": 1377275248,\n        \"full_name\": \"nararyajayautamagroub/nararyagarage-website\",\n        \"name\": \"nararyagarage-website\",\n        \"private\": false,\n        \"visibility\": \"public\",\n        \"html_url\": \"https://github.com/nararyajayautamagroub/nararyagarage-website\",\n        \"default_branch\": \"main\",\n        \"description\": null,\n        \"created_at\": \"2026-09-19T14:49:05Z\",\n        \"updated_at\": \"2026-09-25T08:33:01Z\",\n        \"pushed_at\": \"2026-09-25T08:32:57Z\",\n        \"stargazers_count\": 0,\n        \"forks_count\": 0,\n        \"open_issues_count\": 0,\n        \"language\": \"TypeScript\",\n        \"size\": 1192,\n        \"archived\": false,\n        \"disabled\": false,\n        \"topics\": []\n      },\n      \"languages\": {\n        \"TypeScript\": 261283,\n        \"JavaScript\": 9318,\n        \"CSS\": 3004\n      },\n      \"readme\": \"# NARARYA GARAGE\\n\\nVirtual Simulator & Gaming Community for BUSSID, ETS2, ATS, TOE3, TSI, Roblox and future platforms.\\n\\n## Stack\\nNext.js, TypeScript, Tailwind CSS, Lucide React. The architecture is prepared for a PostgreSQL-backed REST API.\\n\\n## Implemented foundation\\n- Responsive dark/orange public UI\\n- Homepage and navigation\\n- Platform/community directory\\n- Dynamic platform community profile\\n- Event & convoy information\\n- Modding hub\\n- Fleet/mod/livery/3D showcase\\n- Forum category landing\\n- News and rules pages\\n- Environment secret template\\n- Architecture documentation\\n\\n## Planned backend modules\\nAuthentication, RBAC, member management, recruitment workflow, event registration/attendance, convoy roles, submissions/moderation, gallery/video management, forum threads/replies, tutorials, downloads, reports, notifications, achievements, analytics, audit logs and Admin Dashboard.\\n\\n## Run locally\\n```bash\\nnpm install\\nnpm run dev\\n```\\n\\nCopy `.env.example` to `.env.local`. Never commit real tokens or credentials.\\n\",\n      \"packageJson\": {\n        \"name\": \"nararyagarage-website\",\n        \"version\": \"1.3.0\",\n        \"private\": true,\n        \"type\": \"module\",\n        \"scripts\": {\n          \"dev\": \"next dev\",\n          \"build\": \"npm run db:generate && next build\",\n          \"start\": \"next start\",\n          \"typecheck\": \"npm run db:generate && tsc --noEmit\",\n          \"check\": \"npm run audit:source && npm run check:scraper && npm run security:audit && npm run db:validate && npm run typecheck && npm run build\",\n          \"db:generate\": \"prisma generate\",\n          \"db:validate\": \"prisma validate\",\n          \"db:seed\": \"npm run db:generate && tsx prisma/seed.ts\",\n          \"db:migrate\": \"prisma migrate deploy\",\n          \"db:status\": \"prisma migrate status\",\n          \"scrape:github\": \"node scripts/scrape-github.mjs\",\n          \"check:scraper\": \"node --check scripts/scrape-github.mjs\",\n          \"audit:source\": \"node scripts/audit-source.mjs\",\n          \"security:audit\": \"node scripts/audit-dependencies.mjs\"\n        },\n        \"dependencies\": {\n          \"next\": \"16.3.5\",\n          \"react\": \"19.3.0\",\n          \"react-dom\": \"19.3.0\",\n          \"lucide-react\": \"1.47.0\",\n          \"@prisma/client\": \"7.10.0\",\n          \"@prisma/adapter-pg\": \"7.10.0\",\n          \"pg\": \"8.23.0\",\n          \"zod\": \"4.6.5\",\n          \"dotenv\": \"17.4.2\"\n        },\n        \"devDependencies\": {\n          \"@tailwindcss/postcss\": \"4.3.3\",\n          \"@types/node\": \"24.1.0\",\n          \"@types/react\": \"19.3.0\",\n          \"@types/react-dom\": \"19.3.0\",\n          \"@types/pg\": \"8.23.1\",\n          \"typescript\": \"7.0.2\",\n          \"tailwindcss\": \"4.3.3\",\n          \"postcss\": \"8.5.28\",\n          \"autoprefixer\": \"10.6.0\",\n          \"prisma\": \"7.10.0\",\n          \"tsx\": \"4.23.13\"\n        },\n        \"engines\": {\n          \"node\": \">=22.16 <25\"\n        },\n        \"packageManager\": \"npm@11.6.2\",\n        \"allowScripts\": {\n          \"@prisma/engines@7.10.0\": true,\n          \"esbuild@0.28.2\": true,\n          \"prisma@7.10.0\": true\n        }\n      },\n      \"latestRelease\": null,\n      \"commits\": [\n        {\n          \"sha\": \"a15ed0e7fceb4a24606a04dd0130d8f3659a2262\",\n          \"message\": \"chore: refresh GitHub repository snapshot\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-25T08:32:56Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nararyagarage-website/commit/a15ed0e7fceb4a24606a04dd0130d8f3659a2262\"\n        },\n        {\n          \"sha\": \"f6afc9ebdef33968959ce41cf218eefc421adf49\",\n          \"message\": \"chore: refresh GitHub repository snapshot\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-25T08:13:40Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nararyagarage-website/commit/f6afc9ebdef33968959ce41cf218eefc421adf49\"\n        },\n        {\n          \"sha\": \"23a230cae93276c751633262d651aa3f0b4bcda9\",\n          \"message\": \"chore: refresh GitHub repository snapshot\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-25T07:54:02Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nararyagarage-website/commit/23a230cae93276c751633262d651aa3f0b4bcda9\"\n        },\n        {\n          \"sha\": \"8104092c50497948c9a543c6ce79cf5f5bc5aa5f\",\n          \"message\": \"chore: refresh GitHub repository snapshot\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-25T07:31:50Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nararyagarage-website/commit/8104092c50497948c9a543c6ce79cf5f5bc5aa5f\"\n        },\n        {\n          \"sha\": \"952472339021e16cec450c2a38686d4e7c86be57\",\n          \"message\": \"chore: refresh GitHub repository snapshot\",\n          \"author\": \"github-actions[bot]\",\n          \"date\": \"2026-09-25T07:13:37Z\",\n          \"url\": \"https://github.com/nararyajayautamagroub/nararyagarage-website/commit/952472339021e16cec450c2a38686d4e7c86be57\"\n        }\n      ],\n      \"tree\": [\n        {\n          \"path\": \".env.example\",\n          \"type\": \"blob\",\n          \"size\": 363,\n          \"sha\": \"5e52296703a947e688b75e5c3bbf3bd7f493ef32\"\n        },\n        {\n          \"path\": \".github\",\n          \"type\": \"tree\",\n          \"sha\": \"f9eb41b21104620156506ba08ab94d07875bf952\"\n        },\n        {\n          \"path\": \".github/workflows\",\n          \"type\": \"tree\",\n          \"sha\": \"d682ce2170be5be65d12581c2367bbd9b88b6f2b\"\n        },\n        {\n          \"path\": \".github/workflows/ci.yml\",\n          \"type\": \"blob\",\n          \"size\": 583,\n          \"sha\": \"f1303afb68882e889998b4fe9f26070029b3932a\"\n        },\n        {\n          \"path\": \".github/workflows/lockfile.yml\",\n          \"type\": \"blob\",\n          \"size\": 1293,\n          \"sha\": \"45609023b385cf1c6c6a8d7c9b488b64174a9369\"\n        },\n        {\n          \"path\": \".github/workflows/prisma-initial-migration.yml\",\n          \"type\": \"blob\",\n          \"size\": 1961,\n          \"sha\": \"638e602401c953a55f59f5203d6e743c1f10a954\"\n        },\n        {\n          \"path\": \".github/workflows/repository-scraper.yml\",\n          \"type\": \"blob\",\n          \"size\": 1292,\n          \"sha\": \"9a56d79618a1f6a3f00a565f3037b0164728c864\"\n        },\n        {\n          \"path\": \"README.md\",\n          \"type\": \"blob\",\n          \"size\": 1020,\n          \"sha\": \"f8ea512fa43859f3416cd2c06a96a89e4b16a91f\"\n        },\n        {\n          \"path\": \"app\",\n          \"type\": \"tree\",\n          \"sha\": \"1b5ed669c45cd575ed6978c0bebc4a3dcb190138\"\n        },\n        {\n          \"path\": \"app/about\",\n          \"type\": \"tree\",\n          \"sha\": \"25aeecc9ccd7fc959576f911ca7b54a465e6b1c9\"\n        },\n        {\n          \"path\": \"app/about/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 756,\n          \"sha\": \"7bbc3bebc8ef7988a775fe6e5ddd51b5f0d0c3d8\"\n        },\n        {\n          \"path\": \"app/achievements\",\n          \"type\": \"tree\",\n          \"sha\": \"2a9dab5f3d71e8306ef2289f3eb1ed14550a9b6d\"\n        },\n        {\n          \"path\": \"app/achievements/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 1238,\n          \"sha\": \"16db899b6cd7e4f64f2bcf125e8f6490667296b6\"\n        },\n        {\n          \"path\": \"app/admin\",\n          \"type\": \"tree\",\n          \"sha\": \"fd5b44bf8c4a735df4f88e97a7d9b334e89b416d\"\n        },\n        {\n          \"path\": \"app/admin/analytics\",\n          \"type\": \"tree\",\n          \"sha\": \"bd69d632771649aaef4b0d8f42bb7eb609f0ea01\"\n        },\n        {\n          \"path\": \"app/admin/analytics/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 1661,\n          \"sha\": \"e88d24d6c5aa48c2bd9b76bc5cf36cdfaf136575\"\n        },\n        {\n          \"path\": \"app/admin/events\",\n          \"type\": \"tree\",\n          \"sha\": \"0a196cf983a680ffd7802cf840165a6d57dc38bc\"\n        },\n        {\n          \"path\": \"app/admin/events/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 6520,\n          \"sha\": \"056ba41d687dc17b29af6738e103dbc505923d80\"\n        },\n        {\n          \"path\": \"app/admin/fleet\",\n          \"type\": \"tree\",\n          \"sha\": \"52af9b11c4a3ffbf25ec82edf79bb09fe47a80a2\"\n        },\n        {\n          \"path\": \"app/admin/fleet/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 2755,\n          \"sha\": \"c37052f1b78b74981cde312603e9e56c15dfda96\"\n        },\n        {\n          \"path\": \"app/admin/logs\",\n          \"type\": \"tree\",\n          \"sha\": \"b2c59f5b41ef0c31fba4d147672ad7ed31dfe1b8\"\n        },\n        {\n          \"path\": \"app/admin/logs/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 2357,\n          \"sha\": \"4de4cf5692a8a6b9840e65f4c2b8073140da8c79\"\n        },\n        {\n          \"path\": \"app/admin/members\",\n          \"type\": \"tree\",\n          \"sha\": \"ffa62a0866912689d8cb4b7ecd458b744744480a\"\n        },\n        {\n          \"path\": \"app/admin/members/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 3551,\n          \"sha\": \"a3b2e8233571b1b008be0cf2efe12ad12fcc5c08\"\n        },\n        {\n          \"path\": \"app/admin/notifications\",\n          \"type\": \"tree\",\n          \"sha\": \"7c3a7e86a1c92cd675cd61e9e4774102e323388e\"\n        },\n        {\n          \"path\": \"app/admin/notifications/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 3556,\n          \"sha\": \"83d4df0733ce165b47dcd837ef486d7d2ed18ddb\"\n        },\n        {\n          \"path\": \"app/admin/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 3236,\n          \"sha\": \"473ca9e8d3dc83a75cc9aa9bbd2d1db4d77cfa6b\"\n        },\n        {\n          \"path\": \"app/admin/recruitment\",\n          \"type\": \"tree\",\n          \"sha\": \"6c7d6543ce7f23208e049071069812656f60a59e\"\n        },\n        {\n          \"path\": \"app/admin/recruitment/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 3082,\n          \"sha\": \"8a9df97e61682391aba80fb239d21dc1e6e25c60\"\n        },\n        {\n          \"path\": \"app/admin/reports\",\n          \"type\": \"tree\",\n          \"sha\": \"6c4a03d73b1536c037028ec76ab9fa804cca8922\"\n        },\n        {\n          \"path\": \"app/admin/reports/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 3130,\n          \"sha\": \"6248d6da6c968505929114d18503a30b9c63c60f\"\n        },\n        {\n          \"path\": \"app/admin/settings\",\n          \"type\": \"tree\",\n          \"sha\": \"e296b850f1935da8241a4bb71646fd01751f9951\"\n        },\n        {\n          \"path\": \"app/admin/settings/page.tsx\",\n          \"type\": \"blob\",\n          \"size\": 3410,\n          \"sha\": \"2d1d6bfe2196c5ab2dbf5bfbecf88f28641245d1\"\n        },\n        {\n          \"path\": \"app/api\",\n          \"type\": \"tree\",\n          \"sha\": \"0d644f223aa2ac1d3b225e3c0b8576af31be0c22\"\n        },\n        {\n          \"path\": \"app/api/achievements\",\n          \"type\": \"tree\",\n          \"sha\": \"cafc04fadb78bf706c13d9ed5205693e6ff203f6\"\n        },\n        {\n          \"path\": \"app/api/achievements/route.ts\",\n          \"type\": \"blob\",\n          \"size\": 464,\n          \"sha\": \"db943f30e1a8554faaea9e89b602e8d844a1524d\"\n        },\n        {\n          \"path\": \"app/api/admin\",\n          \"type\": \"tree\",\n          \"sha\": \"4e6e97de79d57aa0f38ba7c8260b5665239ad448\"\n        },\n        {\n          \"path\": \"app/api/admin/analyti"
+          "size": 270080,
+          "content": null
         }
       ],
-      "scrapedAt": "2026-09-25T09:13:27.668Z"
+      "scrapedAt": "2026-09-25T09:31:59.025Z"
     },
     {
       "repository": {
@@ -2650,7 +2650,7 @@
         {
           "path": "platforms/bussid/map/templates/README.md",
           "size": 99,
-          "content": "# BUSSID Map Templates\n\nTemplate map menggunakan label AO, Texture, dan Kaca/XOR sebagai metadata.\n"
+          "content": null
         },
         {
           "path": "platforms/bussid/kodename/templates/README.md",
@@ -2665,7 +2665,7 @@
         {
           "path": "platforms/bussid/vehicle/templates/README.md",
           "size": 127,
-          "content": "# BUSSID Vehicle Templates\n\nAO = Ambient Occlusion.\n\nTexture = texture kendaraan umum.\n\nKaca/XOR = template window atau glass.\n"
+          "content": null
         },
         {
           "path": "platforms/bussid/lights/README.md",
@@ -2768,7 +2768,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-25T09:13:27.920Z"
+      "scrapedAt": "2026-09-25T09:31:59.109Z"
     },
     {
       "repository": {
@@ -3117,7 +3117,7 @@
           "content": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\n- `scripts/validate.mjs` — automated structural/data validation\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\n- `gateway/test.mjs` — gateway integration smoke test\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\\n- `icons/` — installable PWA icon assets\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n\n\n## NPM and Gateway Runtime\n\nThe repository now has an npm contract for local/server execution:\n\n```bash\nnpm install\nnpm test\nnpm start\n```\n\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\n\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\n\n## Copyright Footer\n\nWebsite and bot surfaces use the required footer:\n\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\n"
         }
       ],
-      "scrapedAt": "2026-09-25T09:13:27.473Z"
+      "scrapedAt": "2026-09-25T09:31:58.976Z"
     },
     {
       "repository": {
@@ -4762,10 +4762,10 @@
         {
           "path": "README.md",
           "size": 4983,
-          "content": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API with persisted payment method, payment instructions endpoint and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, FAQ, request tracking, finance reports, CMS and staff operations\n- SEO sitemap + robots, mobile web manifest and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nThe scraper uses same-origin crawling by default:\n\n    npm run scrape -- https://example.com --max-pages 25\n\nExplicit same-origin mode:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nUse `--all-origins` only when cross-domain crawling is actually required.\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL, the Google OAuth variables when Google Login is enabled, and Midtrans keys when PAYMENT_GATEWAY=MIDTRANS.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract. Manual payment instructions can be supplied with PAYMENT_QRIS_INSTRUCTIONS, PAYMENT_VA_INSTRUCTIONS, PAYMENT_BANK_INSTRUCTIONS and PAYMENT_WALLET_INSTRUCTIONS.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n\n## Payment Gateway\n\nSet `PAYMENT_GATEWAY=MIDTRANS` to create real Snap transactions from the server. Configure `MIDTRANS_SERVER_KEY`, `MIDTRANS_CLIENT_KEY`, and `MIDTRANS_IS_PRODUCTION`. Midtrans uses the Server Key for server-side Basic authentication and the Client Key for browser Snap.js. Notifications are verified with Midtrans's `signature_key` formula and processed idempotently. Production must use an HTTPS notification URL configured in the Midtrans dashboard.\n\nFor local or manual flows, keep `PAYMENT_GATEWAY=MANUAL`; payment instructions can be supplied with the `PAYMENT_*_INSTRUCTIONS` variables.\n\n## JavaScript frontend\n\nInteractive checkout and login now use `.jsx`, while shared vanilla browser modules live under `public/js/`. TypeScript remains for database, authentication, RBAC and payment verification so runtime-sensitive code keeps compile-time checks. `npm run verify` runs the schema, generation, typecheck, tests and production build chain.\n"
+          "content": null
         }
       ],
-      "scrapedAt": "2026-09-25T09:13:27.637Z"
+      "scrapedAt": "2026-09-25T09:31:59.002Z"
     },
     {
       "repository": {
@@ -4833,43 +4833,7 @@
         }
       },
       "latestRelease": null,
-      "commits": [
-        {
-          "sha": "dac2203bd5983040ca7fcb727fb32a05357d827e",
-          "message": "release: finalize v3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:55:57Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/dac2203bd5983040ca7fcb727fb32a05357d827e"
-        },
-        {
-          "sha": "b0ac000716c28ffb17aa6a550aa8ded20cd4554b",
-          "message": "fix: align stale release regression test with 3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:55:22Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/b0ac000716c28ffb17aa6a550aa8ded20cd4554b"
-        },
-        {
-          "sha": "bc5d01a31f7fafc33dfc823532aaf320c783dc4f",
-          "message": "test: align release regression test with 3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:54:29Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/bc5d01a31f7fafc33dfc823532aaf320c783dc4f"
-        },
-        {
-          "sha": "c80cc73d0f865bdb4647efaff7e91182e9532da9",
-          "message": "test: align runtime contract with 3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:54:11Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/c80cc73d0f865bdb4647efaff7e91182e9532da9"
-        },
-        {
-          "sha": "c1e983e4de5eafa724592be93c3e0f944eefdc20",
-          "message": "test: align release checks with 3.2.2",
-          "author": "nararyajayautamagroub",
-          "date": "2026-09-20T07:54:08Z",
-          "url": "https://github.com/nararyajayautamagroub/nararya-bot-discord/commit/c1e983e4de5eafa724592be93c3e0f944eefdc20"
-        }
-      ],
+      "commits": [],
       "tree": [
         {
           "path": ".env.example",
@@ -6748,7 +6712,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-09-25T09:13:27.752Z"
+      "scrapedAt": "2026-09-25T09:31:59.134Z"
     },
     {
       "repository": {
@@ -6780,7 +6744,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-09-25T09:13:27.659Z"
+      "scrapedAt": "2026-09-25T09:31:59.012Z"
     }
   ]
 }
