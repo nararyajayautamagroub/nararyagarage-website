@@ -15,6 +15,8 @@ Virtual Simulator, Modding, and Gaming Community for BUSSID, ETS2, ATS, TOE3, TS
 - Member dashboard, profile/settings, event registration, submissions, notifications, and fleet submissions
 - Role-protected admin pages and APIs for members, events, recruitment, fleet, moderation, notifications, settings, analytics, and audit logs
 - GitHub repository browser and scheduled repository scraper
+- Store page with server-priced cart, transaction IDs, 10-minute expiry, QRIS via Midtrans, payment-status polling, and WhatsApp confirmation link
+- Store assistant with optional OpenAI-compatible AI endpoint and safe local fallback
 - Security headers, same-origin mutation checks, request validation, and activity logging
 - CI checks for source audit, scraper syntax, dependency audit, Prisma validation/generation, TypeScript, and production build
 
@@ -49,6 +51,9 @@ Configure the variables in `.env.example` for the services you actually use:
 - `GITHUB_TOKEN`: token with minimum required access, particularly for private repositories.
 - `GITHUB_WEBHOOK_SECRET`: HMAC secret for GitHub webhook validation.
 - `NEXT_PUBLIC_SITE_URL`: canonical public deployment URL.
+- `MIDTRANS_SERVER_KEY`, `MIDTRANS_IS_PRODUCTION`: enable QRIS charges through Midtrans. Set the Midtrans payment notification URL to `/api/store/payment-webhook`; never expose the server key to the browser.
+- `STORE_WHATSAPP_NUMBER`: WhatsApp number in international digits, without `+`, for order confirmation.
+- `AI_API_URL`, `AI_API_KEY`, `AI_MODEL`: optional OpenAI-compatible chat endpoint for the store assistant. Without these, the assistant uses a limited local fallback.
 - `DISCORD_BOT_TOKEN`, `STORAGE_BUCKET`: reserved integration settings; configuring them alone does not enable a full Discord or file-storage integration.
 
 Do not commit real tokens, credentials, or production environment files.
