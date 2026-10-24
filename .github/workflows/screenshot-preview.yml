@@ -60,6 +60,8 @@ jobs:
           npx --yes playwright screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:3000/ screenshots/home-mobile.png
           npx --yes playwright screenshot --browser chromium --viewport-size "1440,1000" --full-page http://127.0.0.1:3000/login screenshots/login-desktop.png
           npx --yes playwright screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:3000/login screenshots/login-mobile.png
+          npx --yes playwright screenshot --browser chromium --viewport-size "1440,1000" --full-page http://127.0.0.1:3000/store screenshots/store-desktop.png
+          npx --yes playwright screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:3000/store screenshots/store-mobile.png
       - name: Upload screenshots
         uses: actions/upload-artifact@v7
         with:
