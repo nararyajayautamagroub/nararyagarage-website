@@ -10,6 +10,7 @@ const links=[
   ["community","/community"],
   ["events","/events"],
   ["modding","/modding"],
+  ["store","/store"],
   ["showcase","/showcase"],
   ["forum","/forum"],
   ["news","/news"],
