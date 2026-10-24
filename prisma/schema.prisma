@@ -424,3 +424,33 @@ model FleetVehicle {
  @@index([memberId, status])
  @@index([status, createdAt])
 }
+
+
+enum StoreOrderStatus {
+  PENDING
+  PAID
+  EXPIRED
+  CANCELLED
+  FAILED
+}
+
+model StoreOrder {
+  id String @id @default(cuid())
+  transactionId String @unique
+  customerName String
+  customerEmail String?
+  customerWhatsapp String
+  items Json
+  amount Int
+  status StoreOrderStatus @default(PENDING)
+  paymentProvider String @default("MIDTRANS")
+  paymentUrl String?
+  qrCodeUrl String?
+  providerOrderId String?
+  expiresAt DateTime
+  paidAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([status, expiresAt])
+  @@index([customerWhatsapp, createdAt])
+}
