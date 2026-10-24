@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-10-24T06:19:42.093Z",
+  "fetchedAt": "2026-10-24T11:26:08.675Z",
   "repositoryCount": 8,
   "repositories": [
     {
@@ -15,13 +15,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-10-24T05:52:50Z",
-        "pushed_at": "2026-10-24T05:52:46Z",
+        "updated_at": "2026-10-24T10:51:31Z",
+        "pushed_at": "2026-10-24T10:51:27Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "JavaScript",
-        "size": 354,
+        "size": 359,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -56,6 +56,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "b18b940cb6ca587c56c216dea3c53da190a81274",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-10-24T10:51:26Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/b18b940cb6ca587c56c216dea3c53da190a81274"
+        },
+        {
           "sha": "d629bee713a136f02ea07cc253d92ae39b990bc4",
           "message": "chore: refresh GitHub corporate data",
           "author": "github-actions[bot]",
@@ -82,13 +89,6 @@
           "author": "nararyajayautamagroub",
           "date": "2026-10-24T04:04:42Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/e5b8d614fd23f50eef47cc10dde4909b313f22c8"
-        },
-        {
-          "sha": "50a38a7c2a691bf6c096b28ca3d103ede20d5703",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-10-24T04:01:10Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/50a38a7c2a691bf6c096b28ca3d103ede20d5703"
         }
       ],
       "tree": [
@@ -194,8 +194,8 @@
         {
           "path": "external-live.js",
           "type": "blob",
-          "size": 4160,
-          "sha": "8b32b3a5364915f4619db58a194a04d456f23048"
+          "size": 4154,
+          "sha": "7a99ae236e2408289756212d8ce0896f53918d6b"
         },
         {
           "path": "gateway",
@@ -217,8 +217,8 @@
         {
           "path": "github-live.js",
           "type": "blob",
-          "size": 11654,
-          "sha": "675b1880cebd052df9a7b8b6eec1f9e8302ef2be"
+          "size": 11642,
+          "sha": "07aec285404ff9bf705c946edc03351666f12f0d"
         },
         {
           "path": "i18n.js",
@@ -351,7 +351,1899 @@
           "content": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\n- `scripts/validate.mjs` — automated structural/data validation\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\n- `gateway/test.mjs` — gateway integration smoke test\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\\n- `icons/` — installable PWA icon assets\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n\n\n## NPM and Gateway Runtime\n\nThe repository now has an npm contract for local/server execution:\n\n```bash\nnpm install\nnpm test\nnpm start\n```\n\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\n\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\n\n## Copyright Footer\n\nWebsite and bot surfaces use the required footer:\n\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\n"
         }
       ],
-      "scrapedAt": "2026-10-24T06:19:41.645Z"
+      "scrapedAt": "2026-10-24T11:26:08.109Z"
+    },
+    {
+      "repository": {
+        "id": 1377275248,
+        "full_name": "nararyajayautamagroub/nararyagarage-website",
+        "name": "nararyagarage-website",
+        "private": false,
+        "visibility": "public",
+        "html_url": "https://github.com/nararyajayautamagroub/nararyagarage-website",
+        "default_branch": "main",
+        "description": null,
+        "created_at": "2026-09-19T14:49:05Z",
+        "updated_at": "2026-10-24T06:19:46Z",
+        "pushed_at": "2026-10-24T06:19:43Z",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "open_issues_count": 0,
+        "language": "TypeScript",
+        "size": 3749,
+        "archived": false,
+        "disabled": false,
+        "topics": []
+      },
+      "languages": {
+        "TypeScript": 286970,
+        "JavaScript": 9318,
+        "CSS": 3004
+      },
+      "readme": "# NARARYA GARAGE\n\nVirtual Simulator, Modding, and Gaming Community for BUSSID, ETS2, ATS, TOE3, TSI, Roblox, and other supported games.\n\n## Current stack\n- Next.js App Router, React, TypeScript\n- Tailwind CSS 4\n- PostgreSQL with Prisma ORM 7\n- GitHub REST API for repository discovery, activity, source snapshots, and webhook updates\n\n## Current features\n- Responsive public pages for platforms, communities, events, convoys, mods, liveries, showcase, gallery, videos, forum, tutorials, downloads, news, partners, achievements, fleet, recruitment, and contact\n- Ten locale choices: Indonesian, English, Malay, Simplified Chinese, Japanese, Korean, Arabic, Spanish, French, and German. Navigation and selected shared UI are localized; not every page sentence has complete translation coverage yet.\n- Email/password registration and login, Google OAuth flow, email verification, and password reset flows\n- Member dashboard, profile/settings, event registration, submissions, notifications, and fleet submissions\n- Role-protected admin pages and APIs for members, events, recruitment, fleet, moderation, notifications, settings, analytics, and audit logs\n- GitHub repository browser and scheduled repository scraper\n- Store page with server-priced cart, transaction IDs, 10-minute expiry, QRIS via Midtrans, payment-status polling, and WhatsApp confirmation link\n- Store assistant with optional OpenAI-compatible AI endpoint and safe local fallback\n- Security headers, same-origin mutation checks, request validation, and activity logging\n- CI checks for source audit, scraper syntax, dependency audit, Prisma validation/generation, TypeScript, and production build\n\n## Setup\n\nRequirements: Node.js >=22.16 and <25, npm 11, and PostgreSQL for database-backed features.\n\n```bash\nnpm install\ncp .env.example .env.local\nnpm run db:generate\nnpm run db:validate\nnpm run db:migrate\nnpm run dev\n```\n\nFor a production build:\n\n```bash\nnpm run check\nnpm run build\nnpm run start\n```\n\n## Environment variables\n\nConfigure the variables in `.env.example` for the services you actually use:\n- `DATABASE_URL`: PostgreSQL connection string; required for persistent community data.\n- `AUTH_SECRET`: strong, unique production secret; required for production auth.\n- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`: Google OAuth credentials and matching callback URL.\n- `EMAIL_API_URL`, `EMAIL_API_KEY`, `EMAIL_FROM`: compatible email provider for verification and password recovery.\n- `GITHUB_TOKEN`: token with minimum required access, particularly for private repositories.\n- `GITHUB_WEBHOOK_SECRET`: HMAC secret for GitHub webhook validation.\n- `NEXT_PUBLIC_SITE_URL`: canonical public deployment URL.\n- `MIDTRANS_SERVER_KEY`, `MIDTRANS_IS_PRODUCTION`: enable QRIS charges through Midtrans. Set the Midtrans payment notification URL to `/api/store/payment-webhook`; never expose the server key to the browser.\n- `STORE_WHATSAPP_NUMBER`: WhatsApp number in international digits, without `+`, for order confirmation.\n- `AI_API_URL`, `AI_API_KEY`, `AI_MODEL`: optional OpenAI-compatible chat endpoint for the store assistant. Without these, the assistant uses a limited local fallback.\n- `DISCORD_BOT_TOKEN`, `STORAGE_BUCKET`: reserved integration settings; configuring them alone does not enable a full Discord or file-storage integration.\n\nDo not commit real tokens, credentials, or production environment files.\n\n## GitHub repository sync\n\nThe repository browser discovers repositories dynamically from the configured GitHub owner. Private repository access needs a suitably scoped token. Scheduled scraper results are snapshots; live pages may query GitHub directly. See [docs/REPOSITORY-SYNC.md](docs/REPOSITORY-SYNC.md).\n\n## Honest deployment notes\n\nSource and CI checks do not prove external production services are configured. Google sign-in requires OAuth credentials, verification/reset email requires an email provider, and persistent data requires PostgreSQL migrations. A deployment URL is not assumed to exist until hosting is configured and verified.",
+      "packageJson": {
+        "name": "nararyagarage-website",
+        "version": "1.3.2",
+        "private": true,
+        "type": "module",
+        "scripts": {
+          "dev": "next dev",
+          "build": "npm run db:generate && next build",
+          "start": "next start",
+          "typecheck": "npm run db:generate && tsc --noEmit",
+          "check": "npm run audit:source && npm run check:scraper && npm run security:audit && npm run db:validate && npm run typecheck && npm run build",
+          "db:generate": "prisma generate",
+          "db:validate": "prisma validate",
+          "db:seed": "npm run db:generate && tsx prisma/seed.ts",
+          "db:migrate": "prisma migrate deploy",
+          "db:status": "prisma migrate status",
+          "scrape:github": "node scripts/scrape-github.mjs",
+          "check:scraper": "node --check scripts/scrape-github.mjs",
+          "audit:source": "node scripts/audit-source.mjs",
+          "security:audit": "node scripts/audit-dependencies.mjs"
+        },
+        "dependencies": {
+          "next": "16.4.2",
+          "react": "19.3.0",
+          "react-dom": "19.3.0",
+          "lucide-react": "1.47.0",
+          "@prisma/client": "7.10.0",
+          "@prisma/adapter-pg": "7.10.0",
+          "pg": "8.23.0",
+          "zod": "4.6.7",
+          "dotenv": "17.4.2",
+          "sharp": "0.35.5"
+        },
+        "devDependencies": {
+          "@tailwindcss/postcss": "4.3.3",
+          "@types/node": "24.1.0",
+          "@types/react": "19.3.0",
+          "@types/react-dom": "19.3.0",
+          "@types/pg": "8.23.1",
+          "typescript": "7.0.2",
+          "tailwindcss": "4.3.3",
+          "postcss": "8.5.28",
+          "autoprefixer": "10.6.0",
+          "prisma": "7.10.0",
+          "tsx": "4.23.13"
+        },
+        "engines": {
+          "node": ">=22.16 <25"
+        },
+        "packageManager": "npm@11.6.2",
+        "allowScripts": {
+          "@prisma/engines@7.10.0": true,
+          "esbuild@0.28.2": true,
+          "prisma@7.10.0": true
+        },
+        "overrides": {
+          "source-map-js": "^1.2.2"
+        }
+      },
+      "latestRelease": null,
+      "commits": [
+        {
+          "sha": "6b1f7f8d37d934f84481bef8f06ca0a4b6634b59",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-10-24T06:19:42Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/6b1f7f8d37d934f84481bef8f06ca0a4b6634b59"
+        },
+        {
+          "sha": "31f395476ad99f54882f3db105c3589d6ee84fd3",
+          "message": "test: capture store screenshots on desktop and mobile",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T04:17:02Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/31f395476ad99f54882f3db105c3589d6ee84fd3"
+        },
+        {
+          "sha": "1d15a46f17ad81258dcce7f0e49a91f0602fed03",
+          "message": "fix: use optimized image component for QR preview",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T04:16:16Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/1d15a46f17ad81258dcce7f0e49a91f0602fed03"
+        },
+        {
+          "sha": "0604fda840d4db1cb0bb6bfb2e50bb7d71915d9d",
+          "message": "docs: explain store checkout and integrations",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T04:15:43Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/0604fda840d4db1cb0bb6bfb2e50bb7d71915d9d"
+        },
+        {
+          "sha": "3c604876bb16ffc2b8cf1e555d5d1069645b0aa0",
+          "message": "fix: format store environment variables",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T04:15:39Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/3c604876bb16ffc2b8cf1e555d5d1069645b0aa0"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 646,
+          "sha": "b440f16b26f8b60fbd61222637d1da0a649bf637"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "c5bdc27a571fa044c1c60bf9309d3fce44f1adc1"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "8e34cba03ecf0501f2d07ea7be55be896e5c0522"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 583,
+          "sha": "f1303afb68882e889998b4fe9f26070029b3932a"
+        },
+        {
+          "path": ".github/workflows/lockfile.yml",
+          "type": "blob",
+          "size": 1024,
+          "sha": "6958adb541c5bbf7a4ab8e08717a3049b9dc44cb"
+        },
+        {
+          "path": ".github/workflows/prisma-initial-migration.yml",
+          "type": "blob",
+          "size": 1961,
+          "sha": "638e602401c953a55f59f5203d6e743c1f10a954"
+        },
+        {
+          "path": ".github/workflows/repository-scraper.yml",
+          "type": "blob",
+          "size": 1292,
+          "sha": "9a56d79618a1f6a3f00a565f3037b0164728c864"
+        },
+        {
+          "path": ".github/workflows/screenshot-preview.yml",
+          "type": "blob",
+          "size": 2686,
+          "sha": "3321533769c4f360c5c8bdf1b8e55be728d7270b"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 4061,
+          "sha": "46115f0a21d771f42b4b804dd949cbee0ba981fd"
+        },
+        {
+          "path": "app",
+          "type": "tree",
+          "sha": "d2ffe4d1937a4b841363ba58007facc9a27cee33"
+        },
+        {
+          "path": "app/about",
+          "type": "tree",
+          "sha": "25aeecc9ccd7fc959576f911ca7b54a465e6b1c9"
+        },
+        {
+          "path": "app/about/page.tsx",
+          "type": "blob",
+          "size": 756,
+          "sha": "7bbc3bebc8ef7988a775fe6e5ddd51b5f0d0c3d8"
+        },
+        {
+          "path": "app/achievements",
+          "type": "tree",
+          "sha": "2a9dab5f3d71e8306ef2289f3eb1ed14550a9b6d"
+        },
+        {
+          "path": "app/achievements/page.tsx",
+          "type": "blob",
+          "size": 1238,
+          "sha": "16db899b6cd7e4f64f2bcf125e8f6490667296b6"
+        },
+        {
+          "path": "app/admin",
+          "type": "tree",
+          "sha": "fd5b44bf8c4a735df4f88e97a7d9b334e89b416d"
+        },
+        {
+          "path": "app/admin/analytics",
+          "type": "tree",
+          "sha": "bd69d632771649aaef4b0d8f42bb7eb609f0ea01"
+        },
+        {
+          "path": "app/admin/analytics/page.tsx",
+          "type": "blob",
+          "size": 1661,
+          "sha": "e88d24d6c5aa48c2bd9b76bc5cf36cdfaf136575"
+        },
+        {
+          "path": "app/admin/events",
+          "type": "tree",
+          "sha": "0a196cf983a680ffd7802cf840165a6d57dc38bc"
+        },
+        {
+          "path": "app/admin/events/page.tsx",
+          "type": "blob",
+          "size": 6520,
+          "sha": "056ba41d687dc17b29af6738e103dbc505923d80"
+        },
+        {
+          "path": "app/admin/fleet",
+          "type": "tree",
+          "sha": "52af9b11c4a3ffbf25ec82edf79bb09fe47a80a2"
+        },
+        {
+          "path": "app/admin/fleet/page.tsx",
+          "type": "blob",
+          "size": 2755,
+          "sha": "c37052f1b78b74981cde312603e9e56c15dfda96"
+        },
+        {
+          "path": "app/admin/logs",
+          "type": "tree",
+          "sha": "b2c59f5b41ef0c31fba4d147672ad7ed31dfe1b8"
+        },
+        {
+          "path": "app/admin/logs/page.tsx",
+          "type": "blob",
+          "size": 2357,
+          "sha": "4de4cf5692a8a6b9840e65f4c2b8073140da8c79"
+        },
+        {
+          "path": "app/admin/members",
+          "type": "tree",
+          "sha": "ffa62a0866912689d8cb4b7ecd458b744744480a"
+        },
+        {
+          "path": "app/admin/members/page.tsx",
+          "type": "blob",
+          "size": 3551,
+          "sha": "a3b2e8233571b1b008be0cf2efe12ad12fcc5c08"
+        },
+        {
+          "path": "app/admin/notifications",
+          "type": "tree",
+          "sha": "7c3a7e86a1c92cd675cd61e9e4774102e323388e"
+        },
+        {
+          "path": "app/admin/notifications/page.tsx",
+          "type": "blob",
+          "size": 3556,
+          "sha": "83d4df0733ce165b47dcd837ef486d7d2ed18ddb"
+        },
+        {
+          "path": "app/admin/page.tsx",
+          "type": "blob",
+          "size": 3236,
+          "sha": "473ca9e8d3dc83a75cc9aa9bbd2d1db4d77cfa6b"
+        },
+        {
+          "path": "app/admin/recruitment",
+          "type": "tree",
+          "sha": "6c7d6543ce7f23208e049071069812656f60a59e"
+        },
+        {
+          "path": "app/admin/recruitment/page.tsx",
+          "type": "blob",
+          "size": 3082,
+          "sha": "8a9df97e61682391aba80fb239d21dc1e6e25c60"
+        },
+        {
+          "path": "app/admin/reports",
+          "type": "tree",
+          "sha": "6c4a03d73b1536c037028ec76ab9fa804cca8922"
+        },
+        {
+          "path": "app/admin/reports/page.tsx",
+          "type": "blob",
+          "size": 3130,
+          "sha": "6248d6da6c968505929114d18503a30b9c63c60f"
+        },
+        {
+          "path": "app/admin/settings",
+          "type": "tree",
+          "sha": "e296b850f1935da8241a4bb71646fd01751f9951"
+        },
+        {
+          "path": "app/admin/settings/page.tsx",
+          "type": "blob",
+          "size": 3410,
+          "sha": "2d1d6bfe2196c5ab2dbf5bfbecf88f28641245d1"
+        },
+        {
+          "path": "app/api",
+          "type": "tree",
+          "sha": "1170c7159895ec3fefbee7a3797b613a50cae49c"
+        },
+        {
+          "path": "app/api/achievements",
+          "type": "tree",
+          "sha": "cafc04fadb78bf706c13d9ed5205693e6ff203f6"
+        },
+        {
+          "path": "app/api/achievements/route.ts",
+          "type": "blob",
+          "size": 464,
+          "sha": "db943f30e1a8554faaea9e89b602e8d844a1524d"
+        },
+        {
+          "path": "app/api/admin",
+          "type": "tree",
+          "sha": "4e6e97de79d57aa0f38ba7c8260b5665239ad448"
+        },
+        {
+          "path": "app/api/admin/analytics",
+          "type": "tree",
+          "sha": "7d3b60a73c3462a5233ea8ea590e1bcac5497e1a"
+        },
+        {
+          "path": "app/api/admin/analytics/route.ts",
+          "type": "blob",
+          "size": 1562,
+          "sha": "d75f4f7cf3ad7ffe4a1868615e34e20c42c825af"
+        },
+        {
+          "path": "app/api/admin/events",
+          "type": "tree",
+          "sha": "3f76648cbb0c590ed6b84411f2b725680bb72439"
+        },
+        {
+          "path": "app/api/admin/events/[id]",
+          "type": "tree",
+          "sha": "dba1c1a46c57c1ad1b0f496623fe342c260a6095"
+        },
+        {
+          "path": "app/api/admin/events/[id]/route.ts",
+          "type": "blob",
+          "size": 2859,
+          "sha": "c8a9c47d7276657f4e65489b17664b6366884d60"
+        },
+        {
+          "path": "app/api/admin/events/route.ts",
+          "type": "blob",
+          "size": 2703,
+          "sha": "eeb4c6655f9a6033cf093f71e476c148fdccf113"
+        },
+        {
+          "path": "app/api/admin/fleet",
+          "type": "tree",
+          "sha": "dd27ec59ee41d89aa9e7066741153cdecd5308ad"
+        },
+        {
+          "path": "app/api/admin/fleet/[id]",
+          "type": "tree",
+          "sha": "acd506619fffc9d76a29ef788a4e82cb57ad8d86"
+        },
+        {
+          "path": "app/api/admin/fleet/[id]/route.ts",
+          "type": "blob",
+          "size": 1291,
+          "sha": "8e758f0afa11b8bd584d48cf0ace8c1a995f5edf"
+        },
+        {
+          "path": "app/api/admin/fleet/route.ts",
+          "type": "blob",
+          "size": 772,
+          "sha": "1b9944de66ee76d76543ef7260086cd37916d293"
+        },
+        {
+          "path": "app/api/admin/logs",
+          "type": "tree",
+          "sha": "124871728a6146174bab2db2e05a52707e7c591a"
+        },
+        {
+          "path": "app/api/admin/logs/route.ts",
+          "type": "blob",
+          "size": 789,
+          "sha": "0ebe1f7a69cdb95efa02532e84a31d3c04289c79"
+        },
+        {
+          "path": "app/api/admin/members",
+          "type": "tree",
+          "sha": "ebe7080095ddd5946d12476d7adfba2d6357ff0d"
+        },
+        {
+          "path": "app/api/admin/members/[id]",
+          "type": "tree",
+          "sha": "1b090a3fd490987566f81c6cce109d0bec3371b3"
+        },
+        {
+          "path": "app/api/admin/members/[id]/route.ts",
+          "type": "blob",
+          "size": 2453,
+          "sha": "9b1881b240935833795b563b52eb8e8b420d9094"
+        },
+        {
+          "path": "app/api/admin/members/route.ts",
+          "type": "blob",
+          "size": 966,
+          "sha": "a361774b0ef2975625123a614212563ec14921bf"
+        },
+        {
+          "path": "app/api/admin/mods",
+          "type": "tree",
+          "sha": "d24b654c6030a3ce2dc7a0a2e7b8d5d27e8751ed"
+        },
+        {
+          "path": "app/api/admin/mods/[id]",
+          "type": "tree",
+          "sha": "491532ee0654f069add6991ef7ba33d7fa0100aa"
+        },
+        {
+          "path": "app/api/admin/mods/[id]/route.ts",
+          "type": "blob",
+          "size": 1128,
+          "sha": "b908c87673d9d4955728feff0f4b317fa56e1831"
+        },
+        {
+          "path": "app/api/admin/notifications",
+          "type": "tree",
+          "sha": "9a2429c03f65d30ee24abd82f284eb370e4879fa"
+        },
+        {
+          "path": "app/api/admin/notifications/route.ts",
+          "type": "blob",
+          "size": 2611,
+          "sha": "cba747a60761a07c3781d35735454177997cecd3"
+        },
+        {
+          "path": "app/api/admin/overview",
+          "type": "tree",
+          "sha": "5e676c7532dbd9b59f691c6f454dca354afcb47f"
+        },
+        {
+          "path": "app/api/admin/overview/route.ts",
+          "type": "blob",
+          "size": 961,
+          "sha": "1b02d9bfbd4bd3367843fba4aba10919f63700ad"
+        },
+        {
+          "path": "app/api/admin/recruitment",
+          "type": "tree",
+          "sha": "ab97bd2916f1ce381de8c75f2b3818f03153ad06"
+        },
+        {
+          "path": "app/api/admin/recruitment/[id]",
+          "type": "tree",
+          "sha": "b778866ecb021f7ddc8b399d61ae4293f8a5626a"
+        },
+        {
+          "path": "app/api/admin/recruitment/[id]/route.ts",
+          "type": "blob",
+          "size": 1382,
+          "sha": "203c66cc862157811c3a8b2e5af8d7f4aff67a9a"
+        },
+        {
+          "path": "app/api/admin/recruitment/route.ts",
+          "type": "blob",
+          "size": 816,
+          "sha": "b948a144ffcbc7cc7604a795c220f302a156fdf8"
+        },
+        {
+          "path": "app/api/admin/settings",
+          "type": "tree",
+          "sha": "63ca71b20470b30a3777e21f96d64b3a2880e3dd"
+        },
+        {
+          "path": "app/api/admin/settings/route.ts",
+          "type": "blob",
+          "size": 1922,
+          "sha": "4fba3284dbfe4ddc2bd629ea031f3f1ee8b59054"
+        },
+        {
+          "path": "app/api/auth",
+          "type": "tree",
+          "sha": "f30955be2550ebab4456a2078bfdd9f3230a6f55"
+        },
+        {
+          "path": "app/api/auth/google",
+          "type": "tree",
+          "sha": "6292d49249e3d96831b21b82ce485af0f982cce9"
+        },
+        {
+          "path": "app/api/auth/google/callback",
+          "type": "tree",
+          "sha": "dc8f0a5af23bfe790296cf6a827fe0d1973ea9c0"
+        },
+        {
+          "path": "app/api/auth/google/callback/route.ts",
+          "type": "blob",
+          "size": 4529,
+          "sha": "b8d1b0993cb10d3d1ccdf7ce481d52075b9d2c91"
+        },
+        {
+          "path": "app/api/auth/google/route.ts",
+          "type": "blob",
+          "size": 1370,
+          "sha": "fd953d6ce2cc462d1bc4dcadfb5d78463f80216e"
+        },
+        {
+          "path": "app/api/auth/login",
+          "type": "tree",
+          "sha": "f598dade3c05b2029d16db01c9ad10e15805b33c"
+        },
+        {
+          "path": "app/api/auth/login/route.ts",
+          "type": "blob",
+          "size": 1464,
+          "sha": "d939b773043ade560fbcdf2e1783d7c0a1f82c19"
+        },
+        {
+          "path": "app/api/auth/logout",
+          "type": "tree",
+          "sha": "2afcb092d50a19681bae2aee95a30d8720eb5272"
+        },
+        {
+          "path": "app/api/auth/logout/route.ts",
+          "type": "blob",
+          "size": 333,
+          "sha": "d8b82e233e0b1adc560764d979e02dc0eed29d13"
+        },
+        {
+          "path": "app/api/auth/me",
+          "type": "tree",
+          "sha": "51dc01aca2675e47b21d60eafd05ee02115cee84"
+        },
+        {
+          "path": "app/api/auth/me/route.ts",
+          "type": "blob",
+          "size": 413,
+          "sha": "9ad860170cb80b885a129f0728956da4080135d1"
+        },
+        {
+          "path": "app/api/auth/password",
+          "type": "tree",
+          "sha": "7addd676bcaeeb0289204ded88c0503079e26cad"
+        },
+        {
+          "path": "app/api/auth/password/forgot",
+          "type": "tree",
+          "sha": "5232f74e321c1b69e62eedf5eaea2aa684c3a4b5"
+        },
+        {
+          "path": "app/api/auth/password/forgot/route.ts",
+          "type": "blob",
+          "size": 1639,
+          "sha": "f56f0d477f453a74febd537b647b746707f8742c"
+        },
+        {
+          "path": "app/api/auth/password/reset",
+          "type": "tree",
+          "sha": "2c946aeb242a0d9c714fa8a5969326c9081096e7"
+        },
+        {
+          "path": "app/api/auth/password/reset/route.ts",
+          "type": "blob",
+          "size": 1131,
+          "sha": "e7ab95d959d7aefc23c97751747424a355cfe824"
+        },
+        {
+          "path": "app/api/auth/register",
+          "type": "tree",
+          "sha": "38dff85f7ea53316d7726cc10d65662f0111a8b4"
+        },
+        {
+          "path": "app/api/auth/register/route.ts",
+          "type": "blob",
+          "size": 2741,
+          "sha": "e8d73aba95aa0ec39ad44f574d16b66b30b7ea2f"
+        },
+        {
+          "path": "app/api/auth/verify",
+          "type": "tree",
+          "sha": "c03e5d16ca1751687a4ae0befb8d7e8184cd37c1"
+        },
+        {
+          "path": "app/api/auth/verify/request",
+          "type": "tree",
+          "sha": "bc012d37e09d477aff1c84e52d2589425bd1299e"
+        },
+        {
+          "path": "app/api/auth/verify/request/route.ts",
+          "type": "blob",
+          "size": 1804,
+          "sha": "c74c29c7dcb67831062e3e116be103a965817db4"
+        },
+        {
+          "path": "app/api/auth/verify/route.ts",
+          "type": "blob",
+          "size": 873,
+          "sha": "1af2a8451575840728a7c40023104f70b4c76be9"
+        },
+        {
+          "path": "app/api/downloads",
+          "type": "tree",
+          "sha": "04e54ad5420be8a1e6d7e4357c49d2194c4ba835"
+        },
+        {
+          "path": "app/api/downloads/route.ts",
+          "type": "blob",
+          "size": 476,
+          "sha": "a9aed9092da5b7120ed8907b06d2da5b1d2f95dc"
+        },
+        {
+          "path": "app/api/events",
+          "type": "tree",
+          "sha": "5fab1c6f569bd79242430b485d05a1089fad2b2e"
+        },
+        {
+          "path": "app/api/events/[id]",
+          "type": "tree",
+          "sha": "13e3534f23e05db79c6e909dd7f31bf3dd012a81"
+        },
+        {
+          "path": "app/api/events/[id]/register",
+          "type": "tree",
+          "sha": "2bd1dd5e98d9a5db18124599d4b159931041ccc1"
+        },
+        {
+          "path": "app/api/events/[id]/register/route.ts",
+          "type": "blob",
+          "size": 4652,
+          "sha": "e59ef06093f5bff053341cca71ef84398f5227e7"
+        },
+        {
+          "path": "app/api/events/route.ts",
+          "type": "blob",
+          "size": 289,
+          "sha": "673891ca03eff9a8d4b2cf444ad347819629299c"
+        },
+        {
+          "path": "app/api/fleet",
+          "type": "tree",
+          "sha": "5c19651e0c03b92f82d174078f398f968e09302c"
+        },
+        {
+          "path": "app/api/fleet/route.ts",
+          "type": "blob",
+          "size": 3002,
+          "sha": "09a2be7af654bde11631be76002f77e8408d0b44"
+        },
+        {
+          "path": "app/api/forum",
+          "type": "tree",
+          "sha": "aecfbad400651dd89e7239801d3a8aa1b37538e8"
+        },
+        {
+          "path": "app/api/forum/[id]",
+          "type": "tree",
+          "sha": "09696a5f63e9b4fae14c624feaf50dcfd143e1d0"
+        },
+        {
+          "path": "app/api/forum/[id]/posts",
+          "type": "tree",
+          "sha": "08aaf8060b92516bcc936fdeabf206cc52feb2db"
+        },
+        {
+          "path": "app/api/forum/[id]/posts/route.ts",
+          "type": "blob",
+          "size": 1896,
+          "sha": "d7902349640dd346ad4cc889202af33deb703978"
+        },
+        {
+          "path": "app/api/forum/route.ts",
+          "type": "blob",
+          "size": 2098,
+          "sha": "42e8e2baa37e775d2d2637cf0ee05d5bcdb7b8df"
+        },
+        {
+          "path": "app/api/gallery",
+          "type": "tree",
+          "sha": "d8c463eed8ca1bd2dd844ce838df79dbd737446a"
+        },
+        {
+          "path": "app/api/gallery/route.ts",
+          "type": "blob",
+          "size": 493,
+          "sha": "992fce1240545a4072426bee7e3569287bd2c11f"
+        },
+        {
+          "path": "app/api/github",
+          "type": "tree",
+          "sha": "e10c9a5a6db7faf968c3f11c9c3e404192bdfb0d"
+        },
+        {
+          "path": "app/api/github/activity",
+          "type": "tree",
+          "sha": "81756f24b8b04b1417240196d34026f333ed61b7"
+        },
+        {
+          "path": "app/api/github/activity/route.ts",
+          "type": "blob",
+          "size": 908,
+          "sha": "6e57af092699612325d77d539c87b99e060209c4"
+        },
+        {
+          "path": "app/api/github/repositories",
+          "type": "tree",
+          "sha": "cc0db90ed9978bcd047a03136ae160df71daf9f2"
+        },
+        {
+          "path": "app/api/github/repositories/route.ts",
+          "type": "blob",
+          "size": 530,
+          "sha": "ba51b27721b28a5962ac27904c04b9bc151f1c1c"
+        },
+        {
+          "path": "app/api/github/repository",
+          "type": "tree",
+          "sha": "a5f1d708b24c47fa2cc5f3c136e120bc340b7965"
+        },
+        {
+          "path": "app/api/github/repository/[owner]",
+          "type": "tree",
+          "sha": "e543c8e5703714c19a589f8ffcbd15337250c61f"
+        },
+        {
+          "path": "app/api/github/repository/[owner]/[name]",
+          "type": "tree",
+          "sha": "ffdfc0c19588d601078818d198c5751498b614da"
+        },
+        {
+          "path": "app/api/github/repository/[owner]/[name]/route.ts",
+          "type": "blob",
+          "size": 800,
+          "sha": "1e10c7bec583ad2b0bd1b7f455704635021dc765"
+        },
+        {
+          "path": "app/api/github/scrape",
+          "type": "tree",
+          "sha": "c2b7c9d611a60378cd11219e87ea1c355e67d121"
+        },
+        {
+          "path": "app/api/github/scrape/route.ts",
+          "type": "blob",
+          "size": 953,
+          "sha": "4d112bab3112c7f2b7c5f4b8d4e05c64f4f94a39"
+        },
+        {
+          "path": "app/api/github/webhook",
+          "type": "tree",
+          "sha": "803ba863e376e6a2e6313e39ea289de5a04f72b5"
+        },
+        {
+          "path": "app/api/github/webhook/route.ts",
+          "type": "blob",
+          "size": 2463,
+          "sha": "a6e62288cc18400917cae8ce1f7050019e746e64"
+        },
+        {
+          "path": "app/api/health",
+          "type": "tree",
+          "sha": "b0732abd75b3dff55c66ff1636cb266de5284697"
+        },
+        {
+          "path": "app/api/health/route.ts",
+          "type": "blob",
+          "size": 1309,
+          "sha": "5f77f94d8140e813563d9b94f9e94ef3c4be7359"
+        },
+        {
+          "path": "app/api/liveries",
+          "type": "tree",
+          "sha": "fdd13c8431a3a36577651f02cce058bebbac4d8e"
+        },
+        {
+          "path": "app/api/liveries/route.ts",
+          "type": "blob",
+          "size": 2120,
+          "sha": "e362cd4237639fe280f998601376bf1d6043ee17"
+        },
+        {
+          "path": "app/api/member",
+          "type": "tree",
+          "sha": "666b9b05aa08ed911a4f2fb2f06494dafec824e2"
+        },
+        {
+          "path": "app/api/member/profile",
+          "type": "tree",
+          "sha": "ea8d80914e83f8509408423ac84cd62792be47d2"
+        },
+        {
+          "path": "app/api/member/profile/route.ts",
+          "type": "blob",
+          "size": 2891,
+          "sha": "0af8d7f54c1d8d0d4f68494206b51e5a42910fe5"
+        },
+        {
+          "path": "app/api/member/settings",
+          "type": "tree",
+          "sha": "1455395c2dbb116cad0aea09d9da5fb46d3a0ecf"
+        },
+        {
+          "path": "app/api/member/settings/route.ts",
+          "type": "blob",
+          "size": 2928,
+          "sha": "1c5f2ae2dd38b56e4c254d76b8a7207541d9a200"
+        },
+        {
+          "path": "app/api/members",
+          "type": "tree",
+          "sha": "702e2dc9c37468c7a24ac03a74cd859593247ef6"
+        },
+        {
+          "path": "app/api/members/route.ts",
+          "type": "blob",
+          "size": 1428,
+          "sha": "80ab31d8d95d662235dda21fd1974da229882764"
+        },
+        {
+          "path": "app/api/mods",
+          "type": "tree",
+          "sha": "94f1e95b8c6970e091bba4d35838625c729a3938"
+        },
+        {
+          "path": "app/api/mods/route.ts",
+          "type": "blob",
+          "size": 2568,
+          "sha": "dc16435799f655e7b0e93b2b1f12ff1881ac0a54"
+        },
+        {
+          "path": "app/api/news",
+          "type": "tree",
+          "sha": "de84f50964fd3d7dc4b712690995a45961cc8a82"
+        },
+        {
+          "path": "app/api/news/route.ts",
+          "type": "blob",
+          "size": 505,
+          "sha": "725322ccc2376e14ae6ccabb426ec620d0d22f83"
+        },
+        {
+          "path": "app/api/notifications",
+          "type": "tree",
+          "sha": "5b4880a0a6f4cc4b27ec6d8f3f0c4808305389af"
+        },
+        {
+          "path": "app/api/notifications/route.ts",
+          "type": "blob",
+          "size": 2141,
+          "sha": "2616bf69f5bd16b04f015299a8eaccfe086f2ed2"
+        },
+        {
+          "path": "app/api/partners",
+          "type": "tree",
+          "sha": "e95a40d0ae37c9c2a6b577f9dcdb605b66e89ce5"
+        },
+        {
+          "path": "app/api/partners/route.ts",
+          "type": "blob",
+          "size": 460,
+          "sha": "17ae7db109ab97d5c58f18613baeb46436467d14"
+        },
+        {
+          "path": "app/api/platforms",
+          "type": "tree",
+          "sha": "74c0c0f05ee714c66abfb17de51939a5277b7c08"
+        },
+        {
+          "path": "app/api/platforms/route.ts",
+          "type": "blob",
+          "size": 279,
+          "sha": "4478ea3c57ade74a478ec76a4b2a429cfeddbd60"
+        },
+        {
+          "path": "app/api/recruitment",
+          "type": "tree",
+          "sha": "40da59db152fa5977433ca7036ddaad852a23021"
+        },
+        {
+          "path": "app/api/recruitment/route.ts",
+          "type": "blob",
+          "size": 2961,
+          "sha": "77f78149cc5582f6b8d2ac4aacb741ecd738ab57"
+        },
+        {
+          "path": "app/api/reports",
+          "type": "tree",
+          "sha": "8a0e1beea707192f71dbef34c26cc6391fd5317a"
+        },
+        {
+          "path": "app/api/reports/[id]",
+          "type": "tree",
+          "sha": "0a2b282ba2fbc8ff062c5fe100e92384994154b3"
+        },
+        {
+          "path": "app/api/reports/[id]/route.ts",
+          "type": "blob",
+          "size": 1069,
+          "sha": "9ea2f3209181b002ca40e53f2d02ab4eb979cac0"
+        },
+        {
+          "path": "app/api/reports/route.ts",
+          "type": "blob",
+          "size": 1886,
+          "sha": "899c0970550b772bba000e42e3a2148b2bfe0816"
+        },
+        {
+          "path": "app/api/showcase",
+          "type": "tree",
+          "sha": "6a89f40dd2f061f7d74533381c347fe3bdb9d9df"
+        },
+        {
+          "path": "app/api/showcase/route.ts",
+          "type": "blob",
+          "size": 2165,
+          "sha": "e563aad11d4dac567973c35a0c039fc5184b4ece"
+        },
+        {
+          "path": "app/api/store",
+          "type": "tree",
+          "sha": "0d61f151f2046bb74b7551d82d928306748e1af7"
+        },
+        {
+          "path": "app/api/store/assistant",
+          "type": "tree",
+          "sha": "915dfc1d8c468588b9d65da5d054bc0cc44b61b0"
+        },
+        {
+          "path": "app/api/store/assistant/route.ts",
+          "type": "blob",
+          "size": 2568,
+          "sha": "0e4a47808a72862e53d91d6fcd42d29b06eb165c"
+        },
+        {
+          "path": "app/api/store/checkout",
+          "type": "tree",
+          "sha": "01e009d31234cd2eec7142cb80475ca929b3b6d0"
+        },
+        {
+          "path": "app/api/store/checkout/route.ts",
+          "type": "blob",
+          "size": 5151,
+          "sha": "85a2afafb56001fa2d6e28af13c8e97958cb3474"
+        },
+        {
+          "path": "app/api/store/orders",
+          "type": "tree",
+          "sha": "9ef7efdf2ad92a1d70168eb78c221698a17b622e"
+        },
+        {
+          "path": "app/api/store/orders/[transactionId]",
+          "type": "tree",
+          "sha": "23f97c3957ff799059df1e60ebf5e784fe7379b9"
+        },
+        {
+          "path": "app/api/store/orders/[transactionId]/route.ts",
+          "type": "blob",
+          "size": 1359,
+          "sha": "c216eddcfea91c1e86885986c5a0b8cf64350446"
+        },
+        {
+          "path": "app/api/store/payment-webhook",
+          "type": "tree",
+          "sha": "e5aa2693ca4ab293001ce12b7dff57ecd8c01bba"
+        },
+        {
+          "path": "app/api/store/payment-webhook/route.ts",
+          "type": "blob",
+          "size": 2287,
+          "sha": "2df05af771999919a76eaae40d5ce19a74c73436"
+        },
+        {
+          "path": "app/api/store/products",
+          "type": "tree",
+          "sha": "a5869e76621788bd194a5c2779c4f4b545dcdf51"
+        },
+        {
+          "path": "app/api/store/products/route.ts",
+          "type": "blob",
+          "size": 1152,
+          "sha": "92eea3e319129de0503cee02e27d81f029cf5bb7"
+        },
+        {
+          "path": "app/api/tutorials",
+          "type": "tree",
+          "sha": "1c59725a75c9d8820f35c83aa74e5a5bb4b2fd79"
+        },
+        {
+          "path": "app/api/tutorials/route.ts",
+          "type": "blob",
+          "size": 476,
+          "sha": "bceece0f96eb11b3260cd35d9dd030dc8fdd3ce4"
+        },
+        {
+          "path": "app/api/videos",
+          "type": "tree",
+          "sha": "281bb91484e55f03fe08f73f2a144e50fdd8ccc6"
+        },
+        {
+          "path": "app/api/videos/route.ts",
+          "type": "blob",
+          "size": 473,
+          "sha": "dc1d648ed9c32e485ae2195915dab62d4ad1269d"
+        },
+        {
+          "path": "app/community",
+          "type": "tree",
+          "sha": "fa44b86efc719b7d4c4765b8fce3afb00d94905d"
+        },
+        {
+          "path": "app/community/[id]",
+          "type": "tree",
+          "sha": "c2e60c9b4a2fce775fb8ad89b886f97cae4e2825"
+        },
+        {
+          "path": "app/community/[id]/page.tsx",
+          "type": "blob",
+          "size": 1543,
+          "sha": "61740deb6701ce5f86a15a85e08b82b8a4c00b41"
+        },
+        {
+          "path": "app/community/page.tsx",
+          "type": "blob",
+          "size": 549,
+          "sha": "67cbac242d6fce49e7666786b096e5a20a5d10f9"
+        },
+        {
+          "path": "app/contact",
+          "type": "tree",
+          "sha": "1ba20d99fbe81f69fd72fa48534661e6049bbe82"
+        },
+        {
+          "path": "app/contact/page.tsx",
+          "type": "blob",
+          "size": 874,
+          "sha": "ef13802c0098ff3cc787bf6356d946d9ccdc6ad4"
+        },
+        {
+          "path": "app/convoy",
+          "type": "tree",
+          "sha": "fc7134957295159967dfb0df5f09f452e75333ed"
+        },
+        {
+          "path": "app/convoy/page.tsx",
+          "type": "blob",
+          "size": 1829,
+          "sha": "cc64e22410790bfb11ca5baa81b3ad2b90637716"
+        },
+        {
+          "path": "app/downloads",
+          "type": "tree",
+          "sha": "d7f91cfd01d74a19d06798889c617a94528aba03"
+        },
+        {
+          "path": "app/downloads/page.tsx",
+          "type": "blob",
+          "size": 1204,
+          "sha": "1917357915c5741701cdcd5fe24d32fadd799c5a"
+        },
+        {
+          "path": "app/error.tsx",
+          "type": "blob",
+          "size": 831,
+          "sha": "a714c0105229f4b8304bdd008ffac1c9b93ee9ad"
+        },
+        {
+          "path": "app/events",
+          "type": "tree",
+          "sha": "e5a8f05ea62d699befb7ddcaef501891bab6816a"
+        },
+        {
+          "path": "app/events/page.tsx",
+          "type": "blob",
+          "size": 1261,
+          "sha": "d6b363628a5384ae71364c0012ff9eb9f52c09fb"
+        },
+        {
+          "path": "app/fleet",
+          "type": "tree",
+          "sha": "34b679a14931d683a1e0ab3adf8897206a74b2c2"
+        },
+        {
+          "path": "app/fleet/page.tsx",
+          "type": "blob",
+          "size": 2330,
+          "sha": "9794ed9ee545c35b1db82b7c6fa40e9d70033abc"
+        },
+        {
+          "path": "app/forgot-password",
+          "type": "tree",
+          "sha": "18ce5a0e028bebdf1ac1d0b116208a0ae662f8c6"
+        },
+        {
+          "path": "app/forgot-password/page.tsx",
+          "type": "blob",
+          "size": 1768,
+          "sha": "0580383315214abb26feebe270ff013c5fe38fc7"
+        },
+        {
+          "path": "app/forum",
+          "type": "tree",
+          "sha": "196401a90c08c5ad2a6c5bea0c295dadbadf7648"
+        },
+        {
+          "path": "app/forum/page.tsx",
+          "type": "blob",
+          "size": 892,
+          "sha": "9708bb80f6e87899b8933eed1815b41b505d2a73"
+        },
+        {
+          "path": "app/gallery",
+          "type": "tree",
+          "sha": "c7feb896fe2be4b0c0048827b911dd3a7fa69b9c"
+        },
+        {
+          "path": "app/gallery/page.tsx",
+          "type": "blob",
+          "size": 1251,
+          "sha": "4769abb60e20d5a7c2b88cbefbc2b84288051a8a"
+        },
+        {
+          "path": "app/globals.css",
+          "type": "blob",
+          "size": 3004,
+          "sha": "d2a11958811529db33a6aa375560503afbcc1a77"
+        },
+        {
+          "path": "app/layout.tsx",
+          "type": "blob",
+          "size": 1215,
+          "sha": "825489f82cf24e33b5b58d55b58a20ca447a47a1"
+        },
+        {
+          "path": "app/liveries",
+          "type": "tree",
+          "sha": "2a8977c0bce9ce96344da166f4af084753d3ec6c"
+        },
+        {
+          "path": "app/liveries/page.tsx",
+          "type": "blob",
+          "size": 1135,
+          "sha": "7d899b616647467473c2113d35489604c1935fc5"
+        },
+        {
+          "path": "app/loading.tsx",
+          "type": "blob",
+          "size": 442,
+          "sha": "e8d94d60e1a7cfc12c284ed1e1a4a7d24cb6f35b"
+        },
+        {
+          "path": "app/login",
+          "type": "tree",
+          "sha": "e3e549be2603aa03f0c8ab966918d9453398eaca"
+        },
+        {
+          "path": "app/login/page.tsx",
+          "type": "blob",
+          "size": 3855,
+          "sha": "a4f6c46453d5616efb4eebc8aa3b6e8f2a8dc9c5"
+        },
+        {
+          "path": "app/manifest.ts",
+          "type": "blob",
+          "size": 420,
+          "sha": "7fcfc8f704caa0e1cb9941d0076ed317782fc582"
+        },
+        {
+          "path": "app/member",
+          "type": "tree",
+          "sha": "509c5e3d74ebc2db4c0ddff4c4b7b991f264f1f7"
+        },
+        {
+          "path": "app/member/achievements",
+          "type": "tree",
+          "sha": "b8f8cc249c89010471ff2a12d86aaf9100aedfa9"
+        },
+        {
+          "path": "app/member/achievements/page.tsx",
+          "type": "blob",
+          "size": 1661,
+          "sha": "01073a45ec04374bea98a4612cd9a630457a265f"
+        },
+        {
+          "path": "app/member/convoys",
+          "type": "tree",
+          "sha": "a47a65db71a36850c344adde312cf86be3dc8683"
+        },
+        {
+          "path": "app/member/convoys/page.tsx",
+          "type": "blob",
+          "size": 2153,
+          "sha": "2c3b893a261c67410fa58347fb27fdc147354b85"
+        },
+        {
+          "path": "app/member/dashboard",
+          "type": "tree",
+          "sha": "69dc9f81279a45406943a1b946f7d8c33309f83b"
+        },
+        {
+          "path": "app/member/dashboard/page.tsx",
+          "type": "blob",
+          "size": 2614,
+          "sha": "975d8e1e85bca2640dcbf88f794ec50429d947d4"
+        },
+        {
+          "path": "app/member/events",
+          "type": "tree",
+          "sha": "1a016faccce5370970759bd60407224ea525e161"
+        },
+        {
+          "path": "app/member/events/page.tsx",
+          "type": "blob",
+          "size": 2019,
+          "sha": "7a06197fe1d15fd151e45c8de5b6a08a36879264"
+        },
+        {
+          "path": "app/member/fleet",
+          "type": "tree",
+          "sha": "53ac85e0e13ae5dd9ab6595eeb0e34b9cd6b1619"
+        },
+        {
+          "path": "app/member/fleet/page.tsx",
+          "type": "blob",
+          "size": 3628,
+          "sha": "395463f1734d08f57a003e1e0b1a4d7430478a4f"
+        },
+        {
+          "path": "app/member/notifications",
+          "type": "tree",
+          "sha": "988eabd4063aa2020655d5d52d92562de7c6198f"
+        },
+        {
+          "path": "app/member/notifications/page.tsx",
+          "type": "blob",
+          "size": 2343,
+          "sha": "d4e612231c6a6f05ae61cd175422bdbb4e77e183"
+        },
+        {
+          "path": "app/member/page.tsx",
+          "type": "blob",
+          "size": 4815,
+          "sha": "ca3e0cb19901fc587e609665714bfe39a5584968"
+        },
+        {
+          "path": "app/member/profile",
+          "type": "tree",
+          "sha": "b1818f4c72008521fd8e0f435657f760d2a2be9b"
+        },
+        {
+          "path": "app/member/profile/page.tsx",
+          "type": "blob",
+          "size": 4990,
+          "sha": "3bcdb40f39c50e9f29af40da05ad552b2c65040a"
+        },
+        {
+          "path": "app/member/settings",
+          "type": "tree",
+          "sha": "f027c286c22c25268d07bb721f654c2dfe753e9d"
+        },
+        {
+          "path": "app/member/settings/page.tsx",
+          "type": "blob",
+          "size": 4790,
+          "sha": "15a77958d66d1d86d7d1aa9caf9edb325b45b644"
+        },
+        {
+          "path": "app/member/showcase",
+          "type": "tree",
+          "sha": "1b302047e3645ff612a0ee1569d757986696a36a"
+        },
+        {
+          "path": "app/member/showcase/page.tsx",
+          "type": "blob",
+          "size": 1612,
+          "sha": "41c284e559aaa0f1aa740e29f9df10fd97dd586c"
+        },
+        {
+          "path": "app/member/submissions",
+          "type": "tree",
+          "sha": "bc0b9b80f089e803a252dde3b2fdb2f88e135996"
+        },
+        {
+          "path": "app/member/submissions/page.tsx",
+          "type": "blob",
+          "size": 3027,
+          "sha": "da9b25d0e10efa3293003955f59df5b618be46ac"
+        },
+        {
+          "path": "app/modding",
+          "type": "tree",
+          "sha": "ef69a2689e205d70e77237710f0671802c566976"
+        },
+        {
+          "path": "app/modding/page.tsx",
+          "type": "blob",
+          "size": 1053,
+          "sha": "3fc5d409a3d8f2075b2ce3775d1b18dc0e9f47a9"
+        },
+        {
+          "path": "app/mods",
+          "type": "tree",
+          "sha": "c47e9e6d19bb8d50ce0797927fedfcfaba2cdbc2"
+        },
+        {
+          "path": "app/mods/page.tsx",
+          "type": "blob",
+          "size": 1429,
+          "sha": "6f1f63bf45292cf6a28e687221832e1aad6b2436"
+        },
+        {
+          "path": "app/news",
+          "type": "tree",
+          "sha": "4928604cb8c4464ee5cabd1d451a5c5810a49cf9"
+        },
+        {
+          "path": "app/news/page.tsx",
+          "type": "blob",
+          "size": 1096,
+          "sha": "f35a4c3ba98b8b1f889f1a79d67d146cb02970bf"
+        },
+        {
+          "path": "app/not-found.tsx",
+          "type": "blob",
+          "size": 654,
+          "sha": "c5d17a5f2afd77ae3778ded8e05df356eaf3a65c"
+        },
+        {
+          "path": "app/page.tsx",
+          "type": "blob",
+          "size": 4271,
+          "sha": "52c33b6fabaa0e5064ebe88d2851d3a5e2e2317a"
+        },
+        {
+          "path": "app/partners",
+          "type": "tree",
+          "sha": "f41dd2212d71e3c5097006daa67154aad964edd5"
+        },
+        {
+          "path": "app/partners/page.tsx",
+          "type": "blob",
+          "size": 1227,
+          "sha": "8b3cba823ad811fe358736e48ed88b954f93c4f4"
+        },
+        {
+          "path": "app/platforms",
+          "type": "tree",
+          "sha": "000f69b3a3bee5602b74d9c5a7eddfec8343852c"
+        },
+        {
+          "path": "app/platforms/page.tsx",
+          "type": "blob",
+          "size": 769,
+          "sha": "5757f2c5b5c30e1090390ad7160cdd234c69da7f"
+        },
+        {
+          "path": "app/recruitment",
+          "type": "tree",
+          "sha": "ef938a3264ad6d06ec1a9f9defdff0b86ded0483"
+        },
+        {
+          "path": "app/recruitment/page.tsx",
+          "type": "blob",
+          "size": 4460,
+          "sha": "439ada3cb6aeedbbaad759f54a63435d2cd25121"
+        },
+        {
+          "path": "app/register",
+          "type": "tree",
+          "sha": "0ba5382402210c6aa123d96be0d06e30f9936bd4"
+        },
+        {
+          "path": "app/register/page.tsx",
+          "type": "blob",
+          "size": 3531,
+          "sha": "880310cd1fa2e8a01d795b178a5ff510da6361ba"
+        },
+        {
+          "path": "app/repositories",
+          "type": "tree",
+          "sha": "cbbe66e890b9fd5089d9e8b5b31f601807e2d055"
+        },
+        {
+          "path": "app/repositories/[owner]",
+          "type": "tree",
+          "sha": "52ce9b442cec104ad4be89962b54d10a30da8754"
+        },
+        {
+          "path": "app/repositories/[owner]/[name]",
+          "type": "tree",
+          "sha": "8a39c2ffdb05dbaf063fa3e118a3e75317b133f4"
+        },
+        {
+          "path": "app/repositories/[owner]/[name]/page.tsx",
+          "type": "blob",
+          "size": 6318,
+          "sha": "a28264544a0ee6113ca0e26426b96d253039cbdb"
+        },
+        {
+          "path": "app/repositories/page.tsx",
+          "type": "blob",
+          "size": 1179,
+          "sha": "9a68d04cc545b04013155c6cb026761ce51277e3"
+        },
+        {
+          "path": "app/reset-password",
+          "type": "tree",
+          "sha": "8ec438cbccb547d0faa3da2bb7eaa933ce45fec3"
+        },
+        {
+          "path": "app/reset-password/page.tsx",
+          "type": "blob",
+          "size": 2446,
+          "sha": "c4b5140d06400e2edc0e3a670f0993c0ce821617"
+        },
+        {
+          "path": "app/robots.ts",
+          "type": "blob",
+          "size": 255,
+          "sha": "45b88b9f3843df7662eee4baee24d318f5ffb202"
+        },
+        {
+          "path": "app/rules",
+          "type": "tree",
+          "sha": "d434c7edd5d87bc552c923937c07c5d6505da1ab"
+        },
+        {
+          "path": "app/rules/page.tsx",
+          "type": "blob",
+          "size": 805,
+          "sha": "45f657b3e2dd8473d082e772dbe95fba521db3d4"
+        },
+        {
+          "path": "app/showcase",
+          "type": "tree",
+          "sha": "f334b1b32cbeb9e1bce986449b90aef3d411cfed"
+        },
+        {
+          "path": "app/showcase/page.tsx",
+          "type": "blob",
+          "size": 1238,
+          "sha": "7443033b2dd01cac85c80b43a1352b7b754d981e"
+        },
+        {
+          "path": "app/sitemap.ts",
+          "type": "blob",
+          "size": 655,
+          "sha": "d544af5f4f34a53490f3913199b5e93b5269fc1a"
+        },
+        {
+          "path": "app/store",
+          "type": "tree",
+          "sha": "8327c935f42dd52620f6ddc9b050fa5cf29e4410"
+        },
+        {
+          "path": "app/store/page.tsx",
+          "type": "blob",
+          "size": 13148,
+          "sha": "6fb9915c49bdd6cae82b7f6ebd731d24134ea7e2"
+        },
+        {
+          "path": "app/submit",
+          "type": "tree",
+          "sha": "6cacf2ff17f4afe2771d5631adf4e927cfbeb807"
+        },
+        {
+          "path": "app/submit/page.tsx",
+          "type": "blob",
+          "size": 4450,
+          "sha": "8fb20ac70577a64bffa143e4fa14d3cf9a26c75b"
+        },
+        {
+          "path": "app/tutorials",
+          "type": "tree",
+          "sha": "9ea4b9b012f01d7bd1e541abef7851be14e65f9b"
+        },
+        {
+          "path": "app/tutorials/page.tsx",
+          "type": "blob",
+          "size": 1113,
+          "sha": "7dc585eb226d62891d2db471981540c8dbbcdc06"
+        },
+        {
+          "path": "app/verify-email",
+          "type": "tree",
+          "sha": "9a2d901b12e40b560c8d8161a8988299ae11f17b"
+        },
+        {
+          "path": "app/verify-email/page.tsx",
+          "type": "blob",
+          "size": 2428,
+          "sha": "4b8d823724f6f16e0556df225a893948cb907cb3"
+        },
+        {
+          "path": "app/videos",
+          "type": "tree",
+          "sha": "6b456b2ce2e3469fee38260cdbeff5542beb1582"
+        },
+        {
+          "path": "app/videos/page.tsx",
+          "type": "blob",
+          "size": 1257,
+          "sha": "c8a8349f8d46069d5ac87a7f9523a0b95e45ad5d"
+        },
+        {
+          "path": "components",
+          "type": "tree",
+          "sha": "0e4b18c647f865aed785a87df3ce53580a19210a"
+        },
+        {
+          "path": "components/cards.tsx",
+          "type": "blob",
+          "size": 1945,
+          "sha": "bb467175679211dae526e3d6c9b0304611a7f8c4"
+        },
+        {
+          "path": "components/event-register-button.tsx",
+          "type": "blob",
+          "size": 2118,
+          "sha": "3b9029792801ef5916e21248fd7a3301aa404caf"
+        },
+        {
+          "path": "components/header.tsx",
+          "type": "blob",
+          "size": 4488,
+          "sha": "d889b47c201dce0d67b81d0b3b9e076d48bf3cca"
+        },
+        {
+          "path": "components/language-switcher.tsx",
+          "type": "blob",
+          "size": 1208,
+          "sha": "8d186fcccbb541c733f1fb99c83699d10aaaf670"
+        },
+        {
+          "path": "components/logout-button.tsx",
+          "type": "blob",
+          "size": 534,
+          "sha": "0fd67cba231a9086175887529ebe94fdce8aec11"
+        },
+        {
+          "path": "components/repository-grid.tsx",
+          "type": "blob",
+          "size": 3529,
+          "sha": "cb2a894c251683d596473fc4c7d360db8741fe06"
+        },
+        {
+          "path": "data",
+          "type": "tree",
+          "sha": "458f0ec14ec85af3edd5ec1a16dca47047b9f758"
+        },
+        {
+          "path": "data/github-repositories.json",
+          "type": "blob",
+          "size": 241343,
+          "sha": "3b9ce739f262d1cbd3ecb2c0c425c6ae3f74eaf2"
+        },
+        {
+          "path": "data/repositories.ts",
+          "type": "blob",
+          "size": 1650,
+          "sha": "11b5bfa15d0387d2900db15830ee11158d2ef9f7"
+        },
+        {
+          "path": "data/site.ts",
+          "type": "blob",
+          "size": 1243,
+          "sha": "779049501c8ed23bdc9611d56265a98eedfe4c4a"
+        },
+        {
+          "path": "docs",
+          "type": "tree",
+          "sha": "94b3599f0d53982ae732f44bf3cb2a13dfd80d38"
+        },
+        {
+          "path": "docs/API.md",
+          "type": "blob",
+          "size": 574,
+          "sha": "b5560fe055f3fbe0b0a468d0fbeee2d8ed6bc52c"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "type": "blob",
+          "size": 422,
+          "sha": "272ecf0483fdaf1766515ef440588e6bf7b2a6dc"
+        },
+        {
+          "path": "docs/CHANGELOG.md",
+          "type": "blob",
+          "size": 323,
+          "sha": "79a809f3b95684a12e4f304838553d8c75e7b287"
+        },
+        {
+          "path": "docs/CONTRIBUTING.md",
+          "type": "blob",
+          "size": 233,
+          "sha": "f7259555a055a746a25776e3c7f217e27b44ddba"
+        },
+        {
+          "path": "docs/DATABASE.md",
+          "type": "blob",
+          "size": 499,
+          "sha": "8687196948412f2b5e481967c0340e444a951fb2"
+        },
+        {
+          "path": "docs/REPOSITORY-SYNC.md",
+          "type": "blob",
+          "size": 2098,
+          "sha": "b6366a9d4257e0de78f89f66e614d7ca85256f0d"
+        },
+        {
+          "path": "docs/SECURITY-AUDIT.md",
+          "type": "blob",
+          "size": 1128,
+          "sha": "9cfe205fb859d8509fd10e3c0701727ead5115b8"
+        },
+        {
+          "path": "docs/SECURITY.md",
+          "type": "blob",
+          "size": 681,
+          "sha": "4c84020e610af4b96c2d98fc2a291870093ae5bd"
+        },
+        {
+          "path": "lib",
+          "type": "tree",
+          "sha": "960c2430a50508b907fb94d064b33c3f570bc55d"
+        },
+        {
+          "path": "lib/activity.ts",
+          "type": "blob",
+          "size": 660,
+          "sha": "0f95d4cc9fb911d7a1b3e42417bb483c5d4ca570"
+        },
+        {
+          "path": "lib/auth.ts",
+          "type": "blob",
+          "size": 4327,
+          "sha": "204741c34a507232a052b7624662f2d7cdcf3e46"
+        },
+        {
+          "path": "lib/authorization.ts",
+          "type": "blob",
+          "size": 751,
+          "sha": "41477a9a35aa0282d15cc6a210e23465da386259"
+        },
+        {
+          "path": "lib/data.ts",
+          "type": "blob",
+          "size": 6948,
+          "sha": "39e7bdde0dc52b6aa21e2936e364404be5a258c2"
+        },
+        {
+          "path": "lib/email.ts",
+          "type": "blob",
+          "size": 819,
+          "sha": "64e7130e19f078a88295ba5033a219622bc404ee"
+        },
+        {
+          "path": "lib/github.ts",
+          "type": "blob",
+          "size": 7872,
+          "sha": "38514185c4907f110507d9944797fcae7a3c5d4f"
+        },
+        {
+          "path": "lib/i18n.ts",
+          "type": "blob",
+          "size": 3429,
+          "sha": "bb59c9cc155492614b324d1a0a3308a6727a5511"
+        },
+        {
+          "path": "lib/member.ts",
+          "type": "blob",
+          "size": 512,
+          "sha": "06c552fd2656fa891cae819ea936f8ad4e72ecf0"
+        },
+        {
+          "path": "lib/prisma.ts",
+          "type": "blob",
+          "size": 536,
+          "sha": "384e9557dd7d4eea2fb711f23ccfca107d90b979"
+        },
+        {
+          "path": "lib/rate-limit.ts",
+          "type": "blob",
+          "size": 893,
+          "sha": "4b136467d49f7f713d483451394bf08d79a468f2"
+        },
+        {
+          "path": "lib/request-security.ts",
+          "type": "blob",
+          "size": 690,
+          "sha": "f21dd8b2164042920fe9e24d872258986e0eeea5"
+        },
+        {
+          "path": "next-env.d.ts",
+          "type": "blob",
+          "size": 121,
+          "sha": "59d601fa44fbb33486dce2d1abdfbe73a711c059"
+        },
+        {
+          "path": "next.config.ts",
+          "type": "blob",
+          "size": 1151,
+          "sha": "d7683f984b70ab24701fc22be34c3cc894b44f86"
+        },
+        {
+          "path": "package-lock.json",
+          "type": "blob",
+          "size": 157952,
+          "sha": "984a9bda029ed37bc6b6e3af66f1b90bfb2070ce"
+        },
+        {
+          "path": "package.json",
+          "type": "blob",
+          "size": 1744,
+          "sha": "18be003058a52221dba683af4f969790ee41ca49"
+        },
+        {
+          "path": "postcss.config.mjs",
+          "type": "blob",
+          "size": 59,
+          "sha": "3c0bcfba1680f6166c57784b009be1cb307e2f59"
+        },
+        {
+          "path": "prisma.config.ts",
+          "type": "blob",
+          "size": 304,
+          "sha": "43cce28c7cafcf9fc415e3224e585275af5edb7f"
+        },
+        {
+          "path": "prisma",
+          "type": "tree",
+          "sha": "c0be13dc1b59e1f424053445438861e01fa79bf2"
+        },
+        {
+          "path": "prisma/migrations",
+          "type": "tree",
+          "sha": "13577ada2ef645f05045fccddf1cf8e04af0e196"
+        },
+        {
+          "path": "prisma/migrations/0001_initial",
+          "type": "tree",
+          "sha": "44f663187d09be846e9cec32a8db641b3d52921d"
+        },
+        {
+          "path": "prisma/migrations/0001_initial/migration.sql",
+          "type": "blob",
+          "size": 12951,
+          "sha": "5be15184fcf2148957f32efb1cc6c96b109c7945"
+        },
+        {
+          "path": "prisma/migrations/0002_auth_oauth_tokens",
+          "type": "tree",
+          "sha": "6f1474eafc20287480ab50803effcd79c4a6419e"
+        },
+        {
+          "path": "prisma/migrations/0002_auth_oauth_tokens/migration.sql",
+          "type": "blob",
+          "size": 1367,
+          "sha": "e73549a25c7494b3c6bffd80032f73f3d123b6c4"
+        },
+        {
+          "path": "prisma/migrations/0003_recruitment_fleet",
+          "type": "tree",
+          "sha": "407cbc58f9ac276f7119923a72fbb8560cfd8fb5"
+        },
+        {
+          "path": "prisma/migrations/0003_recruitment_fleet/migration.sql",
+          "type": "blob",
+          "size": 1909,
+          "sha": "4b87da5b2b0528b9c4a688c91c46177dfc730724"
+        },
+        {
+          "path": "prisma/migrations/0004_store_orders",
+          "type": "tree",
+          "sha": "9ac5ccdda826df930f42411646b9f8464daaf273"
+        },
+        {
+          "path": "prisma/migrations/0004_store_orders/migration.sql",
+          "type": "blob",
+          "size": 998,
+          "sha": "15949de1fb4e225daf4ac04e0d31676edadfd444"
+        },
+        {
+          "path": "prisma/schema.prisma",
+          "type": "blob",
+          "size": 9312,
+          "sha": "a314c69965c87968e6301190d52b9493d283e73d"
+        },
+        {
+          "path": "prisma/seed.ts",
+          "type": "blob",
+          "size": 1566,
+          "sha": "a9e00ad5971909d6a24b2de6c4c50dc4d42343fe"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "c61474fda3e8c922ae4fd49f4193af82ec32e28f"
+        },
+        {
+          "path": "scripts/audit-dependencies.mjs",
+          "type": "blob",
+          "size": 1736,
+          "sha": "32c4c3746456327feb81fcd6494be12a6d7487a6"
+        },
+        {
+          "path": "scripts/audit-source.mjs",
+          "type": "blob",
+          "size": 1368,
+          "sha": "bf4318ca147a3f1e7a87f97ac587c56e0b5fb5fb"
+        },
+        {
+          "path": "scripts/scrape-github.mjs",
+          "type": "blob",
+          "size": 6155,
+          "sha": "7ad0525c296ec026df5116b4e66831156cfb538b"
+        },
+        {
+          "path": "tsconfig.json",
+          "type": "blob",
+          "size": 562,
+          "sha": "eb6f85bd4c28e220a639240638503c4d8da793e7"
+        }
+      ],
+      "treeTruncated": false,
+      "sourceFiles": [
+        {
+          "path": "docs/CONTRIBUTING.md",
+          "size": 233,
+          "content": "# Contributing\n\nGunakan branch feature/<module> atau fix/<issue>. Buat perubahan kecil, jalankan build dan test, lalu buka Pull Request ke develop.\n\nPrioritas: keamanan, aksesibilitas, performa, modularitas, dan pengalaman komunitas."
+        },
+        {
+          "path": "docs/CHANGELOG.md",
+          "size": 323,
+          "content": "# Changelog\n\n## 2026-09-20\n- Added public platform, convoy, mod, livery, gallery, video, tutorial, download, contact, and partner pages.\n- Added member dashboard modules and admin control center.\n- Added PostgreSQL Prisma schema covering core community data.\n- Added API, database, security, and contributing documentation."
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "size": 422,
+          "content": "# Architecture\n\nNext.js public UI → REST API → PostgreSQL → object storage → notifications.\n\nCore domains: members, communities, platforms, events, convoys, fleet, modding, gallery, forum, tutorials, moderation, notifications, news and partners.\n\nSecurity baseline: password hashing, RBAC, validation, rate limiting, secure cookies, security headers, upload validation, audit logs and environment-managed secrets.\n"
+        },
+        {
+          "path": "docs/DATABASE.md",
+          "size": 499,
+          "content": "# Database\n\nNARARYA GARAGE menggunakan PostgreSQL melalui Prisma. Schema mencakup user/member, RBAC-ready role fields, platform, community, event/convoy registration, modding, showcase, gallery, forum, tutorial, download, report, moderation, notification, partner, achievement, dan activity log.\n\n## Setup\n1. Isi DATABASE_URL di .env.\n2. Install Prisma CLI/client.\n3. Jalankan migration setelah backend Prisma diaktifkan.\n\nJangan menyimpan password, token, atau secret sebagai plaintext di database."
+        },
+        {
+          "path": "docs/API.md",
+          "size": 574,
+          "content": "# API Contract\n\nRencana endpoint REST:\n\n- GET /api/platforms\n- GET /api/communities\n- GET /api/communities/:id\n- GET /api/events\n- POST /api/events/:id/register\n- GET /api/convoys/:id\n- GET /api/mods\n- POST /api/mods/submissions\n- GET /api/liveries\n- GET /api/showcase\n- GET /api/gallery\n- GET /api/forum/threads\n- POST /api/forum/threads\n- GET /api/tutorials\n- GET /api/downloads\n- POST /api/reports\n- GET /api/member/dashboard\n- GET /api/admin/overview\n\nSemua endpoint privat wajib menerapkan autentikasi, authorization/RBAC, validasi input, rate limit, dan audit logging."
+        },
+        {
+          "path": "docs/SECURITY.md",
+          "size": 681,
+          "content": "# Security Baseline\n\n- Password wajib di-hash dengan algoritma modern.\n- Secret hanya melalui environment variables atau secret manager.\n- Validasi input dan output untuk mencegah injection/XSS.\n- CSRF protection untuk cookie-based mutation endpoints.\n- Secure, HttpOnly, SameSite cookies.\n- Rate limiting pada login, register, upload, report, dan API sensitif.\n- Validasi MIME type, extension, ukuran, dan nama file upload.\n- Jangan memperbolehkan executable upload.\n- RBAC diterapkan server-side, bukan hanya menyembunyikan tombol di UI.\n- Audit log untuk perubahan role, suspend, ban, moderation, dan pengaturan penting.\n- Jangan mengumpulkan data pribadi yang tidak diperlukan."
+        },
+        {
+          "path": "docs/SECURITY-AUDIT.md",
+          "size": 1128,
+          "content": "# Security Audit\n\n## Current policy\n\nCI runs a high-severity audit against production dependencies with:\n\nnpm audit --omit=dev --audit-level=high\n\nThe project uses Prisma CLI 7.10.0 as a development dependency. The current npm audit database reports high-severity advisories in Prisma CLI's development dependency chain, including deepmerge-ts and mysql2. The automated audit fix offered by npm would downgrade Prisma to 6.19.3, which is a breaking change.\n\nFor that reason the repository does not use npm audit fix --force. Prisma 7.10.0 remains pinned as the current stable Prisma release used by this project.\n\n## Install scripts\n\nnpm 11 now tracks approval for dependency install lifecycle scripts. The project explicitly approves only the packages required for the build:\n\n- @prisma/engines@7.10.0\n- prisma@7.10.0\n- esbuild@0.28.2\n\nNo blanket dangerously-allow-all-scripts bypass is used.\n\n## CI gates\n\nThe main CI pipeline checks:\n\n1. source audit\n2. scraper syntax\n3. production dependency security\n4. Prisma schema validation\n5. TypeScript typecheck\n6. Next.js production build\n\nAny failure blocks the verification job.\n"
+        },
+        {
+          "path": "docs/REPOSITORY-SYNC.md",
+          "size": 2098,
+          "content": "# Repository Data Sync\n\nNARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Prisma sebagai sumber data aplikasi.\n\n## Live repository discovery\n\n`/repositories` dan `GET /api/github/repositories` menemukan repository milik akun GitHub yang terhubung secara dinamis. Registry `data/repositories.ts` hanya menyimpan label/purpose, bukan daftar repository yang harus ada.\n\n`GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.\n\nGitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi.\n\n## Secrets\n\n- `GITHUB_TOKEN`: token GitHub dengan akses minimum yang dibutuhkan. Wajib untuk data private.\n- `GITHUB_WEBHOOK_SECRET`: secret untuk verifikasi `X-Hub-Signature-256`.\n- `DATABASE_URL`: PostgreSQL production database.\n- `NEXT_PUBLIC_SITE_URL`: URL deployment.\n\nJangan commit secret ke repository.\n\n## Webhook\n\nEndpoint: `POST /api/github/webhook`.\n\nWebhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`.\n\n## Database\n\nProject menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter.\n\nData aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.\n\n## Source of truth\n\n- GitHub: repository, branch, commit, issue, pull request, workflow dan source repository.\n- PostgreSQL/Prisma: member, event, convoy, mod, livery, showcase, gallery, forum, tutorial, download, moderation, notification dan pengaturan.\n- Website: layer UI/API yang membaca kedua sumber secara live.\n\n## Private repository\n\nRepository private hanya dapat dibaca saat deployment memiliki token dengan permission yang sesuai. Tanpa token tersebut, kegagalan akses ditampilkan sebagai data unavailable, bukan diganti angka fiktif.\n"
+        },
+        {
+          "path": "README.md",
+          "size": 4061,
+          "content": null
+        },
+        {
+          "path": "data/github-repositories.json",
+          "size": 241343,
+          "content": null
+        }
+      ],
+      "scrapedAt": "2026-10-24T11:26:08.426Z"
     },
     {
       "repository": {
@@ -2051,7 +3943,7 @@
           "content": "# NARARYA STUDIO\n\nDigital Creative Studio, Digital Product Store, Design Service & Custom Request.\n\n## Current implementation\n\n- Next.js + TypeScript + Tailwind CSS with responsive, mobile-safe layouts\n- Global interactive buttons with subtle animation and reduced-motion support\n- Ten-language UI selector: Indonesian, English, Malay, Chinese, Japanese, Korean, Arabic, Hindi, Spanish and French\n- Arabic RTL support\n- Customer settings for language, theme, profile, password and session revocation\n- Google OAuth login with state protection and verified Google email requirement\n- Store search, pagination, category filters, bundles and server-side price calculation\n- Product detail with discount pricing and safe public fields\n- Resilient browser cart and connected checkout-to-order flow\n- Secure password hashing with scrypt and 7-day HTTP-only session cookies\n- Login, registration, logout and authenticated customer dashboard\n- Protected customer routes and staff dashboard gate\n- Order API with persisted payment method, payment instructions endpoint and protected expiring digital download links\n- Payment webhook verification using HMAC SHA-256 and idempotent event records\n- PostgreSQL + Prisma domain schema and migrations\n- Custom request API with NS-REQ identifiers and validation\n- Invoice PDF endpoint and notification center\n- Wishlist, quotations, coupon/promo, reviews, support tickets, FAQ, request tracking, finance reports, CMS and staff operations\n- SEO sitemap + robots, mobile web manifest and hardened security headers\n- Reusable robots-aware scraper CLI with crawl limits, delays and timeouts for permitted HTML sources\n- GitHub Actions CI for schema validation, typecheck, tests and production build\n\n## Google OAuth\n\nConfigure these environment values:\n\n    GOOGLE_CLIENT_ID=\n    GOOGLE_CLIENT_SECRET=\n    GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback\n\nIn Google Cloud Console, add the callback URL to the OAuth client. For production, use the HTTPS production callback URL exactly.\n\n## Scraper\n\nRun:\n\n    npm run scrape -- https://example.com --out scrape-output.json\n\nThe scraper uses same-origin crawling by default:\n\n    npm run scrape -- https://example.com --max-pages 25\n\nExplicit same-origin mode:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 25\n\nUse `--all-origins` only when cross-domain crawling is actually required.\n\nWith delay and timeout:\n\n    npm run scrape -- https://example.com --same-origin --max-pages 50 --delay 500 --timeout 15000\n\nThe scraper extracts title, description, canonical, Open Graph, headings, JSON-LD, links and cleaned text. It does not bypass authentication, CAPTCHA, paywalls, rate limits or access controls.\n\n## Environment\n\nCopy .env.example to .env and configure DATABASE_URL, NEXT_PUBLIC_SITE_URL, PAYMENT_WEBHOOK_SECRET, STORAGE_BASE_URL, the Google OAuth variables when Google Login is enabled, and Midtrans keys when PAYMENT_GATEWAY=MIDTRANS.\n\n## Local run\n\n    npm install\n    npm run db:generate\n    npm run db:validate\n    npm run db:migrate\n    npm run db:seed\n    npm run dev\n\n## Production checklist\n\n1. Configure a real payment provider and map its signed webhook format to the HMAC contract. Manual payment instructions can be supplied with PAYMENT_QRIS_INSTRUCTIONS, PAYMENT_VA_INSTRUCTIONS, PAYMENT_BANK_INSTRUCTIONS and PAYMENT_WALLET_INSTRUCTIONS.\n2. Configure private object storage and use file paths that resolve from STORAGE_BASE_URL or absolute HTTPS URLs.\n3. Configure Google OAuth with an exact HTTPS callback URL in Google Cloud.\n4. Assign staff roles in the database before opening /admin.\n5. Add transactional email/Discord/WhatsApp providers as required.\n6. Run production E2E/security tests against a staging database.\n\nNo repository change can honestly guarantee that every runtime issue is impossible. The CI pipeline remains the automated gate, while production credentials, database state, provider behavior and hosting configuration remain environment-specific.\n\n## Payment Gateway\n\nSet `PAYMENT_GATEWAY=MIDTRANS` to create real Snap transactions from the server. Configure `MIDTRANS_SERVER_KEY`, `MIDTRANS_CLIENT_KEY`, and `MIDTRANS_IS_PRODUCTION`. Midtrans uses the Server Key for server-side Basic authentication and the Client Key for browser Snap.js. Notifications are verified with Midtrans's `signature_key` formula and processed idempotently. Production must use an HTTPS notification URL configured in the Midtrans dashboard.\n\nFor local or manual flows, keep `PAYMENT_GATEWAY=MANUAL`; payment instructions can be supplied with the `PAYMENT_*_INSTRUCTIONS` variables.\n\n## JavaScript frontend\n\nInteractive checkout and login now use `.jsx`, while shared vanilla browser modules live under `public/js/`. TypeScript remains for database, authentication, RBAC and payment verification so runtime-sensitive code keeps compile-time checks. `npm run verify` runs the schema, generation, typecheck, tests and production build chain.\n"
         }
       ],
-      "scrapedAt": "2026-10-24T06:19:41.822Z"
+      "scrapedAt": "2026-10-24T11:26:08.452Z"
     },
     {
       "repository": {
@@ -2490,1899 +4382,7 @@
           "content": "# APKForge AI\n\nAPKForge AI is a browser-based workbench for inspecting Android package archives and planning authorized modifications to apps and game assets you own or have permission to edit.\n\n## Implemented workflow\n\n- Responsive Indonesian web dashboard.\n- Upload `.apk`, `.apks`, `.aab`, `.obb`, `.zip`, `.apfproj`, `.exe`, and `.msi` for safe storage. EXE/MSI files are never executed by the server.\n- ZIP-compatible archive listing without extracting the archive. Preview safety caps: 5,000 entries and 2 GiB total declared uncompressed size.\n- APK decode into a workspace using Apktool, when Apktool and Java are installed on the host.\n- Project file listing and editing for selected text formats (XML, JSON, text, properties, Smali, HTML, JS, CSS, Java/Kotlin, YAML and config files), limited to 2 MiB per file.\n- Rebuild decoded projects into an **unsigned APK** using Apktool.\n- Optional APK signing and signature verification using a keystore configured on the server.\n- AI change-plan endpoint compatible with chat-completions style providers.\n- AI patch proposals across up to five selected editable text files, with per-file review/editing, path/content validation, assumptions, risks, suggested tests, backups and a review step before the user explicitly applies the proposal.\n- Persistent local learning memory: stores sanitized request patterns and only reuses patterns from edits the user explicitly approved; similar future requests can use these examples to infer intent with fewer clarification questions. This is retrieval-based memory, not model fine-tuning.\n- Allowlisted process helper for Apktool, JADX, and apksigner.\n- Asset Manager for replacing supported image, texture, model, audio and data assets, with backup/undo.\n- Backup/undo for text file edits and binary asset replacement.\n- Windows desktop packaging configured for `.exe` and `.msi` installers through Electron Builder.\n- Capacitor Android shell and GitHub Actions workflow configured to build a debug `.apk`.\n- GitHub Actions syntax validation.\n\n## Run locally\n\nRequirements: Node.js 20+, Java runtime, and Apktool for decode/build features.\n\n```bash\nnpm install\ncp .env.example .env\nnpm run check\nnpm run dev\n```\n\nOpen `http://127.0.0.1:8787`. On Windows, use `copy .env.example .env` if `cp` is unavailable.\n\nSet `AI_BASE_URL`, `AI_API_KEY`, and `AI_MODEL` in `.env` for an OpenAI-compatible provider. Never commit API keys.\n\n## API\n\n- `GET /api/health` — service status.\n- `GET /api/formats` — supported formats and limitations.\n- `POST /api/uploads` — upload one file as multipart field `file`.\n- `GET /api/uploads/:id/inspect` — preview entries of ZIP-compatible uploads.\n- `POST /api/uploads/:id/decode` — decode an uploaded APK with Apktool.\n- `GET /api/projects/:id/files` — list decoded project files.\n- `GET /api/projects/:id/file?path=...` — read an editable text file.\n- `PUT /api/projects/:id/file` — JSON body: `{ \"path\": \"res/values/strings.xml\", \"content\": \"...\" }`.\n- `POST /api/projects/:id/build` — build unsigned APK.\n- `GET /api/projects/:id/artifact` — download generated unsigned APK.\n- `POST /api/projects/:id/sign` — sign the generated APK using server-configured keystore credentials and verify the signature.\n- `GET /api/projects/:id/signed-artifact` — download the signed APK.\n- `POST /api/ai/plan` — generate a change plan from JSON `{ \"request\": \"...\" }`.\n- `POST /api/projects/:id/undo` — restore the latest backup of a text file.\n- `PUT /api/projects/:id/asset` — replace a supported binary asset with multipart fields `path` and `file`.\n- `POST /api/projects/:id/asset/undo` — restore the latest asset backup.\n- `POST /api/projects/:id/ai/patch-plan` — propose a reviewable text-file edit from JSON `{ \"request\": \"...\", \"paths\": [\"res/values/strings.xml\"] }`. The AI can only propose edits to the selected editable files; the proposal is not applied until the user reviews it and explicitly confirms. Relevant user-approved patterns may be supplied as context.\n- `POST /api/projects/:id/ai/apply-patch` — apply 1–5 reviewed file changes with validation and backups.\n- `POST /api/ai/learn` — record an explicitly approved request pattern after an AI-proposed edit has been applied. The server stores sanitized request/summary/file-type metadata, not source-file contents.\n\n## Current limitations (read before production)\n\nThis is a functional development workflow, **not a completed universal APK modder**. Decode/build depends on the host having Apktool and Java installed. Rebuilt output is unsigned until the optional signing workflow is configured with a keystore you control. Never commit keystores or passwords. The project editor edits text files only; it does not automatically replace 3D models, textures, vehicle assets, or arbitrary binary resources. The AI planner creates plans, and the patch endpoint proposes edits to selected text files. A proposal requires manual review and explicit confirmation before it is saved. Approved request patterns are kept in the server workspace and retrieved for similar future requests; this does not train or fine-tune the underlying model, and memory is local to that server/workspace. The AI still cannot implement features whose required source files, APIs, engine hooks, or binary-format specifications are not available. Asset replacement is format-agnostic at the file level and cannot guarantee game-specific model/texture compatibility.\n\nThe project can be packaged as its own Windows `.exe` installer and `.msi` installer, and as an Android debug `.apk`. These are APKForge AI app builds, not automatic conversion of an uploaded APK into Windows binaries. An APK cannot be directly converted into a native Windows EXE. The Android APK bundles the dashboard UI; the processing API must be hosted on a reachable HTTPS server and configured in the app. OBB files may be proprietary, encrypted, or game-specific; generic archive preview cannot interpret all OBB data.\n\nBefore exposing the service to the internet, add authentication, per-user project isolation, rate limits, quotas, malware scanning, background job queue, and a hardened container/sandbox for Android tooling. Set an explicit upload cap for public deployments. `MAX_UPLOAD_BYTES=0` disables only the app-level cap; disk, proxy and host limits remain.\n\nUse only software and assets you are authorized to modify. Do not use this project to bypass DRM, licensing, anti-cheat, or access controls. Never execute uploaded binaries on the server.\n\n## Desktop and Android packages\n\nSee [`docs/INSTALLERS.md`](docs/INSTALLERS.md). Run the `Build APKForge AI installers` workflow from GitHub Actions to generate Windows `.exe`/`.msi` installers and an Android debug `.apk`. The workflow has been configured in the repository, but build artifacts exist only after a successful workflow run. The Android package requires a separately hosted HTTPS API for processing features.\n"
         }
       ],
-      "scrapedAt": "2026-10-24T06:19:41.812Z"
-    },
-    {
-      "repository": {
-        "id": 1377275248,
-        "full_name": "nararyajayautamagroub/nararyagarage-website",
-        "name": "nararyagarage-website",
-        "private": false,
-        "visibility": "public",
-        "html_url": "https://github.com/nararyajayautamagroub/nararyagarage-website",
-        "default_branch": "main",
-        "description": null,
-        "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-10-24T04:17:06Z",
-        "pushed_at": "2026-10-24T04:17:03Z",
-        "stargazers_count": 0,
-        "forks_count": 0,
-        "open_issues_count": 0,
-        "language": "TypeScript",
-        "size": 3728,
-        "archived": false,
-        "disabled": false,
-        "topics": []
-      },
-      "languages": {
-        "TypeScript": 286970,
-        "JavaScript": 9318,
-        "CSS": 3004
-      },
-      "readme": "# NARARYA GARAGE\n\nVirtual Simulator, Modding, and Gaming Community for BUSSID, ETS2, ATS, TOE3, TSI, Roblox, and other supported games.\n\n## Current stack\n- Next.js App Router, React, TypeScript\n- Tailwind CSS 4\n- PostgreSQL with Prisma ORM 7\n- GitHub REST API for repository discovery, activity, source snapshots, and webhook updates\n\n## Current features\n- Responsive public pages for platforms, communities, events, convoys, mods, liveries, showcase, gallery, videos, forum, tutorials, downloads, news, partners, achievements, fleet, recruitment, and contact\n- Ten locale choices: Indonesian, English, Malay, Simplified Chinese, Japanese, Korean, Arabic, Spanish, French, and German. Navigation and selected shared UI are localized; not every page sentence has complete translation coverage yet.\n- Email/password registration and login, Google OAuth flow, email verification, and password reset flows\n- Member dashboard, profile/settings, event registration, submissions, notifications, and fleet submissions\n- Role-protected admin pages and APIs for members, events, recruitment, fleet, moderation, notifications, settings, analytics, and audit logs\n- GitHub repository browser and scheduled repository scraper\n- Store page with server-priced cart, transaction IDs, 10-minute expiry, QRIS via Midtrans, payment-status polling, and WhatsApp confirmation link\n- Store assistant with optional OpenAI-compatible AI endpoint and safe local fallback\n- Security headers, same-origin mutation checks, request validation, and activity logging\n- CI checks for source audit, scraper syntax, dependency audit, Prisma validation/generation, TypeScript, and production build\n\n## Setup\n\nRequirements: Node.js >=22.16 and <25, npm 11, and PostgreSQL for database-backed features.\n\n```bash\nnpm install\ncp .env.example .env.local\nnpm run db:generate\nnpm run db:validate\nnpm run db:migrate\nnpm run dev\n```\n\nFor a production build:\n\n```bash\nnpm run check\nnpm run build\nnpm run start\n```\n\n## Environment variables\n\nConfigure the variables in `.env.example` for the services you actually use:\n- `DATABASE_URL`: PostgreSQL connection string; required for persistent community data.\n- `AUTH_SECRET`: strong, unique production secret; required for production auth.\n- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`: Google OAuth credentials and matching callback URL.\n- `EMAIL_API_URL`, `EMAIL_API_KEY`, `EMAIL_FROM`: compatible email provider for verification and password recovery.\n- `GITHUB_TOKEN`: token with minimum required access, particularly for private repositories.\n- `GITHUB_WEBHOOK_SECRET`: HMAC secret for GitHub webhook validation.\n- `NEXT_PUBLIC_SITE_URL`: canonical public deployment URL.\n- `MIDTRANS_SERVER_KEY`, `MIDTRANS_IS_PRODUCTION`: enable QRIS charges through Midtrans. Set the Midtrans payment notification URL to `/api/store/payment-webhook`; never expose the server key to the browser.\n- `STORE_WHATSAPP_NUMBER`: WhatsApp number in international digits, without `+`, for order confirmation.\n- `AI_API_URL`, `AI_API_KEY`, `AI_MODEL`: optional OpenAI-compatible chat endpoint for the store assistant. Without these, the assistant uses a limited local fallback.\n- `DISCORD_BOT_TOKEN`, `STORAGE_BUCKET`: reserved integration settings; configuring them alone does not enable a full Discord or file-storage integration.\n\nDo not commit real tokens, credentials, or production environment files.\n\n## GitHub repository sync\n\nThe repository browser discovers repositories dynamically from the configured GitHub owner. Private repository access needs a suitably scoped token. Scheduled scraper results are snapshots; live pages may query GitHub directly. See [docs/REPOSITORY-SYNC.md](docs/REPOSITORY-SYNC.md).\n\n## Honest deployment notes\n\nSource and CI checks do not prove external production services are configured. Google sign-in requires OAuth credentials, verification/reset email requires an email provider, and persistent data requires PostgreSQL migrations. A deployment URL is not assumed to exist until hosting is configured and verified.",
-      "packageJson": {
-        "name": "nararyagarage-website",
-        "version": "1.3.2",
-        "private": true,
-        "type": "module",
-        "scripts": {
-          "dev": "next dev",
-          "build": "npm run db:generate && next build",
-          "start": "next start",
-          "typecheck": "npm run db:generate && tsc --noEmit",
-          "check": "npm run audit:source && npm run check:scraper && npm run security:audit && npm run db:validate && npm run typecheck && npm run build",
-          "db:generate": "prisma generate",
-          "db:validate": "prisma validate",
-          "db:seed": "npm run db:generate && tsx prisma/seed.ts",
-          "db:migrate": "prisma migrate deploy",
-          "db:status": "prisma migrate status",
-          "scrape:github": "node scripts/scrape-github.mjs",
-          "check:scraper": "node --check scripts/scrape-github.mjs",
-          "audit:source": "node scripts/audit-source.mjs",
-          "security:audit": "node scripts/audit-dependencies.mjs"
-        },
-        "dependencies": {
-          "next": "16.4.2",
-          "react": "19.3.0",
-          "react-dom": "19.3.0",
-          "lucide-react": "1.47.0",
-          "@prisma/client": "7.10.0",
-          "@prisma/adapter-pg": "7.10.0",
-          "pg": "8.23.0",
-          "zod": "4.6.7",
-          "dotenv": "17.4.2",
-          "sharp": "0.35.5"
-        },
-        "devDependencies": {
-          "@tailwindcss/postcss": "4.3.3",
-          "@types/node": "24.1.0",
-          "@types/react": "19.3.0",
-          "@types/react-dom": "19.3.0",
-          "@types/pg": "8.23.1",
-          "typescript": "7.0.2",
-          "tailwindcss": "4.3.3",
-          "postcss": "8.5.28",
-          "autoprefixer": "10.6.0",
-          "prisma": "7.10.0",
-          "tsx": "4.23.13"
-        },
-        "engines": {
-          "node": ">=22.16 <25"
-        },
-        "packageManager": "npm@11.6.2",
-        "allowScripts": {
-          "@prisma/engines@7.10.0": true,
-          "esbuild@0.28.2": true,
-          "prisma@7.10.0": true
-        },
-        "overrides": {
-          "source-map-js": "^1.2.2"
-        }
-      },
-      "latestRelease": null,
-      "commits": [
-        {
-          "sha": "31f395476ad99f54882f3db105c3589d6ee84fd3",
-          "message": "test: capture store screenshots on desktop and mobile",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T04:17:02Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/31f395476ad99f54882f3db105c3589d6ee84fd3"
-        },
-        {
-          "sha": "1d15a46f17ad81258dcce7f0e49a91f0602fed03",
-          "message": "fix: use optimized image component for QR preview",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T04:16:16Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/1d15a46f17ad81258dcce7f0e49a91f0602fed03"
-        },
-        {
-          "sha": "0604fda840d4db1cb0bb6bfb2e50bb7d71915d9d",
-          "message": "docs: explain store checkout and integrations",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T04:15:43Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/0604fda840d4db1cb0bb6bfb2e50bb7d71915d9d"
-        },
-        {
-          "sha": "3c604876bb16ffc2b8cf1e555d5d1069645b0aa0",
-          "message": "fix: format store environment variables",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T04:15:39Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/3c604876bb16ffc2b8cf1e555d5d1069645b0aa0"
-        },
-        {
-          "sha": "dca1e865a45afbec381b8ff15b331f1f2cb3db5f",
-          "message": "docs: add store payment and AI configuration",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T04:15:24Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/dca1e865a45afbec381b8ff15b331f1f2cb3db5f"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".env.example",
-          "type": "blob",
-          "size": 646,
-          "sha": "b440f16b26f8b60fbd61222637d1da0a649bf637"
-        },
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "c5bdc27a571fa044c1c60bf9309d3fce44f1adc1"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "8e34cba03ecf0501f2d07ea7be55be896e5c0522"
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "type": "blob",
-          "size": 583,
-          "sha": "f1303afb68882e889998b4fe9f26070029b3932a"
-        },
-        {
-          "path": ".github/workflows/lockfile.yml",
-          "type": "blob",
-          "size": 1024,
-          "sha": "6958adb541c5bbf7a4ab8e08717a3049b9dc44cb"
-        },
-        {
-          "path": ".github/workflows/prisma-initial-migration.yml",
-          "type": "blob",
-          "size": 1961,
-          "sha": "638e602401c953a55f59f5203d6e743c1f10a954"
-        },
-        {
-          "path": ".github/workflows/repository-scraper.yml",
-          "type": "blob",
-          "size": 1292,
-          "sha": "9a56d79618a1f6a3f00a565f3037b0164728c864"
-        },
-        {
-          "path": ".github/workflows/screenshot-preview.yml",
-          "type": "blob",
-          "size": 2686,
-          "sha": "3321533769c4f360c5c8bdf1b8e55be728d7270b"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 4061,
-          "sha": "46115f0a21d771f42b4b804dd949cbee0ba981fd"
-        },
-        {
-          "path": "app",
-          "type": "tree",
-          "sha": "d2ffe4d1937a4b841363ba58007facc9a27cee33"
-        },
-        {
-          "path": "app/about",
-          "type": "tree",
-          "sha": "25aeecc9ccd7fc959576f911ca7b54a465e6b1c9"
-        },
-        {
-          "path": "app/about/page.tsx",
-          "type": "blob",
-          "size": 756,
-          "sha": "7bbc3bebc8ef7988a775fe6e5ddd51b5f0d0c3d8"
-        },
-        {
-          "path": "app/achievements",
-          "type": "tree",
-          "sha": "2a9dab5f3d71e8306ef2289f3eb1ed14550a9b6d"
-        },
-        {
-          "path": "app/achievements/page.tsx",
-          "type": "blob",
-          "size": 1238,
-          "sha": "16db899b6cd7e4f64f2bcf125e8f6490667296b6"
-        },
-        {
-          "path": "app/admin",
-          "type": "tree",
-          "sha": "fd5b44bf8c4a735df4f88e97a7d9b334e89b416d"
-        },
-        {
-          "path": "app/admin/analytics",
-          "type": "tree",
-          "sha": "bd69d632771649aaef4b0d8f42bb7eb609f0ea01"
-        },
-        {
-          "path": "app/admin/analytics/page.tsx",
-          "type": "blob",
-          "size": 1661,
-          "sha": "e88d24d6c5aa48c2bd9b76bc5cf36cdfaf136575"
-        },
-        {
-          "path": "app/admin/events",
-          "type": "tree",
-          "sha": "0a196cf983a680ffd7802cf840165a6d57dc38bc"
-        },
-        {
-          "path": "app/admin/events/page.tsx",
-          "type": "blob",
-          "size": 6520,
-          "sha": "056ba41d687dc17b29af6738e103dbc505923d80"
-        },
-        {
-          "path": "app/admin/fleet",
-          "type": "tree",
-          "sha": "52af9b11c4a3ffbf25ec82edf79bb09fe47a80a2"
-        },
-        {
-          "path": "app/admin/fleet/page.tsx",
-          "type": "blob",
-          "size": 2755,
-          "sha": "c37052f1b78b74981cde312603e9e56c15dfda96"
-        },
-        {
-          "path": "app/admin/logs",
-          "type": "tree",
-          "sha": "b2c59f5b41ef0c31fba4d147672ad7ed31dfe1b8"
-        },
-        {
-          "path": "app/admin/logs/page.tsx",
-          "type": "blob",
-          "size": 2357,
-          "sha": "4de4cf5692a8a6b9840e65f4c2b8073140da8c79"
-        },
-        {
-          "path": "app/admin/members",
-          "type": "tree",
-          "sha": "ffa62a0866912689d8cb4b7ecd458b744744480a"
-        },
-        {
-          "path": "app/admin/members/page.tsx",
-          "type": "blob",
-          "size": 3551,
-          "sha": "a3b2e8233571b1b008be0cf2efe12ad12fcc5c08"
-        },
-        {
-          "path": "app/admin/notifications",
-          "type": "tree",
-          "sha": "7c3a7e86a1c92cd675cd61e9e4774102e323388e"
-        },
-        {
-          "path": "app/admin/notifications/page.tsx",
-          "type": "blob",
-          "size": 3556,
-          "sha": "83d4df0733ce165b47dcd837ef486d7d2ed18ddb"
-        },
-        {
-          "path": "app/admin/page.tsx",
-          "type": "blob",
-          "size": 3236,
-          "sha": "473ca9e8d3dc83a75cc9aa9bbd2d1db4d77cfa6b"
-        },
-        {
-          "path": "app/admin/recruitment",
-          "type": "tree",
-          "sha": "6c7d6543ce7f23208e049071069812656f60a59e"
-        },
-        {
-          "path": "app/admin/recruitment/page.tsx",
-          "type": "blob",
-          "size": 3082,
-          "sha": "8a9df97e61682391aba80fb239d21dc1e6e25c60"
-        },
-        {
-          "path": "app/admin/reports",
-          "type": "tree",
-          "sha": "6c4a03d73b1536c037028ec76ab9fa804cca8922"
-        },
-        {
-          "path": "app/admin/reports/page.tsx",
-          "type": "blob",
-          "size": 3130,
-          "sha": "6248d6da6c968505929114d18503a30b9c63c60f"
-        },
-        {
-          "path": "app/admin/settings",
-          "type": "tree",
-          "sha": "e296b850f1935da8241a4bb71646fd01751f9951"
-        },
-        {
-          "path": "app/admin/settings/page.tsx",
-          "type": "blob",
-          "size": 3410,
-          "sha": "2d1d6bfe2196c5ab2dbf5bfbecf88f28641245d1"
-        },
-        {
-          "path": "app/api",
-          "type": "tree",
-          "sha": "1170c7159895ec3fefbee7a3797b613a50cae49c"
-        },
-        {
-          "path": "app/api/achievements",
-          "type": "tree",
-          "sha": "cafc04fadb78bf706c13d9ed5205693e6ff203f6"
-        },
-        {
-          "path": "app/api/achievements/route.ts",
-          "type": "blob",
-          "size": 464,
-          "sha": "db943f30e1a8554faaea9e89b602e8d844a1524d"
-        },
-        {
-          "path": "app/api/admin",
-          "type": "tree",
-          "sha": "4e6e97de79d57aa0f38ba7c8260b5665239ad448"
-        },
-        {
-          "path": "app/api/admin/analytics",
-          "type": "tree",
-          "sha": "7d3b60a73c3462a5233ea8ea590e1bcac5497e1a"
-        },
-        {
-          "path": "app/api/admin/analytics/route.ts",
-          "type": "blob",
-          "size": 1562,
-          "sha": "d75f4f7cf3ad7ffe4a1868615e34e20c42c825af"
-        },
-        {
-          "path": "app/api/admin/events",
-          "type": "tree",
-          "sha": "3f76648cbb0c590ed6b84411f2b725680bb72439"
-        },
-        {
-          "path": "app/api/admin/events/[id]",
-          "type": "tree",
-          "sha": "dba1c1a46c57c1ad1b0f496623fe342c260a6095"
-        },
-        {
-          "path": "app/api/admin/events/[id]/route.ts",
-          "type": "blob",
-          "size": 2859,
-          "sha": "c8a9c47d7276657f4e65489b17664b6366884d60"
-        },
-        {
-          "path": "app/api/admin/events/route.ts",
-          "type": "blob",
-          "size": 2703,
-          "sha": "eeb4c6655f9a6033cf093f71e476c148fdccf113"
-        },
-        {
-          "path": "app/api/admin/fleet",
-          "type": "tree",
-          "sha": "dd27ec59ee41d89aa9e7066741153cdecd5308ad"
-        },
-        {
-          "path": "app/api/admin/fleet/[id]",
-          "type": "tree",
-          "sha": "acd506619fffc9d76a29ef788a4e82cb57ad8d86"
-        },
-        {
-          "path": "app/api/admin/fleet/[id]/route.ts",
-          "type": "blob",
-          "size": 1291,
-          "sha": "8e758f0afa11b8bd584d48cf0ace8c1a995f5edf"
-        },
-        {
-          "path": "app/api/admin/fleet/route.ts",
-          "type": "blob",
-          "size": 772,
-          "sha": "1b9944de66ee76d76543ef7260086cd37916d293"
-        },
-        {
-          "path": "app/api/admin/logs",
-          "type": "tree",
-          "sha": "124871728a6146174bab2db2e05a52707e7c591a"
-        },
-        {
-          "path": "app/api/admin/logs/route.ts",
-          "type": "blob",
-          "size": 789,
-          "sha": "0ebe1f7a69cdb95efa02532e84a31d3c04289c79"
-        },
-        {
-          "path": "app/api/admin/members",
-          "type": "tree",
-          "sha": "ebe7080095ddd5946d12476d7adfba2d6357ff0d"
-        },
-        {
-          "path": "app/api/admin/members/[id]",
-          "type": "tree",
-          "sha": "1b090a3fd490987566f81c6cce109d0bec3371b3"
-        },
-        {
-          "path": "app/api/admin/members/[id]/route.ts",
-          "type": "blob",
-          "size": 2453,
-          "sha": "9b1881b240935833795b563b52eb8e8b420d9094"
-        },
-        {
-          "path": "app/api/admin/members/route.ts",
-          "type": "blob",
-          "size": 966,
-          "sha": "a361774b0ef2975625123a614212563ec14921bf"
-        },
-        {
-          "path": "app/api/admin/mods",
-          "type": "tree",
-          "sha": "d24b654c6030a3ce2dc7a0a2e7b8d5d27e8751ed"
-        },
-        {
-          "path": "app/api/admin/mods/[id]",
-          "type": "tree",
-          "sha": "491532ee0654f069add6991ef7ba33d7fa0100aa"
-        },
-        {
-          "path": "app/api/admin/mods/[id]/route.ts",
-          "type": "blob",
-          "size": 1128,
-          "sha": "b908c87673d9d4955728feff0f4b317fa56e1831"
-        },
-        {
-          "path": "app/api/admin/notifications",
-          "type": "tree",
-          "sha": "9a2429c03f65d30ee24abd82f284eb370e4879fa"
-        },
-        {
-          "path": "app/api/admin/notifications/route.ts",
-          "type": "blob",
-          "size": 2611,
-          "sha": "cba747a60761a07c3781d35735454177997cecd3"
-        },
-        {
-          "path": "app/api/admin/overview",
-          "type": "tree",
-          "sha": "5e676c7532dbd9b59f691c6f454dca354afcb47f"
-        },
-        {
-          "path": "app/api/admin/overview/route.ts",
-          "type": "blob",
-          "size": 961,
-          "sha": "1b02d9bfbd4bd3367843fba4aba10919f63700ad"
-        },
-        {
-          "path": "app/api/admin/recruitment",
-          "type": "tree",
-          "sha": "ab97bd2916f1ce381de8c75f2b3818f03153ad06"
-        },
-        {
-          "path": "app/api/admin/recruitment/[id]",
-          "type": "tree",
-          "sha": "b778866ecb021f7ddc8b399d61ae4293f8a5626a"
-        },
-        {
-          "path": "app/api/admin/recruitment/[id]/route.ts",
-          "type": "blob",
-          "size": 1382,
-          "sha": "203c66cc862157811c3a8b2e5af8d7f4aff67a9a"
-        },
-        {
-          "path": "app/api/admin/recruitment/route.ts",
-          "type": "blob",
-          "size": 816,
-          "sha": "b948a144ffcbc7cc7604a795c220f302a156fdf8"
-        },
-        {
-          "path": "app/api/admin/settings",
-          "type": "tree",
-          "sha": "63ca71b20470b30a3777e21f96d64b3a2880e3dd"
-        },
-        {
-          "path": "app/api/admin/settings/route.ts",
-          "type": "blob",
-          "size": 1922,
-          "sha": "4fba3284dbfe4ddc2bd629ea031f3f1ee8b59054"
-        },
-        {
-          "path": "app/api/auth",
-          "type": "tree",
-          "sha": "f30955be2550ebab4456a2078bfdd9f3230a6f55"
-        },
-        {
-          "path": "app/api/auth/google",
-          "type": "tree",
-          "sha": "6292d49249e3d96831b21b82ce485af0f982cce9"
-        },
-        {
-          "path": "app/api/auth/google/callback",
-          "type": "tree",
-          "sha": "dc8f0a5af23bfe790296cf6a827fe0d1973ea9c0"
-        },
-        {
-          "path": "app/api/auth/google/callback/route.ts",
-          "type": "blob",
-          "size": 4529,
-          "sha": "b8d1b0993cb10d3d1ccdf7ce481d52075b9d2c91"
-        },
-        {
-          "path": "app/api/auth/google/route.ts",
-          "type": "blob",
-          "size": 1370,
-          "sha": "fd953d6ce2cc462d1bc4dcadfb5d78463f80216e"
-        },
-        {
-          "path": "app/api/auth/login",
-          "type": "tree",
-          "sha": "f598dade3c05b2029d16db01c9ad10e15805b33c"
-        },
-        {
-          "path": "app/api/auth/login/route.ts",
-          "type": "blob",
-          "size": 1464,
-          "sha": "d939b773043ade560fbcdf2e1783d7c0a1f82c19"
-        },
-        {
-          "path": "app/api/auth/logout",
-          "type": "tree",
-          "sha": "2afcb092d50a19681bae2aee95a30d8720eb5272"
-        },
-        {
-          "path": "app/api/auth/logout/route.ts",
-          "type": "blob",
-          "size": 333,
-          "sha": "d8b82e233e0b1adc560764d979e02dc0eed29d13"
-        },
-        {
-          "path": "app/api/auth/me",
-          "type": "tree",
-          "sha": "51dc01aca2675e47b21d60eafd05ee02115cee84"
-        },
-        {
-          "path": "app/api/auth/me/route.ts",
-          "type": "blob",
-          "size": 413,
-          "sha": "9ad860170cb80b885a129f0728956da4080135d1"
-        },
-        {
-          "path": "app/api/auth/password",
-          "type": "tree",
-          "sha": "7addd676bcaeeb0289204ded88c0503079e26cad"
-        },
-        {
-          "path": "app/api/auth/password/forgot",
-          "type": "tree",
-          "sha": "5232f74e321c1b69e62eedf5eaea2aa684c3a4b5"
-        },
-        {
-          "path": "app/api/auth/password/forgot/route.ts",
-          "type": "blob",
-          "size": 1639,
-          "sha": "f56f0d477f453a74febd537b647b746707f8742c"
-        },
-        {
-          "path": "app/api/auth/password/reset",
-          "type": "tree",
-          "sha": "2c946aeb242a0d9c714fa8a5969326c9081096e7"
-        },
-        {
-          "path": "app/api/auth/password/reset/route.ts",
-          "type": "blob",
-          "size": 1131,
-          "sha": "e7ab95d959d7aefc23c97751747424a355cfe824"
-        },
-        {
-          "path": "app/api/auth/register",
-          "type": "tree",
-          "sha": "38dff85f7ea53316d7726cc10d65662f0111a8b4"
-        },
-        {
-          "path": "app/api/auth/register/route.ts",
-          "type": "blob",
-          "size": 2741,
-          "sha": "e8d73aba95aa0ec39ad44f574d16b66b30b7ea2f"
-        },
-        {
-          "path": "app/api/auth/verify",
-          "type": "tree",
-          "sha": "c03e5d16ca1751687a4ae0befb8d7e8184cd37c1"
-        },
-        {
-          "path": "app/api/auth/verify/request",
-          "type": "tree",
-          "sha": "bc012d37e09d477aff1c84e52d2589425bd1299e"
-        },
-        {
-          "path": "app/api/auth/verify/request/route.ts",
-          "type": "blob",
-          "size": 1804,
-          "sha": "c74c29c7dcb67831062e3e116be103a965817db4"
-        },
-        {
-          "path": "app/api/auth/verify/route.ts",
-          "type": "blob",
-          "size": 873,
-          "sha": "1af2a8451575840728a7c40023104f70b4c76be9"
-        },
-        {
-          "path": "app/api/downloads",
-          "type": "tree",
-          "sha": "04e54ad5420be8a1e6d7e4357c49d2194c4ba835"
-        },
-        {
-          "path": "app/api/downloads/route.ts",
-          "type": "blob",
-          "size": 476,
-          "sha": "a9aed9092da5b7120ed8907b06d2da5b1d2f95dc"
-        },
-        {
-          "path": "app/api/events",
-          "type": "tree",
-          "sha": "5fab1c6f569bd79242430b485d05a1089fad2b2e"
-        },
-        {
-          "path": "app/api/events/[id]",
-          "type": "tree",
-          "sha": "13e3534f23e05db79c6e909dd7f31bf3dd012a81"
-        },
-        {
-          "path": "app/api/events/[id]/register",
-          "type": "tree",
-          "sha": "2bd1dd5e98d9a5db18124599d4b159931041ccc1"
-        },
-        {
-          "path": "app/api/events/[id]/register/route.ts",
-          "type": "blob",
-          "size": 4652,
-          "sha": "e59ef06093f5bff053341cca71ef84398f5227e7"
-        },
-        {
-          "path": "app/api/events/route.ts",
-          "type": "blob",
-          "size": 289,
-          "sha": "673891ca03eff9a8d4b2cf444ad347819629299c"
-        },
-        {
-          "path": "app/api/fleet",
-          "type": "tree",
-          "sha": "5c19651e0c03b92f82d174078f398f968e09302c"
-        },
-        {
-          "path": "app/api/fleet/route.ts",
-          "type": "blob",
-          "size": 3002,
-          "sha": "09a2be7af654bde11631be76002f77e8408d0b44"
-        },
-        {
-          "path": "app/api/forum",
-          "type": "tree",
-          "sha": "aecfbad400651dd89e7239801d3a8aa1b37538e8"
-        },
-        {
-          "path": "app/api/forum/[id]",
-          "type": "tree",
-          "sha": "09696a5f63e9b4fae14c624feaf50dcfd143e1d0"
-        },
-        {
-          "path": "app/api/forum/[id]/posts",
-          "type": "tree",
-          "sha": "08aaf8060b92516bcc936fdeabf206cc52feb2db"
-        },
-        {
-          "path": "app/api/forum/[id]/posts/route.ts",
-          "type": "blob",
-          "size": 1896,
-          "sha": "d7902349640dd346ad4cc889202af33deb703978"
-        },
-        {
-          "path": "app/api/forum/route.ts",
-          "type": "blob",
-          "size": 2098,
-          "sha": "42e8e2baa37e775d2d2637cf0ee05d5bcdb7b8df"
-        },
-        {
-          "path": "app/api/gallery",
-          "type": "tree",
-          "sha": "d8c463eed8ca1bd2dd844ce838df79dbd737446a"
-        },
-        {
-          "path": "app/api/gallery/route.ts",
-          "type": "blob",
-          "size": 493,
-          "sha": "992fce1240545a4072426bee7e3569287bd2c11f"
-        },
-        {
-          "path": "app/api/github",
-          "type": "tree",
-          "sha": "e10c9a5a6db7faf968c3f11c9c3e404192bdfb0d"
-        },
-        {
-          "path": "app/api/github/activity",
-          "type": "tree",
-          "sha": "81756f24b8b04b1417240196d34026f333ed61b7"
-        },
-        {
-          "path": "app/api/github/activity/route.ts",
-          "type": "blob",
-          "size": 908,
-          "sha": "6e57af092699612325d77d539c87b99e060209c4"
-        },
-        {
-          "path": "app/api/github/repositories",
-          "type": "tree",
-          "sha": "cc0db90ed9978bcd047a03136ae160df71daf9f2"
-        },
-        {
-          "path": "app/api/github/repositories/route.ts",
-          "type": "blob",
-          "size": 530,
-          "sha": "ba51b27721b28a5962ac27904c04b9bc151f1c1c"
-        },
-        {
-          "path": "app/api/github/repository",
-          "type": "tree",
-          "sha": "a5f1d708b24c47fa2cc5f3c136e120bc340b7965"
-        },
-        {
-          "path": "app/api/github/repository/[owner]",
-          "type": "tree",
-          "sha": "e543c8e5703714c19a589f8ffcbd15337250c61f"
-        },
-        {
-          "path": "app/api/github/repository/[owner]/[name]",
-          "type": "tree",
-          "sha": "ffdfc0c19588d601078818d198c5751498b614da"
-        },
-        {
-          "path": "app/api/github/repository/[owner]/[name]/route.ts",
-          "type": "blob",
-          "size": 800,
-          "sha": "1e10c7bec583ad2b0bd1b7f455704635021dc765"
-        },
-        {
-          "path": "app/api/github/scrape",
-          "type": "tree",
-          "sha": "c2b7c9d611a60378cd11219e87ea1c355e67d121"
-        },
-        {
-          "path": "app/api/github/scrape/route.ts",
-          "type": "blob",
-          "size": 953,
-          "sha": "4d112bab3112c7f2b7c5f4b8d4e05c64f4f94a39"
-        },
-        {
-          "path": "app/api/github/webhook",
-          "type": "tree",
-          "sha": "803ba863e376e6a2e6313e39ea289de5a04f72b5"
-        },
-        {
-          "path": "app/api/github/webhook/route.ts",
-          "type": "blob",
-          "size": 2463,
-          "sha": "a6e62288cc18400917cae8ce1f7050019e746e64"
-        },
-        {
-          "path": "app/api/health",
-          "type": "tree",
-          "sha": "b0732abd75b3dff55c66ff1636cb266de5284697"
-        },
-        {
-          "path": "app/api/health/route.ts",
-          "type": "blob",
-          "size": 1309,
-          "sha": "5f77f94d8140e813563d9b94f9e94ef3c4be7359"
-        },
-        {
-          "path": "app/api/liveries",
-          "type": "tree",
-          "sha": "fdd13c8431a3a36577651f02cce058bebbac4d8e"
-        },
-        {
-          "path": "app/api/liveries/route.ts",
-          "type": "blob",
-          "size": 2120,
-          "sha": "e362cd4237639fe280f998601376bf1d6043ee17"
-        },
-        {
-          "path": "app/api/member",
-          "type": "tree",
-          "sha": "666b9b05aa08ed911a4f2fb2f06494dafec824e2"
-        },
-        {
-          "path": "app/api/member/profile",
-          "type": "tree",
-          "sha": "ea8d80914e83f8509408423ac84cd62792be47d2"
-        },
-        {
-          "path": "app/api/member/profile/route.ts",
-          "type": "blob",
-          "size": 2891,
-          "sha": "0af8d7f54c1d8d0d4f68494206b51e5a42910fe5"
-        },
-        {
-          "path": "app/api/member/settings",
-          "type": "tree",
-          "sha": "1455395c2dbb116cad0aea09d9da5fb46d3a0ecf"
-        },
-        {
-          "path": "app/api/member/settings/route.ts",
-          "type": "blob",
-          "size": 2928,
-          "sha": "1c5f2ae2dd38b56e4c254d76b8a7207541d9a200"
-        },
-        {
-          "path": "app/api/members",
-          "type": "tree",
-          "sha": "702e2dc9c37468c7a24ac03a74cd859593247ef6"
-        },
-        {
-          "path": "app/api/members/route.ts",
-          "type": "blob",
-          "size": 1428,
-          "sha": "80ab31d8d95d662235dda21fd1974da229882764"
-        },
-        {
-          "path": "app/api/mods",
-          "type": "tree",
-          "sha": "94f1e95b8c6970e091bba4d35838625c729a3938"
-        },
-        {
-          "path": "app/api/mods/route.ts",
-          "type": "blob",
-          "size": 2568,
-          "sha": "dc16435799f655e7b0e93b2b1f12ff1881ac0a54"
-        },
-        {
-          "path": "app/api/news",
-          "type": "tree",
-          "sha": "de84f50964fd3d7dc4b712690995a45961cc8a82"
-        },
-        {
-          "path": "app/api/news/route.ts",
-          "type": "blob",
-          "size": 505,
-          "sha": "725322ccc2376e14ae6ccabb426ec620d0d22f83"
-        },
-        {
-          "path": "app/api/notifications",
-          "type": "tree",
-          "sha": "5b4880a0a6f4cc4b27ec6d8f3f0c4808305389af"
-        },
-        {
-          "path": "app/api/notifications/route.ts",
-          "type": "blob",
-          "size": 2141,
-          "sha": "2616bf69f5bd16b04f015299a8eaccfe086f2ed2"
-        },
-        {
-          "path": "app/api/partners",
-          "type": "tree",
-          "sha": "e95a40d0ae37c9c2a6b577f9dcdb605b66e89ce5"
-        },
-        {
-          "path": "app/api/partners/route.ts",
-          "type": "blob",
-          "size": 460,
-          "sha": "17ae7db109ab97d5c58f18613baeb46436467d14"
-        },
-        {
-          "path": "app/api/platforms",
-          "type": "tree",
-          "sha": "74c0c0f05ee714c66abfb17de51939a5277b7c08"
-        },
-        {
-          "path": "app/api/platforms/route.ts",
-          "type": "blob",
-          "size": 279,
-          "sha": "4478ea3c57ade74a478ec76a4b2a429cfeddbd60"
-        },
-        {
-          "path": "app/api/recruitment",
-          "type": "tree",
-          "sha": "40da59db152fa5977433ca7036ddaad852a23021"
-        },
-        {
-          "path": "app/api/recruitment/route.ts",
-          "type": "blob",
-          "size": 2961,
-          "sha": "77f78149cc5582f6b8d2ac4aacb741ecd738ab57"
-        },
-        {
-          "path": "app/api/reports",
-          "type": "tree",
-          "sha": "8a0e1beea707192f71dbef34c26cc6391fd5317a"
-        },
-        {
-          "path": "app/api/reports/[id]",
-          "type": "tree",
-          "sha": "0a2b282ba2fbc8ff062c5fe100e92384994154b3"
-        },
-        {
-          "path": "app/api/reports/[id]/route.ts",
-          "type": "blob",
-          "size": 1069,
-          "sha": "9ea2f3209181b002ca40e53f2d02ab4eb979cac0"
-        },
-        {
-          "path": "app/api/reports/route.ts",
-          "type": "blob",
-          "size": 1886,
-          "sha": "899c0970550b772bba000e42e3a2148b2bfe0816"
-        },
-        {
-          "path": "app/api/showcase",
-          "type": "tree",
-          "sha": "6a89f40dd2f061f7d74533381c347fe3bdb9d9df"
-        },
-        {
-          "path": "app/api/showcase/route.ts",
-          "type": "blob",
-          "size": 2165,
-          "sha": "e563aad11d4dac567973c35a0c039fc5184b4ece"
-        },
-        {
-          "path": "app/api/store",
-          "type": "tree",
-          "sha": "0d61f151f2046bb74b7551d82d928306748e1af7"
-        },
-        {
-          "path": "app/api/store/assistant",
-          "type": "tree",
-          "sha": "915dfc1d8c468588b9d65da5d054bc0cc44b61b0"
-        },
-        {
-          "path": "app/api/store/assistant/route.ts",
-          "type": "blob",
-          "size": 2568,
-          "sha": "0e4a47808a72862e53d91d6fcd42d29b06eb165c"
-        },
-        {
-          "path": "app/api/store/checkout",
-          "type": "tree",
-          "sha": "01e009d31234cd2eec7142cb80475ca929b3b6d0"
-        },
-        {
-          "path": "app/api/store/checkout/route.ts",
-          "type": "blob",
-          "size": 5151,
-          "sha": "85a2afafb56001fa2d6e28af13c8e97958cb3474"
-        },
-        {
-          "path": "app/api/store/orders",
-          "type": "tree",
-          "sha": "9ef7efdf2ad92a1d70168eb78c221698a17b622e"
-        },
-        {
-          "path": "app/api/store/orders/[transactionId]",
-          "type": "tree",
-          "sha": "23f97c3957ff799059df1e60ebf5e784fe7379b9"
-        },
-        {
-          "path": "app/api/store/orders/[transactionId]/route.ts",
-          "type": "blob",
-          "size": 1359,
-          "sha": "c216eddcfea91c1e86885986c5a0b8cf64350446"
-        },
-        {
-          "path": "app/api/store/payment-webhook",
-          "type": "tree",
-          "sha": "e5aa2693ca4ab293001ce12b7dff57ecd8c01bba"
-        },
-        {
-          "path": "app/api/store/payment-webhook/route.ts",
-          "type": "blob",
-          "size": 2287,
-          "sha": "2df05af771999919a76eaae40d5ce19a74c73436"
-        },
-        {
-          "path": "app/api/store/products",
-          "type": "tree",
-          "sha": "a5869e76621788bd194a5c2779c4f4b545dcdf51"
-        },
-        {
-          "path": "app/api/store/products/route.ts",
-          "type": "blob",
-          "size": 1152,
-          "sha": "92eea3e319129de0503cee02e27d81f029cf5bb7"
-        },
-        {
-          "path": "app/api/tutorials",
-          "type": "tree",
-          "sha": "1c59725a75c9d8820f35c83aa74e5a5bb4b2fd79"
-        },
-        {
-          "path": "app/api/tutorials/route.ts",
-          "type": "blob",
-          "size": 476,
-          "sha": "bceece0f96eb11b3260cd35d9dd030dc8fdd3ce4"
-        },
-        {
-          "path": "app/api/videos",
-          "type": "tree",
-          "sha": "281bb91484e55f03fe08f73f2a144e50fdd8ccc6"
-        },
-        {
-          "path": "app/api/videos/route.ts",
-          "type": "blob",
-          "size": 473,
-          "sha": "dc1d648ed9c32e485ae2195915dab62d4ad1269d"
-        },
-        {
-          "path": "app/community",
-          "type": "tree",
-          "sha": "fa44b86efc719b7d4c4765b8fce3afb00d94905d"
-        },
-        {
-          "path": "app/community/[id]",
-          "type": "tree",
-          "sha": "c2e60c9b4a2fce775fb8ad89b886f97cae4e2825"
-        },
-        {
-          "path": "app/community/[id]/page.tsx",
-          "type": "blob",
-          "size": 1543,
-          "sha": "61740deb6701ce5f86a15a85e08b82b8a4c00b41"
-        },
-        {
-          "path": "app/community/page.tsx",
-          "type": "blob",
-          "size": 549,
-          "sha": "67cbac242d6fce49e7666786b096e5a20a5d10f9"
-        },
-        {
-          "path": "app/contact",
-          "type": "tree",
-          "sha": "1ba20d99fbe81f69fd72fa48534661e6049bbe82"
-        },
-        {
-          "path": "app/contact/page.tsx",
-          "type": "blob",
-          "size": 874,
-          "sha": "ef13802c0098ff3cc787bf6356d946d9ccdc6ad4"
-        },
-        {
-          "path": "app/convoy",
-          "type": "tree",
-          "sha": "fc7134957295159967dfb0df5f09f452e75333ed"
-        },
-        {
-          "path": "app/convoy/page.tsx",
-          "type": "blob",
-          "size": 1829,
-          "sha": "cc64e22410790bfb11ca5baa81b3ad2b90637716"
-        },
-        {
-          "path": "app/downloads",
-          "type": "tree",
-          "sha": "d7f91cfd01d74a19d06798889c617a94528aba03"
-        },
-        {
-          "path": "app/downloads/page.tsx",
-          "type": "blob",
-          "size": 1204,
-          "sha": "1917357915c5741701cdcd5fe24d32fadd799c5a"
-        },
-        {
-          "path": "app/error.tsx",
-          "type": "blob",
-          "size": 831,
-          "sha": "a714c0105229f4b8304bdd008ffac1c9b93ee9ad"
-        },
-        {
-          "path": "app/events",
-          "type": "tree",
-          "sha": "e5a8f05ea62d699befb7ddcaef501891bab6816a"
-        },
-        {
-          "path": "app/events/page.tsx",
-          "type": "blob",
-          "size": 1261,
-          "sha": "d6b363628a5384ae71364c0012ff9eb9f52c09fb"
-        },
-        {
-          "path": "app/fleet",
-          "type": "tree",
-          "sha": "34b679a14931d683a1e0ab3adf8897206a74b2c2"
-        },
-        {
-          "path": "app/fleet/page.tsx",
-          "type": "blob",
-          "size": 2330,
-          "sha": "9794ed9ee545c35b1db82b7c6fa40e9d70033abc"
-        },
-        {
-          "path": "app/forgot-password",
-          "type": "tree",
-          "sha": "18ce5a0e028bebdf1ac1d0b116208a0ae662f8c6"
-        },
-        {
-          "path": "app/forgot-password/page.tsx",
-          "type": "blob",
-          "size": 1768,
-          "sha": "0580383315214abb26feebe270ff013c5fe38fc7"
-        },
-        {
-          "path": "app/forum",
-          "type": "tree",
-          "sha": "196401a90c08c5ad2a6c5bea0c295dadbadf7648"
-        },
-        {
-          "path": "app/forum/page.tsx",
-          "type": "blob",
-          "size": 892,
-          "sha": "9708bb80f6e87899b8933eed1815b41b505d2a73"
-        },
-        {
-          "path": "app/gallery",
-          "type": "tree",
-          "sha": "c7feb896fe2be4b0c0048827b911dd3a7fa69b9c"
-        },
-        {
-          "path": "app/gallery/page.tsx",
-          "type": "blob",
-          "size": 1251,
-          "sha": "4769abb60e20d5a7c2b88cbefbc2b84288051a8a"
-        },
-        {
-          "path": "app/globals.css",
-          "type": "blob",
-          "size": 3004,
-          "sha": "d2a11958811529db33a6aa375560503afbcc1a77"
-        },
-        {
-          "path": "app/layout.tsx",
-          "type": "blob",
-          "size": 1215,
-          "sha": "825489f82cf24e33b5b58d55b58a20ca447a47a1"
-        },
-        {
-          "path": "app/liveries",
-          "type": "tree",
-          "sha": "2a8977c0bce9ce96344da166f4af084753d3ec6c"
-        },
-        {
-          "path": "app/liveries/page.tsx",
-          "type": "blob",
-          "size": 1135,
-          "sha": "7d899b616647467473c2113d35489604c1935fc5"
-        },
-        {
-          "path": "app/loading.tsx",
-          "type": "blob",
-          "size": 442,
-          "sha": "e8d94d60e1a7cfc12c284ed1e1a4a7d24cb6f35b"
-        },
-        {
-          "path": "app/login",
-          "type": "tree",
-          "sha": "e3e549be2603aa03f0c8ab966918d9453398eaca"
-        },
-        {
-          "path": "app/login/page.tsx",
-          "type": "blob",
-          "size": 3855,
-          "sha": "a4f6c46453d5616efb4eebc8aa3b6e8f2a8dc9c5"
-        },
-        {
-          "path": "app/manifest.ts",
-          "type": "blob",
-          "size": 420,
-          "sha": "7fcfc8f704caa0e1cb9941d0076ed317782fc582"
-        },
-        {
-          "path": "app/member",
-          "type": "tree",
-          "sha": "509c5e3d74ebc2db4c0ddff4c4b7b991f264f1f7"
-        },
-        {
-          "path": "app/member/achievements",
-          "type": "tree",
-          "sha": "b8f8cc249c89010471ff2a12d86aaf9100aedfa9"
-        },
-        {
-          "path": "app/member/achievements/page.tsx",
-          "type": "blob",
-          "size": 1661,
-          "sha": "01073a45ec04374bea98a4612cd9a630457a265f"
-        },
-        {
-          "path": "app/member/convoys",
-          "type": "tree",
-          "sha": "a47a65db71a36850c344adde312cf86be3dc8683"
-        },
-        {
-          "path": "app/member/convoys/page.tsx",
-          "type": "blob",
-          "size": 2153,
-          "sha": "2c3b893a261c67410fa58347fb27fdc147354b85"
-        },
-        {
-          "path": "app/member/dashboard",
-          "type": "tree",
-          "sha": "69dc9f81279a45406943a1b946f7d8c33309f83b"
-        },
-        {
-          "path": "app/member/dashboard/page.tsx",
-          "type": "blob",
-          "size": 2614,
-          "sha": "975d8e1e85bca2640dcbf88f794ec50429d947d4"
-        },
-        {
-          "path": "app/member/events",
-          "type": "tree",
-          "sha": "1a016faccce5370970759bd60407224ea525e161"
-        },
-        {
-          "path": "app/member/events/page.tsx",
-          "type": "blob",
-          "size": 2019,
-          "sha": "7a06197fe1d15fd151e45c8de5b6a08a36879264"
-        },
-        {
-          "path": "app/member/fleet",
-          "type": "tree",
-          "sha": "53ac85e0e13ae5dd9ab6595eeb0e34b9cd6b1619"
-        },
-        {
-          "path": "app/member/fleet/page.tsx",
-          "type": "blob",
-          "size": 3628,
-          "sha": "395463f1734d08f57a003e1e0b1a4d7430478a4f"
-        },
-        {
-          "path": "app/member/notifications",
-          "type": "tree",
-          "sha": "988eabd4063aa2020655d5d52d92562de7c6198f"
-        },
-        {
-          "path": "app/member/notifications/page.tsx",
-          "type": "blob",
-          "size": 2343,
-          "sha": "d4e612231c6a6f05ae61cd175422bdbb4e77e183"
-        },
-        {
-          "path": "app/member/page.tsx",
-          "type": "blob",
-          "size": 4815,
-          "sha": "ca3e0cb19901fc587e609665714bfe39a5584968"
-        },
-        {
-          "path": "app/member/profile",
-          "type": "tree",
-          "sha": "b1818f4c72008521fd8e0f435657f760d2a2be9b"
-        },
-        {
-          "path": "app/member/profile/page.tsx",
-          "type": "blob",
-          "size": 4990,
-          "sha": "3bcdb40f39c50e9f29af40da05ad552b2c65040a"
-        },
-        {
-          "path": "app/member/settings",
-          "type": "tree",
-          "sha": "f027c286c22c25268d07bb721f654c2dfe753e9d"
-        },
-        {
-          "path": "app/member/settings/page.tsx",
-          "type": "blob",
-          "size": 4790,
-          "sha": "15a77958d66d1d86d7d1aa9caf9edb325b45b644"
-        },
-        {
-          "path": "app/member/showcase",
-          "type": "tree",
-          "sha": "1b302047e3645ff612a0ee1569d757986696a36a"
-        },
-        {
-          "path": "app/member/showcase/page.tsx",
-          "type": "blob",
-          "size": 1612,
-          "sha": "41c284e559aaa0f1aa740e29f9df10fd97dd586c"
-        },
-        {
-          "path": "app/member/submissions",
-          "type": "tree",
-          "sha": "bc0b9b80f089e803a252dde3b2fdb2f88e135996"
-        },
-        {
-          "path": "app/member/submissions/page.tsx",
-          "type": "blob",
-          "size": 3027,
-          "sha": "da9b25d0e10efa3293003955f59df5b618be46ac"
-        },
-        {
-          "path": "app/modding",
-          "type": "tree",
-          "sha": "ef69a2689e205d70e77237710f0671802c566976"
-        },
-        {
-          "path": "app/modding/page.tsx",
-          "type": "blob",
-          "size": 1053,
-          "sha": "3fc5d409a3d8f2075b2ce3775d1b18dc0e9f47a9"
-        },
-        {
-          "path": "app/mods",
-          "type": "tree",
-          "sha": "c47e9e6d19bb8d50ce0797927fedfcfaba2cdbc2"
-        },
-        {
-          "path": "app/mods/page.tsx",
-          "type": "blob",
-          "size": 1429,
-          "sha": "6f1f63bf45292cf6a28e687221832e1aad6b2436"
-        },
-        {
-          "path": "app/news",
-          "type": "tree",
-          "sha": "4928604cb8c4464ee5cabd1d451a5c5810a49cf9"
-        },
-        {
-          "path": "app/news/page.tsx",
-          "type": "blob",
-          "size": 1096,
-          "sha": "f35a4c3ba98b8b1f889f1a79d67d146cb02970bf"
-        },
-        {
-          "path": "app/not-found.tsx",
-          "type": "blob",
-          "size": 654,
-          "sha": "c5d17a5f2afd77ae3778ded8e05df356eaf3a65c"
-        },
-        {
-          "path": "app/page.tsx",
-          "type": "blob",
-          "size": 4271,
-          "sha": "52c33b6fabaa0e5064ebe88d2851d3a5e2e2317a"
-        },
-        {
-          "path": "app/partners",
-          "type": "tree",
-          "sha": "f41dd2212d71e3c5097006daa67154aad964edd5"
-        },
-        {
-          "path": "app/partners/page.tsx",
-          "type": "blob",
-          "size": 1227,
-          "sha": "8b3cba823ad811fe358736e48ed88b954f93c4f4"
-        },
-        {
-          "path": "app/platforms",
-          "type": "tree",
-          "sha": "000f69b3a3bee5602b74d9c5a7eddfec8343852c"
-        },
-        {
-          "path": "app/platforms/page.tsx",
-          "type": "blob",
-          "size": 769,
-          "sha": "5757f2c5b5c30e1090390ad7160cdd234c69da7f"
-        },
-        {
-          "path": "app/recruitment",
-          "type": "tree",
-          "sha": "ef938a3264ad6d06ec1a9f9defdff0b86ded0483"
-        },
-        {
-          "path": "app/recruitment/page.tsx",
-          "type": "blob",
-          "size": 4460,
-          "sha": "439ada3cb6aeedbbaad759f54a63435d2cd25121"
-        },
-        {
-          "path": "app/register",
-          "type": "tree",
-          "sha": "0ba5382402210c6aa123d96be0d06e30f9936bd4"
-        },
-        {
-          "path": "app/register/page.tsx",
-          "type": "blob",
-          "size": 3531,
-          "sha": "880310cd1fa2e8a01d795b178a5ff510da6361ba"
-        },
-        {
-          "path": "app/repositories",
-          "type": "tree",
-          "sha": "cbbe66e890b9fd5089d9e8b5b31f601807e2d055"
-        },
-        {
-          "path": "app/repositories/[owner]",
-          "type": "tree",
-          "sha": "52ce9b442cec104ad4be89962b54d10a30da8754"
-        },
-        {
-          "path": "app/repositories/[owner]/[name]",
-          "type": "tree",
-          "sha": "8a39c2ffdb05dbaf063fa3e118a3e75317b133f4"
-        },
-        {
-          "path": "app/repositories/[owner]/[name]/page.tsx",
-          "type": "blob",
-          "size": 6318,
-          "sha": "a28264544a0ee6113ca0e26426b96d253039cbdb"
-        },
-        {
-          "path": "app/repositories/page.tsx",
-          "type": "blob",
-          "size": 1179,
-          "sha": "9a68d04cc545b04013155c6cb026761ce51277e3"
-        },
-        {
-          "path": "app/reset-password",
-          "type": "tree",
-          "sha": "8ec438cbccb547d0faa3da2bb7eaa933ce45fec3"
-        },
-        {
-          "path": "app/reset-password/page.tsx",
-          "type": "blob",
-          "size": 2446,
-          "sha": "c4b5140d06400e2edc0e3a670f0993c0ce821617"
-        },
-        {
-          "path": "app/robots.ts",
-          "type": "blob",
-          "size": 255,
-          "sha": "45b88b9f3843df7662eee4baee24d318f5ffb202"
-        },
-        {
-          "path": "app/rules",
-          "type": "tree",
-          "sha": "d434c7edd5d87bc552c923937c07c5d6505da1ab"
-        },
-        {
-          "path": "app/rules/page.tsx",
-          "type": "blob",
-          "size": 805,
-          "sha": "45f657b3e2dd8473d082e772dbe95fba521db3d4"
-        },
-        {
-          "path": "app/showcase",
-          "type": "tree",
-          "sha": "f334b1b32cbeb9e1bce986449b90aef3d411cfed"
-        },
-        {
-          "path": "app/showcase/page.tsx",
-          "type": "blob",
-          "size": 1238,
-          "sha": "7443033b2dd01cac85c80b43a1352b7b754d981e"
-        },
-        {
-          "path": "app/sitemap.ts",
-          "type": "blob",
-          "size": 655,
-          "sha": "d544af5f4f34a53490f3913199b5e93b5269fc1a"
-        },
-        {
-          "path": "app/store",
-          "type": "tree",
-          "sha": "8327c935f42dd52620f6ddc9b050fa5cf29e4410"
-        },
-        {
-          "path": "app/store/page.tsx",
-          "type": "blob",
-          "size": 13148,
-          "sha": "6fb9915c49bdd6cae82b7f6ebd731d24134ea7e2"
-        },
-        {
-          "path": "app/submit",
-          "type": "tree",
-          "sha": "6cacf2ff17f4afe2771d5631adf4e927cfbeb807"
-        },
-        {
-          "path": "app/submit/page.tsx",
-          "type": "blob",
-          "size": 4450,
-          "sha": "8fb20ac70577a64bffa143e4fa14d3cf9a26c75b"
-        },
-        {
-          "path": "app/tutorials",
-          "type": "tree",
-          "sha": "9ea4b9b012f01d7bd1e541abef7851be14e65f9b"
-        },
-        {
-          "path": "app/tutorials/page.tsx",
-          "type": "blob",
-          "size": 1113,
-          "sha": "7dc585eb226d62891d2db471981540c8dbbcdc06"
-        },
-        {
-          "path": "app/verify-email",
-          "type": "tree",
-          "sha": "9a2d901b12e40b560c8d8161a8988299ae11f17b"
-        },
-        {
-          "path": "app/verify-email/page.tsx",
-          "type": "blob",
-          "size": 2428,
-          "sha": "4b8d823724f6f16e0556df225a893948cb907cb3"
-        },
-        {
-          "path": "app/videos",
-          "type": "tree",
-          "sha": "6b456b2ce2e3469fee38260cdbeff5542beb1582"
-        },
-        {
-          "path": "app/videos/page.tsx",
-          "type": "blob",
-          "size": 1257,
-          "sha": "c8a8349f8d46069d5ac87a7f9523a0b95e45ad5d"
-        },
-        {
-          "path": "components",
-          "type": "tree",
-          "sha": "0e4b18c647f865aed785a87df3ce53580a19210a"
-        },
-        {
-          "path": "components/cards.tsx",
-          "type": "blob",
-          "size": 1945,
-          "sha": "bb467175679211dae526e3d6c9b0304611a7f8c4"
-        },
-        {
-          "path": "components/event-register-button.tsx",
-          "type": "blob",
-          "size": 2118,
-          "sha": "3b9029792801ef5916e21248fd7a3301aa404caf"
-        },
-        {
-          "path": "components/header.tsx",
-          "type": "blob",
-          "size": 4488,
-          "sha": "d889b47c201dce0d67b81d0b3b9e076d48bf3cca"
-        },
-        {
-          "path": "components/language-switcher.tsx",
-          "type": "blob",
-          "size": 1208,
-          "sha": "8d186fcccbb541c733f1fb99c83699d10aaaf670"
-        },
-        {
-          "path": "components/logout-button.tsx",
-          "type": "blob",
-          "size": 534,
-          "sha": "0fd67cba231a9086175887529ebe94fdce8aec11"
-        },
-        {
-          "path": "components/repository-grid.tsx",
-          "type": "blob",
-          "size": 3529,
-          "sha": "cb2a894c251683d596473fc4c7d360db8741fe06"
-        },
-        {
-          "path": "data",
-          "type": "tree",
-          "sha": "3c22f5d1adb80d0247e682b833bb142d768611f7"
-        },
-        {
-          "path": "data/github-repositories.json",
-          "type": "blob",
-          "size": 268412,
-          "sha": "13ab8070e900eaf8c20395e1b93e000759cc5055"
-        },
-        {
-          "path": "data/repositories.ts",
-          "type": "blob",
-          "size": 1650,
-          "sha": "11b5bfa15d0387d2900db15830ee11158d2ef9f7"
-        },
-        {
-          "path": "data/site.ts",
-          "type": "blob",
-          "size": 1243,
-          "sha": "779049501c8ed23bdc9611d56265a98eedfe4c4a"
-        },
-        {
-          "path": "docs",
-          "type": "tree",
-          "sha": "94b3599f0d53982ae732f44bf3cb2a13dfd80d38"
-        },
-        {
-          "path": "docs/API.md",
-          "type": "blob",
-          "size": 574,
-          "sha": "b5560fe055f3fbe0b0a468d0fbeee2d8ed6bc52c"
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "type": "blob",
-          "size": 422,
-          "sha": "272ecf0483fdaf1766515ef440588e6bf7b2a6dc"
-        },
-        {
-          "path": "docs/CHANGELOG.md",
-          "type": "blob",
-          "size": 323,
-          "sha": "79a809f3b95684a12e4f304838553d8c75e7b287"
-        },
-        {
-          "path": "docs/CONTRIBUTING.md",
-          "type": "blob",
-          "size": 233,
-          "sha": "f7259555a055a746a25776e3c7f217e27b44ddba"
-        },
-        {
-          "path": "docs/DATABASE.md",
-          "type": "blob",
-          "size": 499,
-          "sha": "8687196948412f2b5e481967c0340e444a951fb2"
-        },
-        {
-          "path": "docs/REPOSITORY-SYNC.md",
-          "type": "blob",
-          "size": 2098,
-          "sha": "b6366a9d4257e0de78f89f66e614d7ca85256f0d"
-        },
-        {
-          "path": "docs/SECURITY-AUDIT.md",
-          "type": "blob",
-          "size": 1128,
-          "sha": "9cfe205fb859d8509fd10e3c0701727ead5115b8"
-        },
-        {
-          "path": "docs/SECURITY.md",
-          "type": "blob",
-          "size": 681,
-          "sha": "4c84020e610af4b96c2d98fc2a291870093ae5bd"
-        },
-        {
-          "path": "lib",
-          "type": "tree",
-          "sha": "960c2430a50508b907fb94d064b33c3f570bc55d"
-        },
-        {
-          "path": "lib/activity.ts",
-          "type": "blob",
-          "size": 660,
-          "sha": "0f95d4cc9fb911d7a1b3e42417bb483c5d4ca570"
-        },
-        {
-          "path": "lib/auth.ts",
-          "type": "blob",
-          "size": 4327,
-          "sha": "204741c34a507232a052b7624662f2d7cdcf3e46"
-        },
-        {
-          "path": "lib/authorization.ts",
-          "type": "blob",
-          "size": 751,
-          "sha": "41477a9a35aa0282d15cc6a210e23465da386259"
-        },
-        {
-          "path": "lib/data.ts",
-          "type": "blob",
-          "size": 6948,
-          "sha": "39e7bdde0dc52b6aa21e2936e364404be5a258c2"
-        },
-        {
-          "path": "lib/email.ts",
-          "type": "blob",
-          "size": 819,
-          "sha": "64e7130e19f078a88295ba5033a219622bc404ee"
-        },
-        {
-          "path": "lib/github.ts",
-          "type": "blob",
-          "size": 7872,
-          "sha": "38514185c4907f110507d9944797fcae7a3c5d4f"
-        },
-        {
-          "path": "lib/i18n.ts",
-          "type": "blob",
-          "size": 3429,
-          "sha": "bb59c9cc155492614b324d1a0a3308a6727a5511"
-        },
-        {
-          "path": "lib/member.ts",
-          "type": "blob",
-          "size": 512,
-          "sha": "06c552fd2656fa891cae819ea936f8ad4e72ecf0"
-        },
-        {
-          "path": "lib/prisma.ts",
-          "type": "blob",
-          "size": 536,
-          "sha": "384e9557dd7d4eea2fb711f23ccfca107d90b979"
-        },
-        {
-          "path": "lib/rate-limit.ts",
-          "type": "blob",
-          "size": 893,
-          "sha": "4b136467d49f7f713d483451394bf08d79a468f2"
-        },
-        {
-          "path": "lib/request-security.ts",
-          "type": "blob",
-          "size": 690,
-          "sha": "f21dd8b2164042920fe9e24d872258986e0eeea5"
-        },
-        {
-          "path": "next-env.d.ts",
-          "type": "blob",
-          "size": 121,
-          "sha": "59d601fa44fbb33486dce2d1abdfbe73a711c059"
-        },
-        {
-          "path": "next.config.ts",
-          "type": "blob",
-          "size": 1151,
-          "sha": "d7683f984b70ab24701fc22be34c3cc894b44f86"
-        },
-        {
-          "path": "package-lock.json",
-          "type": "blob",
-          "size": 157952,
-          "sha": "984a9bda029ed37bc6b6e3af66f1b90bfb2070ce"
-        },
-        {
-          "path": "package.json",
-          "type": "blob",
-          "size": 1744,
-          "sha": "18be003058a52221dba683af4f969790ee41ca49"
-        },
-        {
-          "path": "postcss.config.mjs",
-          "type": "blob",
-          "size": 59,
-          "sha": "3c0bcfba1680f6166c57784b009be1cb307e2f59"
-        },
-        {
-          "path": "prisma.config.ts",
-          "type": "blob",
-          "size": 304,
-          "sha": "43cce28c7cafcf9fc415e3224e585275af5edb7f"
-        },
-        {
-          "path": "prisma",
-          "type": "tree",
-          "sha": "c0be13dc1b59e1f424053445438861e01fa79bf2"
-        },
-        {
-          "path": "prisma/migrations",
-          "type": "tree",
-          "sha": "13577ada2ef645f05045fccddf1cf8e04af0e196"
-        },
-        {
-          "path": "prisma/migrations/0001_initial",
-          "type": "tree",
-          "sha": "44f663187d09be846e9cec32a8db641b3d52921d"
-        },
-        {
-          "path": "prisma/migrations/0001_initial/migration.sql",
-          "type": "blob",
-          "size": 12951,
-          "sha": "5be15184fcf2148957f32efb1cc6c96b109c7945"
-        },
-        {
-          "path": "prisma/migrations/0002_auth_oauth_tokens",
-          "type": "tree",
-          "sha": "6f1474eafc20287480ab50803effcd79c4a6419e"
-        },
-        {
-          "path": "prisma/migrations/0002_auth_oauth_tokens/migration.sql",
-          "type": "blob",
-          "size": 1367,
-          "sha": "e73549a25c7494b3c6bffd80032f73f3d123b6c4"
-        },
-        {
-          "path": "prisma/migrations/0003_recruitment_fleet",
-          "type": "tree",
-          "sha": "407cbc58f9ac276f7119923a72fbb8560cfd8fb5"
-        },
-        {
-          "path": "prisma/migrations/0003_recruitment_fleet/migration.sql",
-          "type": "blob",
-          "size": 1909,
-          "sha": "4b87da5b2b0528b9c4a688c91c46177dfc730724"
-        },
-        {
-          "path": "prisma/migrations/0004_store_orders",
-          "type": "tree",
-          "sha": "9ac5ccdda826df930f42411646b9f8464daaf273"
-        },
-        {
-          "path": "prisma/migrations/0004_store_orders/migration.sql",
-          "type": "blob",
-          "size": 998,
-          "sha": "15949de1fb4e225daf4ac04e0d31676edadfd444"
-        },
-        {
-          "path": "prisma/schema.prisma",
-          "type": "blob",
-          "size": 9312,
-          "sha": "a314c69965c87968e6301190d52b9493d283e73d"
-        },
-        {
-          "path": "prisma/seed.ts",
-          "type": "blob",
-          "size": 1566,
-          "sha": "a9e00ad5971909d6a24b2de6c4c50dc4d42343fe"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "c61474fda3e8c922ae4fd49f4193af82ec32e28f"
-        },
-        {
-          "path": "scripts/audit-dependencies.mjs",
-          "type": "blob",
-          "size": 1736,
-          "sha": "32c4c3746456327feb81fcd6494be12a6d7487a6"
-        },
-        {
-          "path": "scripts/audit-source.mjs",
-          "type": "blob",
-          "size": 1368,
-          "sha": "bf4318ca147a3f1e7a87f97ac587c56e0b5fb5fb"
-        },
-        {
-          "path": "scripts/scrape-github.mjs",
-          "type": "blob",
-          "size": 6155,
-          "sha": "7ad0525c296ec026df5116b4e66831156cfb538b"
-        },
-        {
-          "path": "tsconfig.json",
-          "type": "blob",
-          "size": 562,
-          "sha": "eb6f85bd4c28e220a639240638503c4d8da793e7"
-        }
-      ],
-      "treeTruncated": false,
-      "sourceFiles": [
-        {
-          "path": "docs/CONTRIBUTING.md",
-          "size": 233,
-          "content": "# Contributing\n\nGunakan branch feature/<module> atau fix/<issue>. Buat perubahan kecil, jalankan build dan test, lalu buka Pull Request ke develop.\n\nPrioritas: keamanan, aksesibilitas, performa, modularitas, dan pengalaman komunitas."
-        },
-        {
-          "path": "docs/CHANGELOG.md",
-          "size": 323,
-          "content": "# Changelog\n\n## 2026-09-20\n- Added public platform, convoy, mod, livery, gallery, video, tutorial, download, contact, and partner pages.\n- Added member dashboard modules and admin control center.\n- Added PostgreSQL Prisma schema covering core community data.\n- Added API, database, security, and contributing documentation."
-        },
-        {
-          "path": "docs/ARCHITECTURE.md",
-          "size": 422,
-          "content": "# Architecture\n\nNext.js public UI → REST API → PostgreSQL → object storage → notifications.\n\nCore domains: members, communities, platforms, events, convoys, fleet, modding, gallery, forum, tutorials, moderation, notifications, news and partners.\n\nSecurity baseline: password hashing, RBAC, validation, rate limiting, secure cookies, security headers, upload validation, audit logs and environment-managed secrets.\n"
-        },
-        {
-          "path": "docs/DATABASE.md",
-          "size": 499,
-          "content": "# Database\n\nNARARYA GARAGE menggunakan PostgreSQL melalui Prisma. Schema mencakup user/member, RBAC-ready role fields, platform, community, event/convoy registration, modding, showcase, gallery, forum, tutorial, download, report, moderation, notification, partner, achievement, dan activity log.\n\n## Setup\n1. Isi DATABASE_URL di .env.\n2. Install Prisma CLI/client.\n3. Jalankan migration setelah backend Prisma diaktifkan.\n\nJangan menyimpan password, token, atau secret sebagai plaintext di database."
-        },
-        {
-          "path": "docs/API.md",
-          "size": 574,
-          "content": "# API Contract\n\nRencana endpoint REST:\n\n- GET /api/platforms\n- GET /api/communities\n- GET /api/communities/:id\n- GET /api/events\n- POST /api/events/:id/register\n- GET /api/convoys/:id\n- GET /api/mods\n- POST /api/mods/submissions\n- GET /api/liveries\n- GET /api/showcase\n- GET /api/gallery\n- GET /api/forum/threads\n- POST /api/forum/threads\n- GET /api/tutorials\n- GET /api/downloads\n- POST /api/reports\n- GET /api/member/dashboard\n- GET /api/admin/overview\n\nSemua endpoint privat wajib menerapkan autentikasi, authorization/RBAC, validasi input, rate limit, dan audit logging."
-        },
-        {
-          "path": "docs/SECURITY.md",
-          "size": 681,
-          "content": "# Security Baseline\n\n- Password wajib di-hash dengan algoritma modern.\n- Secret hanya melalui environment variables atau secret manager.\n- Validasi input dan output untuk mencegah injection/XSS.\n- CSRF protection untuk cookie-based mutation endpoints.\n- Secure, HttpOnly, SameSite cookies.\n- Rate limiting pada login, register, upload, report, dan API sensitif.\n- Validasi MIME type, extension, ukuran, dan nama file upload.\n- Jangan memperbolehkan executable upload.\n- RBAC diterapkan server-side, bukan hanya menyembunyikan tombol di UI.\n- Audit log untuk perubahan role, suspend, ban, moderation, dan pengaturan penting.\n- Jangan mengumpulkan data pribadi yang tidak diperlukan."
-        },
-        {
-          "path": "docs/SECURITY-AUDIT.md",
-          "size": 1128,
-          "content": "# Security Audit\n\n## Current policy\n\nCI runs a high-severity audit against production dependencies with:\n\nnpm audit --omit=dev --audit-level=high\n\nThe project uses Prisma CLI 7.10.0 as a development dependency. The current npm audit database reports high-severity advisories in Prisma CLI's development dependency chain, including deepmerge-ts and mysql2. The automated audit fix offered by npm would downgrade Prisma to 6.19.3, which is a breaking change.\n\nFor that reason the repository does not use npm audit fix --force. Prisma 7.10.0 remains pinned as the current stable Prisma release used by this project.\n\n## Install scripts\n\nnpm 11 now tracks approval for dependency install lifecycle scripts. The project explicitly approves only the packages required for the build:\n\n- @prisma/engines@7.10.0\n- prisma@7.10.0\n- esbuild@0.28.2\n\nNo blanket dangerously-allow-all-scripts bypass is used.\n\n## CI gates\n\nThe main CI pipeline checks:\n\n1. source audit\n2. scraper syntax\n3. production dependency security\n4. Prisma schema validation\n5. TypeScript typecheck\n6. Next.js production build\n\nAny failure blocks the verification job.\n"
-        },
-        {
-          "path": "docs/REPOSITORY-SYNC.md",
-          "size": 2098,
-          "content": "# Repository Data Sync\n\nNARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Prisma sebagai sumber data aplikasi.\n\n## Live repository discovery\n\n`/repositories` dan `GET /api/github/repositories` menemukan repository milik akun GitHub yang terhubung secara dinamis. Registry `data/repositories.ts` hanya menyimpan label/purpose, bukan daftar repository yang harus ada.\n\n`GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.\n\nGitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi.\n\n## Secrets\n\n- `GITHUB_TOKEN`: token GitHub dengan akses minimum yang dibutuhkan. Wajib untuk data private.\n- `GITHUB_WEBHOOK_SECRET`: secret untuk verifikasi `X-Hub-Signature-256`.\n- `DATABASE_URL`: PostgreSQL production database.\n- `NEXT_PUBLIC_SITE_URL`: URL deployment.\n\nJangan commit secret ke repository.\n\n## Webhook\n\nEndpoint: `POST /api/github/webhook`.\n\nWebhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`.\n\n## Database\n\nProject menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter.\n\nData aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.\n\n## Source of truth\n\n- GitHub: repository, branch, commit, issue, pull request, workflow dan source repository.\n- PostgreSQL/Prisma: member, event, convoy, mod, livery, showcase, gallery, forum, tutorial, download, moderation, notification dan pengaturan.\n- Website: layer UI/API yang membaca kedua sumber secara live.\n\n## Private repository\n\nRepository private hanya dapat dibaca saat deployment memiliki token dengan permission yang sesuai. Tanpa token tersebut, kegagalan akses ditampilkan sebagai data unavailable, bukan diganti angka fiktif.\n"
-        },
-        {
-          "path": "README.md",
-          "size": 4061,
-          "content": null
-        },
-        {
-          "path": "data/github-repositories.json",
-          "size": 268412,
-          "content": null
-        }
-      ],
-      "scrapedAt": "2026-10-24T06:19:41.898Z"
+      "scrapedAt": "2026-10-24T11:26:08.280Z"
     },
     {
       "repository": {
@@ -5371,7 +5371,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-10-24T06:19:42.065Z"
+      "scrapedAt": "2026-10-24T11:26:08.675Z"
     },
     {
       "repository": {
@@ -5523,7 +5523,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-10-24T06:19:42.093Z"
+      "scrapedAt": "2026-10-24T11:26:08.569Z"
     },
     {
       "repository": {
@@ -5555,7 +5555,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-10-24T06:19:41.864Z"
+      "scrapedAt": "2026-10-24T11:26:08.447Z"
     },
     {
       "repository": {
@@ -5587,7 +5587,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-10-24T06:19:41.892Z"
+      "scrapedAt": "2026-10-24T11:26:08.468Z"
     }
   ]
 }
