@@ -20,15 +20,16 @@
     "security:audit": "node scripts/audit-dependencies.mjs"
   },
   "dependencies": {
-    "next": "16.3.5",
+    "next": "16.4.2",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "lucide-react": "1.47.0",
     "@prisma/client": "7.10.0",
     "@prisma/adapter-pg": "7.10.0",
     "pg": "8.23.0",
-    "zod": "4.6.5",
-    "dotenv": "17.4.2"
+    "zod": "4.6.7",
+    "dotenv": "17.4.2",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -51,5 +52,8 @@
     "@prisma/engines@7.10.0": true,
     "esbuild@0.28.2": true,
     "prisma@7.10.0": true
+  },
+  "overrides": {
+    "source-map-js": "^1.2.1"
   }
 }
