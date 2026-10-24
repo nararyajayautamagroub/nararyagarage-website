@@ -54,6 +54,6 @@
     "prisma@7.10.0": true
   },
   "overrides": {
-    "source-map-js": "^1.2.1"
+    "source-map-js": "^1.2.2"
   }
 }
