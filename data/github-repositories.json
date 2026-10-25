@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-10-25T10:01:34.982Z",
+  "fetchedAt": "2026-10-25T14:23:27.986Z",
   "repositoryCount": 9,
   "repositories": [
     {
@@ -15,13 +15,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-10-25T09:46:32Z",
-        "pushed_at": "2026-10-25T09:46:28Z",
+        "updated_at": "2026-10-25T13:59:25Z",
+        "pushed_at": "2026-10-25T13:59:21Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "JavaScript",
-        "size": 366,
+        "size": 372,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -56,6 +56,20 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "d5a340c9562372be79bce8a3a1c55d167839462f",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-10-25T13:59:20Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/d5a340c9562372be79bce8a3a1c55d167839462f"
+        },
+        {
+          "sha": "6a9ed5baf95ac73afc2df67485f2065920ba2bcf",
+          "message": "chore: refresh live repository and public metadata",
+          "author": "github-actions[bot]",
+          "date": "2026-10-25T11:37:11Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/6a9ed5baf95ac73afc2df67485f2065920ba2bcf"
+        },
+        {
           "sha": "1d2a61fbc69e0484baaa57b18018107793bb8a44",
           "message": "chore: refresh GitHub corporate data",
           "author": "github-actions[bot]",
@@ -75,20 +89,6 @@
           "author": "github-actions[bot]",
           "date": "2026-10-25T04:58:49Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/63d7272d06530c0052bd5d8d7868653546508f8f"
-        },
-        {
-          "sha": "f4c6676e062108a3be0f042da6f9bc148f345c42",
-          "message": "chore: refresh live repository and public metadata",
-          "author": "github-actions[bot]",
-          "date": "2026-10-25T01:12:10Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/f4c6676e062108a3be0f042da6f9bc148f345c42"
-        },
-        {
-          "sha": "467e628e86699c86a6646fa0b419b96ad58c1d0a",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-10-25T00:18:17Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/467e628e86699c86a6646fa0b419b96ad58c1d0a"
         }
       ],
       "tree": [
@@ -218,8 +218,8 @@
         {
           "path": "external-live.js",
           "type": "blob",
-          "size": 6989,
-          "sha": "7a7846729a9c4b00722555d43fb0c739f56ee998"
+          "size": 6983,
+          "sha": "11b9d6a142c7044985cc85308768170f9d0c4c06"
         },
         {
           "path": "gateway",
@@ -242,7 +242,7 @@
           "path": "github-live.js",
           "type": "blob",
           "size": 13003,
-          "sha": "b63d29e547fa97bb07b70a38f714984b9214f426"
+          "sha": "8008d0e6d3035911704a562e716270b3b42b2ab3"
         },
         {
           "path": "i18n.js",
@@ -385,7 +385,7 @@
           "content": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\n- `scripts/validate.mjs` — automated structural/data validation\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\n- `gateway/test.mjs` — gateway integration smoke test\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\\n- `icons/` — installable PWA icon assets\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n\n\n## NPM and Gateway Runtime\n\nThe repository now has an npm contract for local/server execution:\n\n```bash\nnpm install\nnpm test\nnpm start\n```\n\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\n\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\n\n## Copyright Footer\n\nWebsite and bot surfaces use the required footer:\n\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\n"
         }
       ],
-      "scrapedAt": "2026-10-25T10:01:34.772Z"
+      "scrapedAt": "2026-10-25T14:23:27.811Z"
     },
     {
       "repository": {
@@ -398,13 +398,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-10-25T05:21:27Z",
-        "pushed_at": "2026-10-25T05:21:24Z",
+        "updated_at": "2026-10-25T10:01:39Z",
+        "pushed_at": "2026-10-25T10:01:36Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "TypeScript",
-        "size": 3837,
+        "size": 3854,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -477,6 +477,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "47b2f9985635d7032fb101bc70b90a318f737959",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-10-25T10:01:35Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/47b2f9985635d7032fb101bc70b90a318f737959"
+        },
+        {
           "sha": "9e0dc316626699dc91239fdc9525bc34daf2b7be",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -503,13 +510,6 @@
           "author": "github-actions[bot]",
           "date": "2026-10-24T20:27:38Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/2857277823be86a99816f27c417a66fda1e92a6f"
-        },
-        {
-          "sha": "81ec24dfa4ca60b3a05cb8bd6c05798e713cfb83",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-10-24T17:55:52Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/81ec24dfa4ca60b3a05cb8bd6c05798e713cfb83"
         }
       ],
       "tree": [
@@ -1948,13 +1948,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "8d49d8a9bb997747a1184d8d8eb31d1507d5887b"
+          "sha": "f8ac01b0672588de1cfb8cdb6fc01f509d89e6ac"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 168516,
-          "sha": "e817b18781c12602134a5bbece2d8c523b946104"
+          "size": 217817,
+          "sha": "61cee5b7e02ba11a13f61c740f39a5407d269af4"
         },
         {
           "path": "data/repositories.ts",
@@ -2269,15 +2269,15 @@
         {
           "path": "README.md",
           "size": 4061,
-          "content": null
+          "content": "# NARARYA GARAGE\n\nVirtual Simulator, Modding, and Gaming Community for BUSSID, ETS2, ATS, TOE3, TSI, Roblox, and other supported games.\n\n## Current stack\n- Next.js App Router, React, TypeScript\n- Tailwind CSS 4\n- PostgreSQL with Prisma ORM 7\n- GitHub REST API for repository discovery, activity, source snapshots, and webhook updates\n\n## Current features\n- Responsive public pages for platforms, communities, events, convoys, mods, liveries, showcase, gallery, videos, forum, tutorials, downloads, news, partners, achievements, fleet, recruitment, and contact\n- Ten locale choices: Indonesian, English, Malay, Simplified Chinese, Japanese, Korean, Arabic, Spanish, French, and German. Navigation and selected shared UI are localized; not every page sentence has complete translation coverage yet.\n- Email/password registration and login, Google OAuth flow, email verification, and password reset flows\n- Member dashboard, profile/settings, event registration, submissions, notifications, and fleet submissions\n- Role-protected admin pages and APIs for members, events, recruitment, fleet, moderation, notifications, settings, analytics, and audit logs\n- GitHub repository browser and scheduled repository scraper\n- Store page with server-priced cart, transaction IDs, 10-minute expiry, QRIS via Midtrans, payment-status polling, and WhatsApp confirmation link\n- Store assistant with optional OpenAI-compatible AI endpoint and safe local fallback\n- Security headers, same-origin mutation checks, request validation, and activity logging\n- CI checks for source audit, scraper syntax, dependency audit, Prisma validation/generation, TypeScript, and production build\n\n## Setup\n\nRequirements: Node.js >=22.16 and <25, npm 11, and PostgreSQL for database-backed features.\n\n```bash\nnpm install\ncp .env.example .env.local\nnpm run db:generate\nnpm run db:validate\nnpm run db:migrate\nnpm run dev\n```\n\nFor a production build:\n\n```bash\nnpm run check\nnpm run build\nnpm run start\n```\n\n## Environment variables\n\nConfigure the variables in `.env.example` for the services you actually use:\n- `DATABASE_URL`: PostgreSQL connection string; required for persistent community data.\n- `AUTH_SECRET`: strong, unique production secret; required for production auth.\n- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`: Google OAuth credentials and matching callback URL.\n- `EMAIL_API_URL`, `EMAIL_API_KEY`, `EMAIL_FROM`: compatible email provider for verification and password recovery.\n- `GITHUB_TOKEN`: token with minimum required access, particularly for private repositories.\n- `GITHUB_WEBHOOK_SECRET`: HMAC secret for GitHub webhook validation.\n- `NEXT_PUBLIC_SITE_URL`: canonical public deployment URL.\n- `MIDTRANS_SERVER_KEY`, `MIDTRANS_IS_PRODUCTION`: enable QRIS charges through Midtrans. Set the Midtrans payment notification URL to `/api/store/payment-webhook`; never expose the server key to the browser.\n- `STORE_WHATSAPP_NUMBER`: WhatsApp number in international digits, without `+`, for order confirmation.\n- `AI_API_URL`, `AI_API_KEY`, `AI_MODEL`: optional OpenAI-compatible chat endpoint for the store assistant. Without these, the assistant uses a limited local fallback.\n- `DISCORD_BOT_TOKEN`, `STORAGE_BUCKET`: reserved integration settings; configuring them alone does not enable a full Discord or file-storage integration.\n\nDo not commit real tokens, credentials, or production environment files.\n\n## GitHub repository sync\n\nThe repository browser discovers repositories dynamically from the configured GitHub owner. Private repository access needs a suitably scoped token. Scheduled scraper results are snapshots; live pages may query GitHub directly. See [docs/REPOSITORY-SYNC.md](docs/REPOSITORY-SYNC.md).\n\n## Honest deployment notes\n\nSource and CI checks do not prove external production services are configured. Google sign-in requires OAuth credentials, verification/reset email requires an email provider, and persistent data requires PostgreSQL migrations. A deployment URL is not assumed to exist until hosting is configured and verified."
         },
         {
           "path": "data/github-repositories.json",
-          "size": 168516,
+          "size": 217817,
           "content": null
         }
       ],
-      "scrapedAt": "2026-10-25T10:01:34.887Z"
+      "scrapedAt": "2026-10-25T14:23:27.941Z"
     },
     {
       "repository": {
@@ -2458,7 +2458,7 @@
           "content": "# Nexovonarsa SuperApp\n\nResponsive web MVP for learning, entertainment discovery, games, security education, productivity, and a digital service store.\n\n## Current implementation\n\n- **Home portal** (`index.html`): responsive portal with feature search and categories.\n- **Store prototype** (`store.html`): searchable catalog, browser-side cart, checkout demo, demo transaction ID, 10-minute browser countdown, WhatsApp deep link, and AI assistant placeholder.\n- **Developer & Security Lab** (`developer-tools.html`): bug-report builder with TXT export, JSON validator, text inspector, demo ID generator, and manual WhatsApp compatibility and device-privacy checklists.\n- **Status page** (`status.html`): polls the public GitHub Actions API every 60 seconds to show recent workflow runs. This reflects workflow state, not full production uptime.\n- **Automated checks**: GitHub Actions runs the static-site checker and Playwright browser tests on pushes to `main` and pull requests targeting `main`; screenshot artifacts are uploaded by CI.\n\n## Real-time data integration plan\n\nThe ten-scraper architecture, source authorization rules, freshness/provenance contract, and production release checklist are documented in [`docs/REALTIME_DATA_10_SCRAPERS.md`](docs/REALTIME_DATA_10_SCRAPERS.md). The ten entries are adapter roles, **not live sources already connected**. The static site alone cannot provide secure server-side scraping or live AI.\n\n## Important limitations\n\nThis is a static web prototype, not a production-ready service.\n\n- **AI:** no live AI provider is connected. The assistant content is demo text. Real AI needs a secured server-side integration and a provider API key stored as a secret. Never put private API keys in browser JavaScript.\n- **Payments:** QRIS is a visual placeholder. No money is collected or verified. Real payments require a payment provider, server-side order records, signature-verified webhooks, and server-side expiry checks.\n- **WhatsApp:** the checkout creates a browser deep link only. It does not send automated messages or independently confirm payment.\n- **Data:** there is no backend, account system, persistent database, or connected live domain-specific data API. Browser-local notes remain in the current browser.\n- **Phone checks:** phone-number validation checks format only; it does not identify an owner or verify WhatsApp registration. Privacy checklists are manual guidance, not device scans.\n\nDo not describe demo data as real-time or verified production data.\n\n## Feature catalog\n\n### Learning\n- Qur'an reading module: planned; requires a verified and properly licensed source.\n- Shalawat audio player: planned; use authorized audio.\n- Study hub and learning checklist: demo.\n\n### Entertainment\n- Comic discovery and official provider links: planned.\n- Anime, film, music, and podcast discovery through licensed services: planned.\n- Mini-game / HTML5 game area: planned.\n\n### Communication\n- Opt-in messaging concept with rate limits, unsubscribe controls, and abuse prevention: planned.\n- Phone-number format validation: demo only.\n\n### Security\n- Device privacy checklist.\n- Wi-Fi security guidance for networks owned by the operator or explicitly authorized for assessment.\n- Website security checklist for authorized domains.\n- WhatsApp account-security guide.\n- No DDoS, Wi-Fi disruption, device intrusion, account takeover, spam, or crash/freeze payloads.\n\n### Productivity and developer tools\n- Browser-local notes: demo.\n- Live AI assistant: planned; secured backend and provider credentials required.\n- Authorized API playground: planned.\n- Bug-report builder with TXT export: local only; no server submission.\n- JSON validation, text inspection, and demo ID generation.\n- Feedback and help center: planned.\n\n## Run locally\n\nOpen `index.html` in a modern browser. The prototype has no local build step. Automated checks run in GitHub Actions and use Python, Node.js, and Playwright.\n\n## Enable GitHub Pages deployment\n\nThe deployment workflow is configured to run on pushes to `main`, but the repository's latest deployment attempt failed while configuring Pages. A repository owner must verify the hosting configuration and permissions:\n\n1. Open repository **Settings → Pages**.\n2. Set the build and deployment source to **GitHub Actions**.\n3. Confirm GitHub Actions is permitted to deploy Pages for this repository.\n4. Open the **Actions** tab and rerun the deployment workflow after fixing the configuration.\n5. Verify the published URL in **Settings → Pages** and test the deployed pages.\n\nA successful CI test does not mean the Pages deployment succeeded. Check each workflow result separately.\n\n## Automation and verification\n\n- A push to `main` triggers static checks and the Pages deployment workflow.\n- Pull requests targeting `main` trigger static checks.\n- CI uploads browser screenshots as an artifact for 14 days.\n- The status page refreshes workflow information every 60 seconds.\n- New functionality is not generated automatically by a commit. Code changes must still be implemented, reviewed, tested, and committed. Deployment only happens when the configured workflow succeeds.\n\n## Next engineering milestones\n\n1. Keep expanding automated tests, accessibility checks, and mobile browser coverage.\n2. Add unit tests and split larger scripts into maintainable modules.\n3. Build a secure backend with authentication, authorization, rate limiting, logging, and privacy controls before storing user data.\n4. Integrate live data APIs only after verifying their sources, freshness, licensing, and terms.\n5. Add AI through a secured backend and test provider errors, rate limits, and cost controls.\n6. Integrate payments only through a supported payment provider with server-side webhook verification.\n7. Add staging and production monitoring before presenting the app as production-ready.\n\n## Safety and content policy\n\nThis project is for lawful, consent-based use. Security modules should remain defensive and limited to systems the operator owns or has explicit permission to test. No DDoS tools, Wi-Fi killers, unauthorized phone access, WhatsApp crash/freeze exploits, spam payloads, or group takeovers are included.\n\n## Version\n\nWeb MVP: **0.4.2**. Features explicitly marked as demos or planned are not fully integrated live services.\n"
         }
       ],
-      "scrapedAt": "2026-10-25T10:01:34.676Z"
+      "scrapedAt": "2026-10-25T14:23:27.660Z"
     },
     {
       "repository": {
@@ -2903,7 +2903,7 @@
           "content": "# APKForge AI\n\nAPKForge AI is a browser-based workbench for inspecting Android package archives and planning authorized modifications to apps and game assets you own or have permission to edit.\n\n## Implemented workflow\n\n- Responsive Indonesian web dashboard.\n- Upload `.apk`, `.apks`, `.aab`, `.obb`, `.zip`, `.apfproj`, `.exe`, and `.msi` for safe storage. EXE/MSI files are never executed by the server.\n- ZIP-compatible archive listing without extracting the archive. Preview safety caps: 5,000 entries and 2 GiB total declared uncompressed size.\n- APK decode into a workspace using Apktool, when Apktool and Java are installed on the host.\n- Project file listing and editing for selected text formats (XML, JSON, text, properties, Smali, HTML, JS, CSS, Java/Kotlin, YAML and config files), limited to 2 MiB per file.\n- Rebuild decoded projects into an **unsigned APK** using Apktool.\n- Optional APK signing and signature verification using a keystore configured on the server.\n- AI change-plan endpoint compatible with chat-completions style providers.\n- AI patch proposals across up to five selected editable text files, with per-file review/editing, path/content validation, assumptions, risks, suggested tests, backups and a review step before the user explicitly applies the proposal.\n- Persistent local learning memory: stores sanitized request patterns and only reuses patterns from edits the user explicitly approved; similar future requests can use these examples to infer intent with fewer clarification questions. This is retrieval-based memory, not model fine-tuning.\n- Allowlisted process helper for Apktool, JADX, and apksigner.\n- Asset Manager for replacing supported image, texture, model, audio and data assets, with backup/undo.\n- Backup/undo for text file edits and binary asset replacement.\n- Windows desktop packaging configured for `.exe` and `.msi` installers through Electron Builder.\n- Capacitor Android shell and GitHub Actions workflow configured to build a debug `.apk`.\n- GitHub Actions syntax validation.\n\n## Run locally\n\nRequirements: Node.js 20+, Java runtime, and Apktool for decode/build features.\n\n```bash\nnpm install\ncp .env.example .env\nnpm run check\nnpm run dev\n```\n\nOpen `http://127.0.0.1:8787`. On Windows, use `copy .env.example .env` if `cp` is unavailable.\n\nSet `AI_BASE_URL`, `AI_API_KEY`, and `AI_MODEL` in `.env` for an OpenAI-compatible provider. Never commit API keys.\n\n## API\n\n- `GET /api/health` — service status.\n- `GET /api/formats` — supported formats and limitations.\n- `POST /api/uploads` — upload one file as multipart field `file`.\n- `GET /api/uploads/:id/inspect` — preview entries of ZIP-compatible uploads.\n- `POST /api/uploads/:id/decode` — decode an uploaded APK with Apktool.\n- `GET /api/projects/:id/files` — list decoded project files.\n- `GET /api/projects/:id/file?path=...` — read an editable text file.\n- `PUT /api/projects/:id/file` — JSON body: `{ \"path\": \"res/values/strings.xml\", \"content\": \"...\" }`.\n- `POST /api/projects/:id/build` — build unsigned APK.\n- `GET /api/projects/:id/artifact` — download generated unsigned APK.\n- `POST /api/projects/:id/sign` — sign the generated APK using server-configured keystore credentials and verify the signature.\n- `GET /api/projects/:id/signed-artifact` — download the signed APK.\n- `POST /api/ai/plan` — generate a change plan from JSON `{ \"request\": \"...\" }`.\n- `POST /api/projects/:id/undo` — restore the latest backup of a text file.\n- `PUT /api/projects/:id/asset` — replace a supported binary asset with multipart fields `path` and `file`.\n- `POST /api/projects/:id/asset/undo` — restore the latest asset backup.\n- `POST /api/projects/:id/ai/patch-plan` — propose a reviewable text-file edit from JSON `{ \"request\": \"...\", \"paths\": [\"res/values/strings.xml\"] }`. The AI can only propose edits to the selected editable files; the proposal is not applied until the user reviews it and explicitly confirms. Relevant user-approved patterns may be supplied as context.\n- `POST /api/projects/:id/ai/apply-patch` — apply 1–5 reviewed file changes with validation and backups.\n- `POST /api/ai/learn` — record an explicitly approved request pattern after an AI-proposed edit has been applied. The server stores sanitized request/summary/file-type metadata, not source-file contents.\n\n## Current limitations (read before production)\n\nThis is a functional development workflow, **not a completed universal APK modder**. Decode/build depends on the host having Apktool and Java installed. Rebuilt output is unsigned until the optional signing workflow is configured with a keystore you control. Never commit keystores or passwords. The project editor edits text files only; it does not automatically replace 3D models, textures, vehicle assets, or arbitrary binary resources. The AI planner creates plans, and the patch endpoint proposes edits to selected text files. A proposal requires manual review and explicit confirmation before it is saved. Approved request patterns are kept in the server workspace and retrieved for similar future requests; this does not train or fine-tune the underlying model, and memory is local to that server/workspace. The AI still cannot implement features whose required source files, APIs, engine hooks, or binary-format specifications are not available. Asset replacement is format-agnostic at the file level and cannot guarantee game-specific model/texture compatibility.\n\nThe project can be packaged as its own Windows `.exe` installer and `.msi` installer, and as an Android debug `.apk`. These are APKForge AI app builds, not automatic conversion of an uploaded APK into Windows binaries. An APK cannot be directly converted into a native Windows EXE. The Android APK bundles the dashboard UI; the processing API must be hosted on a reachable HTTPS server and configured in the app. OBB files may be proprietary, encrypted, or game-specific; generic archive preview cannot interpret all OBB data.\n\nBefore exposing the service to the internet, add authentication, per-user project isolation, rate limits, quotas, malware scanning, background job queue, and a hardened container/sandbox for Android tooling. Set an explicit upload cap for public deployments. `MAX_UPLOAD_BYTES=0` disables only the app-level cap; disk, proxy and host limits remain.\n\nUse only software and assets you are authorized to modify. Do not use this project to bypass DRM, licensing, anti-cheat, or access controls. Never execute uploaded binaries on the server.\n\n## Desktop and Android packages\n\nSee [`docs/INSTALLERS.md`](docs/INSTALLERS.md). Run the `Build APKForge AI installers` workflow from GitHub Actions to generate Windows `.exe`/`.msi` installers and an Android debug `.apk`. The workflow has been configured in the repository, but build artifacts exist only after a successful workflow run. The Android package requires a separately hosted HTTPS API for processing features.\n"
         }
       ],
-      "scrapedAt": "2026-10-25T10:01:34.690Z"
+      "scrapedAt": "2026-10-25T14:23:27.700Z"
     },
     {
       "repository": {
@@ -3831,7 +3831,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-10-25T10:01:34.952Z"
+      "scrapedAt": "2026-10-25T14:23:27.933Z"
     },
     {
       "repository": {
@@ -4008,7 +4008,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-10-25T10:01:34.982Z"
+      "scrapedAt": "2026-10-25T14:23:27.986Z"
     },
     {
       "repository": {
@@ -4040,7 +4040,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-10-25T10:01:34.826Z"
+      "scrapedAt": "2026-10-25T14:23:27.864Z"
     },
     {
       "repository": {
@@ -4072,7 +4072,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-10-25T10:01:34.880Z"
+      "scrapedAt": "2026-10-25T14:23:27.922Z"
     },
     {
       "repository": {
@@ -4104,7 +4104,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-10-25T10:01:34.933Z"
+      "scrapedAt": "2026-10-25T14:23:27.975Z"
     }
   ]
 }
