@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-10-25T05:21:23.480Z",
+  "fetchedAt": "2026-10-25T10:01:34.982Z",
   "repositoryCount": 9,
   "repositories": [
     {
@@ -15,13 +15,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-10-25T04:58:54Z",
-        "pushed_at": "2026-10-25T04:58:50Z",
+        "updated_at": "2026-10-25T09:46:32Z",
+        "pushed_at": "2026-10-25T09:46:28Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "JavaScript",
-        "size": 360,
+        "size": 366,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -56,6 +56,20 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "1d2a61fbc69e0484baaa57b18018107793bb8a44",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-10-25T09:46:27Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/1d2a61fbc69e0484baaa57b18018107793bb8a44"
+        },
+        {
+          "sha": "8bd2af17d6fc87ca8cadbf144bdb51f3ce599ac5",
+          "message": "chore: refresh live repository and public metadata",
+          "author": "github-actions[bot]",
+          "date": "2026-10-25T06:11:47Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/8bd2af17d6fc87ca8cadbf144bdb51f3ce599ac5"
+        },
+        {
           "sha": "63d7272d06530c0052bd5d8d7868653546508f8f",
           "message": "chore: refresh GitHub corporate data",
           "author": "github-actions[bot]",
@@ -75,20 +89,6 @@
           "author": "github-actions[bot]",
           "date": "2026-10-25T00:18:17Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/467e628e86699c86a6646fa0b419b96ad58c1d0a"
-        },
-        {
-          "sha": "2785bbf69d861cfab838153cb2b0eaa57df16e7c",
-          "message": "chore: refresh live repository and public metadata",
-          "author": "github-actions[bot]",
-          "date": "2026-10-24T23:05:23Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/2785bbf69d861cfab838153cb2b0eaa57df16e7c"
-        },
-        {
-          "sha": "b9a4195c415907e35b1a4382ba845ab11dde0f63",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-10-24T22:01:13Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/b9a4195c415907e35b1a4382ba845ab11dde0f63"
         }
       ],
       "tree": [
@@ -218,8 +218,8 @@
         {
           "path": "external-live.js",
           "type": "blob",
-          "size": 6983,
-          "sha": "ca17b7a4e131f9ccff6f89b56df7299d6d87bf8b"
+          "size": 6989,
+          "sha": "7a7846729a9c4b00722555d43fb0c739f56ee998"
         },
         {
           "path": "gateway",
@@ -242,7 +242,7 @@
           "path": "github-live.js",
           "type": "blob",
           "size": 13003,
-          "sha": "e436565ad71314ed497b90a2b6e95437430d117d"
+          "sha": "b63d29e547fa97bb07b70a38f714984b9214f426"
         },
         {
           "path": "i18n.js",
@@ -385,7 +385,7 @@
           "content": "# NEXOVONARSA CORPORATION — Corporate Project Control Center\n\nInternal-style single-page dashboard for monitoring the 2026–2030 corporate project portfolio.\n\n## Included\n- Corporate dashboard and status KPIs\n- Companies and business-unit overview\n- Central Projects database with search and filters\n- Project detail modal with corporate-control fields\n- Roadmap 2026–2030 and management hierarchy\n- Calendar/review cadence, milestones and tasks\n- Reports, risks, budget, documents and decisions\n- Notifications, team view and audit/activity log\n- CSV export of the current project filter\n- Responsive dark corporate interface with animated buttons and subtle shadows\n- System Health page for automated telemetry and integrity checks\n- Scraper Sources page for public metadata monitoring\n- Automated repository validator for data, routes, links and source integrity\n- 10-language interface: Indonesia, English, Melayu, Tiếng Việt, ไทย, 简体中文, 日本語, 한국어, العربية, Español\n- Email/password login, registration, password reset and Google OAuth UI\n- Account/profile state and settings for language, theme, reduced motion and auto-refresh\n- PWA shell and responsive touch-friendly layout for desktop, tablet and mobile\n- Static deployment, no build step required\n\n## Files\n- `index.html` — application shell\n- `styles.css` — responsive corporate UI\n- `data.js` — companies, roadmap and alerts\n- `portfolio.js` — project portfolio baseline\n- `app.js` — dashboard logic, filters, detail view and CSV export\n- `scripts/sync-github.mjs` — GitHub repository intelligence sync\n- `scripts/scrape-public.mjs` — public HTTPS metadata scraper with robots, retries, size/type/redirect safety and generated telemetry\n- `scripts/validate.mjs` — automated structural/data validation\\n- `scripts/smoke-test.mjs` — route-level browser-runtime smoke test\\n- `gateway/server.mjs` — optional Node.js static gateway with `/api/health` and `/api/version`\\n- `gateway/test.mjs` — gateway integration smoke test\\n- `package.json` — npm scripts for check, smoke, test, gateway, scraper and GitHub sync\n- `scrape-config.json` — public scraper source registry\n- `external-live.js` — generated scraper snapshot\\n- `icons/` — installable PWA icon assets\n- `.github/workflows/deploy.yml` — GitHub Pages deployment\n\n## Data governance\nThe baseline follows the supplied Corporate Project Roadmap. Progress is shown only when an authoritative value exists in the project registry; otherwise it remains `TBD`. PIC, target, budget and similar operational fields remain `TBD` until the responsible project owner supplies actual data. The dashboard does not invent operational metrics.\n\n**Last Update:** 10/08/2026  \n**Planning Period:** 2026–2030  \n**Document Owner:** NEXOVONARSA CORPORATION\n\n## Live GitHub integration\nThe Corporate Control Center now has a **Repository Intelligence** page. It synchronizes the owner's GitHub repositories through the GitHub API instead of maintaining a hand-edited project list.\n\n### What is synchronized\n- Repository inventory and visibility\n- Repository URL, default branch, language and size\n- Latest push/update timestamps\n- Latest commit\n- Open issues and pull requests\n- Branch count\n- Latest GitHub Actions workflow state\n- Corporate mapping (company, business unit and project)\n\n### Refresh model\nGitHub Actions runs repository synchronization and public metadata scraping every **15 minutes** and commits `github-live.js` plus `external-live.js` when data changes. This is near-real-time polling, not a permanent WebSocket connection. GitHub Pages remains static, so the design does not expose a GitHub token to browser JavaScript.\n\n### Private repositories\nFor cross-repository private-data access, create a GitHub fine-grained token with the minimum required read access and save it as the repository secret **GH_PAT**. Do not put the token in source files.\n\nWithout `GH_PAT`, the workflow falls back to `GITHUB_TOKEN`, which is intentionally limited by GitHub Actions permissions and may not be able to inspect private sibling repositories.\n\n### Current connected repositories\nThe connected GitHub account currently exposes these owned repositories to the corporate registry:\n- `nararya-customer-service-platform` (private)\n- `modbussid-converter`\n- `nararya-bot-discord`\n- `narasacakraperwana-website`\n- `nararyastudio-website`\n- `nararyagarage-website`\n- `nexovonarsacorporation-website`\n\nNew owned repositories are automatically discovered by the sync job. If a new repository has no corporate mapping, it appears as **UNMAPPED** until its mapping is added to `sync-config.json`.\n\n\n## Automated quality controls\n\nThe **Corporate Quality Gate** runs `scripts/validate.mjs` on pushes and pull requests. The validator checks JavaScript syntax, required files, portfolio fields, duplicate IDs, progress bounds, route coverage, GitHub URL safety, scraper configuration, generated snapshot structure and accidental token-like literals.\n\nThe scraper is intentionally metadata-only. It fetches configured public HTTPS pages, records title/description/canonical URL/HTTP status/fetch timing, and never requires credentials or private cookies. A failed public source is reported in the dashboard instead of being silently treated as healthy.\n\nThe **System Health** page is an operational view of the latest generated snapshots. It does not invent project progress, PIC, budget or target values; unknown operational values remain **TBD**.\n\n\n## Authentication and localization\n\nAuthentication is implemented with Supabase Auth in the browser. The repository contains a safe placeholder in `config.js`; replace only the Supabase project URL and publishable browser key. Never place a `service_role` credential in browser code.\n\nGoogle Sign-In requires the Google OAuth client plus Google provider configuration in Supabase. The setup steps are documented in [docs/AUTH_SETUP.md](docs/AUTH_SETUP.md). For GitHub Pages, the deploy workflow can generate the published `config.js` from repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; the source repository keeps only safe placeholders.\n\nThe UI provides ten selectable languages and persists the selection locally. Theme, reduced motion and auto-refresh are also user settings. Authentication sessions are persisted by Supabase Auth rather than by storing raw passwords in the application.\n\n\n## NPM and Gateway Runtime\n\nThe repository now has an npm contract for local/server execution:\n\n```bash\nnpm install\nnpm test\nnpm start\n```\n\nThe frontend remains deployable as a static GitHub Pages site. The optional Node.js gateway serves the same frontend and exposes health/version endpoints for VPS, container or reverse-proxy environments. The project intentionally uses no frontend npm runtime dependencies, so the install step stays deterministic and lightweight.\n\nSee [docs/GATEWAY.md](docs/GATEWAY.md) for the gateway runbook.\n\n## Copyright Footer\n\nWebsite and bot surfaces use the required footer:\n\n**PT. NEXOVONARSACORPORATION - All Right Reserved**\n"
         }
       ],
-      "scrapedAt": "2026-10-25T05:21:23.405Z"
+      "scrapedAt": "2026-10-25T10:01:34.772Z"
     },
     {
       "repository": {
@@ -398,13 +398,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-10-25T00:33:39Z",
-        "pushed_at": "2026-10-25T00:33:36Z",
+        "updated_at": "2026-10-25T05:21:27Z",
+        "pushed_at": "2026-10-25T05:21:24Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "TypeScript",
-        "size": 3835,
+        "size": 3837,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -477,6 +477,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "9e0dc316626699dc91239fdc9525bc34daf2b7be",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-10-25T05:21:23Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/9e0dc316626699dc91239fdc9525bc34daf2b7be"
+        },
+        {
           "sha": "0dbc213dd40bd5e4e0e44dba921d349ed2ab9458",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -503,13 +510,6 @@
           "author": "github-actions[bot]",
           "date": "2026-10-24T17:55:52Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/81ec24dfa4ca60b3a05cb8bd6c05798e713cfb83"
-        },
-        {
-          "sha": "d869763baf7fa61b742f5e3b3419071090cf0bb0",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-10-24T14:46:13Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/d869763baf7fa61b742f5e3b3419071090cf0bb0"
         }
       ],
       "tree": [
@@ -1948,13 +1948,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "5646116efe51ca98306f71230d9f1b64a81c3bce"
+          "sha": "8d49d8a9bb997747a1184d8d8eb31d1507d5887b"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 236600,
-          "sha": "e02f7945b5174f77651b9220229bbc8dfaf70be6"
+          "size": 168516,
+          "sha": "e817b18781c12602134a5bbece2d8c523b946104"
         },
         {
           "path": "data/repositories.ts",
@@ -2244,27 +2244,27 @@
         {
           "path": "docs/DATABASE.md",
           "size": 499,
-          "content": null
+          "content": "# Database\n\nNARARYA GARAGE menggunakan PostgreSQL melalui Prisma. Schema mencakup user/member, RBAC-ready role fields, platform, community, event/convoy registration, modding, showcase, gallery, forum, tutorial, download, report, moderation, notification, partner, achievement, dan activity log.\n\n## Setup\n1. Isi DATABASE_URL di .env.\n2. Install Prisma CLI/client.\n3. Jalankan migration setelah backend Prisma diaktifkan.\n\nJangan menyimpan password, token, atau secret sebagai plaintext di database."
         },
         {
           "path": "docs/API.md",
           "size": 574,
-          "content": null
+          "content": "# API Contract\n\nRencana endpoint REST:\n\n- GET /api/platforms\n- GET /api/communities\n- GET /api/communities/:id\n- GET /api/events\n- POST /api/events/:id/register\n- GET /api/convoys/:id\n- GET /api/mods\n- POST /api/mods/submissions\n- GET /api/liveries\n- GET /api/showcase\n- GET /api/gallery\n- GET /api/forum/threads\n- POST /api/forum/threads\n- GET /api/tutorials\n- GET /api/downloads\n- POST /api/reports\n- GET /api/member/dashboard\n- GET /api/admin/overview\n\nSemua endpoint privat wajib menerapkan autentikasi, authorization/RBAC, validasi input, rate limit, dan audit logging."
         },
         {
           "path": "docs/SECURITY.md",
           "size": 681,
-          "content": null
+          "content": "# Security Baseline\n\n- Password wajib di-hash dengan algoritma modern.\n- Secret hanya melalui environment variables atau secret manager.\n- Validasi input dan output untuk mencegah injection/XSS.\n- CSRF protection untuk cookie-based mutation endpoints.\n- Secure, HttpOnly, SameSite cookies.\n- Rate limiting pada login, register, upload, report, dan API sensitif.\n- Validasi MIME type, extension, ukuran, dan nama file upload.\n- Jangan memperbolehkan executable upload.\n- RBAC diterapkan server-side, bukan hanya menyembunyikan tombol di UI.\n- Audit log untuk perubahan role, suspend, ban, moderation, dan pengaturan penting.\n- Jangan mengumpulkan data pribadi yang tidak diperlukan."
         },
         {
           "path": "docs/SECURITY-AUDIT.md",
           "size": 1128,
-          "content": null
+          "content": "# Security Audit\n\n## Current policy\n\nCI runs a high-severity audit against production dependencies with:\n\nnpm audit --omit=dev --audit-level=high\n\nThe project uses Prisma CLI 7.10.0 as a development dependency. The current npm audit database reports high-severity advisories in Prisma CLI's development dependency chain, including deepmerge-ts and mysql2. The automated audit fix offered by npm would downgrade Prisma to 6.19.3, which is a breaking change.\n\nFor that reason the repository does not use npm audit fix --force. Prisma 7.10.0 remains pinned as the current stable Prisma release used by this project.\n\n## Install scripts\n\nnpm 11 now tracks approval for dependency install lifecycle scripts. The project explicitly approves only the packages required for the build:\n\n- @prisma/engines@7.10.0\n- prisma@7.10.0\n- esbuild@0.28.2\n\nNo blanket dangerously-allow-all-scripts bypass is used.\n\n## CI gates\n\nThe main CI pipeline checks:\n\n1. source audit\n2. scraper syntax\n3. production dependency security\n4. Prisma schema validation\n5. TypeScript typecheck\n6. Next.js production build\n\nAny failure blocks the verification job.\n"
         },
         {
           "path": "docs/REPOSITORY-SYNC.md",
           "size": 2098,
-          "content": null
+          "content": "# Repository Data Sync\n\nNARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Prisma sebagai sumber data aplikasi.\n\n## Live repository discovery\n\n`/repositories` dan `GET /api/github/repositories` menemukan repository milik akun GitHub yang terhubung secara dinamis. Registry `data/repositories.ts` hanya menyimpan label/purpose, bukan daftar repository yang harus ada.\n\n`GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.\n\nGitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi.\n\n## Secrets\n\n- `GITHUB_TOKEN`: token GitHub dengan akses minimum yang dibutuhkan. Wajib untuk data private.\n- `GITHUB_WEBHOOK_SECRET`: secret untuk verifikasi `X-Hub-Signature-256`.\n- `DATABASE_URL`: PostgreSQL production database.\n- `NEXT_PUBLIC_SITE_URL`: URL deployment.\n\nJangan commit secret ke repository.\n\n## Webhook\n\nEndpoint: `POST /api/github/webhook`.\n\nWebhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`.\n\n## Database\n\nProject menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter.\n\nData aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.\n\n## Source of truth\n\n- GitHub: repository, branch, commit, issue, pull request, workflow dan source repository.\n- PostgreSQL/Prisma: member, event, convoy, mod, livery, showcase, gallery, forum, tutorial, download, moderation, notification dan pengaturan.\n- Website: layer UI/API yang membaca kedua sumber secara live.\n\n## Private repository\n\nRepository private hanya dapat dibaca saat deployment memiliki token dengan permission yang sesuai. Tanpa token tersebut, kegagalan akses ditampilkan sebagai data unavailable, bukan diganti angka fiktif.\n"
         },
         {
           "path": "README.md",
@@ -2273,11 +2273,11 @@
         },
         {
           "path": "data/github-repositories.json",
-          "size": 236600,
+          "size": 168516,
           "content": null
         }
       ],
-      "scrapedAt": "2026-10-25T05:21:23.479Z"
+      "scrapedAt": "2026-10-25T10:01:34.887Z"
     },
     {
       "repository": {
@@ -2458,7 +2458,7 @@
           "content": "# Nexovonarsa SuperApp\n\nResponsive web MVP for learning, entertainment discovery, games, security education, productivity, and a digital service store.\n\n## Current implementation\n\n- **Home portal** (`index.html`): responsive portal with feature search and categories.\n- **Store prototype** (`store.html`): searchable catalog, browser-side cart, checkout demo, demo transaction ID, 10-minute browser countdown, WhatsApp deep link, and AI assistant placeholder.\n- **Developer & Security Lab** (`developer-tools.html`): bug-report builder with TXT export, JSON validator, text inspector, demo ID generator, and manual WhatsApp compatibility and device-privacy checklists.\n- **Status page** (`status.html`): polls the public GitHub Actions API every 60 seconds to show recent workflow runs. This reflects workflow state, not full production uptime.\n- **Automated checks**: GitHub Actions runs the static-site checker and Playwright browser tests on pushes to `main` and pull requests targeting `main`; screenshot artifacts are uploaded by CI.\n\n## Real-time data integration plan\n\nThe ten-scraper architecture, source authorization rules, freshness/provenance contract, and production release checklist are documented in [`docs/REALTIME_DATA_10_SCRAPERS.md`](docs/REALTIME_DATA_10_SCRAPERS.md). The ten entries are adapter roles, **not live sources already connected**. The static site alone cannot provide secure server-side scraping or live AI.\n\n## Important limitations\n\nThis is a static web prototype, not a production-ready service.\n\n- **AI:** no live AI provider is connected. The assistant content is demo text. Real AI needs a secured server-side integration and a provider API key stored as a secret. Never put private API keys in browser JavaScript.\n- **Payments:** QRIS is a visual placeholder. No money is collected or verified. Real payments require a payment provider, server-side order records, signature-verified webhooks, and server-side expiry checks.\n- **WhatsApp:** the checkout creates a browser deep link only. It does not send automated messages or independently confirm payment.\n- **Data:** there is no backend, account system, persistent database, or connected live domain-specific data API. Browser-local notes remain in the current browser.\n- **Phone checks:** phone-number validation checks format only; it does not identify an owner or verify WhatsApp registration. Privacy checklists are manual guidance, not device scans.\n\nDo not describe demo data as real-time or verified production data.\n\n## Feature catalog\n\n### Learning\n- Qur'an reading module: planned; requires a verified and properly licensed source.\n- Shalawat audio player: planned; use authorized audio.\n- Study hub and learning checklist: demo.\n\n### Entertainment\n- Comic discovery and official provider links: planned.\n- Anime, film, music, and podcast discovery through licensed services: planned.\n- Mini-game / HTML5 game area: planned.\n\n### Communication\n- Opt-in messaging concept with rate limits, unsubscribe controls, and abuse prevention: planned.\n- Phone-number format validation: demo only.\n\n### Security\n- Device privacy checklist.\n- Wi-Fi security guidance for networks owned by the operator or explicitly authorized for assessment.\n- Website security checklist for authorized domains.\n- WhatsApp account-security guide.\n- No DDoS, Wi-Fi disruption, device intrusion, account takeover, spam, or crash/freeze payloads.\n\n### Productivity and developer tools\n- Browser-local notes: demo.\n- Live AI assistant: planned; secured backend and provider credentials required.\n- Authorized API playground: planned.\n- Bug-report builder with TXT export: local only; no server submission.\n- JSON validation, text inspection, and demo ID generation.\n- Feedback and help center: planned.\n\n## Run locally\n\nOpen `index.html` in a modern browser. The prototype has no local build step. Automated checks run in GitHub Actions and use Python, Node.js, and Playwright.\n\n## Enable GitHub Pages deployment\n\nThe deployment workflow is configured to run on pushes to `main`, but the repository's latest deployment attempt failed while configuring Pages. A repository owner must verify the hosting configuration and permissions:\n\n1. Open repository **Settings → Pages**.\n2. Set the build and deployment source to **GitHub Actions**.\n3. Confirm GitHub Actions is permitted to deploy Pages for this repository.\n4. Open the **Actions** tab and rerun the deployment workflow after fixing the configuration.\n5. Verify the published URL in **Settings → Pages** and test the deployed pages.\n\nA successful CI test does not mean the Pages deployment succeeded. Check each workflow result separately.\n\n## Automation and verification\n\n- A push to `main` triggers static checks and the Pages deployment workflow.\n- Pull requests targeting `main` trigger static checks.\n- CI uploads browser screenshots as an artifact for 14 days.\n- The status page refreshes workflow information every 60 seconds.\n- New functionality is not generated automatically by a commit. Code changes must still be implemented, reviewed, tested, and committed. Deployment only happens when the configured workflow succeeds.\n\n## Next engineering milestones\n\n1. Keep expanding automated tests, accessibility checks, and mobile browser coverage.\n2. Add unit tests and split larger scripts into maintainable modules.\n3. Build a secure backend with authentication, authorization, rate limiting, logging, and privacy controls before storing user data.\n4. Integrate live data APIs only after verifying their sources, freshness, licensing, and terms.\n5. Add AI through a secured backend and test provider errors, rate limits, and cost controls.\n6. Integrate payments only through a supported payment provider with server-side webhook verification.\n7. Add staging and production monitoring before presenting the app as production-ready.\n\n## Safety and content policy\n\nThis project is for lawful, consent-based use. Security modules should remain defensive and limited to systems the operator owns or has explicit permission to test. No DDoS tools, Wi-Fi killers, unauthorized phone access, WhatsApp crash/freeze exploits, spam payloads, or group takeovers are included.\n\n## Version\n\nWeb MVP: **0.4.2**. Features explicitly marked as demos or planned are not fully integrated live services.\n"
         }
       ],
-      "scrapedAt": "2026-10-25T05:21:23.389Z"
+      "scrapedAt": "2026-10-25T10:01:34.676Z"
     },
     {
       "repository": {
@@ -2903,7 +2903,7 @@
           "content": "# APKForge AI\n\nAPKForge AI is a browser-based workbench for inspecting Android package archives and planning authorized modifications to apps and game assets you own or have permission to edit.\n\n## Implemented workflow\n\n- Responsive Indonesian web dashboard.\n- Upload `.apk`, `.apks`, `.aab`, `.obb`, `.zip`, `.apfproj`, `.exe`, and `.msi` for safe storage. EXE/MSI files are never executed by the server.\n- ZIP-compatible archive listing without extracting the archive. Preview safety caps: 5,000 entries and 2 GiB total declared uncompressed size.\n- APK decode into a workspace using Apktool, when Apktool and Java are installed on the host.\n- Project file listing and editing for selected text formats (XML, JSON, text, properties, Smali, HTML, JS, CSS, Java/Kotlin, YAML and config files), limited to 2 MiB per file.\n- Rebuild decoded projects into an **unsigned APK** using Apktool.\n- Optional APK signing and signature verification using a keystore configured on the server.\n- AI change-plan endpoint compatible with chat-completions style providers.\n- AI patch proposals across up to five selected editable text files, with per-file review/editing, path/content validation, assumptions, risks, suggested tests, backups and a review step before the user explicitly applies the proposal.\n- Persistent local learning memory: stores sanitized request patterns and only reuses patterns from edits the user explicitly approved; similar future requests can use these examples to infer intent with fewer clarification questions. This is retrieval-based memory, not model fine-tuning.\n- Allowlisted process helper for Apktool, JADX, and apksigner.\n- Asset Manager for replacing supported image, texture, model, audio and data assets, with backup/undo.\n- Backup/undo for text file edits and binary asset replacement.\n- Windows desktop packaging configured for `.exe` and `.msi` installers through Electron Builder.\n- Capacitor Android shell and GitHub Actions workflow configured to build a debug `.apk`.\n- GitHub Actions syntax validation.\n\n## Run locally\n\nRequirements: Node.js 20+, Java runtime, and Apktool for decode/build features.\n\n```bash\nnpm install\ncp .env.example .env\nnpm run check\nnpm run dev\n```\n\nOpen `http://127.0.0.1:8787`. On Windows, use `copy .env.example .env` if `cp` is unavailable.\n\nSet `AI_BASE_URL`, `AI_API_KEY`, and `AI_MODEL` in `.env` for an OpenAI-compatible provider. Never commit API keys.\n\n## API\n\n- `GET /api/health` — service status.\n- `GET /api/formats` — supported formats and limitations.\n- `POST /api/uploads` — upload one file as multipart field `file`.\n- `GET /api/uploads/:id/inspect` — preview entries of ZIP-compatible uploads.\n- `POST /api/uploads/:id/decode` — decode an uploaded APK with Apktool.\n- `GET /api/projects/:id/files` — list decoded project files.\n- `GET /api/projects/:id/file?path=...` — read an editable text file.\n- `PUT /api/projects/:id/file` — JSON body: `{ \"path\": \"res/values/strings.xml\", \"content\": \"...\" }`.\n- `POST /api/projects/:id/build` — build unsigned APK.\n- `GET /api/projects/:id/artifact` — download generated unsigned APK.\n- `POST /api/projects/:id/sign` — sign the generated APK using server-configured keystore credentials and verify the signature.\n- `GET /api/projects/:id/signed-artifact` — download the signed APK.\n- `POST /api/ai/plan` — generate a change plan from JSON `{ \"request\": \"...\" }`.\n- `POST /api/projects/:id/undo` — restore the latest backup of a text file.\n- `PUT /api/projects/:id/asset` — replace a supported binary asset with multipart fields `path` and `file`.\n- `POST /api/projects/:id/asset/undo` — restore the latest asset backup.\n- `POST /api/projects/:id/ai/patch-plan` — propose a reviewable text-file edit from JSON `{ \"request\": \"...\", \"paths\": [\"res/values/strings.xml\"] }`. The AI can only propose edits to the selected editable files; the proposal is not applied until the user reviews it and explicitly confirms. Relevant user-approved patterns may be supplied as context.\n- `POST /api/projects/:id/ai/apply-patch` — apply 1–5 reviewed file changes with validation and backups.\n- `POST /api/ai/learn` — record an explicitly approved request pattern after an AI-proposed edit has been applied. The server stores sanitized request/summary/file-type metadata, not source-file contents.\n\n## Current limitations (read before production)\n\nThis is a functional development workflow, **not a completed universal APK modder**. Decode/build depends on the host having Apktool and Java installed. Rebuilt output is unsigned until the optional signing workflow is configured with a keystore you control. Never commit keystores or passwords. The project editor edits text files only; it does not automatically replace 3D models, textures, vehicle assets, or arbitrary binary resources. The AI planner creates plans, and the patch endpoint proposes edits to selected text files. A proposal requires manual review and explicit confirmation before it is saved. Approved request patterns are kept in the server workspace and retrieved for similar future requests; this does not train or fine-tune the underlying model, and memory is local to that server/workspace. The AI still cannot implement features whose required source files, APIs, engine hooks, or binary-format specifications are not available. Asset replacement is format-agnostic at the file level and cannot guarantee game-specific model/texture compatibility.\n\nThe project can be packaged as its own Windows `.exe` installer and `.msi` installer, and as an Android debug `.apk`. These are APKForge AI app builds, not automatic conversion of an uploaded APK into Windows binaries. An APK cannot be directly converted into a native Windows EXE. The Android APK bundles the dashboard UI; the processing API must be hosted on a reachable HTTPS server and configured in the app. OBB files may be proprietary, encrypted, or game-specific; generic archive preview cannot interpret all OBB data.\n\nBefore exposing the service to the internet, add authentication, per-user project isolation, rate limits, quotas, malware scanning, background job queue, and a hardened container/sandbox for Android tooling. Set an explicit upload cap for public deployments. `MAX_UPLOAD_BYTES=0` disables only the app-level cap; disk, proxy and host limits remain.\n\nUse only software and assets you are authorized to modify. Do not use this project to bypass DRM, licensing, anti-cheat, or access controls. Never execute uploaded binaries on the server.\n\n## Desktop and Android packages\n\nSee [`docs/INSTALLERS.md`](docs/INSTALLERS.md). Run the `Build APKForge AI installers` workflow from GitHub Actions to generate Windows `.exe`/`.msi` installers and an Android debug `.apk`. The workflow has been configured in the repository, but build artifacts exist only after a successful workflow run. The Android package requires a separately hosted HTTPS API for processing features.\n"
         }
       ],
-      "scrapedAt": "2026-10-25T05:21:23.378Z"
+      "scrapedAt": "2026-10-25T10:01:34.690Z"
     },
     {
       "repository": {
@@ -2927,15 +2927,911 @@
         "disabled": false,
         "topics": []
       },
-      "languages": {},
-      "readme": null,
-      "packageJson": null,
+      "languages": {
+        "TypeScript": 112734,
+        "JavaScript": 381
+      },
+      "readme": "# NARASA CAKRA PERWANA Website\n\nWebsite PO Virtual / Virtual Transportation Community NARASA CAKRA PERWANA.\n\n## Version 4.0\n\n- Responsive white + pink design\n- Soft shadows and animated buttons\n- Mobile hamburger menu\n- 10-language selector\n- Account register\n- Email/password login\n- Google OAuth login\n- JWT session\n- User dashboard\n- Profile/settings\n- Password change and password creation for Google-only accounts\n- PostgreSQL + Prisma\n- Live GitHub project monitor\n- Private GitHub repository admin monitor\n- HTML/RSS/JSON scraper\n- Scraper history + stored items\n- Scheduled scraper endpoint\n- Admin authentication\n- Error, 404 and loading boundaries\n- Health endpoint\n- ESLint + TypeScript + production build checks\n\n## AI Assistant\n\n- AI assistant page at `/ai` with project ID `NCRP-WEB-2026-0001`\n- Server-side OpenAI Responses API integration at `/api/ai`\n- Prompt validation and response size limit\n- Configure `OPENAI_API_KEY` and optionally `OPENAI_MODEL` in deployment environment; never expose the key in client code\n- AI requests return a clear unavailable response when the key is not configured\n\n## Store, checkout, and member IDs\n\n- Store page at `/shop` with a cart and server-side price calculation\n- Order IDs are unique and payment expires 10 minutes after checkout\n- Order status endpoint at `/api/orders/{transactionId}` refreshes expiry status without caching\n- Manual QRIS display via `NEXT_PUBLIC_QRIS_IMAGE_URL` and WhatsApp confirmation link via `NEXT_PUBLIC_WHATSAPP_ORDER_NUMBER`\n- QRIS payment is manual until a payment gateway webhook or verified admin workflow is configured; the website must not claim a transfer is paid automatically\n- Protected payment webhook adapter at `/api/payments/webhook` accepts only authenticated `paid` events, checks the exact IDR amount, rejects expired orders, and handles repeat notifications idempotently. Configure `PAYMENT_WEBHOOK_SECRET` (minimum 32 characters) and map the real payment provider’s verified server-to-server event to this adapter before enabling live automatic verification. This generic endpoint is not itself a QRIS/payment provider integration.\n- Driver and passenger registration at `/identities`, with generated IDs `NCRP-DRV-YYYY-XXXXXXXX` and `NCRP-PSG-YYYY-XXXXXXXX`\n- New Prisma models require `npx prisma db push` or a reviewed production migration before these endpoints can persist data\n\n## Health and integration readiness\n\nThe uncached `/api/health` endpoint checks database connectivity and required NextAuth configuration, and reports whether optional integrations are configured without exposing secret values. Diagnostics include AI, Google OAuth, GitHub access mode, scraper configuration, QRIS display, WhatsApp checkout, and payment-webhook configuration. Optional integrations may remain unconfigured during development; a healthy response does not mean those services have been end-to-end tested or that a payment provider is connected.\n\n## Ten languages\n\n- 🇮🇩 Bahasa Indonesia\n- 🇬🇧 English\n- 🇲🇾 Bahasa Melayu\n- 🇨🇳 简体中文\n- 🇯🇵 日本語\n- 🇰🇷 한국어\n- 🇸🇦 العربية\n- 🇪🇸 Español\n- 🇫🇷 Français\n- 🇩🇪 Deutsch\n\nThe selected locale is stored in a browser cookie and, for authenticated users, in PostgreSQL.\n\n## Authentication\n\nLocal account:\n- Register\n- Login\n- Logout\n- Password hash with bcrypt\n- JWT session\n\nGoogle:\n- Google OAuth provider through NextAuth\n- Existing Google users are matched by normalized email\n- Google-only users can create a local password later in Settings\n\nRequired environment:\n\n```env\nNEXTAUTH_URL=\"https://narasacakraperwana.com\"\nNEXTAUTH_SECRET=\"\"\nGOOGLE_CLIENT_ID=\"\"\nGOOGLE_CLIENT_SECRET=\"\"\n```\n\nGoogle OAuth redirect URIs:\n\n```\nhttps://YOUR-DOMAIN/api/auth/callback/google\nhttp://localhost:3000/api/auth/callback/google\n```\n\nDo not put Google secrets in source control.\n\n## Scraper\n\nSupported:\n- HTML/CSS selector\n- RSS/XML\n- JSON\n\nSafety:\n- HTTPS only\n- response timeout\n- response size limit\n- configurable HTTPS host allowlist; every redirect target is re-validated\n- maximum 10 configured sources, unique source keys, bounded timeout/response size\n- extracted item/image links are stored only when they resolve to HTTPS URLs without embedded credentials\n- each source records its own success/error state so a failed source does not stop later configured sources\n- database persistence\n- run history\n- dry-run configuration validation\n\nCommands:\n\n```bash\nnpm run scrape\nnpm run scrape:check\n```\n\nScheduler endpoint:\n\n`/api/scraper/run`\n\nIt requires `CRON_SECRET` or `SCRAPER_RUN_SECRET`.\n\n## GitHub connection\n\nPublic website:\n- public repository metadata\n- commit information when authenticated\n- GitHub Actions state when authenticated\n\nAdmin:\n- can synchronize owned private repositories with `GITHUB_TOKEN`\n\nPrivate repository information is never rendered on the public project monitor.\n\n## Data policy\n\nUnverified member totals, fleet units, events, and news are not seeded as real facts. Empty operational values remain empty until supplied by an authorized source or admin.\n\n## Local setup\n\n```bash\nnpm install\nnpx prisma generate\nnpm run db:push\nnpm run db:seed\nnpm run check\nnpm run dev\n```\n\nFor full production deployment, set `DATABASE_URL`, NextAuth secrets, Google OAuth credentials, GitHub token, admin secrets, scraper configuration, `OPENAI_API_KEY`, and optionally `OPENAI_MODEL`, `NEXT_PUBLIC_QRIS_IMAGE_URL`, and `NEXT_PUBLIC_WHATSAPP_ORDER_NUMBER`. Run a reviewed Prisma migration (or `npx prisma db push` in a controlled environment) before enabling the new order and identity endpoints.\n\n\n## Payment webhook adapter\n\nSet `PAYMENT_WEBHOOK_SECRET` to a unique random secret of at least 32 characters. A payment provider integration must validate the provider’s own webhook signature first, then send a server-to-server `POST /api/payments/webhook` request with `Authorization: Bearer <PAYMENT_WEBHOOK_SECRET>` and JSON containing `transactionId`, `status: \"paid\"`, `amount` (integer rupiah), `currency: \"IDR\"`, and `providerReference`. Never call this endpoint directly from the browser. The adapter checks order amount and expiry, and is idempotent for already-paid transactions. It does not replace the provider’s signature verification or create a merchant QRIS account.\n\n\n## Scheduled live data refresh\n\nGitHub Actions workflow `.github/workflows/refresh-live-data.yml` requests the protected scraper endpoint every 15 minutes (and can also be started manually). Configure these repository Actions secrets:\n\n- `WEBSITE_URL`: deployed site origin, for example `https://your-domain.example`\n- `CRON_SECRET`: the same strong secret configured on the deployment as `CRON_SECRET` or `SCRAPER_RUN_SECRET`\n\nConfigure up to 10 independent sources in `SCRAPER_SOURCES`; the runner records per-source failures and continues with the remaining sources. Scraped links are restricted to HTTPS. The AI assistant is not used to fabricate replacement facts when a source fails; it can only explain/summarize available data when its API is configured. The refresh only updates sources configured in `SCRAPER_SOURCES` and only as fresh as those upstream sources. It is not a guarantee that every public value is accurate or truly real-time. If the secrets are missing, the workflow skips safely. New commits pushed to `main` automatically trigger the CI workflow; this project does not automatically invent or commit unreviewed features.\n",
+      "packageJson": {
+        "name": "narasacakraperwana-website",
+        "version": "4.0.1",
+        "private": true,
+        "scripts": {
+          "dev": "next dev",
+          "build": "prisma generate && next build",
+          "start": "next start",
+          "lint": "eslint .",
+          "typecheck": "tsc --noEmit",
+          "check": "npm run lint && npm run typecheck",
+          "db:generate": "prisma generate",
+          "db:push": "prisma db push",
+          "db:migrate": "prisma migrate dev",
+          "db:seed": "tsx prisma/seed.ts",
+          "scrape": "tsx scripts/scraper.ts",
+          "scrape:check": "tsx scripts/scraper.ts --dry-run"
+        },
+        "dependencies": {
+          "@prisma/client": "6.19.3",
+          "bcryptjs": "3.0.3",
+          "cheerio": "1.2.0",
+          "jose": "6.1.0",
+          "next": "16.4.3",
+          "next-auth": "4.24.15",
+          "react": "19.2.0",
+          "react-dom": "19.2.0",
+          "zod": "4.6.7"
+        },
+        "devDependencies": {
+          "@types/node": "24.10.1",
+          "@types/react": "19.2.7",
+          "@types/react-dom": "19.2.3",
+          "@eslint/js": "10.0.1",
+          "eslint": "10.11.0",
+          "prisma": "6.19.3",
+          "tsx": "4.20.6",
+          "typescript-eslint": "8.70.0",
+          "eslint-plugin-react-hooks": "7.1.1",
+          "typescript": "5.9.3"
+        },
+        "overrides": {
+          "deepmerge-ts": "^8.0.0",
+          "encoding-sniffer": "^1.0.2"
+        }
+      },
       "latestRelease": null,
-      "commits": [],
-      "tree": [],
+      "commits": [
+        {
+          "sha": "bb58255f9b54df91059e96422168db68c777c39f",
+          "message": "docs: document scraper limits and source fallback behavior",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:40:34Z",
+          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/bb58255f9b54df91059e96422168db68c777c39f"
+        },
+        {
+          "sha": "fb62c786aedc1d74c67115dec46b98fc151d308e",
+          "message": "fix: harden scraper config and sanitize extracted URLs",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:40:24Z",
+          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/fb62c786aedc1d74c67115dec46b98fc151d308e"
+        },
+        {
+          "sha": "3930f56bf8131760f16e9f4e3fed99cf7ae94574",
+          "message": "fix: validate scraper redirects and cap response streaming",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:28:44Z",
+          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/3930f56bf8131760f16e9f4e3fed99cf7ae94574"
+        },
+        {
+          "sha": "981b3efb201231a31964d052602863bcfe4a86fd",
+          "message": "docs: describe health and integration readiness endpoint",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:11:12Z",
+          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/981b3efb201231a31964d052602863bcfe4a86fd"
+        },
+        {
+          "sha": "098e66e22c822a0a484658327b6fd355e4d797a3",
+          "message": "feat: expose safe integration readiness in health endpoint",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:11:04Z",
+          "url": "https://github.com/nararyajayautamagroub/narasacakraperwana-website/commit/098e66e22c822a0a484658327b6fd355e4d797a3"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".env.example",
+          "type": "blob",
+          "size": 1067,
+          "sha": "6a2daff74add6820bbfde9ea59b323d2d7d7b529"
+        },
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "dcaed13a8a7d10df73a5c0aedd0527c777be4068"
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE",
+          "type": "tree",
+          "sha": "586c27558c724ba8207464cb2ecf2632185c5053"
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "type": "blob",
+          "size": 1585,
+          "sha": "1f1fae621914fa14d8e073966384a68338a55565"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "293a57a32b64926f8f01db0b0b0054384c5cb1cf"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "type": "blob",
+          "size": 990,
+          "sha": "7b23d31e844fde80c9c761436be8ac6d64bf0d93"
+        },
+        {
+          "path": ".github/workflows/refresh-live-data.yml",
+          "type": "blob",
+          "size": 1190,
+          "sha": "1fc850317b9361836cb01f1bd9bec0ae1ffda36f"
+        },
+        {
+          "path": ".gitignore",
+          "type": "blob",
+          "size": 105,
+          "sha": "0700db4f999a957271b54455b39158188318774d"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 7471,
+          "sha": "2e5d981b1741db2fd7aa33a580579c394658e0f9"
+        },
+        {
+          "path": "app",
+          "type": "tree",
+          "sha": "1ed71b731162cf1ad008e85b910ad2a9a3205fb9"
+        },
+        {
+          "path": "app/about",
+          "type": "tree",
+          "sha": "0bde418628cfc9938aaf0f3731ded1aad75ff18d"
+        },
+        {
+          "path": "app/about/page.tsx",
+          "type": "blob",
+          "size": 1098,
+          "sha": "54e9f5e45c6e8c1340b081d48ac70cbbec17834b"
+        },
+        {
+          "path": "app/admin",
+          "type": "tree",
+          "sha": "f060ab251066d88bd91f2732b4ecdc85bac84b63"
+        },
+        {
+          "path": "app/admin/github",
+          "type": "tree",
+          "sha": "0db65dc5f2a538ed8647e0a9dec735c8a81c5ebf"
+        },
+        {
+          "path": "app/admin/github/page.tsx",
+          "type": "blob",
+          "size": 1376,
+          "sha": "0180a05c272ecfd14f062d8106dfc0699ab31fa0"
+        },
+        {
+          "path": "app/admin/login",
+          "type": "tree",
+          "sha": "6036b6037da7a50f34a1f77bb9308d34f73905b3"
+        },
+        {
+          "path": "app/admin/login/page.tsx",
+          "type": "blob",
+          "size": 1371,
+          "sha": "4e10a2caba9a67dcf96732a39650df99ac262e24"
+        },
+        {
+          "path": "app/admin/page.tsx",
+          "type": "blob",
+          "size": 1814,
+          "sha": "c928c386b24f0d000411ad686b53c2b082781a06"
+        },
+        {
+          "path": "app/admin/recruitment",
+          "type": "tree",
+          "sha": "5349c036e583fa7a3e1b41a3cabc69ae6e6e7025"
+        },
+        {
+          "path": "app/admin/recruitment/page.tsx",
+          "type": "blob",
+          "size": 928,
+          "sha": "2bf240e9d1f729e245a29915924249f2873f8662"
+        },
+        {
+          "path": "app/admin/scraper",
+          "type": "tree",
+          "sha": "ec01dd5ebb81f7d59f195447703a24788251988a"
+        },
+        {
+          "path": "app/admin/scraper/page.tsx",
+          "type": "blob",
+          "size": 1535,
+          "sha": "8a56be6ca9bc538b8d116861c34b6f1501ddbb98"
+        },
+        {
+          "path": "app/ai",
+          "type": "tree",
+          "sha": "becc5f4a4cc746447011f3ef77a119b2aa95f11e"
+        },
+        {
+          "path": "app/ai/page.tsx",
+          "type": "blob",
+          "size": 2666,
+          "sha": "a5af21fce0b28ff49c6cddfb57ecaaec752f28b3"
+        },
+        {
+          "path": "app/api",
+          "type": "tree",
+          "sha": "a37e0e8326555d6e6d484540b869855f419b7fe0"
+        },
+        {
+          "path": "app/api/admin",
+          "type": "tree",
+          "sha": "47100cc5ab53100fe994753c593da577dac29ed5"
+        },
+        {
+          "path": "app/api/admin/login",
+          "type": "tree",
+          "sha": "84a59098cdb596090dffdbfe983939f04177a351"
+        },
+        {
+          "path": "app/api/admin/login/route.ts",
+          "type": "blob",
+          "size": 1070,
+          "sha": "fec6fea65f94890a975889816cd15c7ce754f626"
+        },
+        {
+          "path": "app/api/ai",
+          "type": "tree",
+          "sha": "63e9b4aad4b1cac0a7b5680321eafb0aa3845778"
+        },
+        {
+          "path": "app/api/ai/route.ts",
+          "type": "blob",
+          "size": 2257,
+          "sha": "3e336a082041d89b8921eec1ca18ac97aa4cc7d5"
+        },
+        {
+          "path": "app/api/auth",
+          "type": "tree",
+          "sha": "5e9782d73467730c9ca79a58dc43fbb73fe92c73"
+        },
+        {
+          "path": "app/api/auth/[...nextauth]",
+          "type": "tree",
+          "sha": "323d2f71be7d90955de01f835195cac05f356aa5"
+        },
+        {
+          "path": "app/api/auth/[...nextauth]/route.ts",
+          "type": "blob",
+          "size": 88,
+          "sha": "19a23872b61dd1b57889d68030947b801fc6873d"
+        },
+        {
+          "path": "app/api/contact",
+          "type": "tree",
+          "sha": "5efd60403b91e03c6cfb6ab29b583dad231495f5"
+        },
+        {
+          "path": "app/api/contact/route.ts",
+          "type": "blob",
+          "size": 467,
+          "sha": "bd8f6042f949217c777377c5c3e10c6c494a4828"
+        },
+        {
+          "path": "app/api/divisions",
+          "type": "tree",
+          "sha": "f4311fea2bec01eb2a3ebb8df158e9e1e3895b2b"
+        },
+        {
+          "path": "app/api/divisions/route.ts",
+          "type": "blob",
+          "size": 314,
+          "sha": "f6875e7d6354ee8ef65e9da175ab72660155eb9c"
+        },
+        {
+          "path": "app/api/events",
+          "type": "tree",
+          "sha": "c2ac6e0871d705a20ca697cae0dfe758159d2d80"
+        },
+        {
+          "path": "app/api/events/route.ts",
+          "type": "blob",
+          "size": 210,
+          "sha": "a8f6321b32ed273ee15bc2c53500bccd0fdc1023"
+        },
+        {
+          "path": "app/api/fleet",
+          "type": "tree",
+          "sha": "270e8c837ec9a8df2ceffd53122ab3bb5d8c3aa3"
+        },
+        {
+          "path": "app/api/fleet/route.ts",
+          "type": "blob",
+          "size": 628,
+          "sha": "892cc35183ffadb7e280b68086177dbaa4962eb1"
+        },
+        {
+          "path": "app/api/gallery",
+          "type": "tree",
+          "sha": "7b94ec0c6ab1165381e5c11e6dd038b2c0d38d1e"
+        },
+        {
+          "path": "app/api/gallery/route.ts",
+          "type": "blob",
+          "size": 195,
+          "sha": "23898e81fde281b5d9adf0cf992b1cb42c96dade"
+        },
+        {
+          "path": "app/api/github",
+          "type": "tree",
+          "sha": "471ba479d5480b42edb705d5f49e9a74dd4d60a8"
+        },
+        {
+          "path": "app/api/github/repos",
+          "type": "tree",
+          "sha": "66b75313294d0fe9854baea89ff7e115ae1cf8c1"
+        },
+        {
+          "path": "app/api/github/repos/route.ts",
+          "type": "blob",
+          "size": 971,
+          "sha": "20b3219f0b9867d0afeb8a0c22023d193f0f04f2"
+        },
+        {
+          "path": "app/api/health",
+          "type": "tree",
+          "sha": "81a84e29a81142a50a6cd3d3a141371b7327b950"
+        },
+        {
+          "path": "app/api/health/route.ts",
+          "type": "blob",
+          "size": 1760,
+          "sha": "12ba1c0f5aff025c872084bca443d8e370de1855"
+        },
+        {
+          "path": "app/api/identities",
+          "type": "tree",
+          "sha": "90801c3b4cbc51d220fbdf8f060466b9c78c4555"
+        },
+        {
+          "path": "app/api/identities/route.ts",
+          "type": "blob",
+          "size": 1993,
+          "sha": "d0ea5570f0a06e25d69d1d178d93dfc273035f32"
+        },
+        {
+          "path": "app/api/locale",
+          "type": "tree",
+          "sha": "51e8b2510227eb3c827d7bd9e6e99d4c1f16bb3c"
+        },
+        {
+          "path": "app/api/locale/route.ts",
+          "type": "blob",
+          "size": 461,
+          "sha": "8741498727617d079c20d6ae67aabcd2d7e9e681"
+        },
+        {
+          "path": "app/api/news",
+          "type": "tree",
+          "sha": "9f745737df0067e193103700899299208505c652"
+        },
+        {
+          "path": "app/api/news/route.ts",
+          "type": "blob",
+          "size": 210,
+          "sha": "a19c2dd681d61d04de8994576bc35c519b8349f1"
+        },
+        {
+          "path": "app/api/orders",
+          "type": "tree",
+          "sha": "2622f3482d00f5998a0d11db83095f92b5213b50"
+        },
+        {
+          "path": "app/api/orders/[transactionId]",
+          "type": "tree",
+          "sha": "d13af7eb23c6ace36fa2c36c36e508613a980ba9"
+        },
+        {
+          "path": "app/api/orders/[transactionId]/route.ts",
+          "type": "blob",
+          "size": 1251,
+          "sha": "0f7d26e204bec91675ea3d347fe9d4eff7d7118e"
+        },
+        {
+          "path": "app/api/orders/route.ts",
+          "type": "blob",
+          "size": 2563,
+          "sha": "ddd3bdc8e8c8697a05167d165771162897a402a3"
+        },
+        {
+          "path": "app/api/payments",
+          "type": "tree",
+          "sha": "21c53e9b51d11c4e4d9d59f8be223e043afa53d5"
+        },
+        {
+          "path": "app/api/payments/webhook",
+          "type": "tree",
+          "sha": "07fc90e6a5402b1da0b65746b8d3d9f32650bc4a"
+        },
+        {
+          "path": "app/api/payments/webhook/route.ts",
+          "type": "blob",
+          "size": 3245,
+          "sha": "083ec88db406a2215f4760d6ee11658c83c54f98"
+        },
+        {
+          "path": "app/api/recruitment",
+          "type": "tree",
+          "sha": "f63cfaf27c782ca611ea34dd9a9f5d19d889abd1"
+        },
+        {
+          "path": "app/api/recruitment/route.ts",
+          "type": "blob",
+          "size": 883,
+          "sha": "3e6a21e8c84d8e958b1fc9657e0cfa8be55dfa0e"
+        },
+        {
+          "path": "app/api/register",
+          "type": "tree",
+          "sha": "3ff0c7a8f1c8bb03d8a22dcf2e6557f83808dc37"
+        },
+        {
+          "path": "app/api/register/route.ts",
+          "type": "blob",
+          "size": 1311,
+          "sha": "5760e2e98a0ab1fcb27c1dfb44ca186e92a1ac2c"
+        },
+        {
+          "path": "app/api/scraper",
+          "type": "tree",
+          "sha": "9388304680df32ec6fe9543339a8ae57bc2e5693"
+        },
+        {
+          "path": "app/api/scraper/run",
+          "type": "tree",
+          "sha": "3a490bc34d362440e82a9c376b7052994250669f"
+        },
+        {
+          "path": "app/api/scraper/run/route.ts",
+          "type": "blob",
+          "size": 721,
+          "sha": "9bad2d07eb281ab2bc8c344ca1a48fe4c7e49863"
+        },
+        {
+          "path": "app/api/settings",
+          "type": "tree",
+          "sha": "7b09d6ce952be52f75b7659d4730e16b98f5cf9f"
+        },
+        {
+          "path": "app/api/settings/route.ts",
+          "type": "blob",
+          "size": 2265,
+          "sha": "e0d483ad9759f54754be1b7b7770a7089e4166ab"
+        },
+        {
+          "path": "app/contact",
+          "type": "tree",
+          "sha": "3f50d60daacef6f672cbec939aa9c7c07ecb11eb"
+        },
+        {
+          "path": "app/contact/page.tsx",
+          "type": "blob",
+          "size": 1531,
+          "sha": "377c0ea4fc8f1561ca34202e47c185c9211fa846"
+        },
+        {
+          "path": "app/dashboard",
+          "type": "tree",
+          "sha": "81f42769388cf91ed4bea3c54b5c825e3df6f304"
+        },
+        {
+          "path": "app/dashboard/page.tsx",
+          "type": "blob",
+          "size": 1559,
+          "sha": "e5dadfae3c86828851d5172b5b075af6bc16d9e6"
+        },
+        {
+          "path": "app/divisions",
+          "type": "tree",
+          "sha": "3dc90e74e5685400b434ae68f9e5d34af9b5f42f"
+        },
+        {
+          "path": "app/divisions/[slug]",
+          "type": "tree",
+          "sha": "9bd68cadaf9ac47f27fb1168397c28f0c7d30578"
+        },
+        {
+          "path": "app/divisions/[slug]/page.tsx",
+          "type": "blob",
+          "size": 1684,
+          "sha": "b7edd224debbcc16ea2b8b6d32a3e813bc1f0658"
+        },
+        {
+          "path": "app/divisions/page.tsx",
+          "type": "blob",
+          "size": 631,
+          "sha": "676304d5898c69249be17cf9cee73f19c7a0623e"
+        },
+        {
+          "path": "app/error.tsx",
+          "type": "blob",
+          "size": 509,
+          "sha": "4115a44632f7d8a2a6efec5f5fe0c37c6c93676e"
+        },
+        {
+          "path": "app/events",
+          "type": "tree",
+          "sha": "fbe8658a40e59d4f55a7e3aaaced2e8e61f71bcc"
+        },
+        {
+          "path": "app/events/page.tsx",
+          "type": "blob",
+          "size": 1132,
+          "sha": "cabd0cefe44557a60c0d5e288e2b861c8b9285d5"
+        },
+        {
+          "path": "app/fleet",
+          "type": "tree",
+          "sha": "6087f39384eef7480395fbab5dec9cd817c7b778"
+        },
+        {
+          "path": "app/fleet/page.tsx",
+          "type": "blob",
+          "size": 872,
+          "sha": "423f9d37f2ed37c9c06efa4c478e1336fd470728"
+        },
+        {
+          "path": "app/gallery",
+          "type": "tree",
+          "sha": "1438ebe7a29aee75759d1feb40974e410eb763fd"
+        },
+        {
+          "path": "app/gallery/page.tsx",
+          "type": "blob",
+          "size": 830,
+          "sha": "6cfe6768415cd5b45ddb7beab17622605ec947a2"
+        },
+        {
+          "path": "app/github",
+          "type": "tree",
+          "sha": "9ae2aa31bf154508aae7845e5c5008a4ea05e319"
+        },
+        {
+          "path": "app/github/[name]",
+          "type": "tree",
+          "sha": "cbc338231be8fada81fe0442d464594db95c6138"
+        },
+        {
+          "path": "app/github/[name]/page.tsx",
+          "type": "blob",
+          "size": 2064,
+          "sha": "a613b6f2387d86eb1dc7ef271b06d1257b9572a7"
+        },
+        {
+          "path": "app/github/page.tsx",
+          "type": "blob",
+          "size": 1987,
+          "sha": "5b63ae17eb5645de368077a11875125b12c7a671"
+        },
+        {
+          "path": "app/globals.css",
+          "type": "blob",
+          "size": 12381,
+          "sha": "0e891bb8b6a8637e9121af820d7637b0e1d416e5"
+        },
+        {
+          "path": "app/identities",
+          "type": "tree",
+          "sha": "5546aeb7341b4e27a53e2f0ce23ba781aff8c566"
+        },
+        {
+          "path": "app/identities/page.tsx",
+          "type": "blob",
+          "size": 3589,
+          "sha": "9c43a786da6300ff2e874511641b61d2eee72915"
+        },
+        {
+          "path": "app/layout.tsx",
+          "type": "blob",
+          "size": 1211,
+          "sha": "09389b78241e4af9fcb46c0a3a220403b0242a75"
+        },
+        {
+          "path": "app/loading.tsx",
+          "type": "blob",
+          "size": 313,
+          "sha": "5b9f76f5cc1003d0e1fe13700dd2d9ea50c7af43"
+        },
+        {
+          "path": "app/login",
+          "type": "tree",
+          "sha": "4feaf94a0fd2d5aeed837462ae1d3d04d7032746"
+        },
+        {
+          "path": "app/login/page.tsx",
+          "type": "blob",
+          "size": 1762,
+          "sha": "34e9766bbddf7b0aee45f019a0cda4ff8b864f7d"
+        },
+        {
+          "path": "app/news",
+          "type": "tree",
+          "sha": "1df08bbb83cbfc1ac382c30a38cf634c4d5bbfa5"
+        },
+        {
+          "path": "app/news/[slug]",
+          "type": "tree",
+          "sha": "96f3019cde5197785759d90839024043b1008b78"
+        },
+        {
+          "path": "app/news/[slug]/page.tsx",
+          "type": "blob",
+          "size": 728,
+          "sha": "817d57db58f407c84d5fb7f21800302bf27ad600"
+        },
+        {
+          "path": "app/news/page.tsx",
+          "type": "blob",
+          "size": 884,
+          "sha": "e59dddefe7c8355f02a47566472be12e7e40e4eb"
+        },
+        {
+          "path": "app/not-found.tsx",
+          "type": "blob",
+          "size": 363,
+          "sha": "1a098712b2b85d3257f489fb18bf0351b54d5e48"
+        },
+        {
+          "path": "app/page.tsx",
+          "type": "blob",
+          "size": 3101,
+          "sha": "6484bece0c0e8d5cab7abe4c8f44f4699ed8f317"
+        },
+        {
+          "path": "app/providers.tsx",
+          "type": "blob",
+          "size": 214,
+          "sha": "07fb378ebb6bd7e32ae8482c6fcb93ead2bad8e5"
+        },
+        {
+          "path": "app/recruitment",
+          "type": "tree",
+          "sha": "f246a78c563dd034947882c0b034ef9abf7814b3"
+        },
+        {
+          "path": "app/recruitment/page.tsx",
+          "type": "blob",
+          "size": 2708,
+          "sha": "e7ad94ad851d13d0ee5501bd26b5bc9d0491de23"
+        },
+        {
+          "path": "app/register",
+          "type": "tree",
+          "sha": "28b14fa9f665579feffa188031fc171d75c5f90a"
+        },
+        {
+          "path": "app/register/page.tsx",
+          "type": "blob",
+          "size": 2166,
+          "sha": "5ead66a0e6062e4dbbdbdc9873c08d8b1c3e6e70"
+        },
+        {
+          "path": "app/robots.ts",
+          "type": "blob",
+          "size": 188,
+          "sha": "1ee90115958011cd86ef09e95848a03a6f4b56ad"
+        },
+        {
+          "path": "app/settings",
+          "type": "tree",
+          "sha": "af86ac5867c644c47965e6e723f2d22a2a248583"
+        },
+        {
+          "path": "app/settings/page.tsx",
+          "type": "blob",
+          "size": 3171,
+          "sha": "f20bf20ea00aefa10faf6d34c346089c24726a01"
+        },
+        {
+          "path": "app/shop",
+          "type": "tree",
+          "sha": "e966ffbade22e2f8884f676697faff220c7ed4cd"
+        },
+        {
+          "path": "app/shop/page.tsx",
+          "type": "blob",
+          "size": 8116,
+          "sha": "1bda977c192794476bd1c12a64db239d9a5fa2a9"
+        },
+        {
+          "path": "app/sitemap.ts",
+          "type": "blob",
+          "size": 482,
+          "sha": "ac985f1797825d75ccbed3b1d9dc95e530e62c9e"
+        },
+        {
+          "path": "components",
+          "type": "tree",
+          "sha": "9c556756f6f4b665632e6e6e1f7a412cf0314093"
+        },
+        {
+          "path": "components/DivisionCard.tsx",
+          "type": "blob",
+          "size": 698,
+          "sha": "007b72f0ffa29dcfc4697bc21f8d68940b1f0feb"
+        },
+        {
+          "path": "components/Footer.tsx",
+          "type": "blob",
+          "size": 353,
+          "sha": "9201d2c0f19d8d50227ab7877ecfe0b95c2dbe3e"
+        },
+        {
+          "path": "components/LocaleSwitcher.tsx",
+          "type": "blob",
+          "size": 693,
+          "sha": "cf8ad32f9037f946e2b31ed26079e5f9c2171db7"
+        },
+        {
+          "path": "components/Navbar.tsx",
+          "type": "blob",
+          "size": 1908,
+          "sha": "bd5f7121105b11494766e4da52101cfdbf1fa36a"
+        },
+        {
+          "path": "components/SessionProvider.tsx",
+          "type": "blob",
+          "size": 191,
+          "sha": "05de0308da2117fa979b8c1043ae6d9681805354"
+        },
+        {
+          "path": "components/UserMenu.tsx",
+          "type": "blob",
+          "size": 921,
+          "sha": "dbfaa7d84bc70967b4532e20dccd326e3ea8975e"
+        },
+        {
+          "path": "eslint.config.mjs",
+          "type": "blob",
+          "size": 381,
+          "sha": "68c8b2edd89850ccba41e1c38ac3d688171d6234"
+        },
+        {
+          "path": "lib",
+          "type": "tree",
+          "sha": "3095e5b3216003a71ae1e089237d2ae680de889f"
+        },
+        {
+          "path": "lib/admin-auth.ts",
+          "type": "blob",
+          "size": 801,
+          "sha": "2379a75b69dbf5fecc73512a7806d688d3fa35cd"
+        },
+        {
+          "path": "lib/auth.ts",
+          "type": "blob",
+          "size": 3381,
+          "sha": "6ee224d5768e666b751a7b01b5e6a727050dae93"
+        },
+        {
+          "path": "lib/data.ts",
+          "type": "blob",
+          "size": 1815,
+          "sha": "3eb5a6fe4a898cb358437c5d6fe66c7eb9331380"
+        },
+        {
+          "path": "lib/db.ts",
+          "type": "blob",
+          "size": 262,
+          "sha": "dbb82099a09855ee84980f5839607ab00776d9a4"
+        },
+        {
+          "path": "lib/github.ts",
+          "type": "blob",
+          "size": 5419,
+          "sha": "f45f064a3813369cc35407595ed814fdb40705d7"
+        },
+        {
+          "path": "lib/i18n.ts",
+          "type": "blob",
+          "size": 4366,
+          "sha": "413bb92a52313bc43728ab5c7494f37c3c89f2b9"
+        },
+        {
+          "path": "lib/rate-limit.ts",
+          "type": "blob",
+          "size": 479,
+          "sha": "9065b98f311d0dda826a3f28dce9c9e51c840285"
+        },
+        {
+          "path": "lib/scraper.ts",
+          "type": "blob",
+          "size": 12258,
+          "sha": "0991c35d53cf5a406f8eada0e892fef2a06355ae"
+        },
+        {
+          "path": "lib/server-data.ts",
+          "type": "blob",
+          "size": 630,
+          "sha": "a8afb1dfb161f96fa93787b29771114388bb5dac"
+        },
+        {
+          "path": "lib/validation.ts",
+          "type": "blob",
+          "size": 584,
+          "sha": "bdf7a457f261a12cddcbd55fe3a1fb1b95f81c30"
+        },
+        {
+          "path": "next-env.d.ts",
+          "type": "blob",
+          "size": 210,
+          "sha": "911f40cab2f44621cfde2741243eddd21654b301"
+        },
+        {
+          "path": "next.config.ts",
+          "type": "blob",
+          "size": 531,
+          "sha": "6f165f6c03c04542533c646591b88d456a4fa220"
+        },
+        {
+          "path": "package.json",
+          "type": "blob",
+          "size": 1203,
+          "sha": "bd813015cfece74db74e9d8c6dff60eb1527ace8"
+        },
+        {
+          "path": "prisma",
+          "type": "tree",
+          "sha": "07b6d3eeab5123bfd4524feda5d0e345a2b17264"
+        },
+        {
+          "path": "prisma/schema.prisma",
+          "type": "blob",
+          "size": 7054,
+          "sha": "1a5d93f9cfce9c68bf49bf8d14dfc264389e52d1"
+        },
+        {
+          "path": "prisma/seed.ts",
+          "type": "blob",
+          "size": 1600,
+          "sha": "3d3e5eca299ce27f6c7fa23b9f91502583c36c40"
+        },
+        {
+          "path": "scripts",
+          "type": "tree",
+          "sha": "ed726f8cc2942835fc584d01d75ec6acb128485a"
+        },
+        {
+          "path": "scripts/scraper.ts",
+          "type": "blob",
+          "size": 398,
+          "sha": "edc39586c5499b5e764bdcdd9a03b5b056c42c5a"
+        },
+        {
+          "path": "tsconfig.json",
+          "type": "blob",
+          "size": 572,
+          "sha": "90d8988eda831b36c82622e0648760d0ca09b1dc"
+        },
+        {
+          "path": "types",
+          "type": "tree",
+          "sha": "cdccaf706109b6e6a9d1bbee83d710117bde0d5e"
+        },
+        {
+          "path": "types/next-auth.d.ts",
+          "type": "blob",
+          "size": 405,
+          "sha": "15079954281fa6a64ff641d9377f9d1794829e66"
+        },
+        {
+          "path": "vercel.json",
+          "type": "blob",
+          "size": 86,
+          "sha": "597757bd755f23746df8e16ad77591d62a23f82e"
+        }
+      ],
       "treeTruncated": false,
-      "sourceFiles": [],
-      "scrapedAt": "2026-10-25T05:21:23.384Z"
+      "sourceFiles": [
+        {
+          "path": "README.md",
+          "size": 7471,
+          "content": null
+        }
+      ],
+      "scrapedAt": "2026-10-25T10:01:34.952Z"
     },
     {
       "repository": {
@@ -2959,15 +3855,160 @@
         "disabled": false,
         "topics": []
       },
-      "languages": {},
-      "readme": null,
+      "languages": {
+        "HTML": 19754,
+        "JavaScript": 1424
+      },
+      "readme": "# Nararya Groub Strobo Generator Website\n\nWebsite tools berbasis HTML, CSS, dan JavaScript murni. Tidak membutuhkan framework atau proses build.\n\n## Fitur\n- **Strobo Generator:** pola alternate, full screen, quad, pulse, dan split; warna A/B; kecepatan; kecerahan; ukuran panel; glow; label.\n- **Image Motion Studio:** unggah PNG/JPG/WebP; preset Zoom In/Out, Pan, Rotasi, Floating, Shake, Fade, dan Ken Burns; pengaturan animasi manual bergaya keyframe (zoom awal/akhir, posisi X/Y, rotasi), transisi masuk/keluar (fade, zoom, slide, rotate), durasi, intensitas, cover/contain, latar, FPS, timeline, ekspor PNG dan WebM.\\n- **Running Text Generator:** teks kustom, warna teks/latar/glow, kecepatan, ukuran dan ketebalan font, gaya LED glow/outline/solid/rainbow, bingkai.\n- Pengaturan tersimpan otomatis di browser saat kontrol berubah; proyek juga bisa diekspor/impor sebagai JSON.\n- Ukuran canvas kustom, preset rasio, ekspor batch PNG, dan mode terang/gelap.\n- Asisten prompt lokal berbasis aturan untuk menerapkan preset animasi. Ini bukan model AI generatif dan tidak mengklaim data cloud real-time.\n- Preview canvas secara langsung.\n- Ekspor preview menjadi PNG.\n- Rekam animasi menjadi WebM di browser yang mendukung Canvas Capture Stream dan MediaRecorder.\n- Responsive untuk HP dan desktop.\n\n## Struktur\n```\n.\n├── index.html\n├── strobo.html\n├── running-text.html\n├── image-motion.html\n├── assets/\n│   ├── style.css\n│   ├── strobo.js\n│   └── running-text.js\n└── README.md\n```\n\n## Menjalankan lokal\nBuka `index.html` di browser. Untuk pengalaman terbaik, jalankan lewat GitHub Pages atau server statis sederhana.\n\n## GitHub Pages\nDi repository, buka **Settings → Pages**, pilih **Deploy from a branch**, branch `main`, folder `/ (root)`, lalu simpan. Setelah proses deployment selesai, website dapat dibuka lewat URL GitHub Pages yang ditampilkan di halaman tersebut.\n\n## Batasan yang perlu diketahui\n- Website saat ini statis dan berjalan di browser. Belum ada backend/database, layanan AI generatif, pembayaran QRIS sungguhan, verifikasi pembayaran, atau konfirmasi WhatsApp.\n- Autosave hanya tersimpan di browser/perangkat yang digunakan; tidak disinkronkan lintas perangkat.\n- Perubahan kode masuk ke repository melalui commit GitHub; workflow otomatis menguji perubahan setelah push, tetapi tidak menciptakan fitur baru sendiri.\n\n## Catatan keselamatan\nEfek strobo berkedip cepat dapat memicu ketidaknyamanan atau kejang pada orang yang sensitif terhadap cahaya. Jangan gunakan efek ini untuk mengganggu pengguna jalan atau pengendara.\n\n© 2026 Nararya Groub. All rights reserved.\n\n\n## Build dan pemeriksaan browser\n- Repository ini adalah website statis, jadi tidak memerlukan proses kompilasi aplikasi.\n- GitHub Actions menjalankan smoke test browser pada setiap push ke `main`, pull request ke `main`, dan dapat dijalankan manual dari tab **Actions**.\n- Jika tes berhasil, screenshot desktop dan mobile tersedia sebagai artifact bernama `nararya-visual-test-screenshots` pada workflow run.\n- Buka **Actions → Build and Visual Smoke Test → run terbaru → Artifacts** untuk mengunduh screenshot hasil tes.\n\n\n## Otomasi, verifikasi, dan integrasi data\n\n- GitHub Actions menjalankan pengujian browser saat ada push ke `main`, pull request, atau pemicu manual. Hasil sukses/gagal terlihat pada tab **Actions**; workflow tidak membuat fitur baru secara mandiri.\n- Tes browser memeriksa homepage, generator strobo, running text, Image Motion Studio, kontrol animasi, autosave lokal, manifest PWA, ikon aplikasi, dan registrasi service worker. Screenshot tes diunggah sebagai artifact bila dihasilkan.\n- **Scraper tidak dipasang secara membabi buta.** Generator strobo, running text, dan animasi gambar bekerja dari input pengguna di browser, sehingga tidak membutuhkan data eksternal/API. Mengambil data dari 10 situs tanpa kebutuhan sumber yang jelas tidak meningkatkan akurasi fitur ini.\n- Jika kelak ada fitur yang benar-benar membutuhkan data eksternal, gunakan adapter sumber yang terpisah, timeout, validasi skema, cache dengan waktu pembaruan, batas percobaan, pencatatan sumber, dan fallback ke sumber lain. Sepuluh adapter hanya masuk akal jika ada sepuluh sumber relevan yang diizinkan dan dapat diuji.\n- **Fallback bukan berarti mengganti scraper dengan AI secara otomatis.** Model AI harus dikonfigurasi melalui backend/proxy yang aman dengan API key tersimpan sebagai GitHub Actions secret atau secret penyedia hosting. Jangan menaruh API key di HTML/JavaScript publik. Hasil AI perlu ditandai sebagai hasil model, bukan data terverifikasi.\n- Data real-time dan akurasi 100% tidak dapat dijamin secara universal. Status sumber, timestamp, validasi, dan kegagalan koneksi harus ditampilkan secara jujur. Saat ini aplikasi tidak memiliki backend, API eksternal, scraper aktif, atau layanan AI generatif.\n",
       "packageJson": null,
       "latestRelease": null,
-      "commits": [],
-      "tree": [],
+      "commits": [
+        {
+          "sha": "e3637d82b3f3d4527d3e50028e6c23a65ea55e02",
+          "message": "Document automation verification and responsible data-source fallback",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:39:32Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagroub-strobo-generator-website/commit/e3637d82b3f3d4527d3e50028e6c23a65ea55e02"
+        },
+        {
+          "sha": "9a4f9e0c6201f78fbb9e78705b9ddd894357fe0e",
+          "message": "Expand browser tests for strobo and running-text controls",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:39:18Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagroub-strobo-generator-website/commit/9a4f9e0c6201f78fbb9e78705b9ddd894357fe0e"
+        },
+        {
+          "sha": "f0c180799a84c191c1895bf37a1e001e62d8af53",
+          "message": "Test branded PWA icon in browser smoke tests",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:28:01Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagroub-strobo-generator-website/commit/f0c180799a84c191c1895bf37a1e001e62d8af53"
+        },
+        {
+          "sha": "857adda3d475b997f947eac60f46c04a2a463e82",
+          "message": "Configure branded icon for PWA install",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:27:51Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagroub-strobo-generator-website/commit/857adda3d475b997f947eac60f46c04a2a463e82"
+        },
+        {
+          "sha": "5600d4075b941fab5f282114fc9a40b475745f96",
+          "message": "Add branded PWA app icon",
+          "author": "nararyajayautamagroub",
+          "date": "2026-10-24T18:27:42Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagroub-strobo-generator-website/commit/5600d4075b941fab5f282114fc9a40b475745f96"
+        }
+      ],
+      "tree": [
+        {
+          "path": ".github",
+          "type": "tree",
+          "sha": "ef6523f0fb01529d5bea0eb7c5e9833cfbd21faf"
+        },
+        {
+          "path": ".github/workflows",
+          "type": "tree",
+          "sha": "32232c061ad319bc5c3f22f0d7ea844a2340eed3"
+        },
+        {
+          "path": ".github/workflows/visual-test.yml",
+          "type": "blob",
+          "size": 9188,
+          "sha": "54e2149fbdea51b80502078dca9e6919def2cc1f"
+        },
+        {
+          "path": "README.md",
+          "type": "blob",
+          "size": 4891,
+          "sha": "4ceae0dbc3c97eafdbd4f5d30236e924ec92a93a"
+        },
+        {
+          "path": "assets",
+          "type": "tree",
+          "sha": "52b5f8399174adf7b5ee2be5cd461efb4957bd7a"
+        },
+        {
+          "path": "assets/icon.svg",
+          "type": "blob",
+          "size": 422,
+          "sha": "6dcdc42c50cb7d8a950b4098cb6da8600410fa1e"
+        },
+        {
+          "path": "assets/image-motion.js",
+          "type": "blob",
+          "size": 15138,
+          "sha": "747d723fd6ed5cd98996a3791d7df987615cfc9c"
+        },
+        {
+          "path": "assets/running-text.js",
+          "type": "blob",
+          "size": 4009,
+          "sha": "b680b4c4cbeeac8203addf1b39fd348c38c2a122"
+        },
+        {
+          "path": "assets/strobo.js",
+          "type": "blob",
+          "size": 3890,
+          "sha": "60bcc791102d9b8f01ce0149350210b173a58535"
+        },
+        {
+          "path": "assets/style.css",
+          "type": "blob",
+          "size": 9098,
+          "sha": "a21ccb6df5d6d21add5e51782044e6eb46d96c19"
+        },
+        {
+          "path": "assets/theme.js",
+          "type": "blob",
+          "size": 760,
+          "sha": "7b1fe5f5f6b518c05b790d2060e304571a186d19"
+        },
+        {
+          "path": "image-motion.html",
+          "type": "blob",
+          "size": 9201,
+          "sha": "f69a28d42c9aa11ccf9422d4a2a636dba9c2c10a"
+        },
+        {
+          "path": "index.html",
+          "type": "blob",
+          "size": 3492,
+          "sha": "d57badabee3cfda73f1a4628a666ea648e43dabe"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "type": "blob",
+          "size": 458,
+          "sha": "251b0edfdbb8b482092ab3121883a435c32d8a80"
+        },
+        {
+          "path": "running-text.html",
+          "type": "blob",
+          "size": 3562,
+          "sha": "e4abe56d255563be89f92463167f554867c389b9"
+        },
+        {
+          "path": "service-worker.js",
+          "type": "blob",
+          "size": 1424,
+          "sha": "ffa4a88e196c99d216fd61c6e782adc616b63a6d"
+        },
+        {
+          "path": "strobo.html",
+          "type": "blob",
+          "size": 3499,
+          "sha": "91b81bfcba47b2042dcb8f81d8ba1ff8c1d6db99"
+        }
+      ],
       "treeTruncated": false,
-      "sourceFiles": [],
-      "scrapedAt": "2026-10-25T05:21:23.388Z"
+      "sourceFiles": [
+        {
+          "path": "README.md",
+          "size": 4891,
+          "content": null
+        }
+      ],
+      "scrapedAt": "2026-10-25T10:01:34.982Z"
     },
     {
       "repository": {
@@ -2999,7 +4040,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-10-25T05:21:23.393Z"
+      "scrapedAt": "2026-10-25T10:01:34.826Z"
     },
     {
       "repository": {
@@ -3031,7 +4072,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-10-25T05:21:23.396Z"
+      "scrapedAt": "2026-10-25T10:01:34.880Z"
     },
     {
       "repository": {
@@ -3063,7 +4104,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-10-25T05:21:23.398Z"
+      "scrapedAt": "2026-10-25T10:01:34.933Z"
     }
   ]
 }
