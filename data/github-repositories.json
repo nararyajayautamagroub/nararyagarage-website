@@ -1,7 +1,7 @@
 {
   "source": "GitHub REST API",
   "owner": "nararyajayautamagroub",
-  "fetchedAt": "2026-11-10T01:46:37.429Z",
+  "fetchedAt": "2026-11-10T09:24:56.106Z",
   "repositoryCount": 10,
   "repositories": [
     {
@@ -15,13 +15,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:26Z",
-        "updated_at": "2026-11-09T21:03:24Z",
-        "pushed_at": "2026-11-09T21:03:19Z",
+        "updated_at": "2026-11-10T03:30:19Z",
+        "pushed_at": "2026-11-10T03:30:14Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "JavaScript",
-        "size": 489,
+        "size": 495,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -56,6 +56,20 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "d80e7df54c760f10ed6dd185c364c2634fe3b8bb",
+          "message": "chore: refresh GitHub corporate data",
+          "author": "github-actions[bot]",
+          "date": "2026-11-10T03:30:14Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/d80e7df54c760f10ed6dd185c364c2634fe3b8bb"
+        },
+        {
+          "sha": "ea99df3ff780e82fdaa093bf41d92a472ef383b5",
+          "message": "chore: refresh live repository and public metadata",
+          "author": "github-actions[bot]",
+          "date": "2026-11-10T03:24:39Z",
+          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/ea99df3ff780e82fdaa093bf41d92a472ef383b5"
+        },
+        {
           "sha": "d23bdb0c2c45a2f9e99fffe8c080c5e738b69d57",
           "message": "chore: refresh GitHub corporate data",
           "author": "github-actions[bot]",
@@ -75,20 +89,6 @@
           "author": "github-actions[bot]",
           "date": "2026-11-09T10:27:26Z",
           "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/cffcdb75a71f9daa67d6b66315481ded079b8e28"
-        },
-        {
-          "sha": "242dc0902d930cc65de4bdafd7703ecf52f0e30e",
-          "message": "chore: refresh live repository and public metadata",
-          "author": "github-actions[bot]",
-          "date": "2026-11-09T10:24:04Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/242dc0902d930cc65de4bdafd7703ecf52f0e30e"
-        },
-        {
-          "sha": "560f3bdbf9617320c657167bb49992b3bd0b3454",
-          "message": "chore: refresh GitHub corporate data",
-          "author": "github-actions[bot]",
-          "date": "2026-11-09T02:46:34Z",
-          "url": "https://github.com/nararyajayautamagroub/nexovonarsacorporation-website/commit/560f3bdbf9617320c657167bb49992b3bd0b3454"
         }
       ],
       "tree": [
@@ -218,8 +218,8 @@
         {
           "path": "external-live.js",
           "type": "blob",
-          "size": 6991,
-          "sha": "b7668d52531fc857fc5f62a1e5d434c9273d701c"
+          "size": 6977,
+          "sha": "a123815d8e065d7438560102df401353e6c88733"
         },
         {
           "path": "gateway",
@@ -242,7 +242,7 @@
           "path": "github-live.js",
           "type": "blob",
           "size": 13965,
-          "sha": "8e75616145d21cb3a2954807fd505e36a32fe5a9"
+          "sha": "529e232f87a97597d1add0482de68962ccec9e09"
         },
         {
           "path": "i18n.js",
@@ -385,7 +385,7 @@
           "content": null
         }
       ],
-      "scrapedAt": "2026-11-10T01:46:37.192Z"
+      "scrapedAt": "2026-11-10T09:24:56.091Z"
     },
     {
       "repository": {
@@ -398,13 +398,13 @@
         "default_branch": "main",
         "description": null,
         "created_at": "2026-09-19T14:49:05Z",
-        "updated_at": "2026-11-09T18:41:05Z",
-        "pushed_at": "2026-11-09T18:41:01Z",
+        "updated_at": "2026-11-10T01:46:43Z",
+        "pushed_at": "2026-11-10T01:46:38Z",
         "stargazers_count": 0,
         "forks_count": 0,
         "open_issues_count": 0,
         "language": "TypeScript",
-        "size": 3953,
+        "size": 3955,
         "archived": false,
         "disabled": false,
         "topics": []
@@ -477,6 +477,13 @@
       "latestRelease": null,
       "commits": [
         {
+          "sha": "5ca96900bf86a6c3754ec47bb393267bc0fce305",
+          "message": "chore: refresh GitHub repository snapshot",
+          "author": "github-actions[bot]",
+          "date": "2026-11-10T01:46:37Z",
+          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/5ca96900bf86a6c3754ec47bb393267bc0fce305"
+        },
+        {
           "sha": "bad6d0f43da2f7171d53d69844988067c3f18695",
           "message": "chore: refresh GitHub repository snapshot",
           "author": "github-actions[bot]",
@@ -503,13 +510,6 @@
           "author": "github-actions[bot]",
           "date": "2026-11-08T21:23:05Z",
           "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/555dda482d909b3469ca441d3c1f66405d9ea29c"
-        },
-        {
-          "sha": "8abf2edce64151979ec2eb47743cb6654261b3bd",
-          "message": "chore: refresh GitHub repository snapshot",
-          "author": "github-actions[bot]",
-          "date": "2026-11-08T17:44:19Z",
-          "url": "https://github.com/nararyajayautamagroub/nararyagarage-website/commit/8abf2edce64151979ec2eb47743cb6654261b3bd"
         }
       ],
       "tree": [
@@ -1948,13 +1948,13 @@
         {
           "path": "data",
           "type": "tree",
-          "sha": "ad8685c34394987860ff0d25945aa25842ad13d2"
+          "sha": "09283de9fc49696b6d6dec7c5263666930fd7957"
         },
         {
           "path": "data/github-repositories.json",
           "type": "blob",
-          "size": 217534,
-          "sha": "2e7e87754c12c24adc435272f812fb3432f042c8"
+          "size": 156211,
+          "sha": "6397afe8938cbe29d699b98dd1a8f2a1e5ebc4f2"
         },
         {
           "path": "data/repositories.ts",
@@ -2249,22 +2249,22 @@
         {
           "path": "docs/API.md",
           "size": 574,
-          "content": "# API Contract\n\nRencana endpoint REST:\n\n- GET /api/platforms\n- GET /api/communities\n- GET /api/communities/:id\n- GET /api/events\n- POST /api/events/:id/register\n- GET /api/convoys/:id\n- GET /api/mods\n- POST /api/mods/submissions\n- GET /api/liveries\n- GET /api/showcase\n- GET /api/gallery\n- GET /api/forum/threads\n- POST /api/forum/threads\n- GET /api/tutorials\n- GET /api/downloads\n- POST /api/reports\n- GET /api/member/dashboard\n- GET /api/admin/overview\n\nSemua endpoint privat wajib menerapkan autentikasi, authorization/RBAC, validasi input, rate limit, dan audit logging."
+          "content": null
         },
         {
           "path": "docs/SECURITY.md",
           "size": 681,
-          "content": "# Security Baseline\n\n- Password wajib di-hash dengan algoritma modern.\n- Secret hanya melalui environment variables atau secret manager.\n- Validasi input dan output untuk mencegah injection/XSS.\n- CSRF protection untuk cookie-based mutation endpoints.\n- Secure, HttpOnly, SameSite cookies.\n- Rate limiting pada login, register, upload, report, dan API sensitif.\n- Validasi MIME type, extension, ukuran, dan nama file upload.\n- Jangan memperbolehkan executable upload.\n- RBAC diterapkan server-side, bukan hanya menyembunyikan tombol di UI.\n- Audit log untuk perubahan role, suspend, ban, moderation, dan pengaturan penting.\n- Jangan mengumpulkan data pribadi yang tidak diperlukan."
+          "content": null
         },
         {
           "path": "docs/SECURITY-AUDIT.md",
           "size": 1128,
-          "content": "# Security Audit\n\n## Current policy\n\nCI runs a high-severity audit against production dependencies with:\n\nnpm audit --omit=dev --audit-level=high\n\nThe project uses Prisma CLI 7.10.0 as a development dependency. The current npm audit database reports high-severity advisories in Prisma CLI's development dependency chain, including deepmerge-ts and mysql2. The automated audit fix offered by npm would downgrade Prisma to 6.19.3, which is a breaking change.\n\nFor that reason the repository does not use npm audit fix --force. Prisma 7.10.0 remains pinned as the current stable Prisma release used by this project.\n\n## Install scripts\n\nnpm 11 now tracks approval for dependency install lifecycle scripts. The project explicitly approves only the packages required for the build:\n\n- @prisma/engines@7.10.0\n- prisma@7.10.0\n- esbuild@0.28.2\n\nNo blanket dangerously-allow-all-scripts bypass is used.\n\n## CI gates\n\nThe main CI pipeline checks:\n\n1. source audit\n2. scraper syntax\n3. production dependency security\n4. Prisma schema validation\n5. TypeScript typecheck\n6. Next.js production build\n\nAny failure blocks the verification job.\n"
+          "content": null
         },
         {
           "path": "docs/REPOSITORY-SYNC.md",
           "size": 2098,
-          "content": "# Repository Data Sync\n\nNARARYA GARAGE memakai GitHub sebagai sumber data repository dan PostgreSQL/Prisma sebagai sumber data aplikasi.\n\n## Live repository discovery\n\n`/repositories` dan `GET /api/github/repositories` menemukan repository milik akun GitHub yang terhubung secara dinamis. Registry `data/repositories.ts` hanya menyimpan label/purpose, bukan daftar repository yang harus ada.\n\n`GET /api/github/activity` mengambil commit terbaru untuk seluruh repository yang berhasil ditemukan.\n\nGitHub REST API menyediakan endpoint metadata dan contents repository, sedangkan webhook dapat mengirim payload HTTP saat event repository terjadi.\n\n## Secrets\n\n- `GITHUB_TOKEN`: token GitHub dengan akses minimum yang dibutuhkan. Wajib untuk data private.\n- `GITHUB_WEBHOOK_SECRET`: secret untuk verifikasi `X-Hub-Signature-256`.\n- `DATABASE_URL`: PostgreSQL production database.\n- `NEXT_PUBLIC_SITE_URL`: URL deployment.\n\nJangan commit secret ke repository.\n\n## Webhook\n\nEndpoint: `POST /api/github/webhook`.\n\nWebhook memvalidasi signature HMAC SHA-256, event name, delivery ID, repository, dan JSON payload. GitHub mendukung event seperti `push` dan `pull_request`.\n\n## Database\n\nProject menggunakan Prisma dengan konfigurasi modern `prisma.config.ts`. Pada Prisma ORM 7+, URL datasource dipindahkan ke config dan koneksi PostgreSQL memakai driver adapter.\n\nData aplikasi yang mutable tidak boleh dipalsukan di frontend. Bila PostgreSQL belum tersedia, halaman menggunakan fallback struktur platform yang tidak mengklaim jumlah member atau event nyata.\n\n## Source of truth\n\n- GitHub: repository, branch, commit, issue, pull request, workflow dan source repository.\n- PostgreSQL/Prisma: member, event, convoy, mod, livery, showcase, gallery, forum, tutorial, download, moderation, notification dan pengaturan.\n- Website: layer UI/API yang membaca kedua sumber secara live.\n\n## Private repository\n\nRepository private hanya dapat dibaca saat deployment memiliki token dengan permission yang sesuai. Tanpa token tersebut, kegagalan akses ditampilkan sebagai data unavailable, bukan diganti angka fiktif.\n"
+          "content": null
         },
         {
           "path": "README.md",
@@ -2273,11 +2273,11 @@
         },
         {
           "path": "data/github-repositories.json",
-          "size": 217534,
+          "size": 156211,
           "content": null
         }
       ],
-      "scrapedAt": "2026-11-10T01:46:37.289Z"
+      "scrapedAt": "2026-11-10T09:24:55.998Z"
     },
     {
       "repository": {
@@ -2358,7 +2358,7 @@
           "content": "# SMK PHI Landing Page\n\nLanding page sederhana dan responsif untuk pengenalan **SMK PHI (Persada Husada Indonesia)**.\n\n## Fitur\n- HTML semantik dan bahasa halaman Indonesia.\n- Desain responsif untuk ponsel, tablet, dan desktop.\n- Navigasi mobile dengan dukungan atribut aksesibilitas.\n- Metadata SEO dasar, Open Graph, dan structured data Schema.org.\n- CSS dan JavaScript ringan tanpa dependensi eksternal.\n- Menghindari publikasi alamat, nomor kontak, jurusan, dan data lain yang belum terverifikasi.\n\n## Struktur\n- `index.html`: halaman utama beserta CSS dan JavaScript.\n\n## Menjalankan secara lokal\nBuka `index.html` melalui browser. Tidak membutuhkan proses build atau instalasi paket.\n\n## Deploy dengan GitHub Pages\n1. Buka **Settings → Pages** di repository.\n2. Pilih **Deploy from a branch**.\n3. Pilih branch `main` dan folder `/(root)`, lalu simpan.\n4. Setelah deployment selesai, gunakan URL Pages yang diberikan GitHub sebagai URL resmi situs.\n\n## Catatan SEO\nSetelah URL publik ditetapkan, tambahkan URL kanonis dan sitemap yang memakai domain yang benar. Data kontak, alamat, program keahlian, serta tautan resmi sekolah perlu diverifikasi sebelum dipublikasikan. Structured data saat ini hanya memuat nama dan deskripsi umum.\n\n---\nDibuat sebagai landing page informasi SMK PHI.\n"
         }
       ],
-      "scrapedAt": "2026-11-10T01:46:37.169Z"
+      "scrapedAt": "2026-11-10T09:24:55.943Z"
     },
     {
       "repository": {
@@ -2539,7 +2539,7 @@
           "content": "# Nexovonarsa SuperApp\n\nResponsive web MVP for learning, entertainment discovery, games, security education, productivity, and a digital service store.\n\n## Current implementation\n\n- **Home portal** (`index.html`): responsive portal with feature search and categories.\n- **Store prototype** (`store.html`): searchable catalog, browser-side cart, checkout demo, demo transaction ID, 10-minute browser countdown, WhatsApp deep link, and AI assistant placeholder.\n- **Developer & Security Lab** (`developer-tools.html`): bug-report builder with TXT export, JSON validator, text inspector, demo ID generator, and manual WhatsApp compatibility and device-privacy checklists.\n- **Status page** (`status.html`): polls the public GitHub Actions API every 60 seconds to show recent workflow runs. This reflects workflow state, not full production uptime.\n- **Automated checks**: GitHub Actions runs the static-site checker and Playwright browser tests on pushes to `main` and pull requests targeting `main`; screenshot artifacts are uploaded by CI.\n\n## Real-time data integration plan\n\nThe ten-scraper architecture, source authorization rules, freshness/provenance contract, and production release checklist are documented in [`docs/REALTIME_DATA_10_SCRAPERS.md`](docs/REALTIME_DATA_10_SCRAPERS.md). The ten entries are adapter roles, **not live sources already connected**. The static site alone cannot provide secure server-side scraping or live AI.\n\n## Important limitations\n\nThis is a static web prototype, not a production-ready service.\n\n- **AI:** no live AI provider is connected. The assistant content is demo text. Real AI needs a secured server-side integration and a provider API key stored as a secret. Never put private API keys in browser JavaScript.\n- **Payments:** QRIS is a visual placeholder. No money is collected or verified. Real payments require a payment provider, server-side order records, signature-verified webhooks, and server-side expiry checks.\n- **WhatsApp:** the checkout creates a browser deep link only. It does not send automated messages or independently confirm payment.\n- **Data:** there is no backend, account system, persistent database, or connected live domain-specific data API. Browser-local notes remain in the current browser.\n- **Phone checks:** phone-number validation checks format only; it does not identify an owner or verify WhatsApp registration. Privacy checklists are manual guidance, not device scans.\n\nDo not describe demo data as real-time or verified production data.\n\n## Feature catalog\n\n### Learning\n- Qur'an reading module: planned; requires a verified and properly licensed source.\n- Shalawat audio player: planned; use authorized audio.\n- Study hub and learning checklist: demo.\n\n### Entertainment\n- Comic discovery and official provider links: planned.\n- Anime, film, music, and podcast discovery through licensed services: planned.\n- Mini-game / HTML5 game area: planned.\n\n### Communication\n- Opt-in messaging concept with rate limits, unsubscribe controls, and abuse prevention: planned.\n- Phone-number format validation: demo only.\n\n### Security\n- Device privacy checklist.\n- Wi-Fi security guidance for networks owned by the operator or explicitly authorized for assessment.\n- Website security checklist for authorized domains.\n- WhatsApp account-security guide.\n- No DDoS, Wi-Fi disruption, device intrusion, account takeover, spam, or crash/freeze payloads.\n\n### Productivity and developer tools\n- Browser-local notes: demo.\n- Live AI assistant: planned; secured backend and provider credentials required.\n- Authorized API playground: planned.\n- Bug-report builder with TXT export: local only; no server submission.\n- JSON validation, text inspection, and demo ID generation.\n- Feedback and help center: planned.\n\n## Run locally\n\nOpen `index.html` in a modern browser. The prototype has no local build step. Automated checks run in GitHub Actions and use Python, Node.js, and Playwright.\n\n## Enable GitHub Pages deployment\n\nThe deployment workflow is configured to run on pushes to `main`, but the repository's latest deployment attempt failed while configuring Pages. A repository owner must verify the hosting configuration and permissions:\n\n1. Open repository **Settings → Pages**.\n2. Set the build and deployment source to **GitHub Actions**.\n3. Confirm GitHub Actions is permitted to deploy Pages for this repository.\n4. Open the **Actions** tab and rerun the deployment workflow after fixing the configuration.\n5. Verify the published URL in **Settings → Pages** and test the deployed pages.\n\nA successful CI test does not mean the Pages deployment succeeded. Check each workflow result separately.\n\n## Automation and verification\n\n- A push to `main` triggers static checks and the Pages deployment workflow.\n- Pull requests targeting `main` trigger static checks.\n- CI uploads browser screenshots as an artifact for 14 days.\n- The status page refreshes workflow information every 60 seconds.\n- New functionality is not generated automatically by a commit. Code changes must still be implemented, reviewed, tested, and committed. Deployment only happens when the configured workflow succeeds.\n\n## Next engineering milestones\n\n1. Keep expanding automated tests, accessibility checks, and mobile browser coverage.\n2. Add unit tests and split larger scripts into maintainable modules.\n3. Build a secure backend with authentication, authorization, rate limiting, logging, and privacy controls before storing user data.\n4. Integrate live data APIs only after verifying their sources, freshness, licensing, and terms.\n5. Add AI through a secured backend and test provider errors, rate limits, and cost controls.\n6. Integrate payments only through a supported payment provider with server-side webhook verification.\n7. Add staging and production monitoring before presenting the app as production-ready.\n\n## Safety and content policy\n\nThis project is for lawful, consent-based use. Security modules should remain defensive and limited to systems the operator owns or has explicit permission to test. No DDoS tools, Wi-Fi killers, unauthorized phone access, WhatsApp crash/freeze exploits, spam payloads, or group takeovers are included.\n\n## Version\n\nWeb MVP: **0.4.2**. Features explicitly marked as demos or planned are not fully integrated live services.\n"
         }
       ],
-      "scrapedAt": "2026-11-10T01:46:37.226Z"
+      "scrapedAt": "2026-11-10T09:24:55.985Z"
     },
     {
       "repository": {
@@ -2563,428 +2563,15 @@
         "disabled": false,
         "topics": []
       },
-      "languages": {
-        "JavaScript": 74050,
-        "HTML": 23127,
-        "Python": 8051,
-        "Dockerfile": 291,
-        "TypeScript": 273
-      },
-      "readme": "# APKForge AI\n\nAPKForge AI is a browser-based workbench for inspecting Android package archives and planning authorized modifications to apps and game assets you own or have permission to edit.\n\n## Implemented workflow\n\n- Responsive Indonesian web dashboard.\n- Upload `.apk`, `.apks`, `.aab`, `.obb`, `.zip`, `.apfproj`, `.exe`, and `.msi` for safe storage. EXE/MSI files are never executed by the server.\n- ZIP-compatible archive listing without extracting the archive. Preview safety caps: 5,000 entries and 2 GiB total declared uncompressed size.\n- APK decode into a workspace using Apktool, when Apktool and Java are installed on the host.\n- Project file listing and editing for selected text formats (XML, JSON, text, properties, Smali, HTML, JS, CSS, Java/Kotlin, YAML and config files), limited to 2 MiB per file.\n- Rebuild decoded projects into an **unsigned APK** using Apktool.\n- Optional APK signing and signature verification using a keystore configured on the server.\n- AI change-plan endpoint compatible with chat-completions style providers.\n- AI patch proposals across up to five selected editable text files, with per-file review/editing, path/content validation, assumptions, risks, suggested tests, backups and a review step before the user explicitly applies the proposal.\n- Persistent local learning memory: stores sanitized request patterns and only reuses patterns from edits the user explicitly approved; similar future requests can use these examples to infer intent with fewer clarification questions. This is retrieval-based memory, not model fine-tuning.\n- Allowlisted process helper for Apktool, JADX, and apksigner.\n- Asset Manager for replacing supported image, texture, model, audio and data assets, with backup/undo.\n- Backup/undo for text file edits and binary asset replacement.\n- Windows desktop packaging configured for `.exe` and `.msi` installers through Electron Builder.\n- Capacitor Android shell and GitHub Actions workflow configured to build a debug `.apk`.\n- GitHub Actions syntax validation.\n\n## Run locally\n\nRequirements: Node.js 20+, Java runtime, and Apktool for decode/build features.\n\n```bash\nnpm install\ncp .env.example .env\nnpm run check\nnpm run dev\n```\n\nOpen `http://127.0.0.1:8787`. On Windows, use `copy .env.example .env` if `cp` is unavailable.\n\nSet `AI_BASE_URL`, `AI_API_KEY`, and `AI_MODEL` in `.env` for an OpenAI-compatible provider. Never commit API keys.\n\n## API\n\n- `GET /api/health` — service status.\n- `GET /api/formats` — supported formats and limitations.\n- `POST /api/uploads` — upload one file as multipart field `file`.\n- `GET /api/uploads/:id/inspect` — preview entries of ZIP-compatible uploads.\n- `POST /api/uploads/:id/decode` — decode an uploaded APK with Apktool.\n- `GET /api/projects/:id/files` — list decoded project files.\n- `GET /api/projects/:id/file?path=...` — read an editable text file.\n- `PUT /api/projects/:id/file` — JSON body: `{ \"path\": \"res/values/strings.xml\", \"content\": \"...\" }`.\n- `POST /api/projects/:id/build` — build unsigned APK.\n- `GET /api/projects/:id/artifact` — download generated unsigned APK.\n- `POST /api/projects/:id/sign` — sign the generated APK using server-configured keystore credentials and verify the signature.\n- `GET /api/projects/:id/signed-artifact` — download the signed APK.\n- `POST /api/ai/plan` — generate a change plan from JSON `{ \"request\": \"...\" }`.\n- `POST /api/projects/:id/undo` — restore the latest backup of a text file.\n- `PUT /api/projects/:id/asset` — replace a supported binary asset with multipart fields `path` and `file`.\n- `POST /api/projects/:id/asset/undo` — restore the latest asset backup.\n- `POST /api/projects/:id/ai/patch-plan` — propose a reviewable text-file edit from JSON `{ \"request\": \"...\", \"paths\": [\"res/values/strings.xml\"] }`. The AI can only propose edits to the selected editable files; the proposal is not applied until the user reviews it and explicitly confirms. Relevant user-approved patterns may be supplied as context.\n- `POST /api/projects/:id/ai/apply-patch` — apply 1–5 reviewed file changes with validation and backups.\n- `POST /api/ai/learn` — record an explicitly approved request pattern after an AI-proposed edit has been applied. The server stores sanitized request/summary/file-type metadata, not source-file contents.\n\n## Current limitations (read before production)\n\nThis is a functional development workflow, **not a completed universal APK modder**. Decode/build depends on the host having Apktool and Java installed. Rebuilt output is unsigned until the optional signing workflow is configured with a keystore you control. Never commit keystores or passwords. The project editor edits text files only; it does not automatically replace 3D models, textures, vehicle assets, or arbitrary binary resources. The AI planner creates plans, and the patch endpoint proposes edits to selected text files. A proposal requires manual review and explicit confirmation before it is saved. Approved request patterns are kept in the server workspace and retrieved for similar future requests; this does not train or fine-tune the underlying model, and memory is local to that server/workspace. The AI still cannot implement features whose required source files, APIs, engine hooks, or binary-format specifications are not available. Asset replacement is format-agnostic at the file level and cannot guarantee game-specific model/texture compatibility.\n\nThe project can be packaged as its own Windows `.exe` installer and `.msi` installer, and as an Android debug `.apk`. These are APKForge AI app builds, not automatic conversion of an uploaded APK into Windows binaries. An APK cannot be directly converted into a native Windows EXE. The Android APK bundles the dashboard UI; the processing API must be hosted on a reachable HTTPS server and configured in the app. OBB files may be proprietary, encrypted, or game-specific; generic archive preview cannot interpret all OBB data.\n\nBefore exposing the service to the internet, add authentication, per-user project isolation, rate limits, quotas, malware scanning, background job queue, and a hardened container/sandbox for Android tooling. Set an explicit upload cap for public deployments. `MAX_UPLOAD_BYTES=0` disables only the app-level cap; disk, proxy and host limits remain.\n\nUse only software and assets you are authorized to modify. Do not use this project to bypass DRM, licensing, anti-cheat, or access controls. Never execute uploaded binaries on the server.\n\n## Desktop and Android packages\n\nSee [`docs/INSTALLERS.md`](docs/INSTALLERS.md). Run the `Build APKForge AI installers` workflow from GitHub Actions to generate Windows `.exe`/`.msi` installers and an Android debug `.apk`. The workflow has been configured in the repository, but build artifacts exist only after a successful workflow run. The Android package requires a separately hosted HTTPS API for processing features.\n",
-      "packageJson": {
-        "name": "apkforge-ai",
-        "version": "0.1.0",
-        "private": true,
-        "description": "AI-assisted Android package inspection and authorized modding workbench",
-        "type": "module",
-        "engines": {
-          "node": ">=20"
-        },
-        "scripts": {
-          "dev": "node --watch server/src/index.js",
-          "start": "node server/src/index.js",
-          "worker": "node worker/index.js",
-          "check": "node --check server/src/index.js && node --check server/src/services/archive.js && node --check server/src/services/ai.js && node --check server/src/services/ai-memory.js && node --check server/src/services/android-tools.js && node --check server/src/services/inspect.js && node --check server/src/services/project.js && node --check public/ai-patch.js && node --check public/asset-tools.js && node --check public/native-bridge.js && node --check electron/main.cjs && node --check scripts/create-icon.cjs && node --check scripts/capture-preview.mjs",
-          "desktop:dir": "electron-builder --dir",
-          "desktop:win": "node scripts/create-icon.cjs && electron-builder --win nsis msi --publish never",
-          "android:sync": "cap sync android",
-          "android:open": "cap open android",
-          "test": "node --test"
-        },
-        "dependencies": {
-          "cors": "^2.8.5",
-          "dotenv": "^16.4.7",
-          "express": "^4.21.2",
-          "helmet": "^8.0.0",
-          "multer": "^2.0.0",
-          "zod": "^3.24.1",
-          "yauzl": "^3.2.0",
-          "@capacitor/core": "^7.4.3",
-          "@capacitor/android": "^7.4.3"
-        },
-        "main": "electron/main.cjs",
-        "devDependencies": {
-          "electron": "^35.1.5",
-          "electron-builder": "^26.0.12",
-          "@capacitor/cli": "^7.4.3",
-          "typescript": "^5.8.3"
-        },
-        "build": {
-          "appId": "com.nexovonarsa.apkforgeai",
-          "productName": "APKForge AI",
-          "directories": {
-            "output": "release"
-          },
-          "files": [
-            "server/**/*",
-            "public/**/*",
-            "electron/**/*",
-            "package.json",
-            "node_modules/**/*",
-            "!workspace/**/*",
-            "!release/**/*"
-          ],
-          "asar": true,
-          "win": {
-            "target": [
-              {
-                "target": "nsis",
-                "arch": [
-                  "x64"
-                ]
-              },
-              {
-                "target": "msi",
-                "arch": [
-                  "x64"
-                ]
-              }
-            ],
-            "icon": "build/icon.ico"
-          },
-          "nsis": {
-            "oneClick": false,
-            "allowToChangeInstallationDirectory": true,
-            "createDesktopShortcut": true,
-            "createStartMenuShortcut": true
-          },
-          "msi": {
-            "oneClick": false,
-            "perMachine": false,
-            "createDesktopShortcut": true,
-            "createStartMenuShortcut": true
-          }
-        },
-        "author": "NARARYA JAYA UTAMA GROUB"
-      },
+      "languages": {},
+      "readme": null,
+      "packageJson": null,
       "latestRelease": null,
-      "commits": [
-        {
-          "sha": "e4a78953380c5e4212b30eb287f7d128dad423c5",
-          "message": "Fix bearer token header parsing",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T18:42:26Z",
-          "url": "https://github.com/nararyajayautamagroub/apkforge-ai/commit/e4a78953380c5e4212b30eb287f7d128dad423c5"
-        },
-        {
-          "sha": "a8d142f3eb32e1c84fa95d627648032a22f99962",
-          "message": "Document API token baseline and remaining auth requirements",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T18:42:09Z",
-          "url": "https://github.com/nararyajayautamagroub/apkforge-ai/commit/a8d142f3eb32e1c84fa95d627648032a22f99962"
-        },
-        {
-          "sha": "8e8f835e2926e2f55227e04a3c694387db868f0b",
-          "message": "Fix upload limit example and document API token setting",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T18:42:07Z",
-          "url": "https://github.com/nararyajayautamagroub/apkforge-ai/commit/8e8f835e2926e2f55227e04a3c694387db868f0b"
-        },
-        {
-          "sha": "1341ded23263aa300e2d4d6c6e074d4e587c9150",
-          "message": "Add fail-closed production API token guard",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T18:42:04Z",
-          "url": "https://github.com/nararyajayautamagroub/apkforge-ai/commit/1341ded23263aa300e2d4d6c6e074d4e587c9150"
-        },
-        {
-          "sha": "d2d63df6fd2283a2a29bbb0644d6936ae98d1b5d",
-          "message": "test: expand AI provider contract coverage",
-          "author": "nararyajayautamagroub",
-          "date": "2026-10-24T18:34:41Z",
-          "url": "https://github.com/nararyajayautamagroub/apkforge-ai/commit/d2d63df6fd2283a2a29bbb0644d6936ae98d1b5d"
-        }
-      ],
-      "tree": [
-        {
-          "path": ".env.example",
-          "type": "blob",
-          "size": 368,
-          "sha": "90efb0f15249b6fc06500d21cdd6501f2cb393ba"
-        },
-        {
-          "path": ".github",
-          "type": "tree",
-          "sha": "1fb360c5de76a5b0efe332e99d5b2cf0c681a264"
-        },
-        {
-          "path": ".github/workflows",
-          "type": "tree",
-          "sha": "84e2e1fcc616f533a13f6cda33476e30a3b3347d"
-        },
-        {
-          "path": ".github/workflows/build-installers.yml",
-          "type": "blob",
-          "size": 2866,
-          "sha": "bcda2c73eee8d80fb1b2efbf016999f892bc4e1d"
-        },
-        {
-          "path": ".github/workflows/validate.yml",
-          "type": "blob",
-          "size": 314,
-          "sha": "2e51eb036aabee29c250038010f32ce63f73167f"
-        },
-        {
-          "path": ".gitignore",
-          "type": "blob",
-          "size": 156,
-          "sha": "0dd53855ea4386f739ec2520c9668b7a5e5d850e"
-        },
-        {
-          "path": "Dockerfile",
-          "type": "blob",
-          "size": 291,
-          "sha": "098b99969e68f55c587d74ab7137cf5f632d5d80"
-        },
-        {
-          "path": "README.md",
-          "type": "blob",
-          "size": 6951,
-          "sha": "ad57e49e25f402d5a00dcc0521ddf000a92c72ee"
-        },
-        {
-          "path": "app",
-          "type": "tree",
-          "sha": "e75923804b39ed72a3281841ad83e92b2c01707a"
-        },
-        {
-          "path": "app/__init__.py",
-          "type": "blob",
-          "size": 35,
-          "sha": "7711d1462311f04542d15d82ee5ee4884eb749cf"
-        },
-        {
-          "path": "app/main.py",
-          "type": "blob",
-          "size": 8016,
-          "sha": "e49f99232d5ac0f6d0b52b3f30510076a246cfec"
-        },
-        {
-          "path": "app/static",
-          "type": "tree",
-          "sha": "3ca64ee1b803131a5e9c1b7305d06a21d34cc4ee"
-        },
-        {
-          "path": "app/static/index.html",
-          "type": "blob",
-          "size": 7608,
-          "sha": "931f79392d7b81375e8c216e34439b1fbc25939f"
-        },
-        {
-          "path": "capacitor.config.ts",
-          "type": "blob",
-          "size": 273,
-          "sha": "28b85adc58a10255f405aa0c3dbdfcf12ae324ae"
-        },
-        {
-          "path": "docs",
-          "type": "tree",
-          "sha": "2f6c7e9934b58f4d2d2cae26c84d8334934fe1c3"
-        },
-        {
-          "path": "docs/INSTALLERS.md",
-          "type": "blob",
-          "size": 2294,
-          "sha": "538bbe6db30d4786ddd3afd59b8d929a115b68a5"
-        },
-        {
-          "path": "docs/REMAINING_WORK.md",
-          "type": "blob",
-          "size": 6116,
-          "sha": "a8b77e5c8e5b2f6c9aa70eb9c9aed34d24e58dd8"
-        },
-        {
-          "path": "electron",
-          "type": "tree",
-          "sha": "d8f634ebf64e7391b2edf875219eb3a4abe33ef2"
-        },
-        {
-          "path": "electron/main.cjs",
-          "type": "blob",
-          "size": 1786,
-          "sha": "f4adbfd4bcd5ad5a2482534ad7dfb4d4f05ff91e"
-        },
-        {
-          "path": "package.json",
-          "type": "blob",
-          "size": 2556,
-          "sha": "b9412219b90e892e99d9a5f0b89b6679328d2b5d"
-        },
-        {
-          "path": "public",
-          "type": "tree",
-          "sha": "9a9ba8383a968daa3630b2ffaf3a3b3bf833003e"
-        },
-        {
-          "path": "public/ai-patch.js",
-          "type": "blob",
-          "size": 4512,
-          "sha": "8bb4f9aa6389c7ceec65f2a65f8eadd3b063699b"
-        },
-        {
-          "path": "public/asset-tools.js",
-          "type": "blob",
-          "size": 3461,
-          "sha": "e9a3f266f2eb11e431638b565925a26dcf88c1f0"
-        },
-        {
-          "path": "public/index.html",
-          "type": "blob",
-          "size": 15519,
-          "sha": "76d2ac3ef4862a303d89d6c3ba554d3e3881ed72"
-        },
-        {
-          "path": "public/native-bridge.js",
-          "type": "blob",
-          "size": 1944,
-          "sha": "8c7f15a1f9ee7424cea37f082181316a5f50b345"
-        },
-        {
-          "path": "requirements.txt",
-          "type": "blob",
-          "size": 90,
-          "sha": "69ad764d1f9072d9036d57351f87e641fab274f8"
-        },
-        {
-          "path": "scripts",
-          "type": "tree",
-          "sha": "08d21f7b40a036ba4762b8a2e9794b0da12954d7"
-        },
-        {
-          "path": "scripts/capture-preview.mjs",
-          "type": "blob",
-          "size": 1617,
-          "sha": "a5faf86aded97ed27d47802350d0ad0d4b10eb9a"
-        },
-        {
-          "path": "scripts/create-icon.cjs",
-          "type": "blob",
-          "size": 2150,
-          "sha": "9f93d04d4e7a8c10d179dcbe855489a35bff995c"
-        },
-        {
-          "path": "server",
-          "type": "tree",
-          "sha": "7cf3a72c93af85efb2155a82f49e5a90cb0cf526"
-        },
-        {
-          "path": "server/src",
-          "type": "tree",
-          "sha": "9df125b63701dcec2cdad640e2eef607c88bed16"
-        },
-        {
-          "path": "server/src/index.js",
-          "type": "blob",
-          "size": 12489,
-          "sha": "ad1fd3c9fc2c4e8acecea9c78140f1a2109081bd"
-        },
-        {
-          "path": "server/src/services",
-          "type": "tree",
-          "sha": "c96f1b5a557643c14dce4e887c5acaadf9226d62"
-        },
-        {
-          "path": "server/src/services/ai-memory.js",
-          "type": "blob",
-          "size": 3719,
-          "sha": "94921c4a58d04046d6bfb5e4b024c5b74e1d88f3"
-        },
-        {
-          "path": "server/src/services/ai.js",
-          "type": "blob",
-          "size": 10012,
-          "sha": "11787cf435e25a053cc62101af74ab92b88e65ff"
-        },
-        {
-          "path": "server/src/services/android-tools.js",
-          "type": "blob",
-          "size": 1777,
-          "sha": "fb984694f1545d734440436d02b75bc797a59794"
-        },
-        {
-          "path": "server/src/services/archive.js",
-          "type": "blob",
-          "size": 1328,
-          "sha": "490ac61c56bb7cb3c83fcf836eb92be0f168d07a"
-        },
-        {
-          "path": "server/src/services/inspect.js",
-          "type": "blob",
-          "size": 4099,
-          "sha": "1392e72393607f8c0e5f9593a96199db28aefd7b"
-        },
-        {
-          "path": "server/src/services/project.js",
-          "type": "blob",
-          "size": 11470,
-          "sha": "ad4e9142e4033441ec2653e488cad54741d8e765"
-        },
-        {
-          "path": "tests",
-          "type": "tree",
-          "sha": "0d35a7e4748706277f835a5feaac5e1a600b9ed9"
-        },
-        {
-          "path": "tests/ai-memory.test.js",
-          "type": "blob",
-          "size": 1783,
-          "sha": "d777c091535e95fd8d7d0c61d28f571add587c85"
-        },
-        {
-          "path": "tests/ai-provider.test.js",
-          "type": "blob",
-          "size": 5721,
-          "sha": "6abc0c3c7e6976da05577f0cd12b9c7befdf0ad4"
-        },
-        {
-          "path": "tests/archive.test.js",
-          "type": "blob",
-          "size": 1111,
-          "sha": "55d4f9373825675391dfba1762c543ea8601c972"
-        },
-        {
-          "path": "tests/inspect-executables.test.js",
-          "type": "blob",
-          "size": 1991,
-          "sha": "d2121013310b7093c0b4ae7315d5bfa07dc68b5e"
-        },
-        {
-          "path": "tests/project-patch.test.js",
-          "type": "blob",
-          "size": 2644,
-          "sha": "fe712bc850e6ecfc5d3296f7bdb80bd0e27b7fb3"
-        },
-        {
-          "path": "worker",
-          "type": "tree",
-          "sha": "018d9db54a9da433c20564f374f1cdd7c3b6cc99"
-        },
-        {
-          "path": "worker/index.js",
-          "type": "blob",
-          "size": 436,
-          "sha": "d093c88646872e28ccd1f8e139113b3276584233"
-        }
-      ],
+      "commits": [],
+      "tree": [],
       "treeTruncated": false,
-      "sourceFiles": [
-        {
-          "path": "docs/INSTALLERS.md",
-          "size": 2294,
-          "content": null
-        },
-        {
-          "path": "docs/REMAINING_WORK.md",
-          "size": 6116,
-          "content": null
-        },
-        {
-          "path": "README.md",
-          "size": 6951,
-          "content": null
-        }
-      ],
-      "scrapedAt": "2026-11-10T01:46:37.429Z"
+      "sourceFiles": [],
+      "scrapedAt": "2026-11-10T09:24:56.106Z"
     },
     {
       "repository": {
@@ -3016,7 +2603,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-11-10T01:46:37.203Z"
+      "scrapedAt": "2026-11-10T09:24:56.009Z"
     },
     {
       "repository": {
@@ -3048,7 +2635,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-11-10T01:46:37.213Z"
+      "scrapedAt": "2026-11-10T09:24:56.028Z"
     },
     {
       "repository": {
@@ -3080,7 +2667,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-11-10T01:46:37.224Z"
+      "scrapedAt": "2026-11-10T09:24:56.031Z"
     },
     {
       "repository": {
@@ -3112,7 +2699,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-11-10T01:46:37.233Z"
+      "scrapedAt": "2026-11-10T09:24:56.066Z"
     },
     {
       "repository": {
@@ -3144,7 +2731,7 @@
       "tree": [],
       "treeTruncated": false,
       "sourceFiles": [],
-      "scrapedAt": "2026-11-10T01:46:37.236Z"
+      "scrapedAt": "2026-11-10T09:24:56.062Z"
     }
   ]
 }
